@@ -1,0 +1,7 @@
+1. Autoevaluacion Reunion Last Planner con Instrucciones V2
+  * Titulo Informe: Evaluacion reunion de obra last planner.
+  * Tipo Informe: Checklist.
+
+2. Checklist 6S
+  * Titulo Informe: Informe 6S
+  * Tipo Informe: Checklist

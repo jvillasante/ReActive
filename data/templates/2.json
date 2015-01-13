@@ -1,0 +1,79 @@
+{
+  "id": "2",
+  "title": "Checklist 6S",
+  "sections": [
+    {
+      "id": "1",
+      "name": "Lugar",
+      "subsections": [
+        {
+          "id": "1",
+          "name": "",
+          "groups": [
+            {
+              "id": "1",
+              "name": "S1 - Separar lo innecesario",
+              "comment": "",
+              "fields": [
+                {
+                  "id": "1",
+                  "name": "¿Existe sólo mobiliario necesario?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "2",
+                  "name": "¿Existe sólo documentos vigentes o necesarios?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "3",
+                  "name": "¿Existe Sector de acopio de cartones, papeles y material de envoltorios?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "4",
+                  "name": "¿Existe área de acopio de restos de materiales sobrantes?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "5",
+                  "name": "¿Existe área destinada a materiales no conformes?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "6",
+                  "name": "¿Están los materiales, repuestos, herramientas y equipos \"innecesarios\" separados de los que son \"necesarios\"?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "7",
+                  "name": "¿Están los materiales, repuestos, herramientas y equipamiento \"innecesarios\" colocados en receptáculos adecuados?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "8",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "name": "S2 - Situar lo necesario",
+              "comment": "",
+              //.........................
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
