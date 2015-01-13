@@ -1,0 +1,14 @@
+[
+  {
+    "id": "0eb7ae68-6729-47f5-9ac4-a1d57eb116bf",
+    "username": "foouser",
+    "email": "foo@example.com",
+    "password": "secret"
+  },
+  {
+    "id": "b80bd82c-cf41-4607-b34c-849a306cff59",
+    "username": "baruser",
+    "email": "bar@example.com",
+    "password": "secret"
+  }
+]

@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS t_groups_fields;DROP TABLE IF EXISTS t_subsections_groups;DROP TABLE IF EXISTS t_sections_subsections;DROP TABLE IF EXISTS t_templates_sections;DROP TABLE IF EXISTS users_templates;DROP TABLE IF EXISTS t_fields;DROP TABLE IF EXISTS t_groups;DROP TABLE IF EXISTS t_subsections;DROP TABLE IF EXISTS t_sections;DROP TABLE IF EXISTS templates;

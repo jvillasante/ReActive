@@ -1,0 +1,17 @@
+{
+  "development": {
+    "connectionStr": "postgres://postgres:secret@localhost/reactive-dev",
+    "host": "localhost",
+    "port": 3000
+  },
+  "test": {
+    "connectionStr": "postgres://postgres:secret@localhost/reactive-test",
+    "host": "localhost",
+    "port": 3000
+  },
+  "production": {
+    "connectionStr": "postgres://postgres:secret@localhost/reactive",
+    "host": "localhost",
+    "port": 3000
+  }
+}

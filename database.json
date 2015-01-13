@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "secret",
+    "host": "localhost",
+    "database": "reactive-dev",
+    "schema": "public"
+  },
+  "test": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "secret",
+    "host": "localhost",
+    "database": "reactive-test",
+    "schema": "public"
+  },
+  "prod": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "secret",
+    "host": "localhost",
+    "database": "reactive",
+    "schema": "public"
+  },
+  "sql-file": true
+}
