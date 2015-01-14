@@ -47,17 +47,18 @@ router.route('/users/:id')
   .patch(routes.auth.isAuthenticated, routes.users.update)
   .delete(routes.auth.isAuthenticated, routes.users.remove);
 
-// Project Routes
-router.route('/projects')
-  .get(routes.auth.isAuthenticated, routes.projects.all);
-
-// Template Routes
-router.route('/projects/:projectId/templates')
-  .get(routes.auth.isAuthenticated, routes.templates.allByProject);
-
-// Report Routes
-router.route('/projects/:projectId/templates/:templateId/reports')
-  .post(routes.auth.isAuthenticated, routes.reports.create);
+// Other routes
+router.route('/reports')  
+  .get(routes.auth.isAuthenticated, routes.reports.allByUser); // all reports by user
+router.route('/projects') 
+  .get(routes.auth.isAuthenticated, routes.projects.all); // all projects by user
+router.route('/projects/:projectId/templates')  
+  .get(routes.auth.isAuthenticated, routes.templates.allByProject); // all templates by user and project
+router.route('/projects/:projectId/templates/:templateId/reports')  
+  .get(routes.auth.isAuthenticated, routes.reports.allByProjectAndTemplate) // all reports by user and project and template
+  .post(routes.auth.isAuthenticated, routes.reports.create);                // create report by user and project and template
+router.route('/projects/:projectId/reports')
+  .get(routes.auth.isAuthenticated, routes.reports.allByProject); // all reports by user and project
 
 // Mount and errors
 app.use('/api/v1/', router);
