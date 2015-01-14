@@ -32,7 +32,7 @@ exports.createUsers = function(callback) {
   }
 
   userProvider.removeAll(function(err) {
-    if (err) { throw err; }
+    if (err) { console.log(err); throw err; }
 
     async.each(users, function(user, cb) {
       userProvider.save(user, function(err, result) {

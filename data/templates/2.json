@@ -69,7 +69,318 @@
               "id": "2",
               "name": "S2 - Situar lo necesario",
               "comment": "",
-              //.........................
+              "fields": [
+                {
+                  "id": "1",
+                  "name": "¿Existe sector de materiales de alta rotación?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "2",
+                  "name": "¿Existe sector de materiales de baja rotación?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "3",
+                  "name": "¿Está claramente definido Patios de acopio exterior no techado?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "4",
+                  "name": "¿Está claramente definido Patio de acopio exterior techado?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "5",
+                  "name": "¿Materiales en patios están protegido de posibles daños?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "6",
+                  "name": "¿Los materiales están debidamente clasificados y en su sitio?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "7",
+                  "name": "¿Están las herramientas debidamente clasificado, en su sitio y disponible de manera inmediata?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "8",
+                  "name": "¿La maquinaria está debidamente clasificada y en su sitio?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "9",
+                  "name": "¿Existe estante de archivadores?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "10",
+                  "name": "¿Están los documentos bien archivados?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "11",
+                  "name": "¿Existe Archivadores por separado para materiales, equipos y herramientas?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "12",
+                  "name": "¿Existe espacio adecuado para manipulación manual de materiales y herramientas?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "13",
+                  "name": "¿Existe espacio adecuado para circulación de equipos de carga (radios de giro, accesos, alturas)?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "14",
+                  "name": "¿Existen espacios adecuados para las labores en área de recepción, administración, carga y entrega de materiales?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "15",
+                  "name": "¿Existen Kit de Materiales para: Cerámicos de, fitting, artefactos y accesorios de baño y cocina, puertas y quincallería?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "16",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "name": "S3 - Suprimir Suciedad",
+              "comment": "",
+              "fields": [
+                {
+                  "id": "1",
+                  "name": "¿Lugar libre de polvo, virutas, aceite, etc., en el suelo, máquinas, techo, paredes, mobiliario, etc.?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "2",
+                  "name": "¿Equipos y estanterías están libres de oxidados o elementos estropeados?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "3",
+                  "name": "¿Espacios libres de útiles de limpieza abandonadas fuera de su sitio?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "4",
+                  "name": "¿La ropa de los trabajadores tiene buen aspecto?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "5",
+                  "name": "¿El suelo está en óptimas condiciones y libre goteras en el techo?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "6",
+                  "name": "¿Están las áreas de circulación limpias y mantenidas?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "7",
+                  "name": "¿Hay suficientes contenedores de basura para mantener limpio el lugar de trabajo? ¿Están debidamente usados?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "8",
+                  "name": "¿Está el área de acopio en patio limpia y ordenada?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "9",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]             
+            },
+            {
+              "id": "4",
+              "name": "S4 - Señalizar anomalías",
+              "comment": "",
+              "fields": [
+                {
+                  "id": "1",
+                  "name": "¿Existe señalética de bodegas exteriores, patios y lugares de acopio?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "2",
+                  "name": "¿Existe la señalización y rotulación de los distintas zonas de acopio?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "3",
+                  "name": "¿Existe Rotulación de código de materiales?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "4",
+                  "name": "¿Todas las Estanterías están con su identificación?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "5",
+                  "name": "¿Existen tabla de cubicaciones de partidas principales por cada tipo de casa o dpto. para el control de entrega de materiales?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "6",
+                  "name": "¿Existe tarjetas de señalización de situaciones anómalas?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "7",
+                  "name": "¿Existen elementos visuales para controlar herramientas o equipos faltantes?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "8",
+                  "name": "¿Existen elementos visuales para advertir de reposición de materiales?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "9",
+                  "name": "¿Existen señales visuales que controlen documentación faltante?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "10",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "id": "5",
+              "name": "S5 - Seguir mejorando",
+              "comment": "",
+              "fields": [
+                {
+                  "id": "1",
+                  "name": "¿Hay indicadores de nivel de orden y limpieza objetivos (auditorías, etc.)?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "2",
+                  "name": "¿Las tendencias de los indicadores son positivas?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "3",
+                  "name": "¿Se hace limpieza en forma sistemática?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "4",
+                  "name": "¿Se cumplen planes de mantenimiento de la bodega (safari)?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "5",
+                  "name": "¿Hay reconocimiento por las mejoras?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "6",
+                  "name": "¿Hay sanciones para los que incumplen sistemáticamente?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "7",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "id": "6",
+              "name": "S6 - Seguridad",
+              "comment": "",
+              "fields": [
+                {
+                  "id": "1",
+                  "name": "¿Están los elementos de seguridad en su sitio?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "2",
+                  "name": "¿Extintores operativos y lugar señalizado?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "3",
+                  "name": "¿Iluminación Interior Adecuada?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "4",
+                  "name": "¿Iluminación Exterior Adecuada?",
+                  "type": "pregunta",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "id": "5",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
             }
           ]
         }

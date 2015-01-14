@@ -23,7 +23,7 @@ describe('User-Routes', function(done) {
   describe('/users', function(done) {
     it('should return all users', function(done) {
       request(app)
-        .get('/api/v1/users/')
+        .get('/api/v1/users')
         .set('Authorization', 'Basic ' + new Buffer(foo.username + ':' + foo.password).toString('base64'))
         .expect(200)
         .expect('Content-Type', /json/)

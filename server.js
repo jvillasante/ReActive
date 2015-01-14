@@ -50,10 +50,14 @@ router.route('/users/:id')
 // Project Routes
 router.route('/projects')
   .get(routes.auth.isAuthenticated, routes.projects.all);
+
+// Template Routes
 router.route('/projects/:projectId/templates')
   .get(routes.auth.isAuthenticated, routes.templates.allByProject);
-router.route('/projects/:projectId/templates/:templateId')
-  .get(routes.auth.isAuthenticated, routes.templates.show);
+
+// Report Routes
+router.route('/projects/:projectId/templates/:templateId/reports')
+  .post(routes.auth.isAuthenticated, routes.reports.create);
 
 // Mount and errors
 app.use('/api/v1/', router);

@@ -16,9 +16,9 @@ ProjectProvider.prototype.findAllByUser = function(userId, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT id, name, created_at, updated_at");
-    sql.push("FROM projects p INNER JOIN users_templates ut ON p.id = ut.id_project");
-    sql.push("WHERE ut.id_user = $1");
+    sql.push("SELECT DISTINCT id, name, created_at, updated_at");
+    sql.push("FROM projects p INNER JOIN users_projects_templates upt ON p.id = upt.id_project");
+    sql.push("WHERE upt.id_user = $1");
     client.query(sql.join(' '), [userId], function(err, result) {
       if (err) { 
         done(client);
