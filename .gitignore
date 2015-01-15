@@ -30,3 +30,4 @@ node_modules
 copy_to_dropbox.sh
 todo.txt
 wrk_conf.lua
+help.txt
