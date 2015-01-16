@@ -10,8 +10,8 @@
     "port": 3000
   },
   "production": {
-    "connectionStr": "postgres://postgres:secret@localhost/reactive",
-    "host": "localhost",
-    "port": 3000
+    "connectionStr": "postgres://reactive:0J0qc8u1wY2Jz3S@reactive.coqmjddnv25c.sa-east-1.rds.amazonaws.com/reactive",
+    "host": "0.0.0.0",
+    "port": 80
   }
 }

@@ -15,13 +15,13 @@
                 {
                   "item": "1",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "2",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -33,13 +33,13 @@
                 {
                   "item": "3",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "4",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -51,13 +51,13 @@
                 {
                   "item": "5",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "6",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -69,13 +69,13 @@
                 {
                   "item": "7",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "8",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -87,13 +87,13 @@
                 {
                   "item": "9",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "10",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -105,13 +105,13 @@
                 {
                   "item": "11",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "12",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -123,13 +123,13 @@
                 {
                   "item": "13",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "14",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -141,13 +141,13 @@
                 {
                   "item": "15",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "16",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -159,13 +159,13 @@
                 {
                   "item": "17",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "18",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -177,13 +177,13 @@
                 {
                   "item": "19",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "20",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -195,13 +195,13 @@
                 {
                   "item": "21",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "22",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -213,13 +213,13 @@
                 {
                   "item": "23",
                   "name": "Asiste",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "24",
                   "name": "Cumplimiento rol",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -241,19 +241,19 @@
                 {
                   "item": "25",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "26",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "27",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -265,19 +265,19 @@
                 {
                   "item": "28",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "29",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "30",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -289,19 +289,19 @@
                 {
                   "item": "31",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "32",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "33",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -313,19 +313,19 @@
                 {
                   "item": "34",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "35",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "36",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -337,19 +337,19 @@
                 {
                   "item": "37",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "38",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "39",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -361,19 +361,19 @@
                 {
                   "item": "40",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "41",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "42",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -385,19 +385,19 @@
                 {
                   "item": "43",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "44",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "45",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -409,19 +409,19 @@
                 {
                   "item": "46",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "47",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "48",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -433,19 +433,19 @@
                 {
                   "item": "49",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "50",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "51",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -457,19 +457,19 @@
                 {
                   "item": "52",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "53",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "54",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -481,19 +481,19 @@
                 {
                   "item": "55",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "56",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "57",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -505,19 +505,19 @@
                 {
                   "item": "58",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "59",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "60",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -529,19 +529,19 @@
                 {
                   "item": "61",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "62",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "63",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -553,19 +553,19 @@
                 {
                   "item": "64",
                   "name": "Existe en formato Manquehue",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "65",
                   "name": "Actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "66",
                   "name": "Visible",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -587,19 +587,19 @@
                 {
                   "item": "67",
                   "name": "Se revisa",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "68",
                   "name": "Responsable lo presenta",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "69",
                   "name": "Responsable llega preparado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -611,19 +611,19 @@
                 {
                   "item": "70",
                   "name": "Se identifican",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "71",
                   "name": "Responsable lo presenta",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "72",
                   "name": "Responsable llega preparado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -635,19 +635,19 @@
                 {
                   "item": "73",
                   "name": "Se identifican",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "74",
                   "name": "Responsable lo presenta",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "75",
                   "name": "Responsable llega preparado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -659,19 +659,19 @@
                 {
                   "item": "76",
                   "name": "Se proponen",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "77",
                   "name": "Responsable lo presenta",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "78",
                   "name": "Responsable llega preparado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -693,19 +693,19 @@
                 {
                   "item": "79",
                   "name": "Se entrega antes de la reunión",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "80",
                   "name": "Está actualizado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "81",
                   "name": "Se analiza o revisa",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -717,19 +717,19 @@
                 {
                   "item": "82",
                   "name": "Se identifican",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "83",
                   "name": "Responsable lo presenta",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "84",
                   "name": "Responsable llega preparado",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -741,19 +741,19 @@
                 {
                   "item": "85",
                   "name": "Se asigna responsable",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "86",
                   "name": "Responsable presente",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "87",
                   "name": "Gestión Restricciones",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -775,13 +775,13 @@
                 {
                   "item": "88",
                   "name": "Se entrega",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "89",
                   "name": "Se revisa",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -793,13 +793,13 @@
                 {
                   "item": "90",
                   "name": "Cantidad a ejecutar clara",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "91",
                   "name": "Recursos a utilizar claros",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]
@@ -811,13 +811,13 @@
                 {
                   "item": "92",
                   "name": "Se asigna responsable",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "93",
                   "name": "Responsables aceptan compromiso",
-                  "type": "pregunta",
+                  "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 }
               ]

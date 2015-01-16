@@ -17,9 +17,9 @@
   },
   "prod": {
     "driver": "pg",
-    "user": "postgres",
-    "password": "secret",
-    "host": "localhost",
+    "user": "reactive",
+    "password": "0J0qc8u1wY2Jz3S",
+    "host": "reactive.coqmjddnv25c.sa-east-1.rds.amazonaws.com",
     "database": "reactive",
     "schema": "public"
   },

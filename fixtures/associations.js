@@ -4,7 +4,7 @@ const
   async = require('async'),
   faker = require('faker'),
   AssociationProvider = require('../data/associationProvider').AssociationProvider,
-  config = require('../config.json').development,
+  config = require('../config.json')[process.env.NODE_ENV || 'development'],
   associationProvider = new AssociationProvider(config.connectionStr),
   uuids = require('./uuids');
 

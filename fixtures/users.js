@@ -4,7 +4,7 @@ const
   async = require('async'),
   faker = require('faker'),
   UserProvider = require('../data/userProvider').UserProvider,
-  config = require('../config.json').development,
+  config = require('../config.json')[process.env.NODE_ENV || 'development'],
   userProvider = new UserProvider(config.connectionStr),
   uuids = require('./uuids').users;
 
