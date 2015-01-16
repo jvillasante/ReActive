@@ -126,7 +126,7 @@ ReportProvider.prototype.findAllByUser = function(userId, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT r.id, r.title, r.created_at, r.updated_at, p.name AS project_name FROM reports r");
+    sql.push("SELECT r.id, r.title, r.sent, r.created_at, r.updated_at, p.name AS project_name FROM reports r");
     sql.push("INNER JOIN projects p ON r.id_project = p.id");
     sql.push("WHERE r.id_user = $1");
     client.query(sql.join(' '), [userId], function(err, result) {
@@ -146,7 +146,7 @@ ReportProvider.prototype.findAllByProject = function(userId, projectId, callback
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT r.id, r.title, r.created_at, r.updated_at, p.name AS project_name FROM reports r");
+    sql.push("SELECT r.id, r.title, r.sent, r.created_at, r.updated_at, p.name AS project_name FROM reports r");
     sql.push("INNER JOIN projects p ON r.id_project = p.id");
     sql.push("WHERE r.id_user = $1 AND r.id_project = $2 AND p.id = $3");
     client.query(sql.join(' '), [userId, projectId, projectId], function(err, result) {
@@ -166,7 +166,7 @@ ReportProvider.prototype.findAllByProjectAndTemplate = function(userId, projectI
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT id, title, created_at, updated_at FROM reports r");
+    sql.push("SELECT id, title, sent, created_at, updated_at FROM reports r");
     sql.push("WHERE r.id_user = $1 AND r.id_project = $2 AND r.id_template = $3");
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
       if (err) { 
