@@ -3,26 +3,23 @@
   "title": "Evaluación reunión de obra last planner",
   "sections": [
     {
-      "id": "1",
       "name": "Participantes",
       "subsections": [
         {
-          "id": "1",
           "name": "Participantes",
           "groups": [
             {
-              "id": "1",
               "name": "Visitador de Obra",
               "comment": "Decisiones tácticas y Generar Participación",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "1",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "2",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -30,18 +27,17 @@
               ]
             },
             {
-              "id": "2",
               "name": "Administrador de Obra (Director de reunión)",
               "comment": "Decisiones tácticas y Generar Participación",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "3",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "4",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -49,18 +45,17 @@
               ]
             },
             {
-              "id": "3",
               "name": "Jefe de Terreno",
               "comment": "Liderar Reunión, generar ambiente y motivar",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "5",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "6",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -68,18 +63,17 @@
               ]
             },
             {
-              "id": "4",
               "name": "Jefe de Obra",
               "comment": "Participación en Lookahead y Plan semanal",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "7",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "8",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -87,18 +81,17 @@
               ]
             },
             {
-              "id": "5",
               "name": "Supervisión, capataces, jefe trazados",
               "comment": "Participación en plan semanal",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "9",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "10",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -106,18 +99,17 @@
               ]
             },
             {
-              "id": "6",
               "name": "Representante de Of. Técnica (Secretario)",
               "comment": "Llevar registros e indicadores, registrar acuerdos",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "11",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "12",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -125,18 +117,17 @@
               ]
             },
             {
-              "id": "7",
               "name": "Adquisiciones (Bodega)",
               "comment": "Participación en Lookahead y Plan semanal",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "13",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "14",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -144,18 +135,17 @@
               ]
             },
             {
-              "id": "8",
               "name": "Encargado de Programación",
               "comment": "Decisiones tácticas y Generar Participación",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "15",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "16",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -163,18 +153,17 @@
               ]
             },
             {
-              "id": "9",
               "name": "Subcontratistas",
               "comment": "Participación en plan semanal",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "17",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "18",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -182,18 +171,17 @@
               ]
             },
             {
-              "id": "10",
               "name": "Encargado de Urbanización",
               "comment": "Participación en Lookahead y Plan semanal",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "19",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "20",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -201,18 +189,17 @@
               ]
             },
             {
-              "id": "11",
               "name": "Encargado de Calidad",
               "comment": "Participación en Lookahead y Plan semanal",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "21",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "22",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -220,18 +207,17 @@
               ]
             },
             {
-              "id": "12",
               "name": "Prevencionista de Riesgo",
               "comment": "Participación en Lookahead y Plan semanal",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "23",
                   "name": "Asiste",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "24",
                   "name": "Cumplimiento rol",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -243,32 +229,29 @@
       ]
     },
     {
-      "id": "2",
       "name": "Registros e Indicadores",
       "subsections": [
         {
-          "id": "1",
           "name": "Registros e Indicadores",
           "groups": [
             {
-              "id": "1",
               "name": "Registro de Asistencia en Acta de Restricciones",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "25",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "26",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "27",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -276,24 +259,23 @@
               ]
             },
             {
-              "id": "2",
               "name": "Registro del Estado de Restricciones",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "28",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "29",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "30",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -301,24 +283,23 @@
               ]
             },
             {
-              "id": "3",
               "name": "Programa Intermedio (lookahead)",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "31",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "32",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "33",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -326,24 +307,23 @@
               ]
             },
             {
-              "id": "4",
               "name": "Programa Semanal",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "34",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "35",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "36",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -351,24 +331,23 @@
               ]
             },
             {
-              "id": "5",
               "name": "Curvas de avance (\"S\") por fases",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "37",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "38",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "39",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -376,24 +355,23 @@
               ]
             },
             {
-              "id": "6",
               "name": "Gráfico de Ritmos de Partidas Claves por la casa",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "40",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "41",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "42",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -401,24 +379,23 @@
               ]
             },
             {
-              "id": "7",
               "name": "Gráfico de Rendimientos de Partidas Claves por la casa",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "43",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "44",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "45",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -426,24 +403,23 @@
               ]
             },
             {
-              "id": "8",
               "name": "Gráfico de Rendimientos de Partidas Claves por subcontrato",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "46",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "47",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "48",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -451,24 +427,23 @@
               ]
             },
             {
-              "id": "9",
               "name": "Gráfico de productividad de Mano de Obra Partidas Claves",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "49",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "50",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "51",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -476,24 +451,23 @@
               ]
             },
             {
-              "id": "10",
               "name": "Seguimiento visual de avance (planos pintados)",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "52",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "53",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "54",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -501,24 +475,23 @@
               ]
             },
             {
-              "id": "11",
               "name": "Gráfico Cumplimiento de Liberación de Restricciones",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "55",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "56",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "57",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -526,24 +499,23 @@
               ]
             },
             {
-              "id": "12",
               "name": "Reporte de \"Rendimiento Semanal\"",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "58",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "59",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "60",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -551,24 +523,23 @@
               ]
             },
             {
-              "id": "13",
               "name": "Gráfico de Causas de No cumplimiento",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "61",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "62",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "63",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -576,24 +547,23 @@
               ]
             },
             {
-              "id": "14",
               "name": "Gráfico de Evolución de % de checklist autocontrol Last Planner",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "64",
                   "name": "Existe en formato Manquehue",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "65",
                   "name": "Actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "66",
                   "name": "Visible",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -605,32 +575,29 @@
       ]
     },
     {
-      "id": "3",
       "name": "Revisión de la semana anterior",
       "subsections": [
         {
-          "id": "1",
           "name": "Revisión de la semana anterior",
           "groups": [
             {
-              "id": "1",
               "name": "Actividades Comprometidas de la semana anterior",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "67",
                   "name": "Se revisa",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "68",
                   "name": "Responsable lo presenta",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "69",
                   "name": "Responsable llega preparado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -638,24 +605,23 @@
               ]
             },
             {
-              "id": "2",
               "name": "Causas de desviaciones o no cumplimiento",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "70",
                   "name": "Se identifican",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "71",
                   "name": "Responsable lo presenta",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "72",
                   "name": "Responsable llega preparado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -663,24 +629,23 @@
               ]
             },
             {
-              "id": "3",
               "name": "Identificación de Causa raíz de Causa de incumplimiento",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "73",
                   "name": "Se identifican",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "74",
                   "name": "Responsable lo presenta",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "75",
                   "name": "Responsable llega preparado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -688,24 +653,23 @@
               ]
             },
             {
-              "id": "4",
               "name": "Propuesta de acciones correctivas inmediatas",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "76",
                   "name": "Se proponen",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "77",
                   "name": "Responsable lo presenta",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "78",
                   "name": "Responsable llega preparado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -717,32 +681,29 @@
       ]
     },
     {
-      "id": "4",
       "name": "Revisión del plan intermedio",
       "subsections": [
         {
-          "id": "1",
           "name": "Revisión del plan intermedio",
           "groups": [
             {
-              "id": "1",
               "name": "Programa Intermedio (Lookahead)",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "79",
                   "name": "Se entrega antes de la reunión",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "80",
                   "name": "Está actualizado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "81",
                   "name": "Se analiza o revisa",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -750,24 +711,23 @@
               ]
             },
             {
-              "id": "2",
               "name": "Restricciones",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "82",
                   "name": "Se identifican",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "83",
                   "name": "Responsable lo presenta",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "84",
                   "name": "Responsable llega preparado",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -775,24 +735,23 @@
               ]
             },
             {
-              "id": "3",
               "name": "Gestión Restricciones",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "85",
                   "name": "Se asigna responsable",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "86",
                   "name": "Responsable presente",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "3",
+                  "item": "87",
                   "name": "Gestión Restricciones",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -804,26 +763,23 @@
       ]
     },
     {
-      "id": "5",
       "name": "Programación semana siguiente",
       "subsections": [
         {
-          "id": "1",
           "name": "Programación semana siguiente",
           "groups": [
             {
-              "id": "1",
               "name": "Programa semanal propuesto",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "88",
                   "name": "Se entrega",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "89",
                   "name": "Se revisa",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -831,18 +787,17 @@
               ]
             },
             {
-              "id": "2",
               "name": "Programa realista",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "90",
                   "name": "Cantidad a ejecutar clara",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "91",
                   "name": "Recursos a utilizar claros",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
@@ -850,18 +805,17 @@
               ]
             },
             {
-              "id": "3",
               "name": "Compromiso de ejecutores",
               "comment": "",
               "fields": [
                 {
-                  "id": "1",
+                  "item": "92",
                   "name": "Se asigna responsable",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
-                  "id": "2",
+                  "item": "93",
                   "name": "Responsables aceptan compromiso",
                   "type": "pregunta",
                   "values": ["Si", "No", "N/A"]

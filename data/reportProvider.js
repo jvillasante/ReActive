@@ -14,7 +14,7 @@ const ReportProvider = function(connStr) {
 ReportProvider.prototype.createNew = function(userId, projectId, templateId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-
+    
     let sql = [];
     sql.push("SELECT id, title, data FROM templates t");
     sql.push("INNER JOIN users_projects_templates upt ON t.id = upt.id_template");
@@ -42,59 +42,81 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
           });
         }, 
         function createReportData(reportId, next) {
-          let resultData = _.cloneDeep(template);
-          resultData.data.id = reportId;
+          template.data.id = reportId;
           let sections = template.data.sections;
-
+          
           async.each(sections, function(section, cb) {
             let sectionsCb = cb, subsections = section.subsections;
-            client.query("INSERT INTO sections(id_report, name) VALUES($1, $2) RETURNING id", [reportId, section.name], function(err, result) {
-              if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-              let sectionId = result.rows[0].id;
-              resultData.data.sections[section.id - 1].id = sectionId;
-              async.each(subsections, function(subsection, cb) {
-                let subsectionsCb = cb, groups = subsection.groups;
-                client.query("INSERT INTO subsections(id_section, name) VALUES($1, $2) RETURNING id", [sectionId, subsection.name], function(err, result) {
-                  if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-                  let subsectionId = result.rows[0].id;
-                  resultData.data.sections[section.id - 1].subsections[subsection.id - 1].id = subsectionId;
-                  async.each(groups, function(group, cb) {
-                    let groupsCb = cb, fields = group.fields;
-                    client.query("INSERT INTO groups(id_subsection, name, comment) VALUES($1, $2, $3) RETURNING id", [subsectionId, group.name, group.comment], function(err, result) {
-                      if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-                      let groupId = result.rows[0].id;
-                      resultData.data.sections[section.id - 1].subsections[subsection.id - 1].groups[group.id - 1].id = groupId;
-                      async.each(fields, function(field, cb) {
-                        client.query("INSERT INTO fields(id_group, name) VALUES($1, $2) RETURNING id", [groupId, field.name], function(err, result) {
-                          if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-                          let fieldId = result.rows[0].id;
-                          resultData.data.sections[section.id - 1].subsections[subsection.id - 1].groups[group.id - 1].fields[field.id - 1].id = fieldId;
-                          cb();
-                        });
-                      }, function(err) {
-                        if (err) { return next(err); }   
-                        groupsCb();
-                      });
-                    });
-                  }, function(err) {
-                    if (err) { return next(err); }
-                    subsectionsCb();
+            async.each(subsections, function(subsection, cb) {
+              let subsectionsCb = cb, groups = subsection.groups;
+              async.each(groups, function(group, cb) {
+                let groupsCb = cb, fields = group.fields;
+                async.each(fields, function(field, cb) {
+                  client.query("INSERT INTO fields(id_report, item, name) VALUES($1, $2, $3) RETURNING item", [reportId, field.item, field.name], function(err, result) {
+                    if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+                    cb();
                   });
+                }, function(err) {
+                  if (err) { return next(err); }   
+                  groupsCb();
                 });
               }, function(err) {
                 if (err) { return next(err); }
-                sectionsCb();
+                subsectionsCb();
               });
+            }, function(err) {
+              if (err) { return next(err); }
+              sectionsCb();
             });
           }, function(err) {
             if (err) { return next(err); }
-            next(null, resultData.data);
+            next(null, template.data);
           });
         }
       ], function(err, result) {
         if (err) { done(client); return callback(err); }
         callback(null, result);
       });
+    });
+  });
+};
+
+ReportProvider.prototype.update = function(userId, reportId, fields, callback) {
+  var self = this;
+
+  db.connect(this.connStr, function(err, client, done) {
+    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
+    
+    client.query("SELECT title FROM reports WHERE id_user = $1 AND id = $2 LIMIT 1 RETURNING id", [userId, reportId], function(err, result) {
+      if (err) { 
+        done(client);
+        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+      }
+      
+      if (!result.rows[0].id) {
+        done(client); 
+        return callback(Err("no such report", { code: 404, description: "Report " + reportId + " not found for user " + userId, errors: []}));
+      }
+      
+      async.each(fields, function(field, cb) {
+        client.query("UPDATE fields SET value = $1 WHERE id_report = $2 AND item = $3", [field.value, reportId, field.item], function(err, result) {
+          cb(err);
+        });
+      }, function(err, result) {
+        if (err) { done(client); return callback(err); }
+        callback(null);
+      });
+    });
+  });
+  
+  db.connect(this.connStr, function(err, client, done) {
+    async.each(fields, function(field, cb) {
+      client.query("UPDATE fields SET value = %1 WHERE id = %2", [field.value, field.id], function(err, result) {
+        cb(err);
+      });
+    }, function(err) {
+      done(client);
+      callback(err);
     });
   });
 };

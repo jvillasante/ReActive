@@ -21,6 +21,18 @@ exports.create = function(req, res, next) {
   }));
 };
 
+exports.update = function(req, res, next) {
+  let reportProvider = new ReportProvider(req.connectionStr);
+  
+  if (!Array.isArray(req.body)) {
+    return next(Err("expecting a fields array", { code: 400, description: "pass a fields array to update report.", errors: []}));
+  }
+  
+  reportProvider.update(req.user.id, req.params.id, req.body, errTo(next, function() {
+    res.status(204).end();
+  }));
+};
+  
 exports.allByUser = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);
   
