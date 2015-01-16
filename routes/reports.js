@@ -23,12 +23,16 @@ exports.create = function(req, res, next) {
 
 exports.update = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);
+  let report = req.body; 
   
-  if (!Array.isArray(req.body)) {
+  if (!report.sent) {
+    return next(Err("expecting a sent value", { code: 400, description: "pass a sent value to update report.", errors: []}));
+  }
+  if (!Array.isArray(report.fields)) {
     return next(Err("expecting a fields array", { code: 400, description: "pass a fields array to update report.", errors: []}));
   }
   
-  reportProvider.update(req.user.id, req.params.id, req.body, errTo(next, function() {
+  reportProvider.update(req.user.id, req.params.id, report, errTo(next, function() {
     res.status(204).end();
   }));
 };

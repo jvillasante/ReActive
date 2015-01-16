@@ -81,7 +81,7 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
   });
 };
 
-ReportProvider.prototype.update = function(userId, reportId, fields, callback) {
+ReportProvider.prototype.update = function(userId, reportId, report, callback) {
   var self = this;
 
   db.connect(this.connStr, function(err, client, done) {
@@ -97,26 +97,26 @@ ReportProvider.prototype.update = function(userId, reportId, fields, callback) {
         done(client); 
         return callback(Err("no such report", { code: 404, description: "Report " + reportId + " not found for user " + userId, errors: []}));
       }
-      
-      async.each(fields, function(field, cb) {
-        client.query("UPDATE fields SET value = $1 WHERE id_report = $2 AND item = $3", [field.value, reportId, field.item], function(err, result) {
-          cb(err);
-        });
-      }, function(err, result) {
-        if (err) { done(client); return callback(err); }
-        callback(null);
+
+      async.parallel([
+        function(next) {
+          client.query("UPDATE reports SET sent = $1 WHERE id = $2", [report.sent, reportId], function(err, callback) {
+            next(err);
+          });
+        },
+        function(next) {
+          async.each(report.fields, function(field, cb) {
+            client.query("UPDATE fields SET value = $1 WHERE id_report = $2 AND item = $3", [field.value, reportId, field.item], function(err, result) {
+              cb(err);
+            });
+          }, function(err, result) {
+            next(err);
+          });
+        }
+      ], function(err) {
+        done(client);
+        callback(err);
       });
-    });
-  });
-  
-  db.connect(this.connStr, function(err, client, done) {
-    async.each(fields, function(field, cb) {
-      client.query("UPDATE fields SET value = %1 WHERE id = %2", [field.value, field.id], function(err, result) {
-        cb(err);
-      });
-    }, function(err) {
-      done(client);
-      callback(err);
     });
   });
 };
