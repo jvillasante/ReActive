@@ -61,8 +61,7 @@ router.route('/reports')
   .get(routes.auth.isAuthenticated, routes.reports.allByUser);              // all reports by user
 router.route('/reports/:id')
   .put(routes.auth.isAuthenticated, routes.reports.update);                 // update report by id
-router.route('/projects') 
-  .get(routes.auth.isAuthenticated, routes.projects.all);                   // all projects by user
+  
 router.route('/projects/:projectId/templates')  
   .get(routes.auth.isAuthenticated, routes.templates.allByProject);         // all templates by user and project
 router.route('/projects/:projectId/templates/:templateId/reports')  
