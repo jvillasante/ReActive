@@ -23,7 +23,7 @@ configure('development', function() {
 });
 
 configure('production', function() {
-  // app.use(logger('combined'));
+  app.use(logger('combined'));
   http.globalAgent.maxSockets = 1000;
 });
 
