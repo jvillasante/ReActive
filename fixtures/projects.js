@@ -6,7 +6,8 @@ const
   ProjectProvider = require('../data/projectProvider').ProjectProvider,
   config = require('../config.json')[process.env.NODE_ENV || 'development'],
   projectProvider = new ProjectProvider(config.connectionStr),
-  uuids = require('./uuids').projects;
+  uuids = require('./uuids').projects,
+  user_id = require('./uuids').users[0];
 
 faker.locale = "es";
 
@@ -16,6 +17,7 @@ exports.createProjects = function(callback) {
   for (i = 0; i < 10; i++) {
     projects.push({
       id: uuids[i],
+      id_user: user_id,
       name: faker.company.catchPhrase()
     });
   }

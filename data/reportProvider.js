@@ -17,8 +17,8 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
     
     let sql = [];
     sql.push("SELECT id, title, data FROM templates t");
-    sql.push("INNER JOIN users_projects_templates upt ON t.id = upt.id_template");
-    sql.push("WHERE upt.id_user = $1 AND upt.id_project = $2 AND t.id = $3 LIMIT 1");
+    sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
+    sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3 LIMIT 1");
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
       if (err) { 
         done(client);

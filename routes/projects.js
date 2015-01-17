@@ -4,7 +4,8 @@ const
   _ = require('lodash'),
   errTo = require('errto'),
   Err = require('custom-err'),
-  ProjectProvider = require('../data/projectProvider').ProjectProvider;
+  ProjectProvider = require('../data/projectProvider').ProjectProvider,
+  publicAttributes = ['id', 'name', 'created_at', 'updated_at'];
 
 exports.all = function(req, res, next) {
   let projectProvider = new ProjectProvider(req.connectionStr);
@@ -21,6 +22,7 @@ exports.all = function(req, res, next) {
 exports.create = function(req, res, next) {
   let projectProvider = new ProjectProvider(req.connectionStr);
   let project = {
+    id_user: req.user.id,
     name: req.body.name
   };
 
@@ -40,7 +42,7 @@ exports.create = function(req, res, next) {
 exports.show = function(req, res, next) {
   let projectProvider = new ProjectProvider(req.connectionStr);
   
-  projectProvider.findById(req.params.id, errTo(next, function(result) {
+  projectProvider.findById(req.user.id, req.params.id, errTo(next, function(result) {
     if (!result) {
       return next(Err("project not found", { code: 404, description: "Project " + req.params.id + " not found.", errors: []}));
     }
@@ -66,7 +68,7 @@ exports.update = function(req, res, next) {
   });
 
   let projectProvider = new ProjectProvider(req.connectionStr);
-  projectProvider.update(req.params.id, projectData, errTo(next, function(result) {
+  projectProvider.update(req.user.id, req.params.id, projectData, errTo(next, function(result) {
     if (!result || !result.id) {
       return next(Err("project not found...", { code: 404, description: "Project " + req.params.id + " not found.", errors: []}));
     }
@@ -78,9 +80,9 @@ exports.update = function(req, res, next) {
 exports.remove = function(req, res, next) {
   let projectProvider = new ProjectProvider(req.connectionStr);
   
-  projectProvider.remove(req.params.id, errTo(next, function(result) {
+  projectProvider.remove(req.user.id, req.params.id, errTo(next, function(result) {
     if (!result || !result.id) {
-      return next(Err("project not found", { code: 404, description: "Project " + req.params.id + " not found.", errors: []}));
+      return next(Err("project not found", { code: 404, description: "Project " + req.params.id + " not found for user " + req.user.username + ".", errors: []}));
     }
 
     res.status(204).end();

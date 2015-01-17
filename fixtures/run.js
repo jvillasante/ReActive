@@ -7,7 +7,7 @@ const
   usersFixture = require('./users'),
   projectsFixture = require('./projects'),
   templatesFixture = require('./templates'),
-  associationsFixture = require('./associations');
+  permissionsFixture = require('./permissions');
 
 async.parallel([
   function(callback) {
@@ -26,7 +26,7 @@ async.parallel([
     });
   },
   function(callback) {
-    associationsFixture.createAssociations(function(err) {
+    permissionsFixture.createPermissions(function(err) {
       callback(err);
     });
   }

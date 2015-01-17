@@ -7,15 +7,15 @@ const
   validator = require('validator'),
   db = require('../lib/db');
 
-const AssociationProvider = function(connStr) {
+const PermissionProvider = function(connStr) {
   this.connStr = connStr;
 };
 
-AssociationProvider.prototype.userAndTemplateAndProject = function(idUser, idProject, idTemplate, callback) {
+PermissionProvider.prototype.userAndTemplateAndProject = function(idUser, idProject, idTemplate, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("INSERT INTO users_projects_templates(id_user, id_project, id_template) VALUES($1, $2, $3)", 
+    client.query("INSERT INTO permissions(id_user, id_project, id_template) VALUES($1, $2, $3)", 
     [idUser, idProject, idTemplate], function(err, result) {
       if (err) { 
         done(client);
@@ -28,9 +28,9 @@ AssociationProvider.prototype.userAndTemplateAndProject = function(idUser, idPro
   });
 };
 
-AssociationProvider.prototype.removeAll = function(callback) {
+PermissionProvider.prototype.removeAll = function(callback) {
   db.connect(this.connStr, function(err, client, done) {
-    client.query("TRUNCATE users_projects_templates", function(err, result) {
+    client.query("TRUNCATE permissions", function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -42,4 +42,4 @@ AssociationProvider.prototype.removeAll = function(callback) {
   });
 };
 
-exports.AssociationProvider = AssociationProvider;
+exports.PermissionProvider = PermissionProvider;

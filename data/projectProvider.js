@@ -16,9 +16,9 @@ ProjectProvider.prototype.findAllByUser = function(userId, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT id, name, created_at, updated_at");
-    sql.push("FROM projects p INNER JOIN users_projects_templates upt ON p.id = upt.id_project");
-    sql.push("WHERE upt.id_user = $1");
+    sql.push("SELECT DISTINCT id, name, created_at, updated_at FROM projects p");
+    sql.push("INNER JOIN permissions ps ON p.id = ps.id_project");
+    sql.push("WHERE ps.id_user = $1");
     client.query(sql.join(' '), [userId], function(err, result) {
       if (err) { 
         done(client);
@@ -31,11 +31,15 @@ ProjectProvider.prototype.findAllByUser = function(userId, callback) {
   });
 };
 
-ProjectProvider.prototype.findById = function(id, callback) {
+ProjectProvider.prototype.findById = function(userId, id, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
-    client.query("SELECT id, name, created_at, updated_at FROM projects WHERE id=$1 LIMIT 1", [id], function(err, result) {
+    let sql = [];
+    sql.push("SELECT DISTINCT id, name, created_at, updated_at FROM projects p");
+    sql.push("INNER JOIN permissions ps ON p.id = ps.id_project");
+    sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND p.id = $3 LIMIT 1");
+    client.query(sql.join(' '), [userId, id, id], function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -57,7 +61,7 @@ ProjectProvider.prototype.save = function(project, callback) {
       if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
       if (project.id) {
-        client.query("INSERT INTO projects(id, name) VALUES($1, $2) RETURNING id", [project.id, project.name], function(err, result) {
+        client.query("INSERT INTO projects(id, id_user, name) VALUES($1, $2, $3) RETURNING id", [project.id, project.id_user, project.name], function(err, result) {
           if (err) { 
             done(client);
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -67,7 +71,7 @@ ProjectProvider.prototype.save = function(project, callback) {
           callback(null, result.rows[0]);
         });
       } else {
-        client.query("INSERT INTO projects(name) VALUES($1) RETURNING id", [project.name], function(err, result) {
+        client.query("INSERT INTO projects(id_user, name) VALUES($1) RETURNING id", [project.id_user, project.name], function(err, result) {
           if (err) { 
             done(client);
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -81,13 +85,13 @@ ProjectProvider.prototype.save = function(project, callback) {
   });
 };
 
-ProjectProvider.prototype.update = function(id, projectData, callback) {
+ProjectProvider.prototype.update = function(userId, id, projectData, callback) {
   let self = this;
   
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
-    client.query("SELECT id, name, created_at, updated_at FROM projects WHERE id=$1 LIMIT 1", [id], function(err, result) {
+    client.query("SELECT id, id_user, name, created_at, updated_at FROM projects WHERE id=$1 AND id_user = $2 LIMIT 1", [id, userId], function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -96,7 +100,7 @@ ProjectProvider.prototype.update = function(id, projectData, callback) {
       let project = result.rows[0];
       if (!project) {
         done(client); 
-        return callback(Err("no such project", { code: 404, description: "Project " + id + " not found", errors: []}));
+        return callback(Err("no such project", { code: 404, description: "Project " + id + " not found for user " + userId + ".", errors: []}));
       }
       
       _.assign(project, projectData);
@@ -118,11 +122,11 @@ ProjectProvider.prototype.update = function(id, projectData, callback) {
   });
 };
 
-ProjectProvider.prototype.remove = function(id, callback) {
+ProjectProvider.prototype.remove = function(userId, id, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
-    client.query("DELETE FROM projects WHERE id=$1 RETURNING id", [id], function(err, result) {
+    client.query("DELETE FROM projects WHERE id = $1 AND id_user = $2 RETURNING id", [id, userId], function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
