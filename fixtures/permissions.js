@@ -21,6 +21,9 @@ exports.createPermissions = function(callback) {
       function(cb) {
         permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[1], cb);
       },
+      function(cb) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[2], cb);
+      },
     ], function(err, results) {
       callback(err);
     });

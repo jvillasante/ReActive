@@ -37,8 +37,80 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
           sql = [];
           sql.push("INSERT INTO reports(id_user, id_project, id_template, title)");
           sql.push("VALUES($1, $2, $3, $4) RETURNING id");
-          
           client.query(sql.join(' '), [userId, projectId, template.id, template.title], function(err, result) {
+            if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+            next(null, result.rows[0].id);
+          });
+        }, 
+        function createField(reportId, next) {
+          template.data.id = reportId;
+          
+          client.query("INSERT INTO fields(id_report) VALUES($1) RETURNING id", [reportId], function(err, result) {
+            if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+            next(null, result.rows[0].id);
+          });
+        },
+        function createReportData(fieldId, next) {
+          let sections = template.data.sections;
+          
+          async.each(sections, function(section, cb) {
+            let sectionsCb = cb, subsections = section.subsections;
+            async.each(subsections, function(subsection, cb) {
+              let subsectionsCb = cb, groups = subsection.groups;
+              async.each(groups, function(group, cb) {
+                let groupsCb = cb, fields = group.fields;
+                async.each(fields, function(value, cb) {
+                  client.query("INSERT INTO values(id_field, item, name) VALUES($1, $2, $3) RETURNING item", [fieldId, value.item, value.name], function(err, result) {
+                    if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+                    cb();
+                  });
+                }, errTo(next, function() {
+                  groupsCb();
+                }));
+              }, errTo(next, function() {
+                subsectionsCb();
+              }));
+            }, errTo(next, function() {
+              sectionsCb();
+            }));
+          }, errTo(next, function() {
+            next(null, template.data);
+          }));
+        }
+      ], function(err, result) {
+        done(client);
+        callback(err, result);
+      });
+    });
+  });
+};
+
+ReportProvider.prototype.createExisting = function(userId, projectId, templateId, reportId, callback) {
+  db.connect(this.connStr, function(err, client, done) {
+    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
+    
+    let sql = [];
+    sql.push("SELECT id, title, data FROM templates t");
+    sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
+    sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3 LIMIT 1");
+    client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
+      if (err) { 
+        done(client);
+        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+      }
+      
+      let template = result.rows[0];
+      if (!template) {
+        done(client); 
+        return callback(Err("no such template", { code: 404, description: "Template " + templateId + " not found for project " + projectId, errors: []}));
+      }
+
+      async.waterfall([
+        function createReport(next) {
+          sql = [];
+          sql.push("SELECT id FROM reports");
+          sql.push("WHERE id = $1 AND id_user = $2 AND id_project = $3 AND id_template = $4 LIMIT 1");
+          client.query(sql.join(' '), [reportId, userId, projectId, template.id], function(err, result) {
             if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
             next(null, result.rows[0].id);
           });
@@ -148,9 +220,10 @@ ReportProvider.prototype.findById = function(userId, reportId, callback) {
       },
       function getReportValues(report, next) {
         sql = [];
-        sql.push("SELECT v.item, v.name, v.value FROM values v");
+        sql.push("SELECT f.id AS field_id, v.item, v.name, v.value FROM values v");
         sql.push("INNER JOIN fields f ON f.id = v.id_field");
         sql.push("WHERE f.id_report = $1");
+        sql.push("ORDER BY v.item");
         client.query(sql.join(' '), [report.id], function(err, result) {
           if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
           if (!result || result.rows.length <= 0) {
@@ -191,9 +264,10 @@ ReportProvider.prototype.findAllByUser = function(userId, callback) {
         sql = [];
         async.each(reports, function(report, cb) {
           sql = [];
-          sql.push("SELECT v.item, v.name, v.value FROM values v");
+          sql.push("SELECT f.id AS field_id, v.item, v.name, v.value FROM values v");
           sql.push("INNER JOIN fields f ON f.id = v.id_field");
           sql.push("WHERE f.id_report = $1");
+          sql.push("ORDER BY v.item");
           client.query(sql.join(' '), [report.id], function(err, result) {
             if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
             if (!result || result.rows.length <= 0) {
@@ -237,9 +311,10 @@ ReportProvider.prototype.findAllByProject = function(userId, projectId, callback
         sql = [];
         async.each(reports, function(report, cb) {
           sql = [];
-          sql.push("SELECT v.item, v.name, v.value FROM values v");
+          sql.push("SELECT f.id AS field_id, v.item, v.name, v.value FROM values v");
           sql.push("INNER JOIN fields f ON f.id = v.id_field");
           sql.push("WHERE f.id_report = $1");
+          sql.push("ORDER BY v.item");
           client.query(sql.join(' '), [report.id], function(err, result) {
             if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
             if (!result || result.rows.length <= 0) {
@@ -284,9 +359,10 @@ ReportProvider.prototype.findAllByProjectAndTemplate = function(userId, projectI
         sql = [];
         async.each(reports, function(report, cb) {
           sql = [];
-          sql.push("SELECT v.item, v.name, v.value FROM values v");
+          sql.push("SELECT f.id AS field_id, v.item, v.name, v.value FROM values v");
           sql.push("INNER JOIN fields f ON f.id = v.id_field");
           sql.push("WHERE f.id_report = $1");
+          sql.push("ORDER BY v.item");
           client.query(sql.join(' '), [report.id], function(err, result) {
             if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
             if (!result || result.rows.length <= 0) {
