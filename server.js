@@ -47,6 +47,15 @@ router.route('/users/:id')
   .patch(routes.auth.isAuthenticated, routes.users.update)
   .delete(routes.auth.isAuthenticated, routes.users.remove);
 
+// Project routes
+router.route('/projects')
+  .get(routes.auth.isAuthenticated, routes.projects.all)
+  .post(routes.auth.isAuthenticated, routes.projects.create);
+router.route('/projects/:id')
+  .get(routes.auth.isAuthenticated, routes.projects.show)
+  .patch(routes.auth.isAuthenticated, routes.projects.update)
+  .delete(routes.auth.isAuthenticated, routes.projects.remove);
+
 // Other routes
 router.route('/reports')  
   .get(routes.auth.isAuthenticated, routes.reports.allByUser);              // all reports by user

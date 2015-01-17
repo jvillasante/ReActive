@@ -1,0 +1,106 @@
+{
+  "id": "1",
+  "title": "Restricciones",
+  "sections": [
+    {
+      "name": "Restricciones",
+      "subsections": [
+        {
+          "name": "Restricciones",
+          "groups": [
+            {
+              "name": "Restricciones",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "1",
+                  "name": "Fecha de Creación",
+                  "type": "date",
+                  "values": []
+                },
+                {
+                  "item": "2",
+                  "name": "Actividad",
+                  "type": "string",
+                  "values": []
+                },
+                {
+                  "item": "3",
+                  "name": "Tema",
+                  "type": "string",
+                  "values": []
+                },
+                {
+                  "item": "4",
+                  "name": "Detalle",
+                  "type": "string",
+                  "values": []
+                },
+                {
+                  "item": "5",
+                  "name": "Responsable",
+                  "type": "string",
+                  "values": []
+                },
+                {
+                  "item": "6",
+                  "name": "Fecha Requerida",
+                  "type": "date",
+                  "values": []
+                },
+                {
+                  "item": "7",
+                  "name": "Fecha Comprometida",
+                  "type": "date",
+                  "values": []
+                },
+                {
+                  "item": "8",
+                  "name": "Fecha Real",
+                  "type": "date",
+                  "values": []
+                },
+                {
+                  "item": "9",
+                  "name": "Estado",
+                  "type": "choice",
+                  "values": ["Liberada", "Pendiente"]
+                },
+                {
+                  "item": "10",
+                  "name": "Tiempo de Desvío (Días)",
+                  "type": "int",
+                  "values": []
+                },
+                {
+                  "item": "11",
+                  "name": "Efectividad",
+                  "type": "int",
+                  "values": []
+                },
+                {
+                  "item": "12",
+                  "name": "Tipo Causa de Incumplimiento",
+                  "type": "string",
+                  "values": []
+                },
+                {
+                  "item": "13",
+                  "name": "Detalle Causa de Incumplimiento",
+                  "type": "string",
+                  "values": []
+                },
+                {
+                  "item": "14",
+                  "name": "Al Día",
+                  "type": "int",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

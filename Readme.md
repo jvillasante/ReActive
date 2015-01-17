@@ -2,18 +2,22 @@
 This is the repo for the ReActive node.js project
 
 ##User Routes
-* GET  /api/v1/users (Get all users)
-* POST /api/v1/users (Create new user) (this route doesn't need authentication)
+* GET    /api/v1/users     (Get all users)
+* POST   /api/v1/users     (Create new user) (this route doesn't need authentication)
+* GET    /api/v1/users/:id (Show user by id)
+* PATCH  /api/v1/users/:id (Update user by id)
+* DELETE /api/v1/users/:id (Remove user by id)
 
-* GET    /api/v1/users/:id  (Show user by id)
-* PATCH  /api/v1/users/:id  (Update user by id)
-* DELETE /api/v1/users/:id  (Remove user by id)
+##Project Routes
+* GET    /api/v1/projects     (Get all projects by user)
+* POST   /api/v1/projects     (Create new project by user)
+* GET    /api/v1/projects/:id (Show project by id)
+* PATCH  /api/v1/projects/:id (Update project by id)
+* DELETE /api/v1/projects/:id (Remove project by id)
 
 ##Report Routes
 * GET  /api/v1/reports      (All reports by user)
 * PUT  /api/v1/reports/:id  (Update report by id)
-
-* GET  /api/v1/projects  (all projects by user)
 
 * GET  /api/v1/projects/:id/templates  (all templates by user and project)
 
@@ -133,8 +137,4 @@ This is the repo for the ReActive node.js project
   - 501 Not Implemented: This is used when the server does not recognize the request method.
   - 503 Service Unavailable: This indicates that the server was unable to handle the request at the time due to a
     temporary overload or maintenance.
-
-
-
-
-
+    

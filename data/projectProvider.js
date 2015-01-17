@@ -31,38 +31,6 @@ ProjectProvider.prototype.findAllByUser = function(userId, callback) {
   });
 };
 
-ProjectProvider.prototype.findAll = function(callback) {
-  db.connect(this.connStr, function(err, client, done) {
-    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-
-    client.query("SELECT id, name, created_at, updated_at FROM projects", function(err, result) {
-      if (err) { 
-        done(client);
-        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
-      }
-
-      done();
-      callback(null, result.rows);
-    });
-  });
-};
-
-ProjectProvider.prototype.findByName = function(name, callback) {
-  db.connect(this.connStr, function(err, client, done) {
-    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-
-    client.query("SELECT id, name, created_at, updated_at FROM projects WHERE name=$1", [name], function(err, result) {
-      if (err) { 
-        done(client);
-        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
-      }
-
-      done();
-      callback(null, result.rows);
-    });
-  });
-};
-
 ProjectProvider.prototype.findById = function(id, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
@@ -89,8 +57,7 @@ ProjectProvider.prototype.save = function(project, callback) {
       if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
       if (project.id) {
-        client.query("INSERT INTO projects(id, name) VALUES($1, $2) RETURNING id", 
-        [project.id, project.name], function(err, result) {
+        client.query("INSERT INTO projects(id, name) VALUES($1, $2) RETURNING id", [project.id, project.name], function(err, result) {
           if (err) { 
             done(client);
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
