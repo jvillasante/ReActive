@@ -14,22 +14,26 @@ This is the repo for the ReActive node.js project
 * GET    /api/v1/projects/:id (Show project by id)
 * PATCH  /api/v1/projects/:id (Update project by id)
 * DELETE /api/v1/projects/:id (Remove project by id)
+  
+##Template Routes
+* GET  /api/v1/projects/:id/templates (all templates by user and project)
 
 ##Report Routes
 * GET  /api/v1/reports      (All reports by user)
-* PUT  /api/v1/reports/:id  (Update report by id)
-
-* GET  /api/v1/projects/:id/templates  (all templates by user and project)
-
-* GET  /api/v1/projects/:id/templates/:id/reports  (all reports by user and project and template)
-* POST /api/v1/projects/:id/templates/:id/reports  (create report by user and project and template)
-
-* GET  /api/v1/projects/:id/reports  (all reports by user and project)
+* GET  /api/v1/reports/:id  (Show report by user and id)
+* PUT  /api/v1/reports/:id  (Update report by user and id)
+  
+* GET   /api/v1/projects/:id/templates/:id/reports  (All reports by user and project and template)
+* POST  /api/v1/projects/:id/templates/:id/reports  (Create report by user and project and template)
+* GET   /api/v1/projects/:id/reports                (All reports by user and project)
 
 ##Basic actions of a user trying to create a report
 1. GET  /api/v1/projects to get all projects defined for the currently authenticated user
 2. GET  /api/v1/projects/:idProject/templates to get all the templates defined for that user and project
 3. POST /api/v1/projects/:idProject/templates/:idTemplate/reports to create a report by a user for a project based on a template
+  - This url responds according to the request body.
+    * If the request body is empty then it creates a new report based on the current user and project and template based on the ids passed in the url
+    * If the request body has a report id `{ "reportId": "..." }` then this endpoint creates new fields for that report. This permits to create reports that are really a combination of reports (bitacora)
 4. PUT  /api/v1/reports/:id to fill up the report with all the fields
 
 -------------------------------------------------------------------------------------------------------
