@@ -35,3 +35,6 @@ exports.createTemplates = function(callback) {
   });
 };
 
+exports.removeAll = function(callback) {
+  templateProvider.removeAll(callback);
+};

@@ -35,3 +35,6 @@ exports.createProjects = function(callback) {
   });
 };
 
+exports.removeAll = function(callback) {
+  projectProvider.removeAll(callback);
+};

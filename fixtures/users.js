@@ -44,3 +44,6 @@ exports.createUsers = function(callback) {
   });
 };
 
+exports.removeAll = function(callback) {
+  userProvider.removeAll(callback);
+};

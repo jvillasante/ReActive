@@ -30,3 +30,7 @@ exports.createPermissions = function(callback) {
   });
 };
 
+exports.removeAll = function(callback) {
+  permissionProvider.removeAll(callback);
+};
+
