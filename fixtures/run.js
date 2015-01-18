@@ -53,7 +53,9 @@ function templates() {
   });
 }
 
-if (args.length <= 0) { printHelp(); process.exit(1); }
+// default args is "all"
+if (args.length <= 0) { args.push("all"); }
+
 args.forEach(function(arg) {
   switch(arg) {
     case '-h':
