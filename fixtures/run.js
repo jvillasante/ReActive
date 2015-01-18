@@ -10,6 +10,17 @@ const
   templatesFixture = require('./templates'),
   permissionsFixture = require('./permissions');
 
+function printHelp() {
+  console.log('   usage:');
+  console.log(' $ fixtures/run.js <option>');
+  console.log('   <option>');
+  console.log('     all - generate and load test data');
+  console.log('     templates - only load the templates on the database');
+  console.log('   examples:');
+  console.log(' $ fixtures/run.js all');
+  console.log(' $ fixtures/run.js templates');
+}
+
 function all() {
   async.waterfall([
     function(next) {
@@ -42,11 +53,23 @@ function templates() {
   });
 }
 
-if (args[0] === 'all') {
-  all();
-} else if (args[0] === 'templates') {
-  templates();
-} else {
-  console.log("USSAGE: fixtures/run.js [all|templates]");
-}
+if (args.length <= 0) { printHelp(); process.exit(1); }
+args.forEach(function(arg) {
+  switch(arg) {
+    case '-h':
+    case '--help':
+      printHelp();
+      break;
+    case 'all':
+      all();
+      break;
+    case 'templates':
+      templates();
+      break;
+    default:
+      printHelp();
+      break;
+  }
+});
+
 
