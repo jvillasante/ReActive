@@ -30,7 +30,7 @@ PermissionProvider.prototype.userAndTemplateAndProject = function(idUser, idProj
 
 PermissionProvider.prototype.removeAll = function(callback) {
   db.connect(this.connStr, function(err, client, done) {
-    client.query("TRUNCATE permissions", function(err, result) {
+    client.query("TRUNCATE permissions CASCADE", function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));

@@ -1,0 +1,1 @@
+CREATE TABLE templates (  id INT PRIMARY KEY NOT NULL,  title TEXT NOT NULL,  data JSON NOT NULL,  created_at TIMESTAMP NOT NULL DEFAULT current_timestamp,  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp );

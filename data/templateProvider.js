@@ -53,7 +53,7 @@ TemplateProvider.prototype.removeAll = function(callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
-    client.query("TRUNCATE templates", function(err, result) {
+    client.query("TRUNCATE templates CASCADE", function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));

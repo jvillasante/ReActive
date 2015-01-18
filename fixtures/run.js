@@ -9,36 +9,36 @@ const
   templatesFixture = require('./templates'),
   permissionsFixture = require('./permissions');
 
-async.parallel([
-  function(callback) {
+async.waterfall([
+  function(next) {
     usersFixture.createUsers(function(err) {
-      callback(err);
+      next(err);
     });
   },
-  function(callback) {
-    projectsFixture.createProjects(function(err) {
-      callback(err);
-    });
-  },
-  function(callback) {
-    templatesFixture.createTemplates(function(err) {
-      callback(err);
-    });
+  function(next) {
+    async.parallel([
+      function(callback) {
+        projectsFixture.createProjects(function(err) {
+          callback(err);
+        });
+      },
+      function(callback) {
+        templatesFixture.createTemplates(function(err) {
+          callback(err);
+        });
+      }
+    ], function(err) {
+      next(err);
+    }); 
   },
   function(callback) {
     permissionsFixture.createPermissions(function(err) {
       callback(err);
     });
   }
-], function(err, results) {
+], function(err) {
   db.disconnect();
-  
-  if (err) { 
-    console.log(err);
-    throw err; 
-  }
+  if (err) { console.log(err); throw err; }
   console.log('fixture data created.');
 });
 
-  
-  

@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 exports.up = function(db, callback) {
-  var filePath = path.join(__dirname + '/sqls/20150112155300-create-projects-up.sql');
+  var filePath = path.join(__dirname + '/sqls/20150112155300-add-tbl-projects-up.sql');
   fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
     if (err) return console.log(err);
       console.log('received data: ' + data);
@@ -17,7 +17,7 @@ exports.up = function(db, callback) {
 };
 
 exports.down = function(db, callback) {
-  var filePath = path.join(__dirname + '/sqls/20150112155300-create-projects-down.sql');
+  var filePath = path.join(__dirname + '/sqls/20150112155300-add-tbl-projects-down.sql');
   fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
     if (err) return console.log(err);
       console.log('received data: ' + data);

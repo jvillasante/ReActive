@@ -142,7 +142,7 @@ ProjectProvider.prototype.removeAll = function(callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
-    client.query("TRUNCATE projects", function(err, result) {
+    client.query("TRUNCATE projects CASCADE", function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
