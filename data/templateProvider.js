@@ -32,19 +32,45 @@ TemplateProvider.prototype.findAllByUserAndProject = function(userId, projectId,
 };
 
 TemplateProvider.prototype.save = function(id, title, json, callback) {
-  let self = this;
-  
-  db.connect(self.connStr, function(err, client, done) {
-    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
+  let 
+    self = this,
+    sections = json.sections,
+    fieldsJSON = [];
+    
+  async.each(sections, function(section, cb) {
+    let sectionsCb = cb, subsections = section.subsections;
+    async.each(subsections, function(subsection, cb) {
+      let subsectionsCb = cb, groups = subsection.groups;
+      async.each(groups, function(group, cb) {
+        let groupsCb = cb, fields = group.fields;
+        async.each(fields, function(value, cb) {
+          fieldsJSON.push(value);
+          cb();
+        }, function(err) {
+          groupsCb(err);
+        });
+      }, function(err) {
+        subsectionsCb(err);
+      });
+    }, function(err) {
+      sectionsCb(err);
+    });
+  }, function(err) {
+    if (err) { return callback(err); }
+    
+    db.connect(self.connStr, function(err, client, done) {
+      if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("INSERT INTO templates(id, title, data) VALUES($1, $2, $3) RETURNING id", [id, title, json], function(err, result) {
-      if (err) { 
-        done(client);
-        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
-      }
+      client.query("INSERT INTO templates(id, title, data, fields) VALUES($1, $2, $3, $4) RETURNING id", 
+      [id, title, json, JSON.stringify(fieldsJSON)], function(err, result) {
+        if (err) { 
+          done(client);
+          return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+        }
 
-      done();
-      callback(null, result.rows[0]);
+        done();
+        callback(null, result.rows[0]);
+      });
     });
   });
 };

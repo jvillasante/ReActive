@@ -32,7 +32,7 @@ This is the repo for the ReActive node.js project
 2. `GET /api/v1/projects/:idProject/templates` to get all the templates defined for that user and project
 3. `POST /api/v1/projects/:idProject/templates/:idTemplate/reports` to create a report by a user for a project based on a template
   - This url responds according to the data sent in the request body.
-    * If the request body is empty then it creates a new report based on the current user; project and template based on the ids passed in the url.
+    * If the request body is empty `{}` then it creates a new report based on the current user; project and template based on the ids passed in the url.
     * If the request body has a report id `{ "reportId": "..." }` then this endpoint creates new fields for that report. This buy us the possibility to create reports that are really a combination of reports (bitacora).
 4. `PUT /api/v1/reports/:id` to fill up the report with all the fields
 

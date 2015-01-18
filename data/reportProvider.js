@@ -17,7 +17,7 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
     let sql = [];
-    sql.push("SELECT id, title, data FROM templates t");
+    sql.push("SELECT id, title, data, fields FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3 LIMIT 1");
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
@@ -25,7 +25,7 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
-      
+
       let template = result.rows[0];
       if (!template) {
         done(client); 
@@ -51,28 +51,11 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
           });
         },
         function createReportData(fieldId, next) {
-          let sections = template.data.sections;
-          
-          async.each(sections, function(section, cb) {
-            let sectionsCb = cb, subsections = section.subsections;
-            async.each(subsections, function(subsection, cb) {
-              let subsectionsCb = cb, groups = subsection.groups;
-              async.each(groups, function(group, cb) {
-                let groupsCb = cb, fields = group.fields;
-                async.each(fields, function(value, cb) {
-                  client.query("INSERT INTO values(id_field, item, name) VALUES($1, $2, $3) RETURNING item", [fieldId, value.item, value.name], function(err, result) {
-                    if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-                    cb();
-                  });
-                }, errTo(next, function() {
-                  groupsCb();
-                }));
-              }, errTo(next, function() {
-                subsectionsCb();
-              }));
-            }, errTo(next, function() {
-              sectionsCb();
-            }));
+          async.each(template.fields, function(value, cb) {
+            client.query("INSERT INTO values(id_field, item, name) VALUES($1, $2, $3) RETURNING item", [fieldId, value.item, value.name], function(err, result) {
+              if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+              cb();
+            });
           }, errTo(next, function() {
             next(null, template.data);
           }));
@@ -90,7 +73,7 @@ ReportProvider.prototype.createExisting = function(userId, projectId, templateId
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
     let sql = [];
-    sql.push("SELECT id, title, data FROM templates t");
+    sql.push("SELECT id, title, data, fields FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3 LIMIT 1");
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
@@ -112,6 +95,10 @@ ReportProvider.prototype.createExisting = function(userId, projectId, templateId
           sql.push("WHERE id = $1 AND id_user = $2 AND id_project = $3 AND id_template = $4 LIMIT 1");
           client.query(sql.join(' '), [reportId, userId, projectId, template.id], function(err, result) {
             if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+            if (!result.rows[0].id) {
+              done(client); 
+              return callback(Err("no such report", { code: 404, description: "Report " + reportId + " not found for project " + projectId, errors: []}));
+            }
             next(null, result.rows[0].id);
           });
         }, 
@@ -124,28 +111,11 @@ ReportProvider.prototype.createExisting = function(userId, projectId, templateId
           });
         },
         function createReportData(fieldId, next) {
-          let sections = template.data.sections;
-          
-          async.each(sections, function(section, cb) {
-            let sectionsCb = cb, subsections = section.subsections;
-            async.each(subsections, function(subsection, cb) {
-              let subsectionsCb = cb, groups = subsection.groups;
-              async.each(groups, function(group, cb) {
-                let groupsCb = cb, fields = group.fields;
-                async.each(fields, function(value, cb) {
-                  client.query("INSERT INTO values(id_field, item, name) VALUES($1, $2, $3) RETURNING item", [fieldId, value.item, value.name], function(err, result) {
-                    if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-                    cb();
-                  });
-                }, errTo(next, function() {
-                  groupsCb();
-                }));
-              }, errTo(next, function() {
-                subsectionsCb();
-              }));
-            }, errTo(next, function() {
-              sectionsCb();
-            }));
+          async.each(template.fields, function(value, cb) {
+            client.query("INSERT INTO values(id_field, item, name) VALUES($1, $2, $3) RETURNING item", [fieldId, value.item, value.name], function(err, result) {
+              if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+              cb();
+            });
           }, errTo(next, function() {
             next(null, template.data);
           }));
