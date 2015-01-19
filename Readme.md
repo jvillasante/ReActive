@@ -39,35 +39,46 @@ This is the repo for the ReActive node.js project
 -------------------------------------------------------------------------------------------------------
 
 ##Other Stuff
-* pm2 (for production)
-* NODE_ENV=production node --harmony bin/www
-* wrk -t13 -c400 -d30s -swrk_conf.lua http://localhost:3000/api/v1/users
-* ab -n 5000 -c 100 -A foobar:secret http://localhost:3000/api/v1/users
-* siege -c10 -t10s -H"Accept: application/json" -H"Content-Type: application/json" -H"Authorization: Basic Zm9vYmFyOnNlY3JldA==" http://localhost:3000/api/v1/users
-* http://localhost:3000/api/v1/projects/db341659-f243-45c4-ad00-80a2c908ff81/templates/43352c35-d2b2-407e-87fa-9a331820450d
+* $ wrk -t13 -c400 -d30s -swrk_conf.lua http://localhost:3000/api/v1/users
+* $ ab -n 5000 -c 100 -A foobar:secret http://localhost:3000/api/v1/users
+* $ siege -c10 -t10s -H"Accept: application/json" -H"Content-Type: application/json" -H"Authorization: Basic Zm9vYmFyOnNlY3JldA==" http://localhost:3000/api/v1/users
 
-###Postgres:
-* sudo apt-get update
-* sudo apt-get install postgresql postgresql-contrib pgadmin3
-* sudo -u postgres psql postgres
-* \password postgres
+##NVM (node version manager)
+* $ sudo apt-get install build-essential
+* $ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+* $ nvm install v0.11.14
+* $ nvm use v0.11.14
+* $ nvm alias default v0.11.14
+
+##Node on port 80
+* $ sudo apt-get install libcap2-bin
+* $ sudo setcap cap_net_bind_service=+ep /usr/local/bin/node
+
+##PM2
+* $ pm2 start server.js --name="reactive-api" --node-args="--harmony" -i 0
+
+##Postgres:
+* $ sudo apt-get update
+* $ sudo apt-get install postgresql postgresql-contrib pgadmin3
+* $ sudo -u postgres psql postgres
+* $ \password postgres
 * Configure postgres database to add uuid-ossp extension
-* sudo /etc/init.d/postgresql reload
-* sudo /etc/init.d/postgresql restart
+* $ sudo /etc/init.d/postgresql reload
+* $ sudo /etc/init.d/postgresql restart
 
-###Node modules:
-* npm init
-* npm install --save express body-parser morgan validator async lodash errto custom-err bcrypt
-* npm install --save pg pg-native 
-* npm install --save passport passport-http
-* npm install --save-dev mocha should sinon proxyquire supertest db-migrate
+##Node modules:
+* $ npm init
+* $ npm install --save express body-parser morgan validator async lodash errto custom-err bcrypt
+* $ npm install --save pg pg-native 
+* $ npm install --save passport passport-http
+* $ npm install --save-dev mocha should sinon proxyquire supertest db-migrate
 
-###Migrations:
-* node_modules/.bin/db-migrate create add-users
-* node_modules/.bin/db-migrate up [-e test/dev/prod]
-* node_modules/.bin/db-migrate down [-e test/dev/prod]
+##Migrations:
+* $ node_modules/.bin/db-migrate create add-users
+* $ node_modules/.bin/db-migrate up [-e test/dev/prod]
+* $ node_modules/.bin/db-migrate down [-e test/dev/prod]
 
-###Errors:
+##Errors:
 1. db errors:
   * 1001 - db connection error
   * 1002 - db query error
@@ -78,7 +89,7 @@ This is the repo for the ReActive node.js project
 4. unknown errors:
   * 4001 - async error
 
-###HTTP methods (verbs):
+##HTTP methods (verbs):
 * GET: This method is used to retrieve information for the requested resource.
 * HEAD: This method is similar to GET, but should not contain the message body in the response. It is uselfull to
   check the validity, accessibility, and modification of resources.
@@ -106,7 +117,7 @@ This is the repo for the ReActive node.js project
         "value": "johndoe.domain"
       }]
 
-###HTTP status codes:
+##HTTP status codes:
 * 1xx - informational 
 * 2xx - success (The request has been received, understood, and accepted by the server)
   - 200 OK: This status code indicates that the request has succeeded.
