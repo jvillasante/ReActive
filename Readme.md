@@ -79,15 +79,15 @@ This is the repo for the ReActive node.js project
 * $ node_modules/.bin/db-migrate down [-e test/dev/prod]
 
 ##Errors:
-1. db errors
-  1. 1001 - db connection error
-  2. 1002 - db query error
-2. validation errors
-  1. 2001 - validation error
-3. crypto errors
-  1. 3001 - hashing error
-4. unknown errors
-  1. 4001 - async error
+* db errors
+  - 1001: db connection error
+  - 1002: db query error
+* validation errors
+  - 2001: validation error
+* crypto errors
+  - 3001: hashing error
+* unknown errors
+  - 4001: async error
   
 ##HTTP methods (verbs):
 * GET: This method is used to retrieve information for the requested resource.
