@@ -1,21 +1,315 @@
 {
-  "id": "5,
+  "id": "5",
   "title": "Check List 6S Oficinas de Obra",
   "sections": [
     {
-      "name": "",
+      "name": "Concepto",
       "subsections": [
         {
-          "name": "",
+          "name": "Concepto",
           "groups": [
             {
-              "name": "",
+              "name": "S1 - Separar lo Innecesario",
               "comment": "",
               "fields": [
                 {
-                  "item": "",
-                  "name": "",
-                  "type": "",
+                  "item": "1",
+                  "name": "¿Existencia de mobiliario innecesario?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "2",
+                  "name": "¿Existencia de documentos obsoletos o innecesarios?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "3",
+                  "name": "¿Existencia de Planos obsoletos o innecesarios?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "4",
+                  "name": "¿Existencia de información publicada obsoleta o innecesaria?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "5",
+                  "name": "¿Existen equipos de oficina y escritorio innecesarios?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "6",
+                  "name": "¿Existen muestras de materiales no necesarios?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "7",
+                  "name": "¿Están los elementos \"innecesarios\" colocados en receptáculos adecuados y por separado de lo necesario?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "8",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "S2 - Situar lo Necesario",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "9",
+                  "name": "¿Están los planos correctamente ordenados y clasificados?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "10",
+                  "name": "¿Están las especificaciones técnicas correctamente ordenados y clasificados?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "11",
+                  "name": "¿Existe rotulación visible de los planos y especificaciones técnicas?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "12",
+                  "name": "¿Existe información visual en paneles y diarios murales correctamente identificada?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "13",
+                  "name": "¿Existe lugar específico y adecuado para ubicación de Impresoras y equipos?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "14",
+                  "name": "¿Existe lugar específico y adecuado para disposición de Archivadores?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "15",
+                  "name": "¿Están los documentos bien archivados?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "16",
+                  "name": "¿Existe Archivadores por separado para contratos, Estado de pago, Hoja de ruta, RDI, Minutas de reunión, cuadros comparativos, ordenes de compra, documentos legales, documentos y certificados de recepción?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "17",
+                  "name": "¿Existe espacio para circular y trabajar en forma adecuada?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "18",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "S3 - Suprimir Suciedad",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "19",
+                  "name": "¿Lugar libre de polvo, papeles, suciedad en el suelo, equipos de oficina, paredes, mobiliario, etc.?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "20",
+                  "name": "¿Estanterías están libres de elementos inservibles o elementos estropeados?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "21",
+                  "name": "¿Espacios libres de útiles de limpieza abandonadas fuera de su sitio?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "22",
+                  "name": "¿Espacios libres de artículos de oficina de abandonados fuera de su sitio o en mal estado?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "23",
+                  "name": "¿Espacios libres de equipos de oficina de abandonados fuera de su sitio o en mal estado?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "24",
+                  "name": "¿Espacios libres de tazas, platos y utensilios de comida abandonadas fuera de su sitio?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "25",
+                  "name": "¿Están las áreas de circulación limpias y mantenidas?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "26",
+                  "name": "¿La infraestructura e instalaciones están en óptimas condiciones?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "27",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "S4 - Señalizar Anomalías",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "28",
+                  "name": "¿Existe señalización que advierta de información o documentos obsoletos?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "29",
+                  "name": "¿Todas las Estanterías están con su identificación?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "30",
+                  "name": "¿Existe tarjetas de señalización de situaciones anómalas?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "31",
+                  "name": "¿Existen elementos visuales para controlar planos faltantes?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "32",
+                  "name": "¿Existen señales visuales que controlen documentación faltante?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "33",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "S5 - Seguir Mejorando",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "34",
+                  "name": "¿Hay indicadores de nivel de orden y limpieza objetivos (auditorías, etc.)?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "35",
+                  "name": "¿Las tendencias de los indicadores son positivas?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "36",
+                  "name": "¿Se hace limpieza en forma sistemática?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "37",
+                  "name": "¿Se cumplen planes de mantenimiento de la oficina de obra (safari)?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "38",
+                  "name": "¿Hay reconocimiento por las mejoras?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "39",
+                  "name": "¿Hay sanciones para los que incumplen sistemáticamente?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "40",
+                  "name": "Notas u observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "S6 - Seguridad",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "41",
+                  "name": "¿Están los elementos de seguridad en su sitio?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "42",
+                  "name": "¿Extintores operativos y lugar señalizado?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "43",
+                  "name": "¿Iluminación Interior Adecuada?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "44",
+                  "name": "¿Iluminación Exterior Adecuada?",
+                  "type": "yesno",
+                  "values": ["Si", "No", "No aplica"]
+                },
+                {
+                  "item": "45",
+                  "name": "Notas u observaciones",
+                  "type": "string",
                   "values": []
                 }
               ]

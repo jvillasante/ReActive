@@ -34,6 +34,12 @@ exports.createTemplates = function(callback) {
         templateProvider.save(json.id, json.title, json, function(err, result) {
           next(err); 
         });
+      },
+      function(next) {
+        let json = require('../data/templates/5.json');
+        templateProvider.save(json.id, json.title, json, function(err, result) {
+          next(err); 
+        });
       }
     ], function(err, results) {
       callback(err);
