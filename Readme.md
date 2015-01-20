@@ -95,7 +95,7 @@ This is the repo for the ReActive node.js project
 * $ node_modules/.bin/db-migrate down [-e test/dev/prod]
 
 ##ApiDocs
-apidoc -i routes/ -o public/apidoc/
+apidoc -i routes/docs/ -o public/apidoc/
 
 ##Errors:
 * db errors
