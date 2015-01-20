@@ -43,6 +43,12 @@ This is the repo for the ReActive node.js project
 * $ ab -n 5000 -c 100 -A foobar:secret http://localhost:3000/api/v1/users
 * $ siege -c10 -t10s -H"Accept: application/json" -H"Content-Type: application/json" -H"Authorization: Basic Zm9vYmFyOnNlY3JldA==" http://localhost:3000/api/v1/users
 
+##NGINX
+* $ sudo apt-get install nginx (see site for ppa)
+* $ sudo /etc/init.d/nginx start
+* $ sudo /etc/init.d/nginx stop
+* $ sudo /etc/init.d/nginx restart
+
 ##NVM (node version manager)
 * $ sudo apt-get install build-essential
 * $ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
@@ -50,12 +56,12 @@ This is the repo for the ReActive node.js project
 * $ nvm use v0.11.14
 * $ nvm alias default v0.11.14
 
-##Node on port 80
+##Node on port 80 (not needed, nginx is running on port 80 and node on port 3000)
 * $ sudo apt-get install libcap2-bin
 * $ sudo setcap cap_net_bind_service=+ep /usr/local/bin/node
 
 ##PM2
-* $ pm2 start server.js --name="reactive-api" --node-args="--harmony" -i 0
+* $ pm2 start server.js --name="reactive" --node-args="--harmony" -i 0
 
 ##Postgres:
 * $ sudo apt-get update

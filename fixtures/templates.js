@@ -10,39 +10,11 @@ exports.createTemplates = function(callback) {
   templateProvider.removeAll(function(err) {
     if (err) { throw err; }
 
-    async.parallel([
-      function(next) {
-        let json = require('../data/templates/1.json');
-        templateProvider.save(json.id, json.title, json, function(err, result) {
-          next(err); 
-        });
-      },
-      function(next) {
-        let json = require('../data/templates/2.json');
-        templateProvider.save(json.id, json.title, json, function(err, result) {
-          next(err); 
-        });
-      },
-      function(next) {
-        let json = require('../data/templates/3.json');
-        templateProvider.save(json.id, json.title, json, function(err, result) {
-          next(err); 
-        });
-      },
-      function(next) {
-        let json = require('../data/templates/4.json');
-        templateProvider.save(json.id, json.title, json, function(err, result) {
-          next(err); 
-        });
-      },
-      function(next) {
-        let json = require('../data/templates/5.json');
-        templateProvider.save(json.id, json.title, json, function(err, result) {
-          next(err); 
-        });
-      }
-    ], function(err, results) {
-      callback(err);
+    async.times(5, function(n, cb) {
+      let json = require('../data/templates/' + (n + 1) + '.json');
+      templateProvider.save(json.id, json.title, json, cb);
+    }, function(err) {
+      callback(err); 
     });
   });
 };
