@@ -5,7 +5,7 @@ This is the repo for the ReActive node.js project
   * username: user, password: reactive-user, admin: no
   * username: admin, password: reactive-admin, admin: yes
 
-##ApiDocs
+##ApiDocs (Users routes only for the time being)
   * http://reactive.innobis.cl/public/apidoc/index.html
 
 ##User Routes
