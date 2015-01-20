@@ -126,8 +126,8 @@ UserProvider.prototype.update = function(id, userData, callback) {
           bcrypt.hash(user.password, function(err, hash) {
             if (err) { done(client); return callback(Err("hashing error", { code: 3001, description: err.message, errors: []})); }
             
-            client.query("UPDATE users SET username=$1, email=$2, password=$3, role=$4 WHERE id=$5 RETURNING id",
-              [user.username, user.email, hash, user.role, user.id], function(err, result) {
+            client.query("UPDATE users SET username=$1, email=$2, password=$3 WHERE id=$4 RETURNING id",
+              [user.username, user.email, hash, user.id], function(err, result) {
               if (err) {
                 done(client);
                 return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -138,8 +138,8 @@ UserProvider.prototype.update = function(id, userData, callback) {
             });
           });
         } else {
-          client.query("UPDATE users SET username=$1, email=$2, role=$3 WHERE id=$4 RETURNING id",
-            [user.username, user.email, user.role, user.id], function(err, result) {
+          client.query("UPDATE users SET username=$1, email=$2 WHERE id=$3 RETURNING id",
+            [user.username, user.email, user.id], function(err, result) {
             if (err) {
               done(client);
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));

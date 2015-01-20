@@ -4,7 +4,7 @@ const
   _ = require('lodash'),
   errTo = require('errto'),
   Err = require('custom-err'),
-  publicAttributes = ['id', 'username', 'email'];
+  publicAttributes = ['id', 'username', 'email', 'role'];
 
 exports.all = function(req, res, next) {
   req.userProvider.findAll(errTo(next, function(userData) {
@@ -30,7 +30,8 @@ exports.create = function(req, res, next) {
   let user = {
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    role: req.body.role
   };
 
   req.userProvider.save(user, errTo(next, function(result) {
