@@ -5,6 +5,9 @@ This is the repo for the ReActive node.js project
   * username: user, password: reactive-user, admin: no
   * username: admin, password: reactive-admin, admin: yes
 
+##ApiDocs
+  * http://reactive.innobis.cl/public/apidoc/index.html
+
 ##User Routes
 * `GET    /api/v1/users`     (Get all users)     (admin)
 * `POST   /api/v1/users`     (Create new user)   (admin)
@@ -65,7 +68,10 @@ This is the repo for the ReActive node.js project
 * $ sudo setcap cap_net_bind_service=+ep /usr/local/bin/node
 
 ##PM2
+* $ npm install pm2 -g
+* $ pm2 startup ubuntu
 * $ pm2 start server.js --name="reactive" --node-args="--harmony" -i 0
+* $ pm2 startup ubuntu
 
 ##Postgres:
 * $ sudo apt-get update
@@ -87,6 +93,9 @@ This is the repo for the ReActive node.js project
 * $ node_modules/.bin/db-migrate create add-users
 * $ node_modules/.bin/db-migrate up [-e test/dev/prod]
 * $ node_modules/.bin/db-migrate down [-e test/dev/prod]
+
+##ApiDocs
+apidoc -i routes/ -o public/apidoc/
 
 ##Errors:
 * db errors

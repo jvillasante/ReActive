@@ -1,6 +1,6 @@
 {
   "name": "ReActive",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ReActive innobis project",
   "main": "server.js",
   "directories": {
@@ -16,6 +16,13 @@
   },
   "author": "Julio C. Villasante <jvillasantegomez@gmail.com> (http://jvillasante.github.io/)",
   "license": "MIT",
+  "apidoc": {
+    "name": "reactive-api",
+    "version": "1.0.0",
+    "description": "reactive backend api - Innobis",
+    "title": "ReActive API",
+    "url": "http://reactive.innobis.cl/api/v1"
+  },
   "dependencies": {
     "async": "~0.9.0",
     "validator": "~3.27.0",
