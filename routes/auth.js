@@ -4,6 +4,7 @@ const
   passport = require('passport'),
   BasicStrategy = require('passport-http').BasicStrategy,
   errTo = require('errto'),
+  Err = require('custom-err'),
   bcrypt = require('../lib/bcrypt');
 
 passport.use(new BasicStrategy({passReqToCallback: true}, function(req, username, password, callback) {
@@ -23,3 +24,11 @@ passport.use(new BasicStrategy({passReqToCallback: true}, function(req, username
 }));
 
 exports.isAuthenticated = passport.authenticate('basic', { session: false });
+
+exports.isAdmin = function(req, res, next) {
+  if (req.user && req.user.role === 'admin') {
+    next();
+  } else {
+    next(Err("Forbidden", { code: 403, description: "You don't have permissions to carry this action.", errors: []}));
+  }
+};

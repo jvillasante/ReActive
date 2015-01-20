@@ -16,7 +16,7 @@ UserProvider.prototype.findAll = function(callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("SELECT id, username, email FROM users", function(err, result) {
+    client.query("SELECT id, username, email, role FROM users", function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -48,7 +48,7 @@ UserProvider.prototype.findById = function(id, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
-    client.query("SELECT id, username, email FROM users WHERE id=$1 LIMIT 1", [id], function(err, result) {
+    client.query("SELECT id, username, email, role FROM users WHERE id=$1 LIMIT 1", [id], function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -73,8 +73,8 @@ UserProvider.prototype.save = function(user, callback) {
         if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
         
         if (user.id) {
-          client.query("INSERT INTO users(id, username, email, password) VALUES($1, $2, $3, $4) RETURNING id", 
-            [user.id, user.username, user.email, hash], function(err, result) {
+          client.query("INSERT INTO users(id, username, email, password, role) VALUES($1, $2, $3, $4, $5) RETURNING id", 
+            [user.id, user.username, user.email, hash, user.role], function(err, result) {
             if (err) { 
               done(client);
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -84,8 +84,8 @@ UserProvider.prototype.save = function(user, callback) {
             callback(null, result.rows[0]);
           });
         } else {
-          client.query("INSERT INTO users(username, email, password) VALUES($1, $2, $3) RETURNING id", 
-            [user.username, user.email, hash], function(err, result) {
+          client.query("INSERT INTO users(username, email, password, role) VALUES($1, $2, $3, $4) RETURNING id", 
+            [user.username, user.email, hash, user.role], function(err, result) {
             if (err) { 
               done(client);
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -106,7 +106,7 @@ UserProvider.prototype.update = function(id, userData, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
     
-    client.query("SELECT id, username, email, password FROM users WHERE id=$1 LIMIT 1", [id], function(err, result) {
+    client.query("SELECT id, username, email, password, role FROM users WHERE id=$1 LIMIT 1", [id], function(err, result) {
       if (err) { 
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -126,8 +126,8 @@ UserProvider.prototype.update = function(id, userData, callback) {
           bcrypt.hash(user.password, function(err, hash) {
             if (err) { done(client); return callback(Err("hashing error", { code: 3001, description: err.message, errors: []})); }
             
-            client.query("UPDATE users SET username=$1, email=$2, password=$3 WHERE id=$4 RETURNING id",
-              [user.username, user.email, hash, user.id], function(err, result) {
+            client.query("UPDATE users SET username=$1, email=$2, password=$3, role=$4 WHERE id=$5 RETURNING id",
+              [user.username, user.email, hash, user.role, user.id], function(err, result) {
               if (err) {
                 done(client);
                 return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -138,8 +138,8 @@ UserProvider.prototype.update = function(id, userData, callback) {
             });
           });
         } else {
-          client.query("UPDATE users SET username=$1, email=$2 WHERE id=$3 RETURNING id",
-            [user.username, user.email, user.id], function(err, result) {
+          client.query("UPDATE users SET username=$1, email=$2, role=$3 WHERE id=$4 RETURNING id",
+            [user.username, user.email, user.role, user.id], function(err, result) {
             if (err) {
               done(client);
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -216,6 +216,12 @@ UserProvider.prototype.validate = function(user, callback) {
     function(next) {
       if (user.id && !validator.isUUID(user.id, 4)) {
         errors.push({ param: 'id', msg: 'must be a valid UUID version 4', value: user.id });
+      }
+      next();
+    },
+    function(next) {
+      if (user.role && !validator.isIn(user.role, ["user", "admin"])) {
+        errors.push({ param: 'role', msg: "must be one of ['user', 'admin']", value: user.role });
       }
       next();
     }

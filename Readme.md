@@ -1,31 +1,35 @@
 #ReActive project (Innobis)
 This is the repo for the ReActive node.js project
 
+##Users
+  * username: user, password: reactive-user, admin: no
+  * username: admin, password: reactive-admin, admin: yes
+
 ##User Routes
-* `GET    /api/v1/users`     (Get all users)
-* `POST   /api/v1/users`     (Create new user) (this route doesn't need authentication)
-* `GET    /api/v1/users/:id` (Show user by id)
-* `PATCH  /api/v1/users/:id` (Update user by id)
-* `DELETE /api/v1/users/:id` (Remove user by id)
+* `GET    /api/v1/users`     (Get all users)     (admin)
+* `POST   /api/v1/users`     (Create new user)   (admin)
+* `GET    /api/v1/users/:id` (Show user by id)   (user, admin)
+* `PATCH  /api/v1/users/:id` (Update user by id) (user, admin)
+* `DELETE /api/v1/users/:id` (Remove user by id) (admin)
 
 ##Project Routes
-* `GET    /api/v1/projects`     (Get all projects by user)
-* `POST   /api/v1/projects`     (Create new project by user)
-* `GET    /api/v1/projects/:id` (Show project by id)
-* `PATCH  /api/v1/projects/:id` (Update project by id)
-* `DELETE /api/v1/projects/:id` (Remove project by id)
+* `GET    /api/v1/projects`     (Get all projects by user)   (user, admin)
+* `POST   /api/v1/projects`     (Create new project by user) (admin)
+* `GET    /api/v1/projects/:id` (Show project by id)         (user, admin)
+* `PATCH  /api/v1/projects/:id` (Update project by id)       (admin)
+* `DELETE /api/v1/projects/:id` (Remove project by id)       (admin)
   
 ##Template Routes
-* `GET /api/v1/projects/:id/templates` (all templates by user and project)
+* `GET /api/v1/projects/:id/templates` (all templates by user and project) (user, admin)
 
 ##Report Routes
-* `GET /api/v1/reports`     (All reports by user)
-* `GET /api/v1/reports/:id` (Show report by user and id)
-* `PUT /api/v1/reports/:id` (Update report by user and id)
+* `GET /api/v1/reports`     (All reports by user)          (user, admin)
+* `GET /api/v1/reports/:id` (Show report by user and id)   (user, admin)
+* `PUT /api/v1/reports/:id` (Update report by user and id) (user, admin)
   
-* `GET  /api/v1/projects/:id/templates/:id/reports` (All reports by user and project and template)
-* `POST /api/v1/projects/:id/templates/:id/reports` (Create report by user and project and template)
-* `GET  /api/v1/projects/:id/reports`               (All reports by user and project)
+* `GET  /api/v1/projects/:id/templates/:id/reports` (All reports by user and project and template)   (user, admin)
+* `POST /api/v1/projects/:id/templates/:id/reports` (Create report by user and project and template) (user, admin)
+* `GET  /api/v1/projects/:id/reports`               (All reports by user and project)                (user, admin)
 
 ##Basic actions of a user trying to create a report
 1. `GET /api/v1/projects` to get all projects defined for the currently authenticated user

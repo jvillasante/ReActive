@@ -40,21 +40,21 @@ app.use(function(req, res, next) {
 
 // User Routes
 router.route('/users')
-  .get(routes.auth.isAuthenticated, routes.users.all)
-  .post(routes.users.create);
+  .get(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.users.all)
+  .post(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.users.create);
 router.route('/users/:id')
   .get(routes.auth.isAuthenticated, routes.users.show)
   .patch(routes.auth.isAuthenticated, routes.users.update)
-  .delete(routes.auth.isAuthenticated, routes.users.remove);
+  .delete(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.users.remove);
 
 // Project routes
 router.route('/projects')
   .get(routes.auth.isAuthenticated, routes.projects.all)
-  .post(routes.auth.isAuthenticated, routes.projects.create);
+  .post(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.projects.create);
 router.route('/projects/:id')
   .get(routes.auth.isAuthenticated, routes.projects.show)
-  .patch(routes.auth.isAuthenticated, routes.projects.update)
-  .delete(routes.auth.isAuthenticated, routes.projects.remove);
+  .patch(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.projects.update)
+  .delete(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.projects.remove);
 
 // Template routes
 router.route('/projects/:projectId/templates')  
