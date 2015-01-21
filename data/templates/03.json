@@ -1,6 +1,8 @@
 {
   "id": "3",
   "title": "Bitácora",
+  "color": "#cd3333",
+  "abr": "BI",
   "sections": [
     {
       "name": "Restricciones",

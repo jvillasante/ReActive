@@ -1,6 +1,8 @@
 {
   "id": "4",
   "title": "Evaluación Monitores Mejora Continua",
+  "color": "#66cd00",
+  "abbr": "MC",
   "sections": [
     {
       "name": "General",
@@ -10,7 +12,7 @@
           "groups": [
             {
               "name": "Administrador de Obra",
-              "comment": "Decisiones tácticas y Generar Participación ",
+              "comment": "Decisiones tácticas y Generar Participación",
               "fields": [
                 {
                   "item": "1",
@@ -27,7 +29,7 @@
               ]
             },
             {
-              "name": "Jefe de Terreno",
+              "name": "Jefe de terreno",
               "comment": "Liderar Reunión, generar ambiente y motivar",
               "fields": [
                 {

@@ -1,0 +1,1018 @@
+{
+  "id": "11",
+  "title": "CHECKLIST SELLO MANQUEHUE",
+  "color": "#ff4500",
+  "abbr": "SM",
+  "sections": [
+    {
+      "name": "PORTERIA",
+      "subsections": [
+        {
+          "name": "PORTERIA",
+          "groups": [
+            {
+              "name": "ES LA INDICADA POR CATALOGO SELLO MANQUEHUE, PINTADA GRIS, CUATRICROMIA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "1",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "2",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "UBICADA CON VENTANA HACIA INGRESO DE PEATONES Y PREFERENTEMENTE PARALELA AL SENTIDO DE INGRESO DE TRANSITO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "3",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "4",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "LIMPIA, SIN CARTELES O ELEMENTOS NO AUTORIZADOS EN SUS PAREDES.",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "5",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "6",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MOBILIARIO BASICO DE PORTERIA",
+      "subsections": [
+        {
+          "name": "MOBILIARIO BASICO DE PORTERIA",
+          "groups": [
+            {
+              "name": "CLOSET CASCOS PARA VISITAS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "7",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "8",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "CASILLEROS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "9",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "10",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "MASA LABORAL(SUBC Y CASA)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "11",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "12",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "10 CASCOS BLANCOS Y 10 CASCOS GRISES EN CLOSET",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "13",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "14",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "kit de primeros auxilios exigidos por la normativa HABILITADO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "15",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "16",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "PERSONAL EN OBRA COMPETENTE PARA ASISTIR PRIMEROS AUXILIOS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "17",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "18",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "PORTERO ENTRENADO CUMPLE PROCEDIMIENTO DE ACCESO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "19",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "20",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "MEDIO DE CONTROL DE POLVO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "21",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "22",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "TARJETAS DE ACCESO / CREDENCIAL DE ACCESO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "23",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "24",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "KANBAN DE ACCESO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "25",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "26",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CIERRE PERIMETRAL DE OBRA",
+      "subsections": [
+        {
+          "name": "CIERRE PERIMETRAL DE OBRA",
+          "groups": [
+            {
+              "name": "CIERRE RIGIDO MALLA ACMA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "27",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "28",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "PORTON DE ACCESO DE CIERRE ACMA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "29",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "30",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "MALLA RASCHEL GRIS GRAFITO EN TODO EL PERIMETRO Y EN BUEN ESTADO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "31",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "32",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "CIERRE DE ALTURA ADECUADA Y PANTALLAS SEGÚN SEA CONTIGUA A ZONAS HABITADAS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "33",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "34",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SEÑALÉTICAS DE ACCESO",
+      "subsections": [
+        {
+          "name": "SEÑALÉTICAS DE ACCESO",
+          "groups": [
+            {
+              "name": "LETRERO DE ACERCAMIENTO: INSTALADO, VISIBLE, EN BUEN ESTADO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "35",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "36",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "LETRERO ACCESO A OBRA: INSTALADO, VISIBLE, EN BUEN ESTADO.",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "37",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "38",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IDENTIFICACION DE RECINTOS",
+      "subsections": [
+        {
+          "name": "IDENTIFICACION DE RECINTOS",
+          "groups": [
+            {
+              "name": "OFICINAS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "39",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "40",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "COMEDOR",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "41",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "42",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "BAÑOS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "43",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "44",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "CAMARINES",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "45",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "46",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "ESTACIONAMIENTO VISITAS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "47",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "48",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "ESTACIONAMIENTO SUBCONTRATISTAS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "49",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "50",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "BODEGA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "51",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "52",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "BASURA DOMICILIARIA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "53",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "54",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "COMUNICACIÓN VISUAL DE PRACTICAS DE TRABAJO",
+      "subsections": [
+        {
+          "name": "COMUNICACIÓN VISUAL DE PRACTICAS DE TRABAJO",
+          "groups": [
+            {
+              "name": "LETREROS EN BUEN ESTADO DE CONSERVACION",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "55",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "56",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "LETREROS UBICADOS EN TODOS LOS FRENTES DE TRABAJO Y BIEN DISTRIBUIDOS  POR AREAS DE AVANCE",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "57",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "58",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "LETREROS DE AUTOCONTROL DE CALIDAD",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "59",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "60",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "LETREROS DE PRODUCTIVIDAD",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "61",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "62",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "LETEROS DE PREVENCION DE RIESGOS Y MEDIOAMBIENTE",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "63",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "64",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "INDUCCION EN OBRA",
+      "subsections": [
+        {
+          "name": "INDUCCION EN OBRA",
+          "groups": [
+            {
+              "name": "STATUS PLAN DE INDUCCION MANQUEHUE SOBRE 75%",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "65",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "66",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "STICKERS PDR EN CASCOS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "67",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "68",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "STICKERS RRHH  EN CASCOS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "69",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "70",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "STICKERS DE AUTOCONTROL EN CASCOS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "71",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "72",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "STICKERS DE MEJORA CONTINUA EN CASCOS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "73",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "74",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "INTRANET",
+      "subsections": [
+        {
+          "name": "INTRANET",
+          "groups": [
+            {
+              "name": "LICENCIAS DE ACCESO TODO EL EQUIPO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "75",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "76",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "CONECTIVIDAD A INTERNET EFECTIVA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "77",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "78",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UNIFORMES",
+      "subsections": [
+        {
+          "name": "UNIFORMES",
+          "groups": [
+            {
+              "name": "CASCOS MANQUEHUE",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "79",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "80",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "CASCOS SUBCONTRATOS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "81",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "82",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "CHALECOS GEOLOGOS TERRENO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "83",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "84",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "POLERA MAESTROS",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "85",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "86",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "CREDENCIAL MANQUEHUE",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "87",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "88",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "CREDENCIAL SUBCONTRATO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "89",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "90",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LIMPIEZA Y RECOLECCION DE BASURA DOMICILIARIA EN OBRA",
+      "subsections": [
+        {
+          "name": "LIMPIEZA Y RECOLECCION DE BASURA DOMICILIARIA EN OBRA",
+          "groups": [
+            {
+              "name": "BASUREROS SEGÚN TABLA MINIMA CATALOGO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "91",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "92",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "LIMPIEZA EFECTIVA DE CONTENEDORES A BOTADERO",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "93",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "94",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "ZONAS DE ESTACIONAMIENTO SUBCONTRATOS  SIN BASURA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "95",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "96",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "OBRA RECOLECTA Y RETIRA BASURA DOMICILIARIA EN FAENA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "97",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "98",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CERCO  ACCIDENTE",
+      "subsections": [
+        {
+          "name": "CERCO  ACCIDENTE",
+          "groups": [
+            {
+              "name": "OBRA RECOLECTA Y RETIRA  BASURA DOMICILIARIA EN FAENA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "99",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "100",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

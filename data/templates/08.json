@@ -1,0 +1,216 @@
+{
+  "id": "8",
+  "title": "Checklist Vías de Acceso",
+  "color": "#cd2626",
+  "abbr": "VA",
+  "sections": [
+    {
+      "name": "Vías de acceso",
+      "subsections": [
+        {
+          "name": "Vías de acceso",
+          "groups": [
+            {
+              "name": "Definición de radios de giro mínimos y máximos",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "1",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "2",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de Altura",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "3",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "4",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de Ancho",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "5",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "6",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de materialidad de la carpeta (Ripio? Tierra? Pavimentado? Asfaltado? Riego Asfálfito?)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "7",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "8",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de rutas internas (layout de las vías)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "9",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "10",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de cómo será el acceso a bodega (ruta, zona de carga/descarga y caracterísiticas anteriormente señaladas)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "11",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "12",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de programa de cambio de vías, según avance de obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "13",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "14",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Estimación de tiempo desde control de acceso hasta bodega y/o frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "15",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "16",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe plan de mantención (riego diario con agua? Sellante de carpeta antipolvo?) y el tipo de acceso (tierra? Ripio? Pavimentado?)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "17",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "18",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de ubicación de reductores de velocidad",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "19",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "20",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Vías de acceso se cruzan y no interfieren con el programa de urbanización",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "21",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Yes", "No", "N/A"]
+                },
+                {
+                  "item": "22",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

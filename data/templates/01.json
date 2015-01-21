@@ -1,6 +1,8 @@
 {
   "id": "1",
   "title": "Evaluación reunión de obra last planner",
+  "color": "#8b8378",
+  "abr": "LP",
   "sections": [
     {
       "name": "Participantes",

@@ -1,0 +1,488 @@
+{
+  "id": "6",
+  "title": "Check List Señalética",
+  "color": "#caff70",
+  "abbr": "SÑ",
+  "sections": [
+    {
+      "name": "Layout",
+      "subsections": [
+        {
+          "name": "Layout",
+          "groups": [
+            {
+              "name": "Layout de la obra ubicado en Sala de Reuniones",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "1",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "2",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Layout de la obra ubicado en terreno, a la vista de todos los trabajadores y visitas",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "3",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "4",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Layout de Bodegas en obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "5",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "6",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tránsito y Seguridad Vial de Vehículos y Maquinaria",
+      "subsections": [
+        {
+          "name": "Tránsito y Seguridad Vial de Vehículos y Maquinaria",
+          "groups": [
+            {
+              "name": "Tránsito y seguridad vial de peatones y vehículos",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "7",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "8",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Señalética de riesgos en el área de trabajo (matriz de riesgos)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "9",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "10",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Señalética de riesgos para uso de equipos y maquinarias (matriz de riesgos)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "11",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "12",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Vías de Evacuación de Emergencia",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "13",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "14",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Zonas de Seguridad",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "15",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "16",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RECINTOS DE OBRA",
+      "subsections": [
+        {
+          "name": "RECINTOS DE OBRA",
+          "groups": [
+            {
+              "name": "Demarcación y Señalética de ubicación para estacionamientos de subcontratos",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "17",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "18",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Demarcación y Señalética de ubicación para estacionamientos de visitas y equipo de obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "19",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "20",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Oficinas de Profesionales de obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "21",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "22",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Baños de Oficinas",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "23",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "24",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación Sala de Reuniones",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "25",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "26",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Bodega principal",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "27",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "28",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Patio Techado para almacenamiento de materiales",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "29",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "30",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Bodegas Intermedias en frente de trabajo (ejemplo: lugar de descarga y almacenamiento de ladrillos)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "31",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "32",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Comedor",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "33",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "34",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Zona de Acopio de Tierra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "35",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "36",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Zona de Acopio de Escombros",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "37",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "38",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Zona de Basura Doméstica",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "39",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "40",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Zona de  Residuos Peligrosos",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "41",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "42",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Zona de  Accidente",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "43",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "44",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Vías de Evacuación de Emergencia",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "45",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "46",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Zonas de Seguridad Incendios",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "47",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "48",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Zona de Seguridad Terremotos",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "49",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "50",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

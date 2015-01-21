@@ -1,0 +1,590 @@
+{
+  "id": "9",
+  "title": "Checklist Logísitca de obra",
+  "color": "#8b3a3a",
+  "abbr": "LO",
+  "sections": [
+    {
+      "name": "Frentes de trabajo",
+      "subsections": [
+        {
+          "name": "Frentes de trabajo",
+          "groups": [
+            {
+              "name": "Definición de cantidad de Frentes de Trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "1",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "2",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición número de cuadrillas, materiales. maquinaria, equipo y otros recursos necesarios, para cumplir ritmo programado",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "3",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "4",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existen al menos 3 alternativas de plan de ataque, es decir, si será en serie o en paralelo, o si serán 1, 2,…n frentes de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "5",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "6",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Estimación del ritmo de trabajo de especialidades de O.G., según sea el frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "7",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "8",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Estimación del ritmo de trabajo de especialidades de Terminaciones, según sea el frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "9",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "10",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Carga de trabajo por cuadrilla y capataz",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "11",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "12",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Secuencia constructiva",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "13",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "14",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Distribución de materiales  críticos a terreno",
+      "subsections": [
+        {
+          "name": "Distribución de materiales  críticos a terreno",
+          "groups": [
+            {
+              "name": "Definición del lugar dónde se percharán los materiales de techumbre (tejas) en frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "15",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "16",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición del lugar dónde se percharán los ladrillos en frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "17",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "18",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición del lugar dónde se perchará la enfierradura en frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "19",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "20",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de ubicación de bodegas intermedias para materiales de terminaciones",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "21",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "22",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de cuidado de materiales de terminación en terreno",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "23",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "24",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Accesibilidad servicios",
+      "subsections": [
+        {
+          "name": "Accesibilidad servicios",
+          "groups": [
+            {
+              "name": "Definición de la ubicación y cantidad de postes de electricidad",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "25",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "26",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de los puntos de agua en los diferentes puntos del frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "27",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "28",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de los puntos de electricidad en los diferentes puntos del frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "29",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "30",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Partidas de trabajo",
+      "subsections": [
+        {
+          "name": "Partidas de trabajo",
+          "groups": [
+            {
+              "name": "Análisis de variabilidad de las partidas de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "31",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "32",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de cuáles son las paartidas críticas de obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "33",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "34",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de cuánta holgura tienen cada una de las partidas críticas",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "35",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "36",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Definición de cuáles son los ritmos de trabajo para las partidas críticas",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "37",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "38",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Movimiento de Trabajadores",
+      "subsections": [
+        {
+          "name": "Movimiento de Trabajadores",
+          "groups": [
+            {
+              "name": "Tiempo estimado promedio diario de transporte entre frente de trabajo y baños",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "39",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "40",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Tiempo estimado promedio diario de transporte entre frente de trabajo y duchas",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "41",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "42",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Tiempo estimado promedio diario de transporte entre frente de trabajo y comedor.",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "43",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "44",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Se cuenta con Bodegas intermedias entre la bodega principal y el frente de trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "45",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "46",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe análisis de tiempo de transporte entre Bodega Principal y Bodegas Intermedias con el Frente de Trabajo.",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "47",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "48",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación del reloj control para posterior análsis de transportes internos y tiempos de traslado",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "49",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "50",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Análisis HH y Costos",
+      "subsections": [
+        {
+          "name": "Análisis HH y Costos",
+          "groups": [
+            {
+              "name": "Existe análisis de HH perdidas en por transportes o traslados",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "51",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "52",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Estimación de rendimientos",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "53",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "54",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe análisis de costos asociados HH perdidas en por trabajos re-hecho",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "55",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "56",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe análisis de costos asociados HH perdidas en por transportes o traslados",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "57",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "58",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

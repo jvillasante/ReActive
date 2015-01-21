@@ -1,11 +1,45 @@
-1. 
-  1.json - Evaluación reunión de obra last planner
-2.
-  2.json - Check List 6S
-3.
-  3.json - Bitacora
-  Asistencia (falta)
-4.
-5.
-6.
-7. 
+01.json
+  File: 1.- Autoevaluacion Reunion Last P lanner con Instrucciones V2.xlsm
+  Sheet: Tabla
+
+02.json
+  File: 2.- Check List 6S Bodegas Rev 28-07-14.xlsx
+  Sheet: Check List 6S
+  
+03.json
+  File: 3.- Acta de Restricciones ver5 (11-08-14).xlsm
+  Sheet: Bitacora
+
+04.json
+  File: 4.- Autoevaluación Mejora Continua v1 2014-11-20.xlsm
+  Sheet: Tabla
+
+05.json
+  File: 5.- Check List y Formatos 6S oficina.xlsx
+  Sheet: Check List 6S
+
+06.json
+  File: 6.- 817 030-Prácticas Lean v1.xlsx
+  Sheet: Senaletica
+  
+07.json
+  File: 6.- 817 030-Prácticas Lean v1.xlsx
+  Sheet: SEGURIDAD, PROTECCIONES Y RESGU
+
+08.json
+  File: 6.- 817 030-Prácticas Lean v1.xlsx
+  Sheet: VIAS DE ACCESO
+  
+09.json
+  File: 6.- 817 030-Prácticas Lean v1.xlsx
+  Sheet: LOGISTICA
+
+10.json
+  File: 6.- 817 030-Prácticas Lean v1.xlsx
+  Sheet: TIERRA, ESCOMBROS Y BASURA
+
+11.json
+  File: 6.- 817 030-Prácticas Lean v1.xlsx
+  Sheet: SELLO MANQUEHUE
+  
+  
