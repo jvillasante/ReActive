@@ -10,10 +10,10 @@ exports.createTemplates = function(callback) {
   templateProvider.removeAll(function(err) {
     if (err) { throw err; }
 
-    async.times(5, function(n, cb) {
+    async.times(12, function(n, cb) {
       let number = ((n + 1) < 10) ? '0' + (n + 1) : (n + 1);
       let json = require('../data/templates/' + number + '.json');
-      templateProvider.save(json.id, json.title, json, cb);
+      templateProvider.save(json, cb);
     }, function(err) {
       callback(err); 
     });

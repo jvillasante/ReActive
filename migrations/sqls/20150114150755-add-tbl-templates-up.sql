@@ -1,1 +1,1 @@
-CREATE TABLE templates (  id INT PRIMARY KEY NOT NULL,  title TEXT NOT NULL,  data JSON NOT NULL,  fields JSON NOT NULL,  created_at TIMESTAMP NOT NULL DEFAULT current_timestamp,  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp );
+CREATE TABLE templates (  id INT PRIMARY KEY NOT NULL,  id_pather INT NOT NULL DEFAULT 0,  is_pather BOOLEAN NOT NULL DEFAULT FALSE,  title TEXT NOT NULL,  data JSON NOT NULL,  fields JSON,  created_at TIMESTAMP NOT NULL DEFAULT current_timestamp,  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp);

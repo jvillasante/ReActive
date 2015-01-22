@@ -30,6 +30,27 @@ exports.createPermissions = function(callback) {
       function(cb) {
         permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[4], cb);
       },
+      function(cb) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[5], cb);
+      },
+      function(cb) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[6], cb);
+      },
+      function(cb) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[7], cb);
+      },
+      function(cb) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[8], cb);
+      },
+      function(cb) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[9], cb);
+      },
+      function(cb) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[10], cb);
+      },
+      function(cb) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[0], uuids.templates[11], cb);
+      },
     ], function(err, results) {
       callback(err);
     });
