@@ -23,7 +23,8 @@ This is the repo for the ReActive node.js project
 * `DELETE /api/v1/projects/:id` (Remove project by id)       (admin)
   
 ##Template Routes
-* `GET /api/v1/projects/:id/templates` (all templates by user and project) (user, admin)
+* `GET /api/v1/projects/:id/templates`                        (all templates by user and project) (user, admin)
+* `GET /api/v1/projects/:projectId/templates/parentId/childs` (all child templates by user and project and parent) (user, admin)
 
 ##Report Routes
 * `GET /api/v1/reports`     (All reports by user)          (user, admin)
