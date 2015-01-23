@@ -59,8 +59,8 @@ router.route('/projects/:id')
 // Template routes
 router.route('/projects/:projectId/templates')  
   .get(routes.auth.isAuthenticated, routes.templates.allByProject);          // all templates by user and project
-router.route('/projects/:projectId/templates/:patherId/childs')  
-  .get(routes.auth.isAuthenticated, routes.templates.allByProjectAndPather); // all templates by user and project
+router.route('/projects/:projectId/templates/:parentId/childs')  
+  .get(routes.auth.isAuthenticated, routes.templates.allByProjectAndParent); // all templates by user and project
 
 // Report routes
 router.route('/projects/:projectId/templates/:templateId/reports')  

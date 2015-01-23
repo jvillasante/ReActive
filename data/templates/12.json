@@ -1,7 +1,7 @@
 {
   "id": "12",
-  "id_pather": "6",
-  "is_pather": false,
+  "id_parent": "6",
+  "is_parent": false,
   "title": "CHECKLIST SELLO MANQUEHUE",
   "color": "#ff4500",
   "abbr": "SM",

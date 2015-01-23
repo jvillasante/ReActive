@@ -1,7 +1,7 @@
 {
   "id": "1",
-  "id_pather": "0",
-  "is_pather": false,
+  "id_parent": "0",
+  "is_parent": false,
   "title": "Evaluación reunión de obra last planner",
   "color": "#8b8378",
   "abr": "LP",

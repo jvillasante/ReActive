@@ -19,10 +19,10 @@ exports.allByProject = function(req, res, next) {
   }));
 };
 
-exports.allByProjectAndPather = function(req, res, next) {
+exports.allByProjectAndParent = function(req, res, next) {
   let templateProvider = new TemplateProvider(req.connectionStr);
   
-  templateProvider.findAllByUserAndProjectAndPather(req.user.id, req.params.projectId, req.params.patherId, errTo(next, function(templateData) {
+  templateProvider.findAllByUserAndProjectAndParent(req.user.id, req.params.projectId, req.params.parentId, errTo(next, function(templateData) {
     if (!templateData) {
       return next(Err("template not found", { code: 404, description: "No template found for user: " + 
               req.user.username + " and project: " + req.params.projectId + ".", errors: []}));

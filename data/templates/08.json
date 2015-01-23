@@ -1,7 +1,7 @@
 {
   "id": "8",
-  "id_pather": "6",
-  "is_pather": false,
+  "id_parent": "6",
+  "is_parent": false,
   "title": "Checklist Seguridad, Protecciones y Resguardo",
   "color": "#b4eeb4",
   "abbr": "PR",

@@ -1,7 +1,7 @@
 {
   "id": "11",
-  "id_pather": "6",
-  "is_pather": false,
+  "id_parent": "6",
+  "is_parent": false,
   "title": "Checklist Tierra, Escombros y Basura",
   "color": "#eee685",
   "abbr": "EB",

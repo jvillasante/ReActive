@@ -1,7 +1,7 @@
 {
   "id": "4",
-  "id_pather": "0",
-  "is_pather": false,
+  "id_parent": "0",
+  "is_parent": false,
   "title": "Evaluación Monitores Mejora Continua",
   "color": "#66cd00",
   "abbr": "MC",

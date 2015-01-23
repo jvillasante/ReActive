@@ -1,7 +1,7 @@
 {
   "id": "10",
-  "id_pather": "6",
-  "is_pather": false,
+  "id_parent": "6",
+  "is_parent": false,
   "title": "Checklist Logísitca de obra",
   "color": "#8b3a3a",
   "abbr": "LO",

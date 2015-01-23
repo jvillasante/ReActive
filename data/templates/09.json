@@ -1,7 +1,7 @@
 {
   "id": "9",
-  "id_pather": "6",
-  "is_pather": false,
+  "id_parent": "6",
+  "is_parent": false,
   "title": "Checklist Vías de Acceso",
   "color": "#cd2626",
   "abbr": "VA",

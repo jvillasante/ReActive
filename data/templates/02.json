@@ -1,7 +1,7 @@
 {
   "id": "2",
-  "id_pather": "0",
-  "is_pather": false,
+  "id_parent": "0",
+  "is_parent": false,
   "title": "Check List 6S",
   "color": "#0000ee",
   "abr": "6S",
