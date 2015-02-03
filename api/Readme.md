@@ -21,7 +21,7 @@ This is the repo for the ReActive node.js project
 * `GET    /api/v1/projects/:id` (Show project by id)         (user, admin)
 * `PATCH  /api/v1/projects/:id` (Update project by id)       (admin)
 * `DELETE /api/v1/projects/:id` (Remove project by id)       (admin)
-  
+
 ##Template Routes
 * `GET /api/v1/projects/:id/templates`                        (all templates by user and project) (user, admin)
 * `GET /api/v1/projects/:projectId/templates/parentId/childs` (all child templates by user and project and parent) (user, admin)
@@ -30,7 +30,7 @@ This is the repo for the ReActive node.js project
 * `GET /api/v1/reports`     (All reports by user)          (user, admin)
 * `GET /api/v1/reports/:id` (Show report by user and id)   (user, admin)
 * `PUT /api/v1/reports/:id` (Update report by user and id) (user, admin)
-  
+
 * `GET  /api/v1/projects/:id/templates/:id/reports` (All reports by user and project and template)   (user, admin)
 * `POST /api/v1/projects/:id/templates/:id/reports` (Create report by user and project and template) (user, admin)
 * `GET  /api/v1/projects/:id/reports`               (All reports by user and project)                (user, admin)
@@ -86,7 +86,7 @@ This is the repo for the ReActive node.js project
 ##Node modules:
 * $ npm init
 * $ npm install --save express body-parser morgan validator async lodash errto custom-err bcrypt
-* $ npm install --save pg pg-native 
+* $ npm install --save pg pg-native
 * $ npm install --save passport passport-http
 * $ npm install --save-dev mocha should sinon proxyquire supertest db-migrate
 
@@ -108,7 +108,7 @@ apidoc -i routes/docs/ -o public/apidoc/
   - 3001: hashing error
 * unknown errors
   - 4001: async error
-  
+
 ##HTTP methods (verbs):
 * GET: This method is used to retrieve information for the requested resource.
 * HEAD: This method is similar to GET, but should not contain the message body in the response. It is uselfull to
@@ -138,7 +138,7 @@ apidoc -i routes/docs/ -o public/apidoc/
       }]
 
 ##HTTP status codes:
-* 1xx - informational 
+* 1xx - informational
 * 2xx - success (The request has been received, understood, and accepted by the server)
   - 200 OK: This status code indicates that the request has succeeded.
   - 201 Created: This status code indicates that the request has succeeded and a new resource has been created.
@@ -172,4 +172,4 @@ apidoc -i routes/docs/ -o public/apidoc/
   - 501 Not Implemented: This is used when the server does not recognize the request method.
   - 503 Service Unavailable: This indicates that the server was unable to handle the request at the time due to a
     temporary overload or maintenance.
-    
+
