@@ -83,7 +83,7 @@ var Login = React.createClass({
                   <fieldset>
                     <div className="row">
                       <div className="center-block">
-                        <img className="profile-img" src="/images/photo.png" alt="" />
+                        <img className="profile-img" src="images/photo.png" alt="" />
                       </div>
                     </div>
                     <div className="row">

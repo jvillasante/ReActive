@@ -1,13 +1,13 @@
 'use strict';
 
-var API_ROOT = "http://localhost:3002/api/v1";
+var apiRoot = require('../../config/config.json').production;
 var superagent = require('superagent');
 var SessionStore = require('../stores/SessionStore');
 
 module.exports = {
   createSession: function(data, success, failure) {
     superagent
-      .post(API_ROOT + '/login')
+      .post(apiRoot + '/login')
       .set('Accept', 'application/json')
       .send(data)
       .end(function(res) {
@@ -23,9 +23,10 @@ module.exports = {
         }
       });
   },
+
   getProjects: function(success, failure) {
     superagent
-      .get(API_ROOT + '/all/projects')
+      .get(apiRoot + '/all/projects')
       .set('Accept', 'application/json')
       .set('Authorization', 'Bearer ' + SessionStore.getToken())
       .send()

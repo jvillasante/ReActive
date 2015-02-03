@@ -58,7 +58,7 @@ var Master = React.createClass({
     var brand = (
       <span className="navbar-logo">
         <a className="navbar-brand" href="/#">
-          <img src="/images/logo-small.png" width="38" height="38" alt="ReActive" />
+          <img src="images/logo-small.png" width="38" height="38" alt="ReActive" />
           ReActive
         </a>
       </span>
