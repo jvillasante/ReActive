@@ -1,0 +1,58 @@
+{
+  "id": "6",
+  "id_parent": "0",
+  "is_parent": true,
+  "title": "Prácticas Lean",
+  "color": "#d5f45d",
+  "abbr": "PL",
+  "childs": [
+    {
+      "id": "7",
+      "id_parent": "6",
+      "is_parent": false,
+      "title": "Check List Señalética",
+      "color": "#caff70",
+      "abbr": "SÑ"
+    },
+    {
+      "id": "8",
+      "id_parent": "6",
+      "is_parent": false,
+      "title": "Checklist Seguridad, Protecciones y Resguardo",
+      "color": "#b4eeb4",
+      "abbr": "PR"
+    },
+    {
+      "id": "9",
+      "id_parent": "6",
+      "is_parent": false,
+      "title": "Checklist Vías de Acceso",
+      "color": "#cd2626",
+      "abbr": "VA"
+    },
+    {
+      "id": "10",
+      "id_parent": "6",
+      "is_parent": false,
+      "title": "Checklist Logísitca de obra",
+      "color": "#8b3a3a",
+      "abbr": "LO"
+    },
+    {
+      "id": "11",
+      "id_parent": "6",
+      "is_parent": false,
+      "title": "Checklist Tierra, Escombros y Basura",
+      "color": "#eee685",
+      "abbr": "EB"
+    },
+    {
+      "id": "12",
+      "id_parent": "6",
+      "is_parent": false,
+      "title": "CHECKLIST SELLO MANQUEHUE",
+      "color": "#ff4500",
+      "abbr": "SM"
+    }
+  ]
+}

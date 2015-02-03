@@ -1,0 +1,57 @@
+{
+  "name": "ReActiveApi",
+  "version": "0.1.0",
+  "description": "ReActive backend api",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test node ./node_modules/.bin/mocha --harmony --reporter spec test/functional/ --timeout 10000 --slow 2000",
+    "start": "NODE_ENV=development node --harmony ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.assembla.com/reactive.git"
+  },
+  "author": "Julio C. Villasante <jvillasantegomez@gmail.com> (http://jvillasante.github.io/)",
+  "license": "MIT",
+  "apidoc": {
+    "name": "reactive-api",
+    "version": "1.0.0",
+    "description": "reactive backend api - Innobis",
+    "title": "ReActive API",
+    "url": "http://reactive.innobis.cl/api/v1"
+  },
+  "dependencies": {
+    "async": "~0.9.0",
+    "basic-auth-connect": "~1.0.0",
+    "bcrypt": "~0.8.0",
+    "body-parser": "~1.10.1",
+    "custom-err": "0.0.2",
+    "errto": "~0.2.1",
+    "express": "~4.10.7",
+    "jwt-simple": "^0.2.0",
+    "lodash": "~2.4.1",
+    "morgan": "~1.5.1",
+    "passport": "~0.2.1",
+    "passport-http": "~0.2.2",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0",
+    "pg": "~4.1.1",
+    "pg-native": "~1.7.3",
+    "validator": "~3.27.0"
+  },
+  "devDependencies": {
+    "db-migrate": "~0.8.0",
+    "faker": "~2.1.2",
+    "jwt-async": "^1.0.1",
+    "mocha": "~2.1.0",
+    "node-uuid": "~1.4.2",
+    "optimist": "~0.6.1",
+    "proxyquire": "~1.3.0",
+    "should": "~4.4.4",
+    "sinon": "~1.12.2",
+    "supertest": "~0.15.0"
+  }
+}

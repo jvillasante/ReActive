@@ -1,0 +1,114 @@
+// =============================================================================
+// Navigation Bar
+// =============================================================================
+
+@import "../../node_modules/bootstrap/less/navbar.less";
+
+body {
+  padding: @navbar-height 0;
+  overflow-y: scroll;
+}
+
+.navbar-top {
+  &:extend(.navbar);
+  &:extend(.navbar-inverse);
+  &:extend(.navbar-fixed-top);
+}
+
+.navbar-brand {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /*color: #00d8ff !important;*/
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  img {
+    margin-right: 5px;
+    display: inline;
+  }
+}
+
+@bgDefault      : #3498db;
+@bgHighlight    : #8e44ad;
+@colDefault     : #ecf0f1;
+@colHighlight   : #ecdbff;
+@dropDown       : true;
+.ddm() when (@dropDown) {
+  > .dropdown-menu {
+    background-color: @bgDefault;
+    > li > a {
+      color: @colDefault;
+      &:hover,  &:focus {
+        color: @colHighlight;
+        background-color: @bgHighlight; }}
+    .divider {
+      background-color: @bgHighlight;}}}
+.navbar-default {
+  background-color: @bgDefault;
+  border-color: @bgHighlight;
+  .navbar-brand {
+    color: @colDefault;
+    &:hover, &:focus { 
+      color: @colHighlight; }}
+  .navbar-text {
+    color: @colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: @colDefault;
+        &:hover,  &:focus {
+          color: @colHighlight; }}
+      .ddm }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background-color: @bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background-color: @bgHighlight; }}}
+  .navbar-toggle {
+    border-color: @bgHighlight;
+    &:hover, &:focus {
+      background-color: @bgHighlight; }
+    .icon-bar {
+      background-color: @colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: @colDefault; }
+  .navbar-link {
+    color: @colDefault;
+    &:hover {
+      color: @colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: @colDefault;
+      &:hover, &:focus {
+        color: @colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus, {
+        color: @colHighlight;
+        background-color: @bgHighlight; }}}
+}
+
+//
+// Navigation Footer
+// -----------------------------------------------------------------------------
+
+.navbar-footer {
+  &:extend(.navbar);
+  &:extend(.navbar-fixed-bottom);
+
+  background-color: darken(@body-bg, 2%);
+
+  .text-muted {
+    margin-top: 1em;
+
+    span + span:before {
+      content: "\2022\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+      padding: 0 3px 0 7px;
+    }
+  }
+}

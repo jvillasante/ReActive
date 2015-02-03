@@ -1,0 +1,412 @@
+{
+  "id": "11",
+  "id_parent": "6",
+  "is_parent": false,
+  "title": "Checklist Tierra, Escombros y Basura",
+  "color": "#eee685",
+  "abbr": "EB",
+  "sections": [
+    {
+      "name": "Zonas",
+      "subsections": [
+        {
+          "name": "Zonas",
+          "groups": [
+            {
+              "name": "Existe zona de acopio de tierra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "1",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "2",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe zona de acopio de escombros",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "3",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "4",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe zona de acopio de basura",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "5",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "6",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Demarcación",
+      "subsections": [
+        {
+          "name": "Demarcación",
+          "groups": [
+            {
+              "name": "Demarcación zona de acopio de tierra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "7",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "8",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Demarcación zona de acopio de escombros",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "9",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "10",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Demarcación zona de acopio de basura doméstica",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "11",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "12",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Transporte",
+      "subsections": [
+        {
+          "name": "Transporte",
+          "groups": [
+            {
+              "name": "Tierra: Existe análisis de tiempo de transporte desde zona de acopio hasta Frente de Trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "13",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "14",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Escombros: Existe análisis de tiempo de transporte desde zona de acopio hasta Frente de Trabajo",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "15",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "16",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Basura: Existe análisis de tiempo de transporte desde zona de acopio hasta Frente de Trabajo e Instalación de Faenas",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "17",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "18",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Capacidad",
+      "subsections": [
+        {
+          "name": "Capacidad",
+          "groups": [
+            {
+              "name": "Cuantificación de cuántos m3 de tierra de son capaces de almacenarse en la zona de acopio de tierra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "19",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "20",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Cuantificación de cuántos m3 de escombros son capaces de almacenarse en la zona de acopio de escombros",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "21",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "22",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Cuantificación de cuántos m3 de basura cotidiana son capaces de almacenarse en la zona de acopio de basura doméstica",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "23",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "24",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plan de retiro",
+      "subsections": [
+        {
+          "name": "Plan de retiro",
+          "groups": [
+            {
+              "name": "Vertedero (o destino final) de la tierra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "25",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "26",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Botadero final de escombros",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "27",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "28",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Vertedero donde se destinará la basura doméstica",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "29",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "30",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Cuantificación de la cantidad y frecuencia de camiones semanales a contratar, necesaria para el retiro de tierra (para la fase en que se encuentre la obra)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "31",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "32",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Cuantificación de la cantidad y frecuencia de camiones semanales a contratar, necesaria para el retiro de escombros (para la fase en que se encuentre la obra)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "33",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "34",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Cuantificación de la cantidad y frecuencia de camiones semanales a contratar, necesaria para el retiro de basura cotidiana (para la fase en que se encuentre la obra)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "35",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "36",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ahorros",
+      "subsections": [
+        {
+          "name": "Ahorros",
+          "groups": [
+            {
+              "name": "Existe estimación de ahorro monetario por separación de la tierra de los escombros y basura doméstica",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "38",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "38",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

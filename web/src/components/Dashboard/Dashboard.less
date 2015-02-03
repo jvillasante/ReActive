@@ -1,0 +1,114 @@
+@import "../../../node_modules/react-select/less/default.less";
+@import (less) '../../../node_modules/react-bootstrap-daterangepicker/css/daterangepicker-bs3.css';
+
+.project-input {
+  h1 {
+    padding-top: 5px;
+    margin-left: 5px;
+    font-size: 1.1em;
+    height: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .selected-date-range-btn {
+    display: inline-block;
+    height: 39px;
+    width: 100%;
+  }
+
+  .global-report-box {
+    position: relative;
+    margin-top: 20px;
+
+    .card-charts{
+      background-color:#FAFAFA;
+      border:1px solid #E2E2E2;
+      margin-bottom:28px;
+    }
+
+    .main-card{
+      min-height: 300px;
+    }
+
+    .main-card-header{
+      background-color:#FFF;
+      border-bottom:solid 1px #EAEAEA;
+    }
+
+    .main-card-title{
+      font-family: 'Lato', sans-serif;
+      font-size:16px;
+      display:inline-block;
+      padding-left:20px;
+      line-height:60px;
+    }
+
+    .main-card-icon-nav{
+      float:right;
+      display:inline-block;
+    }
+
+    .main-card-icon-button{
+      float:left;
+      line-height:60px;
+      padding:0 25px;
+      border-left:1px solid #EAEAEA;
+      font-family: 'Lato', sans-serif;
+      color:#7E7E7E;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    .main-card-icon-button:hover{
+      color:#FFF;
+      background-color:#3498DB;
+    }
+  }
+}
+
+.dashboard-graphics {
+  .card-charts {
+    background-color:#FAFAFA;
+    border:1px solid #E2E2E2;
+    margin-bottom:28px;
+  }
+
+  .small-card {
+    width: 100%;
+    min-height:150px;
+  }
+
+  .main-card-header {
+    background-color:#FFF;
+    border-bottom:solid 1px #EAEAEA;
+  }
+
+  .icon-card-header{
+    font-size: 18px;
+    display: inline-block;
+    line-height: 60px;
+    padding:0 20px;
+    color:#818181;
+    cursor:pointer;
+  }
+
+  .card-title {
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+    line-height: 20px;
+    font-size: 16px;
+    color:#818181;
+    margin-left:5px;
+  }
+}
+
+@media (max-width: 799px) {
+  .project-input {
+    .project-input-select {
+      margin-top: 10px;
+    }
+  }
+}
+
+
