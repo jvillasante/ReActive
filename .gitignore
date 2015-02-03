@@ -16,6 +16,7 @@ api/wrk_conf.lua
 
 # web project
 web/build
+web/build/*
 web/bower_components
 web/node_modules
 web/npm-debug.log
