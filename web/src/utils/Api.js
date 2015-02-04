@@ -1,13 +1,13 @@
 'use strict';
 
-var apiRoot = require('../../config/config.json').production;
+var API_ROOT = "http://reactive.innobis.cl/api/v1";
 var superagent = require('superagent');
 var SessionStore = require('../stores/SessionStore');
 
 module.exports = {
   createSession: function(data, success, failure) {
     superagent
-      .post(apiRoot + '/login')
+      .post(API_ROOT + '/login')
       .set('Accept', 'application/json')
       .send(data)
       .end(function(res) {
@@ -26,7 +26,7 @@ module.exports = {
 
   getProjects: function(success, failure) {
     superagent
-      .get(apiRoot + '/all/projects')
+      .get(API_ROOT + '/all/projects')
       .set('Accept', 'application/json')
       .set('Authorization', 'Bearer ' + SessionStore.getToken())
       .send()
