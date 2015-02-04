@@ -53,11 +53,16 @@ var Master = React.createClass({
     }
   },
 
+  _onHomeClick: function(evt) {
+    evt.preventDefault();
+    this.transitionTo('/');
+  },
+
   render: function() {
     var auth = this.getAuthButton();
     var brand = (
       <span className="navbar-logo">
-        <a className="navbar-brand" href="/#">
+        <a className="navbar-brand" href="#">
           <img src="images/logo-small.png" width="38" height="38" alt="ReActive" />
           ReActive
         </a>
@@ -83,8 +88,8 @@ var Master = React.createClass({
           <div className="container">
             <p className="text-muted">
               <span>© Innobis</span>
-              <span><a href="/#">Home</a></span>
-              <span><a href="/#">About</a></span>
+              <span><a href="#">Home</a></span>
+              <span><a href="#">About</a></span>
             </p>
           </div>
         </div>

@@ -108,7 +108,7 @@ var ProjectInput = React.createClass({
           </div>
         </Panel>
 
-        <GlobalReportTable />
+        <GlobalReportTable data={this.state.selectedOptions} />
       </div>
     );
   },

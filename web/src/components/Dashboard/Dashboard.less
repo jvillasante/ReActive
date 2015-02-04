@@ -18,7 +18,6 @@
   }
 
   .global-report-box {
-    position: relative;
     margin-top: 20px;
 
     .card-charts{
@@ -28,7 +27,9 @@
     }
 
     .main-card{
-      min-height: 300px;
+      clear: both;
+      overflow: hidden;
+      height: 1%;
     }
 
     .main-card-header{
@@ -64,6 +65,28 @@
       color:#FFF;
       background-color:#3498DB;
     }
+
+    .global-report-projects {
+      float: left;
+      display: inline;
+      width: 20%;
+      height: 400px;
+
+      h1 {
+        margin-top: 10px;
+        text-align: center;
+      }
+    }
+
+    .global-report-tabs {
+      float: right;
+      display: inline;
+      width: 80%;
+
+      ul.nav-tabs {
+        text-transform: uppercase;
+      }
+    }
   }
 }
 
@@ -76,7 +99,7 @@
 
   .small-card {
     width: 100%;
-    min-height:150px;
+    min-height:200px;
   }
 
   .main-card-header {
@@ -111,4 +134,6 @@
   }
 }
 
-
+.column-class {
+  color: red;
+}

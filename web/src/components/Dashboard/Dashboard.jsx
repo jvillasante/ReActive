@@ -7,7 +7,7 @@ var ProjectInput = require('./ProjectInput');
 var Graphics = require('./Graphics');
 
 var Dashboard = React.createClass({
-  mixins: [Authentication],
+  //mixins: [Authentication],
 
   render: function() {
     return (
