@@ -2,74 +2,35 @@
 
 require('./Dashboard.less');
 var React = require('react');
-var Griddle = require('griddle-react');
-var ReactBootstrap = require('react-bootstrap');
-var TabbedArea = ReactBootstrap.TabbedArea;
-var TabPane = ReactBootstrap.TabPane;
+var SimpleTable = require('react-simple-table');
 
-var columnMetadata = [
-  {
-    columnName: "label",
-    displayName: "Nombre del Proyecto"
-  }
+var projects = [
+  ['project1'],
+  ['project2'],
+  ['project3'],
+  ['project4'],
+  ['project5'],
 ];
 
-var sistemaLastPlanner = {
-  columns: ['column1', 'column2', 'column3', 'column4', 'column5'],
-  columnMetadata: [
-    {
-      columnName: 'column1',
-      displayName: 'Participacion Reunion',
-      cssClassName: 'column-class'
-    },
-    {
-      columnName: 'column2',
-      displayName: 'Registros e Indicaciones'
-    },
-    {
-      columnName: 'column3',
-      displayName: 'Planificacion Semana Anterior'
-    },
-    {
-      columnName: 'column4',
-      displayName: 'Plan Intermedio'
-    },
-    {
-      columnName: 'column5',
-      displayName: 'Planificacion Semanal'
-    }
-  ],
-  results: [
-    {
-      column1: 40,
-      column2: 60,
-      column3: 80,
-      column4: 100,
-      column5: 75
-    },
-    {
-      column1: 40,
-      column2: 60,
-      column3: 80,
-      column4: 100,
-      column5: 75
-    },
-    {
-      column1: 40,
-      column2: 60,
-      column3: 80,
-      column4: 100,
-      column5: 75
-    },
-    {
-      column1: 40,
-      column2: 60,
-      column3: 80,
-      column4: 100,
-      column5: 75
-    },
-  ],
-};
+var data = [
+  [10, 30, 50, 80, 90],
+  [10, 30, 50, 80, 90],
+  [10, 30, 50, 80, 90],
+  [10, 30, 50, 80, 90],
+  [10, 30, 50, 80, 90],
+];
+
+function slpData(data) {
+  return data.map(function(row) {
+    return (
+      <tr>
+        {row.map(function(cell) {
+          return <td>{cell}</td>;
+        })}
+      </tr>
+    );
+  });
+}
 
 var GeneralTable = React.createClass({
   render: function() {
@@ -95,34 +56,79 @@ var GeneralTable = React.createClass({
               </div>
             </div>
           </div>
-          <div className="global-report-projects">
-            <h1>Proyectos</h1>
-            <Griddle
-              results={this.props.data}
-              columns={["label"]}
-              columnMetadata={columnMetadata}
-              resultsPerPage={8}
-              nextText="Siguiente"
-              previousText="Anterior"
-            />
+
+          <div className="col-md-3">
+            <h3 className="sub-header">Proyectos</h3>
+            <div className="table-responsive">
+              <table className="table table-condensed table-header-rotated">
+                <thead>
+                  <tr>
+                    <th className="rotate-45"><div><span></span></div></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {slpData(projects)}
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div className="global-report-tabs">
-            <TabbedArea defaultActiveKey={1}>
-              <TabPane eventKey={1} tab="Sistema Last Planner">
-                <Griddle
-                  results={sistemaLastPlanner.results}
-                  columns={sistemaLastPlanner.columns}
-                  columnMetadata={sistemaLastPlanner.columnMetadata}
-                  resultsPerPage={8}
-                  nextText="Siguiente"
-                  previousText="Anterior"
-                />
-              </TabPane>
-              <TabPane eventKey={2} tab="Método 6S Bodega">
-              </TabPane>
-              <TabPane eventKey={3} tab="Prácticas Lean">
-              </TabPane>
-            </TabbedArea>
+          <div className="col-md-3">
+            <h3 className="sub-header">Sistema Last Planner</h3>
+            <div className="table-responsive">
+            <table className="table table-condensed table-header-rotated">
+              <thead>
+                <tr>
+                  <th className="rotate-45"><div><span>Participacion Reunion</span></div></th>
+                  <th className="rotate-45"><div><span>Registros e Indicadores</span></div></th>
+                  <th className="rotate-45"><div><span>Planificacion Semana Anterior</span></div></th>
+                  <th className="rotate-45"><div><span>Plan Intermedio</span></div></th>
+                  <th className="rotate-45"><div><span>Planificacion Semanal</span></div></th>
+                </tr>
+              </thead>
+              <tbody>
+                {slpData(data)}
+              </tbody>
+            </table>
+            </div>
+          </div>
+          <div className="col-md-3">
+            <h3 className="sub-header">Metodo 6S Bodega</h3>
+            <div className="table-responsive">
+            <table className="table table-condensed table-header-rotated">
+              <thead>
+                <tr>
+                  <th className="rotate-45"><div><span>S1 Separar-Poner En</span></div></th>
+                  <th className="rotate-45"><div><span>S2 Situar</span></div></th>
+                  <th className="rotate-45"><div><span>S3 Suprimir</span></div></th>
+                  <th className="rotate-45"><div><span>S4 Sennalizar</span></div></th>
+                  <th className="rotate-45"><div><span>S6 Seguridad</span></div></th>
+                </tr>
+              </thead>
+              <tbody>
+                {slpData(data)}
+              </tbody>
+            </table>
+            </div>
+          </div>
+          <div className="col-md-3">
+            <h3 className="sub-header">Practicas Lean</h3>
+            <div className="table-responsive">
+            <table className="table table-condensed table-header-rotated">
+              <thead>
+                <tr>
+                  <th className="rotate-45"><div><span>Checklist Sennaletica</span></div></th>
+                  <th className="rotate-45"><div><span>Checklist Seguridad y Protecciones</span></div></th>
+                  <th className="rotate-45"><div><span>Checklist Vias de Acceso</span></div></th>
+                  <th className="rotate-45"><div><span>Cehcklist Logistica</span></div></th>
+                  <th className="rotate-45"><div><span>Checklist Tierra, Escombros y Basura</span></div></th>
+                  <th className="rotate-45"><div><span>Sello Manquehue</span></div></th>
+                </tr>
+              </thead>
+              <tbody>
+                {slpData(data)}
+              </tbody>
+            </table>
+            </div>
           </div>
         </div>
       </div>
