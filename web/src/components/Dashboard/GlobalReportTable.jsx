@@ -4,34 +4,6 @@ require('./Dashboard.less');
 var React = require('react');
 var SimpleTable = require('react-simple-table');
 
-var projects = [
-  ['project1'],
-  ['project2'],
-  ['project3'],
-  ['project4'],
-  ['project5'],
-];
-
-var data = [
-  [10, 30, 50, 80, 90],
-  [10, 30, 50, 80, 90],
-  [10, 30, 50, 80, 90],
-  [10, 30, 50, 80, 90],
-  [10, 30, 50, 80, 90],
-];
-
-function slpData(data) {
-  return data.map(function(row) {
-    return (
-      <tr>
-        {row.map(function(cell) {
-          return <td>{cell}</td>;
-        })}
-      </tr>
-    );
-  });
-}
-
 var GeneralTable = React.createClass({
   render: function() {
     return (
@@ -60,14 +32,20 @@ var GeneralTable = React.createClass({
           <div className="col-md-3">
             <h3 className="sub-header">Proyectos</h3>
             <div className="table-responsive">
-              <table className="table table-condensed table-header-rotated">
+              <table className="table table-condensed projects-table table-header-rotated">
                 <thead>
                   <tr>
                     <th className="rotate-45"><div><span></span></div></th>
                   </tr>
                 </thead>
                 <tbody>
-                  {slpData(projects)}
+                  {this.props.projects.map(function(row) {
+                    return (
+                      <tr>
+                        return <td>{row.label}</td>;
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
@@ -86,7 +64,15 @@ var GeneralTable = React.createClass({
                 </tr>
               </thead>
               <tbody>
-                {slpData(data)}
+                {this.props.table1.map(function(row) {
+                  return (
+                    <tr>
+                      {row.map(function(cell) {
+                        return <td className={'cell-' + cell}>{cell}</td>;
+                      })};
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
             </div>
@@ -105,7 +91,15 @@ var GeneralTable = React.createClass({
                 </tr>
               </thead>
               <tbody>
-                {slpData(data)}
+                {this.props.table2.map(function(row) {
+                  return (
+                    <tr>
+                      {row.map(function(cell) {
+                        return <td className={'cell-' + cell}>{cell}</td>;
+                      })};
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
             </div>
@@ -125,7 +119,15 @@ var GeneralTable = React.createClass({
                 </tr>
               </thead>
               <tbody>
-                {slpData(data)}
+                {this.props.table3.map(function(row) {
+                  return (
+                    <tr>
+                      {row.map(function(cell) {
+                        return <td className={'cell-' + cell}>{cell}</td>;
+                      })};
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
             </div>

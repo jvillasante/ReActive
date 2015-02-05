@@ -11,11 +11,19 @@ var DateRangePicker = require('react-bootstrap-daterangepicker');
 var Api = require('../../utils/Api');
 var GlobalReportTable = require('./GlobalReportTable');
 
+var ran = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 var getSelectOptions = function(input, callback) {
   Api.getProjects(function(res) {
     var options = [];
     res.projects.forEach(function(project) {
-      options.push({ id: project.id, value: project.name, label: project.name });
+      options.push({
+        id: project.id,
+        value: project.name,
+        label: project.name
+      });
     });
     callback(null, {
       options: options,
@@ -53,7 +61,10 @@ var ProjectInput = React.createClass({
       selectedValues: null,
       selectedOptions: [],
       startDate: moment().subtract(29, 'days'),
-      endDate: moment()
+      endDate: moment(),
+      table1: [],
+      table2: [],
+      table3: [],
     };
   },
 
@@ -65,9 +76,24 @@ var ProjectInput = React.createClass({
   },
 
   handleSelectChange: function(val, selectedOptions) {
+    var table1 = [];
+    var table2 = [];
+    var table3 = [];
+
+    if (val && val.length !== 0) {
+      val.split('|').forEach(function(value) {
+        table1.push([ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100)]);
+        table2.push([ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100)]);
+        table3.push([ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100)]);
+      });
+    }
+
     this.setState({
       selectedValues: (val === '') ? null : val,
-      selectedOptions: selectedOptions
+      selectedOptions: selectedOptions,
+      table1: table1,
+      table2: table2,
+      table3: table3,
     });
   },
 
@@ -108,7 +134,11 @@ var ProjectInput = React.createClass({
           </div>
         </Panel>
 
-        <GlobalReportTable data={this.state.selectedOptions} />
+        <GlobalReportTable
+          projects={this.state.selectedOptions}
+          table1={this.state.table1}
+          table2={this.state.table2}
+          table3={this.state.table3} />
       </div>
     );
   },
