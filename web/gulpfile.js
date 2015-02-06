@@ -38,7 +38,9 @@ var pkgs = (function() {
   var pkgs = {};
   var map = function(source) {
     for (var key in source) {
-      pkgs[key.replace(/[^a-z0-9]/gi, '')] = source[key].substring(1);
+      if (source.hasOwnProperty(key)) {
+        pkgs[key.replace(/[^a-z0-9]/gi, '')] = source[key].substring(1);
+      }
     }
   };
   map(require('./package.json').dependencies);

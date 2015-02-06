@@ -1,6 +1,6 @@
 'use strict';
 
-var API_ROOT = "http://reactive.innobis.cl/api/v1";
+var API_ROOT = require('../config').development.apiRoot;
 var superagent = require('superagent');
 var SessionStore = require('../stores/SessionStore');
 

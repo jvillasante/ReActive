@@ -53,7 +53,7 @@ var GeneralTable = React.createClass({
           <div className="col-md-3">
             <h3 className="sub-header">Sistema Last Planner</h3>
             <div className="table-responsive">
-            <table className="table table-condensed table-header-rotated">
+            <table className="table table-condensed table-header-rotated general-data-table">
               <thead>
                 <tr>
                   <th className="rotate-45"><div><span>Participacion Reunion</span></div></th>
@@ -80,7 +80,7 @@ var GeneralTable = React.createClass({
           <div className="col-md-3">
             <h3 className="sub-header">Metodo 6S Bodega</h3>
             <div className="table-responsive">
-            <table className="table table-condensed table-header-rotated">
+            <table className="table table-condensed table-header-rotated general-data-table">
               <thead>
                 <tr>
                   <th className="rotate-45"><div><span>S1 Separar-Poner En</span></div></th>
@@ -107,7 +107,7 @@ var GeneralTable = React.createClass({
           <div className="col-md-3">
             <h3 className="sub-header">Practicas Lean</h3>
             <div className="table-responsive">
-            <table className="table table-condensed table-header-rotated">
+            <table className="table table-condensed table-header-rotated general-data-table">
               <thead>
                 <tr>
                   <th className="rotate-45"><div><span>Checklist Sennaletica</span></div></th>
