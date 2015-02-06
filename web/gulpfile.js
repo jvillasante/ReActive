@@ -14,9 +14,11 @@ var pagespeed = require('psi');
 var fs = require('fs');
 var url = require('url');
 var ReactTools = require('react-tools');
+var rename = require('gulp-rename');
 var argv = require('minimist')(process.argv.slice(2));
 
 // Settings
+var NOW = Date.now();
 var DEST = './build';                         // The build output folder
 var RELEASE = !!argv.release;                 // Minimize and optimize during a build?
 var GOOGLE_ANALYTICS_ID = 'UA-XXXXX-X';       // https://www.google.com/analytics/web/
@@ -106,6 +108,8 @@ gulp.task('pages', function() {
   return gulp.src(src.pages)
     .pipe($.changed(DEST, {extension: '.html'}))
     .pipe($.replace('UA-XXXXX-X', GOOGLE_ANALYTICS_ID))
+    .pipe($.replace('APP.JS', 'app-' + NOW + '.js'))
+    .pipe($.replace('BOOTSTRAP.CSS', 'css/bootstrap-' + NOW + '.css'))
     .pipe($.if(RELEASE, $.htmlmin({
       removeComments: true,
       collapseWhitespace: true,
@@ -128,6 +132,7 @@ gulp.task('styles', function() {
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe($.csscomb())
     .pipe($.if(RELEASE, $.minifyCss()))
+    .pipe(rename('bootstrap-' + NOW + '.css'))
     .pipe(gulp.dest(DEST + '/css'))
     .pipe($.size({title: 'styles'}));
 });
@@ -135,7 +140,7 @@ gulp.task('styles', function() {
 // Bundle
 gulp.task('bundle', function(cb) {
   var started = false;
-  var config = require('./config/webpack.js')(RELEASE);
+  var config = require('./config/webpack.js')(RELEASE, NOW);
   var bundler = webpack(config);
 
   function bundle(err, stats) {

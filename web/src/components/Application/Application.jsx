@@ -53,11 +53,6 @@ var Master = React.createClass({
     }
   },
 
-  _onHomeClick: function(evt) {
-    evt.preventDefault();
-    this.transitionTo('/');
-  },
-
   render: function() {
     var auth = this.getAuthButton();
     var brand = (
@@ -75,8 +70,8 @@ var Master = React.createClass({
           <Nav className="navbar-left" eventKey={1}>
             <NavItemLink to="dashboard" eventKey={2}>Dashboard</NavItemLink>
             <DropdownButton eventKey={3} title="Administraci&oacute;n">
-              <MenuItemLink to="users" eventKey={4}>Usuarios</MenuItemLink>
-              <MenuItemLink to="projects" eventKey={5}>Proyectos</MenuItemLink>
+              <MenuItemLink to="users" eventKey="1">Usuarios</MenuItemLink>
+              <MenuItemLink to="projects" eventKey="2">Proyectos</MenuItemLink>
             </DropdownButton>
             {auth}
           </Nav>

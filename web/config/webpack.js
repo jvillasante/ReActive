@@ -12,12 +12,12 @@ var webpack = require('webpack');
  * a release mode, false otherwise
  * @return {object} Webpack configuration
  */
-module.exports = function(release) {
+module.exports = function(release, timestamp) {
   return {
     entry: './src/app.jsx',
 
     output: {
-      filename: 'app.js',
+      filename: 'app-' + timestamp + '.js',
       path: './build/',
       publicPath: './build/'
     },
