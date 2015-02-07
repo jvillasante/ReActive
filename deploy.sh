@@ -1,9 +1,9 @@
 #!/bin/bash -ex
 
-#cd api/
-#fly production
+cd api/
+fly production
 
-#cd ..
+cd ..
 
 cd web
 fly production
