@@ -19,6 +19,7 @@ var Graphics = React.createClass({
                   Nombre de Gráfico
                 </div>
               </div>
+              <img className="img-responsive img-rounded" src="images/s01.jpg" alt="" />
             </div>
           </div>
 
@@ -32,6 +33,7 @@ var Graphics = React.createClass({
                   Nombre de Gráfico
                 </div>
               </div>
+              <img className="img-responsive img-rounded" src="images/s02.jpg" alt="" />
             </div>
           </div>
 
@@ -45,6 +47,7 @@ var Graphics = React.createClass({
                   Nombre de Gráfico
                 </div>
               </div>
+              <img className="img-responsive img-rounded" src="images/s03.jpg" alt="" />
             </div>
           </div>
 
@@ -58,6 +61,7 @@ var Graphics = React.createClass({
                   Nombre de Gráfico
                 </div>
               </div>
+              <img className="img-responsive img-rounded" src="images/s04.jpg" alt="" />
             </div>
           </div>
 
@@ -71,6 +75,7 @@ var Graphics = React.createClass({
                   Nombre de Gráfico
                 </div>
               </div>
+              <img className="img-responsive img-rounded" src="images/s05.jpg" alt="" />
             </div>
           </div>
 
@@ -84,32 +89,7 @@ var Graphics = React.createClass({
                   Nombre de Gráfico
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card-charts small-card">
-              <div className="main-card-header">
-                <div className="icon-card-header">
-                  <span className="glyphicon glyphicon-th"></span>
-                </div>
-                <div className="card-title">
-                  Nombre de Gráfico
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card-charts small-card">
-              <div className="main-card-header">
-                <div className="icon-card-header">
-                  <span className="glyphicon glyphicon-th"></span>
-                </div>
-                <div className="card-title">
-                  Nombre de Gráfico
-                </div>
-              </div>
+              <img className="img-responsive img-rounded" src="images/s06.jpg" alt="" />
             </div>
           </div>
         </div>

@@ -105,7 +105,7 @@ var ProjectInput = React.createClass({
 
     return (
       <div className="project-input">
-        <Panel header={<h1>Seleccione rango de fecha y proyectos</h1>} bsStyle="info">
+        <Panel header={<h1>Seleccione rango de fecha y proyectos</h1>} bsStyle="">
           <div className="project-input-daterange col-md-3">
             <DateRangePicker
               locale={datePicker.locale}

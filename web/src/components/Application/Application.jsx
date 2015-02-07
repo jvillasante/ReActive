@@ -58,7 +58,6 @@ var Master = React.createClass({
     var brand = (
       <span className="navbar-logo">
         <a className="navbar-brand" href="#">
-          <img src="images/logo-small.png" width="38" height="38" alt="ReActive" />
           ReActive
         </a>
       </span>
@@ -69,10 +68,6 @@ var Master = React.createClass({
         <Navbar ref="header" className="navbar navbar-default" brand={brand} fixedTop={true} fluid={true} toggleNavKey={1}>
           <Nav className="navbar-left" eventKey={1}>
             <NavItemLink to="dashboard" eventKey={2}>Dashboard</NavItemLink>
-            <DropdownButton eventKey={3} title="Administraci&oacute;n">
-              <MenuItemLink to="users" eventKey="1">Usuarios</MenuItemLink>
-              <MenuItemLink to="projects" eventKey="2">Proyectos</MenuItemLink>
-            </DropdownButton>
             {auth}
           </Nav>
         </Navbar>
