@@ -6,4 +6,5 @@ cd ..
 
 cd web
 fly production
+
 cd ..
