@@ -6,12 +6,25 @@ const
   Err = require('custom-err'),
   TemplateProvider = require('../data/templateProvider').TemplateProvider;
 
+exports.getById = function(req, res, next) {
+  let templateProvider = new TemplateProvider(req.connectionStr);
+
+  templateProvider.findById(req.user.id, req.params.projectId, req.params.templateId, errTo(next, function(templateData) {
+    if (!templateData) {
+      return next(Err("template not found", { code: 404, description: "No template found for user: " +
+              req.user.username + " and project: " + req.params.projectId + ".", errors: []}));
+    }
+
+    res.status(200).send(templateData);
+  }));
+};
+
 exports.allByProject = function(req, res, next) {
   let templateProvider = new TemplateProvider(req.connectionStr);
-  
+
   templateProvider.findAllByUserAndProject(req.user.id, req.params.projectId, errTo(next, function(templateData) {
     if (!templateData) {
-      return next(Err("template not found", { code: 404, description: "No template found for user: " + 
+      return next(Err("template not found", { code: 404, description: "No template found for user: " +
               req.user.username + " and project: " + req.params.projectId + ".", errors: []}));
     }
 
@@ -21,10 +34,10 @@ exports.allByProject = function(req, res, next) {
 
 exports.allByProjectAndParent = function(req, res, next) {
   let templateProvider = new TemplateProvider(req.connectionStr);
-  
+
   templateProvider.findAllByUserAndProjectAndParent(req.user.id, req.params.projectId, req.params.parentId, errTo(next, function(templateData) {
     if (!templateData) {
-      return next(Err("template not found", { code: 404, description: "No template found for user: " + 
+      return next(Err("template not found", { code: 404, description: "No template found for user: " +
               req.user.username + " and project: " + req.params.projectId + ".", errors: []}));
     }
 

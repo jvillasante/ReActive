@@ -22,6 +22,24 @@ This is the repo for the ReActive node.js project
 * `PATCH  /api/v1/projects/:id` (Update project by id)       (admin)
 * `DELETE /api/v1/projects/:id` (Remove project by id)       (admin)
 
+##New Routes
+##Template Routes
+* `GET /projects/:projectId/templates`                     (all templates by user and project)
+* `gET /projects/:projectId/templates/:templateId`         (get template by user and project and id)
+* `GET /projects/:projectId/templates/:parentId/templates` (all templates by user and project and parent template)
+
+## Report Routes
+* `GET  /projects/:projectId/templates/:templateId/reports` // get reports by user and project and template
+* `GET  /projects/:projectId/templates/:templateId/reports/:id` // show report by user and project and template
+* `POST /projects/:projectId/templates/:templateId/reports` // create report by user and project and template
+* `POST /projects/:projectId/templates/:templateId/reports/:reportId/fields` // new fields for report
+* `PUT  /projects/:projectId/templates/:templateId/reports/:reportId`        // update report
+* `PUT  /projects/:projectId/templates/:templateId/reports/:reportId/fields/:fieldId`  // update fields
+
+
+
+
+
 ##Template Routes
 * `GET /api/v1/projects/:id/templates`                        (all templates by user and project) (user, admin)
 * `GET /api/v1/projects/:projectId/templates/parentId/childs` (all child templates by user and project and parent) (user, admin)

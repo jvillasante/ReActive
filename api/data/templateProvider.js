@@ -1,6 +1,6 @@
 'use strict';
 
-const 
+const
   _ = require('lodash'),
   async = require('async'),
   Err = require('custom-err'),
@@ -11,23 +11,70 @@ const TemplateProvider = function(connStr) {
   this.connStr = connStr;
 };
 
-TemplateProvider.prototype.findAllByUserAndProject = function(userId, projectId, callback) {
+TemplateProvider.prototype.findById = function(userId, projectId, templateId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT id, title, is_parent FROM templates t");
+    sql.push("SELECT id, id_parent, is_parent, title, color, abr, data, fields FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
-    sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id_parent = 0");
-    sql.push("ORDER BY id");
-    client.query(sql.join(' '), [userId, projectId], function(err, result) {
-      if (err) { 
+    sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3");
+    client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
+      if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
       done();
-      callback(null, result.rows);
+      callback(null, result.rows[0]);
+    });
+  });
+};
+
+TemplateProvider.prototype.findAllByUserAndProject = function(userId, projectId, callback) {
+  db.connect(this.connStr, function(err, client, done) {
+    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
+
+    let sql = [];
+    sql.push("SELECT DISTINCT id, title, color, abr, is_parent FROM templates t");
+    sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
+    sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id_parent = 0");
+    sql.push("ORDER BY id");
+    client.query(sql.join(' '), [userId, projectId], function(err, result) {
+      if (err) {
+        done(client);
+        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+      }
+
+      async.map(result.rows, function(item, cb) {
+        if (item.is_parent === true) {
+          sql = [];
+          sql.push("SELECT DISTINCT id, title, color, abr, is_parent FROM templates t");
+          sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
+          sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id_parent = $3");
+          sql.push("ORDER BY id");
+          client.query(sql.join(' '), [userId, projectId, item.id], function(err, result) {
+            if (err) {
+              done(client);
+              return cb(Err("db query error", { code: 1002, description: err.message, errors: []}));
+            }
+
+            cb(null, {
+              id: item.id,
+              title: item.title,
+              color: item.color,
+              abr: item.abr,
+              is_parent: item.is_parent,
+              childs: result.rows
+            });
+          });
+        } else {
+          cb(null, item);
+        }
+      }, function(err, results){
+        done();
+        callback(err, results);
+      });
     });
   });
 };
@@ -37,12 +84,12 @@ TemplateProvider.prototype.findAllByUserAndProjectAndParent = function(userId, p
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT id, title, is_parent FROM templates t");
+    sql.push("SELECT DISTINCT id, title, color, abr, is_parent FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id_parent = $3");
     sql.push("ORDER BY id");
     client.query(sql.join(' '), [userId, projectId, parentId], function(err, result) {
-      if (err) { 
+      if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
@@ -85,9 +132,9 @@ TemplateProvider.prototype.save = function(json, callback) {
       db.connect(self.connStr, function(err, client, done) {
         if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-        client.query("INSERT INTO templates(id, id_parent, is_parent, title, data, fields) VALUES($1, $2, $3, $4, $5, $6) RETURNING id", 
-        [json.id, json.id_parent, json.is_parent, json.title, json, JSON.stringify(fieldsJSON)], function(err, result) {
-          if (err) { 
+        client.query("INSERT INTO templates(id, id_parent, is_parent, title, color, abr, data, fields) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id",
+        [json.id, json.id_parent, json.is_parent, json.title, json.color, json.abbr, json, JSON.stringify(fieldsJSON)], function(err, result) {
+          if (err) {
             done(client);
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
           }
@@ -101,9 +148,9 @@ TemplateProvider.prototype.save = function(json, callback) {
     db.connect(self.connStr, function(err, client, done) {
       if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-      client.query("INSERT INTO templates(id, id_parent, is_parent, title, data) VALUES($1, $2, $3, $4, $5) RETURNING id", 
-      [json.id, json.id_parent, json.is_parent, json.title, json], function(err, result) {
-        if (err) { 
+      client.query("INSERT INTO templates(id, id_parent, is_parent, title, color, abr, data) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id",
+      [json.id, json.id_parent, json.is_parent, json.title, json.color, json.abbr, json], function(err, result) {
+        if (err) {
           console.log(err);
           done(client);
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -121,7 +168,7 @@ TemplateProvider.prototype.removeAll = function(callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     client.query("TRUNCATE templates CASCADE", function(err, result) {
-      if (err) { 
+      if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }

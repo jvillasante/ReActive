@@ -15,7 +15,7 @@ exports.createTemplates = function(callback) {
       let json = require('../data/templates/' + number + '.json');
       templateProvider.save(json, cb);
     }, function(err) {
-      callback(err); 
+      callback(err);
     });
   });
 };

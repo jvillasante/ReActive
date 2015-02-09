@@ -3,6 +3,8 @@ CREATE TABLE templates (
   id_parent INT NOT NULL DEFAULT 0,
   is_parent BOOLEAN NOT NULL DEFAULT FALSE,
   title TEXT NOT NULL,
+  color VARCHAR(7) NOT NULL,
+  abr VARCHAR(2) NOT NULL,
   data JSON NOT NULL,
   fields JSON,
   created_at TIMESTAMP NOT NULL DEFAULT current_timestamp,

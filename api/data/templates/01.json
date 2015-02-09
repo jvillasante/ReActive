@@ -4,7 +4,7 @@
   "is_parent": false,
   "title": "Evaluación reunión de obra last planner",
   "color": "#8b8378",
-  "abr": "LP",
+  "abbr": "LP",
   "sections": [
     {
       "name": "Participantes",
@@ -680,7 +680,7 @@
                 }
               ]
             }
-          ]     
+          ]
         }
       ]
     },

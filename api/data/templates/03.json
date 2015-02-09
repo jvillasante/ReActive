@@ -4,7 +4,7 @@
   "is_parent": false,
   "title": "Bitácora",
   "color": "#cd3333",
-  "abr": "BI",
+  "abbr": "BI",
   "sections": [
     {
       "name": "Restricciones",

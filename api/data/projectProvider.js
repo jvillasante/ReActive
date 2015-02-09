@@ -16,7 +16,7 @@ ProjectProvider.prototype.findAllByUser = function(userId, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT id, name, created_at, updated_at FROM projects p");
+    sql.push("SELECT DISTINCT p.id, p.name, p.address, p.image, p.created_at, p.updated_at FROM projects p");
     sql.push("INNER JOIN permissions ps ON p.id = ps.id_project");
     sql.push("WHERE ps.id_user = $1");
     client.query(sql.join(' '), [userId], function(err, result) {
@@ -52,7 +52,7 @@ ProjectProvider.prototype.findById = function(userId, id, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT id, name, created_at, updated_at FROM projects p");
+    sql.push("SELECT DISTINCT id, name, address, image, created_at, updated_at FROM projects p");
     sql.push("INNER JOIN permissions ps ON p.id = ps.id_project");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND p.id = $3 LIMIT 1");
     client.query(sql.join(' '), [userId, id, id], function(err, result) {
