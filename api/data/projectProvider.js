@@ -77,7 +77,7 @@ ProjectProvider.prototype.save = function(project, callback) {
       if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
       if (project.id) {
-        client.query("INSERT INTO projects(id, id_user, name) VALUES($1, $2, $3) RETURNING id", [project.id, project.id_user, project.name], function(err, result) {
+        client.query("INSERT INTO projects(id, id_user, name, address) VALUES($1, $2, $3, $4) RETURNING id", [project.id, project.id_user, project.name, project.address], function(err, result) {
           if (err) {
             done(client);
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -87,7 +87,7 @@ ProjectProvider.prototype.save = function(project, callback) {
           callback(null, result.rows[0]);
         });
       } else {
-        client.query("INSERT INTO projects(id_user, name) VALUES($1) RETURNING id", [project.id_user, project.name], function(err, result) {
+        client.query("INSERT INTO projects(id_user, name, address) VALUES($1, $2, $3) RETURNING id", [project.id_user, project.name, project.address], function(err, result) {
           if (err) {
             done(client);
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));

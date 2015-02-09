@@ -1,6 +1,6 @@
 'use strict';
 
-const 
+const
   _ = require('lodash'),
   async = require('async'),
   Err = require('custom-err'),
@@ -15,20 +15,20 @@ const ReportProvider = function(connStr) {
 ReportProvider.prototype.createNew = function(userId, projectId, templateId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-    
+
     let sql = [];
     sql.push("SELECT id, title, data, fields FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3 LIMIT 1");
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
-      if (err) { 
+      if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
       let template = result.rows[0];
       if (!template) {
-        done(client); 
+        done(client);
         return callback(Err("no such template", { code: 404, description: "Template " + templateId + " not found for project " + projectId, errors: []}));
       }
 
@@ -41,10 +41,10 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
             if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
             next(null, result.rows[0].id);
           });
-        }, 
+        },
         function createField(reportId, next) {
           template.data.id = reportId;
-          
+
           client.query("INSERT INTO fields(id_report) VALUES($1) RETURNING id", [reportId], function(err, result) {
             if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
             next(null, result.rows[0].id);
@@ -71,20 +71,20 @@ ReportProvider.prototype.createNew = function(userId, projectId, templateId, cal
 ReportProvider.prototype.createExisting = function(userId, projectId, templateId, reportId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-    
+
     let sql = [];
     sql.push("SELECT id, title, data, fields FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3 LIMIT 1");
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
-      if (err) { 
+      if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
-      
+
       let template = result.rows[0];
       if (!template) {
-        done(client); 
+        done(client);
         return callback(Err("no such template", { code: 404, description: "Template " + templateId + " not found for project " + projectId, errors: []}));
       }
 
@@ -96,15 +96,15 @@ ReportProvider.prototype.createExisting = function(userId, projectId, templateId
           client.query(sql.join(' '), [reportId, userId, projectId, template.id], function(err, result) {
             if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
             if (!result.rows[0].id) {
-              done(client); 
+              done(client);
               return callback(Err("no such report", { code: 404, description: "Report " + reportId + " not found for project " + projectId, errors: []}));
             }
             next(null, result.rows[0].id);
           });
-        }, 
+        },
         function createField(reportId, next) {
           template.data.id = reportId;
-          
+
           client.query("INSERT INTO fields(id_report) VALUES($1) RETURNING id", [reportId], function(err, result) {
             if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
             next(null, result.rows[0].id);
@@ -133,15 +133,15 @@ ReportProvider.prototype.update = function(userId, reportId, report, callback) {
 
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-    
+
     client.query("SELECT id FROM reports WHERE id_user = $1 AND id = $2 LIMIT 1", [userId, reportId], function(err, result) {
-      if (err) { 
+      if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
-      
+
       if (!result.rows[0].id) {
-        done(client); 
+        done(client);
         return callback(Err("no such report", { code: 404, description: "Report " + reportId + " not found for user " + userId, errors: []}));
       }
 
@@ -247,7 +247,7 @@ ReportProvider.prototype.findAllByUser = function(userId, callback) {
             cb();
           });
         }, function(err) {
-          next(err, reports); 
+          next(err, reports);
         });
       }
     ], function(err, reports) {
@@ -260,7 +260,7 @@ ReportProvider.prototype.findAllByUser = function(userId, callback) {
 ReportProvider.prototype.findAllByProject = function(userId, projectId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-    
+
     let sql = [];
     async.waterfall([
       function getReport(next) {
@@ -294,7 +294,7 @@ ReportProvider.prototype.findAllByProject = function(userId, projectId, callback
             cb();
           });
         }, function(err) {
-          next(err, reports); 
+          next(err, reports);
         });
       }
     ], function(err, reports) {
@@ -342,7 +342,7 @@ ReportProvider.prototype.findAllByProjectAndTemplate = function(userId, projectI
             cb();
           });
         }, function(err) {
-          next(err, reports); 
+          next(err, reports);
         });
       }
     ], function(err, reports) {
