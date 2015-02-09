@@ -2,10 +2,8 @@
 
 cd api/
 fly production
-
 cd ..
 
 cd web
 fly production
-
 cd ..
