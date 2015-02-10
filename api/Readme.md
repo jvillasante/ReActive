@@ -22,45 +22,64 @@ This is the repo for the ReActive node.js project
 * `PATCH  /api/v1/projects/:id` (Update project by id)       (admin)
 * `DELETE /api/v1/projects/:id` (Remove project by id)       (admin)
 
-##New Routes
 ##Template Routes
 * `GET /projects/:projectId/templates`                     (all templates by user and project)
-* `gET /projects/:projectId/templates/:templateId`         (get template by user and project and id)
+* `GET /projects/:projectId/templates/:templateId`         (get template by user and project and id)
 * `GET /projects/:projectId/templates/:parentId/templates` (all templates by user and project and parent template)
 
 ## Report Routes
-* `GET  /projects/:projectId/templates/:templateId/reports` // get reports by user and project and template
-* `GET  /projects/:projectId/templates/:templateId/reports/:id` // show report by user and project and template
-* `POST /projects/:projectId/templates/:templateId/reports` // create report by user and project and template
-* `POST /projects/:projectId/templates/:templateId/reports/:reportId/fields` // new fields for report
-* `PUT  /projects/:projectId/templates/:templateId/reports/:reportId`        // update report
-* `PUT  /projects/:projectId/templates/:templateId/reports/:reportId/fields/:fieldId`  // update fields
-
-
-
-
-
-##Template Routes
-* `GET /api/v1/projects/:id/templates`                        (all templates by user and project) (user, admin)
-* `GET /api/v1/projects/:projectId/templates/parentId/childs` (all child templates by user and project and parent) (user, admin)
-
-##Report Routes
-* `GET /api/v1/reports`     (All reports by user)          (user, admin)
-* `GET /api/v1/reports/:id` (Show report by user and id)   (user, admin)
-* `PUT /api/v1/reports/:id` (Update report by user and id) (user, admin)
-
-* `GET  /api/v1/projects/:id/templates/:id/reports` (All reports by user and project and template)   (user, admin)
-* `POST /api/v1/projects/:id/templates/:id/reports` (Create report by user and project and template) (user, admin)
-* `GET  /api/v1/projects/:id/reports`               (All reports by user and project)                (user, admin)
-
-##Basic actions of a user trying to create a report
-1. `GET /api/v1/projects` to get all projects defined for the currently authenticated user
-2. `GET /api/v1/projects/:idProject/templates` to get all the templates defined for that user and project
-3. `POST /api/v1/projects/:idProject/templates/:idTemplate/reports` to create a report by a user for a project based on a template
-  - This url responds according to the data sent in the request body.
-    * If the request body is empty `{}` then it creates a new report based on the current user; project and template based on the ids passed in the url.
-    * If the request body has a report id `{ "reportId": "..." }` then this endpoint creates new fields for that report. This buy us the possibility to create reports that are really a combination of reports (bitacora).
-4. `PUT /api/v1/reports/:id` to fill up the report with all the fields
+* `GET  /projects/:projectId/templates/:templateId/reports` (all reports by user and project and template)
+* `POST /projects/:projectId/templates/:templateId/reports` (create report by user and project and template)
+```javascript
+POST BODY:
+{
+  "title": "<String - report title>",
+  "sent": "<Boolean - report sent value>",
+  "fields": [
+    {
+      "item": "<Number - field item>",
+      "value": "<String - field value>"
+    },
+    ...
+  ]
+}
+```
+* `GET  /projects/:projectId/reports` (all reports by user and project)
+* `GET  /reports`     (all reports by user)
+* `GET  /reports/:id` (show report by user and reportId)
+* `PUT  /reports/:id` (update report - only report data not field values)
+```javascript
+POST BODY:
+{
+  "title": "<String - report title>",
+  "sent": "<Boolean- report sent value>"
+}
+```
+* `DELETE /reports/:id` (delete report by id and all field values related to it)
+* `POST /reports/:id/fields` (new fields for report)
+```javascript
+POST BODY:
+[
+  {
+    "item": "<Number - field item>",
+    "value": "<String - field value>"
+  },
+  ...
+]
+```
+* `GET /reports/:reportId/fields/:id`  (get field values of report)
+* `PUT /reports/:reportId/fields/:id`  (update field values of report)
+```javascript
+POST BODY:
+[
+  {
+    "item": "<Number - field item>",
+    "value": "<String - field value>"
+  },
+  ...
+]
+```
+* `DELETE /reports/:reportId/fields/:id`  (remove field values of report)
 
 -------------------------------------------------------------------------------------------------------
 
