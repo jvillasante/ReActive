@@ -30,6 +30,7 @@ This is the repo for the ReActive node.js project
 ## Report Routes
 * `GET  /projects/:projectId/templates/:templateId/reports` (all reports by user and project and template)
 * `POST /projects/:projectId/templates/:templateId/reports` (create report by user and project and template)
+
 ```javascript
 POST BODY:
 {
@@ -44,10 +45,12 @@ POST BODY:
   ]
 }
 ```
+
 * `GET  /projects/:projectId/reports` (all reports by user and project)
 * `GET  /reports`     (all reports by user)
 * `GET  /reports/:id` (show report by user and reportId)
 * `PUT  /reports/:id` (update report - only report data not field values)
+
 ```javascript
 POST BODY:
 {
@@ -55,8 +58,10 @@ POST BODY:
   "sent": "<Boolean- report sent value>"
 }
 ```
+
 * `DELETE /reports/:id` (delete report by id and all field values related to it)
 * `POST /reports/:id/fields` (new fields for report)
+
 ```javascript
 POST BODY:
 [
@@ -67,8 +72,10 @@ POST BODY:
   ...
 ]
 ```
+
 * `GET /reports/:reportId/fields/:id`  (get field values of report)
 * `PUT /reports/:reportId/fields/:id`  (update field values of report)
+
 ```javascript
 POST BODY:
 [
@@ -79,6 +86,7 @@ POST BODY:
   ...
 ]
 ```
+
 * `DELETE /reports/:reportId/fields/:id`  (remove field values of report)
 
 -------------------------------------------------------------------------------------------------------
