@@ -31,61 +31,61 @@ This is the repo for the ReActive node.js project
 * `GET  /projects/:projectId/templates/:templateId/reports` (all reports by user and project and template)
 * `POST /projects/:projectId/templates/:templateId/reports` (create report by user and project and template)
 
-```javascript
-POST BODY:
-{
-  "title": "<String - report title>",
-  "sent": "<Boolean - report sent value>",
-  "fields": [
-    {
-      "item": "<Number - field item>",
-      "value": "<String - field value>"
-    },
-    ...
-  ]
-}
-```
+        ```javascript
+        POST BODY:
+        {
+          "title": "<String - report title>",
+          "sent": "<Boolean - report sent value>",
+          "fields": [
+            {
+              "item": "<Number - field item>",
+              "value": "<String - field value>"
+            },
+            ...
+          ]
+        }
+        ```
 
 * `GET  /projects/:projectId/reports` (all reports by user and project)
 * `GET  /reports`     (all reports by user)
 * `GET  /reports/:id` (show report by user and reportId)
 * `PUT  /reports/:id` (update report - only report data not field values)
 
-```javascript
-POST BODY:
-{
-  "title": "<String - report title>",
-  "sent": "<Boolean- report sent value>"
-}
-```
+        ```javascript
+        POST BODY:
+        {
+          "title": "<String - report title>",
+          "sent": "<Boolean- report sent value>"
+        }
+        ```
 
 * `DELETE /reports/:id` (delete report by id and all field values related to it)
 * `POST /reports/:id/fields` (new fields for report)
 
-```javascript
-POST BODY:
-[
-  {
-    "item": "<Number - field item>",
-    "value": "<String - field value>"
-  },
-  ...
-]
-```
+        ```javascript
+        POST BODY:
+        [
+          {
+            "item": "<Number - field item>",
+            "value": "<String - field value>"
+          },
+          ...
+        ]
+        ```
 
 * `GET /reports/:reportId/fields/:id`  (get field values of report)
 * `PUT /reports/:reportId/fields/:id`  (update field values of report)
 
-```javascript
-POST BODY:
-[
-  {
-    "item": "<Number - field item>",
-    "value": "<String - field value>"
-  },
-  ...
-]
-```
+        ```javascript
+        POST BODY:
+        [
+          {
+            "item": "<Number - field item>",
+            "value": "<String - field value>"
+          },
+          ...
+        ]
+        ```
 
 * `DELETE /reports/:reportId/fields/:id`  (remove field values of report)
 
