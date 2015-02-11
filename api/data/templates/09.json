@@ -1,26 +1,26 @@
 {
   "id": "9",
-  "id_parent": "6",
+  "id_parent": "7",
   "is_parent": false,
-  "title": "Checklist Vías de Acceso",
-  "color": "#cd2626",
-  "abbr": "VA",
+  "title": "Checklist Seguridad, Protecciones y Resguardo",
+  "color": "#b4eeb4",
+  "abbr": "PR",
   "sections": [
     {
-      "name": "Vías de acceso",
+      "name": "Seguridad",
       "subsections": [
         {
-          "name": "Vías de acceso",
+          "name": "Seguridad",
           "groups": [
             {
-              "name": "Definición de radios de giro mínimos y máximos",
+              "name": "Prevención de Incendios: se cuenta con los extintores mínimos por m2 de instalación de faena",
               "comment": "",
               "fields": [
                 {
                   "item": "1",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "2",
@@ -31,14 +31,14 @@
               ]
             },
             {
-              "name": "Definición de Altura",
+              "name": "Primeros Auxilios: se cuenta con kit de primeros auxilios exigidos por la normativa",
               "comment": "",
               "fields": [
                 {
                   "item": "3",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "4",
@@ -49,14 +49,14 @@
               ]
             },
             {
-              "name": "Definición de Ancho",
+              "name": "Se cuenta con Vías de Evacuación de Emergencia, acorde con el avance de obra",
               "comment": "",
               "fields": [
                 {
                   "item": "5",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "6",
@@ -67,14 +67,14 @@
               ]
             },
             {
-              "name": "Definición de materialidad de la carpeta (Ripio? Tierra? Pavimentado? Asfaltado? Riego Asfálfito?)",
+              "name": "Se cumple con la normativa en cuando al número mínimo de duchas por trabajador",
               "comment": "",
               "fields": [
                 {
                   "item": "7",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "8",
@@ -85,14 +85,14 @@
               ]
             },
             {
-              "name": "Definición de rutas internas (layout de las vías)",
+              "name": "Se cumple con la normativa en cuando al número mínimo de baños por trabajador",
               "comment": "",
               "fields": [
                 {
                   "item": "9",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "10",
@@ -103,14 +103,14 @@
               ]
             },
             {
-              "name": "Definición de cómo será el acceso a bodega (ruta, zona de carga/descarga y caracterísiticas anteriormente señaladas)",
+              "name": "Se cumple con la normativa en cuando al número mínimo de puntos de agua potable por trabajador",
               "comment": "",
               "fields": [
                 {
                   "item": "11",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "12",
@@ -121,14 +121,14 @@
               ]
             },
             {
-              "name": "Definición de programa de cambio de vías, según avance de obra",
+              "name": "Existe análisis de cantidad mínima y máxima de m2 necesario para comedores, según cantidad de M.O.",
               "comment": "",
               "fields": [
                 {
                   "item": "13",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "14",
@@ -139,14 +139,14 @@
               ]
             },
             {
-              "name": "Estimación de tiempo desde control de acceso hasta bodega y/o frente de trabajo",
+              "name": "Se cumple con la normativa en cuando al número camarines o lugares disponibles para uso de trabajadores y/o subcontratos",
               "comment": "",
               "fields": [
                 {
                   "item": "15",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "16",
@@ -157,14 +157,14 @@
               ]
             },
             {
-              "name": "Existe plan de mantención (riego diario con agua? Sellante de carpeta antipolvo?) y el tipo de acceso (tierra? Ripio? Pavimentado?)",
+              "name": "Se cuenta con Zonas de Seguridad (Incendios, Terremotos, etc.)",
               "comment": "",
               "fields": [
                 {
                   "item": "17",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "18",
@@ -173,16 +173,26 @@
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Protecciones y Resguardos",
+      "subsections": [
+        {
+          "name": "Protecciones y Resguardos",
+          "groups": [
             {
-              "name": "Definición de ubicación de reductores de velocidad",
+              "name": "Caseta de Control de Acceso con Estándar Sello Manquehue.",
               "comment": "",
               "fields": [
                 {
                   "item": "19",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "20",
@@ -193,17 +203,189 @@
               ]
             },
             {
-              "name": "Vías de acceso se cruzan y no interfieren con el programa de urbanización",
+              "name": "Caseta de Control de Acceso : Guardia Inducido por RRHH en los procedimientos Manquehue de Ingreso.",
               "comment": "",
               "fields": [
                 {
                   "item": "21",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Yes", "No", "N/A"]
+                  "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "22",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Cierres provisorios con Estándar Manquehue (Altura mínima, materialidad, color, etc.)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "23",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "24",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Contingencias",
+      "subsections": [
+        {
+          "name": "Contingencias",
+          "groups": [
+            {
+              "name": "Existe un análisis de la probabilidad de falla del sistema de wi-fi.",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "25",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "26",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe un plan para mitigar la probabilidad de falla del wi-fi",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "27",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "28",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe un análisis de la probabilidad de falla del abastecimiento de electricidad desde empalmes (es decir, no de generadores)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "29",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "30",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe un plan para mitigar la probabilidad de falla abastecimiento de electricidad desde empalmes (es decir, no de generadores)",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "31",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "32",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe un análisis de la probabilidad de lluvia en la zona donde se ubica la obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "33",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "34",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe un plan para mitigar la probabilidad de lluvia en la zona donde se ubica la obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "35",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "36",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe un análisis de la probabilidad de fuertes vientos que puedan afectar las instalaciones de la obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "37",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "38",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Existe un plan para mitigar la probabilidad de fuertes vientos que puedan afectar las instalaciones de la obra",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "39",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "40",
                   "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []

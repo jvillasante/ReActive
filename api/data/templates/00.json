@@ -18,6 +18,8 @@
               "fields": [
                 {
                   "item": "",
+                  "required": "",
+                  "default": "",
                   "name": "",
                   "type": "",
                   "values": []

@@ -1,58 +1,772 @@
 {
   "id": "6",
   "id_parent": "0",
-  "is_parent": true,
-  "title": "Prácticas Lean",
-  "color": "#d5f45d",
-  "abbr": "PL",
-  "childs": [
+  "is_parent": false,
+  "title": "Check List 6S Oficinas de Obra",
+  "color": "#6495ed",
+  "abbr": "OO",
+  "sections": [
     {
-      "id": "7",
-      "id_parent": "6",
-      "is_parent": false,
-      "title": "Check List Señalética",
-      "color": "#caff70",
-      "abbr": "SÑ"
+      "name": "S1 - SEPARAR LO INNECESARIO",
+      "subsections": [
+        {
+          "name": "S1 - SEPARAR LO INNECESARIO",
+          "groups": [
+            {
+              "name": "¿Existencia de mobiliario innecesario?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "1",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "2",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existencia de documentos obsoletos o innecesarios?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "3",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "4",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existencia de Planos obsoletos o innecesarios?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "5",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "6",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existencia de información publicada obsoleta o innecesaria?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "7",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "8",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existen equipos de oficina y escritorio innecesarios?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "9",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "10",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existen muestras de materiales no necesarios?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "11",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "12",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Están los elementos \"innecesarios\" colocados en receptáculos adecuados y por separado de lo necesario?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "13",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "14",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "8",
-      "id_parent": "6",
-      "is_parent": false,
-      "title": "Checklist Seguridad, Protecciones y Resguardo",
-      "color": "#b4eeb4",
-      "abbr": "PR"
+      "name": "S2 - SITUAR LO NECESARIO",
+      "subsections": [
+        {
+          "name": "S2 - SITUAR LO NECESARIO",
+          "groups": [
+            {
+              "name": "¿Están los planos correctamente ordenados y clasificados?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "15",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "16",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Están las especificaciones técnicas correctamente ordenados y clasificados?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "17",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "18",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existe rotulación visible de los planos y especificaciones técnicas?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "19",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "20",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existe información visual en paneles y diarios murales correctamente identificada?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "21",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "22",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existe lugar específico y adecuado para ubicación de Impresoras y equipos?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "23",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "24",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existe lugar específico y adecuado para disposición de Archivadores?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "25",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "26",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Están los documentos bien archivados?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "27",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "28",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existe Archivadores por separado para contratos, Estado de pago, Hoja de ruta, RDI, Minutas de reunión, cuadros comparativos, ordenes de compra, documentos legales, documentos y certificados de recepción?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "29",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "30",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existe espacio para circular y trabajar en forma adecuada?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "31",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "32",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "9",
-      "id_parent": "6",
-      "is_parent": false,
-      "title": "Checklist Vías de Acceso",
-      "color": "#cd2626",
-      "abbr": "VA"
+      "name": "S3 - SUPRIMIR SUCIEDAD",
+      "subsections": [
+        {
+          "name": "S3 - SUPRIMIR SUCIEDAD",
+          "groups": [
+            {
+              "name": "¿Lugar libre de polvo, papeles, suciedad en el suelo, equipos de oficina, paredes, mobiliario, etc.?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "33",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "34",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Estanterías están libres de elementos inservibles o elementos estropeados?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "35",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "36",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Espacios libres de útiles de limpieza abandonadas fuera de su sitio?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "37",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "38",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Espacios libres de artículos de oficina de abandonados fuera de su sitio o en mal estado?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "39",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "40",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Espacios libres de equipos de oficina de abandonados fuera de su sitio o en mal estado?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "41",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "42",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Espacios libres de tazas, platos y utensilios de comida abandonadas fuera de su sitio?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "43",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "44",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Están las áreas de circulación limpias y mantenidas?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "45",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "46",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿La infraestructura e instalaciones están en óptimas condiciones?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "47",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "48",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "10",
-      "id_parent": "6",
-      "is_parent": false,
-      "title": "Checklist Logísitca de obra",
-      "color": "#8b3a3a",
-      "abbr": "LO"
+      "name": "S4 - SEÑALIZAR ANOMALIAS",
+      "subsections": [
+        {
+          "name": "S4 - SEÑALIZAR ANOMALIAS",
+          "groups": [
+            {
+              "name": "¿Existe señalización que advierta de información o documentos obsoletos?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "49",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "50",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Todas las Estanterías están con su identificación?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "51",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "52",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existe tarjetas de señalización de situaciones anómalas?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "53",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "54",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existen elementos visuales para controlar planos faltantes?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "55",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "56",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Existen señales visuales que controlen documentación faltante?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "57",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "58",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "11",
-      "id_parent": "6",
-      "is_parent": false,
-      "title": "Checklist Tierra, Escombros y Basura",
-      "color": "#eee685",
-      "abbr": "EB"
+      "name": "S5 - SEGUIR MEJORANDO",
+      "subsections": [
+        {
+          "name": "S5 - SEGUIR MEJORANDO",
+          "groups": [
+            {
+              "name": "¿Hay indicadores de nivel de orden y limpieza objetivos (auditorías, etc.)?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "59",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "60",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Las tendencias de los indicadores son positivas?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "61",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "62",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Se hace limpieza en forma sistemática?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "63",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "64",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Se cumplen planes de mantenimiento de la oficina de obra (safari)?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "65",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "66",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Hay reconocimiento por las mejoras?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "67",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "68",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Hay sanciones para los que incumplen sistemáticamente?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "69",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "70",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "12",
-      "id_parent": "6",
-      "is_parent": false,
-      "title": "CHECKLIST SELLO MANQUEHUE",
-      "color": "#ff4500",
-      "abbr": "SM"
+      "name": "S6 - SEGURIDAD",
+      "subsections": [
+        {
+          "name": "S6 - SEGURIDAD",
+          "groups": [
+            {
+              "name": "¿Están los elementos de seguridad en su sitio?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "71",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "72",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Extintores operativos y lugar señalizado?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "73",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "74",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Iluminación Interior Adecuada?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "75",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "76",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "¿Iluminación Exterior Adecuada?",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "77",
+                  "name": "Existe",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "78",
+                  "name": "Notas u Observaciones",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -2,138 +2,103 @@
   "id": "4",
   "id_parent": "0",
   "is_parent": false,
-  "title": "Evaluación Monitores Mejora Continua",
-  "color": "#66cd00",
-  "abbr": "MC",
+  "title": "Bitácora",
+  "color": "#cd3333",
+  "abbr": "BI",
   "sections": [
     {
-      "name": "General",
+      "name": "Restricciones",
       "subsections": [
         {
-          "name": "Participantes",
+          "name": "Restricciones",
           "groups": [
             {
-              "name": "Administrador de Obra",
-              "comment": "Decisiones tácticas y Generar Participación",
+              "name": "Restricciones",
+              "comment": "",
               "fields": [
                 {
                   "item": "1",
-                  "name": "Asiste a reunión de mejora continua",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "name": "Fecha de Creación",
+                  "type": "date",
+                  "values": []
                 },
                 {
                   "item": "2",
-                  "name": "Cumplimiento rol",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
-                }
-              ]
-            },
-            {
-              "name": "Jefe de terreno",
-              "comment": "Liderar Reunión, generar ambiente y motivar",
-              "fields": [
+                  "name": "Actividad",
+                  "type": "string",
+                  "values": []
+                },
                 {
                   "item": "3",
-                  "name": "Asiste a reunión de mejora continua",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "name": "Tema",
+                  "type": "string",
+                  "values": []
                 },
                 {
                   "item": "4",
-                  "name": "Cumplimiento rol",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
-                }
-              ]
-            },
-            {
-              "name": "Monitores de Mejora Continua",
-              "comment": "Identificación y seguimiento de mejoras",
-              "fields": [
+                  "name": "Detalle",
+                  "type": "string",
+                  "values": []
+                },
                 {
                   "item": "5",
-                  "name": "Asiste a reunión de mejora continua",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "name": "Responsable",
+                  "type": "string",
+                  "values": []
                 },
                 {
                   "item": "6",
-                  "name": "Cumplimiento rol",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Instancia",
-          "groups": [
-            {
-              "name": "Reunión de Mejora continua",
-              "comment": "",
-              "fields": [
+                  "name": "Fecha Requerida",
+                  "type": "date",
+                  "values": []
+                },
                 {
                   "item": "7",
-                  "name": "Se realiza semanalmente",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
-                }
-              ]
-            },
-            {
-              "name": "Oportunidades de mejora identificadas",
-              "comment": "",
-              "fields": [
+                  "name": "Fecha Comprometida",
+                  "type": "date",
+                  "values": []
+                },
                 {
                   "item": "8",
-                  "name": "Son de interés",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "name": "Fecha Real",
+                  "type": "date",
+                  "values": []
                 },
                 {
                   "item": "9",
-                  "name": "Monitores lo presentan",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
-                }
-              ]
-            },
-            {
-              "name": "Planilla de registro de mejora continua",
-              "comment": "",
-              "fields": [
+                  "name": "Estado",
+                  "type": "choice",
+                  "values": ["Liberada", "Pendiente"]
+                },
                 {
                   "item": "10",
-                  "name": "Existe en Formato Manquehue",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "name": "Tiempo de Desvío (Días)",
+                  "type": "int",
+                  "values": []
                 },
                 {
                   "item": "11",
-                  "name": "Actualizada",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
-                }
-              ]
-            },
-            {
-              "name": "Panel de mejora continua",
-              "comment": "",
-              "fields": [
+                  "name": "Efectividad",
+                  "type": "int",
+                  "values": []
+                },
                 {
                   "item": "12",
-                  "name": "Existe en Formato Manquehue",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "name": "Tipo Causa de Incumplimiento",
+                  "type": "string",
+                  "values": []
                 },
                 {
                   "item": "13",
-                  "name": "Actualizado",
-                  "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "name": "Detalle Causa de Incumplimiento",
+                  "type": "string",
+                  "values": []
+                },
+                {
+                  "item": "14",
+                  "name": "Al Día",
+                  "type": "int",
+                  "values": []
                 }
               ]
             }

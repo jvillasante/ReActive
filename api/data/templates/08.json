@@ -1,19 +1,19 @@
 {
   "id": "8",
-  "id_parent": "6",
+  "id_parent": "7",
   "is_parent": false,
-  "title": "Checklist Seguridad, Protecciones y Resguardo",
-  "color": "#b4eeb4",
-  "abbr": "PR",
+  "title": "Check List Señalética",
+  "color": "#caff70",
+  "abbr": "SÑ",
   "sections": [
     {
-      "name": "Seguridad",
+      "name": "Layout",
       "subsections": [
         {
-          "name": "Seguridad",
+          "name": "Layout",
           "groups": [
             {
-              "name": "Prevención de Incendios: se cuenta con los extintores mínimos por m2 de instalación de faena",
+              "name": "Layout de la obra ubicado en Sala de Reuniones",
               "comment": "",
               "fields": [
                 {
@@ -31,7 +31,7 @@
               ]
             },
             {
-              "name": "Primeros Auxilios: se cuenta con kit de primeros auxilios exigidos por la normativa",
+              "name": "Layout de la obra ubicado en terreno, a la vista de todos los trabajadores y visitas",
               "comment": "",
               "fields": [
                 {
@@ -49,7 +49,7 @@
               ]
             },
             {
-              "name": "Se cuenta con Vías de Evacuación de Emergencia, acorde con el avance de obra",
+              "name": "Layout de Bodegas en obra",
               "comment": "",
               "fields": [
                 {
@@ -65,9 +65,19 @@
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tránsito y Seguridad Vial de Vehículos y Maquinaria",
+      "subsections": [
+        {
+          "name": "Tránsito y Seguridad Vial de Vehículos y Maquinaria",
+          "groups": [
             {
-              "name": "Se cumple con la normativa en cuando al número mínimo de duchas por trabajador",
+              "name": "Tránsito y seguridad vial de peatones y vehículos",
               "comment": "",
               "fields": [
                 {
@@ -85,7 +95,7 @@
               ]
             },
             {
-              "name": "Se cumple con la normativa en cuando al número mínimo de baños por trabajador",
+              "name": "Señalética de riesgos en el área de trabajo (matriz de riesgos)",
               "comment": "",
               "fields": [
                 {
@@ -103,7 +113,7 @@
               ]
             },
             {
-              "name": "Se cumple con la normativa en cuando al número mínimo de puntos de agua potable por trabajador",
+              "name": "Señalética de riesgos para uso de equipos y maquinarias (matriz de riesgos)",
               "comment": "",
               "fields": [
                 {
@@ -121,7 +131,7 @@
               ]
             },
             {
-              "name": "Existe análisis de cantidad mínima y máxima de m2 necesario para comedores, según cantidad de M.O.",
+              "name": "Vías de Evacuación de Emergencia",
               "comment": "",
               "fields": [
                 {
@@ -139,7 +149,7 @@
               ]
             },
             {
-              "name": "Se cumple con la normativa en cuando al número camarines o lugares disponibles para uso de trabajadores y/o subcontratos",
+              "name": "Zonas de Seguridad",
               "comment": "",
               "fields": [
                 {
@@ -155,9 +165,19 @@
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RECINTOS DE OBRA",
+      "subsections": [
+        {
+          "name": "RECINTOS DE OBRA",
+          "groups": [
             {
-              "name": "Se cuenta con Zonas de Seguridad (Incendios, Terremotos, etc.)",
+              "name": "Demarcación y Señalética de ubicación para estacionamientos de subcontratos",
               "comment": "",
               "fields": [
                 {
@@ -173,19 +193,9 @@
                   "values": []
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Protecciones y Resguardos",
-      "subsections": [
-        {
-          "name": "Protecciones y Resguardos",
-          "groups": [
+            },
             {
-              "name": "Caseta de Control de Acceso con Estándar Sello Manquehue.",
+              "name": "Demarcación y Señalética de ubicación para estacionamientos de visitas y equipo de obra",
               "comment": "",
               "fields": [
                 {
@@ -203,7 +213,7 @@
               ]
             },
             {
-              "name": "Caseta de Control de Acceso : Guardia Inducido por RRHH en los procedimientos Manquehue de Ingreso.",
+              "name": "Ubicación de Oficinas de Profesionales de obra",
               "comment": "",
               "fields": [
                 {
@@ -221,7 +231,7 @@
               ]
             },
             {
-              "name": "Cierres provisorios con Estándar Manquehue (Altura mínima, materialidad, color, etc.)",
+              "name": "Ubicación de Baños de Oficinas",
               "comment": "",
               "fields": [
                 {
@@ -237,19 +247,9 @@
                   "values": []
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Contingencias",
-      "subsections": [
-        {
-          "name": "Contingencias",
-          "groups": [
+            },
             {
-              "name": "Existe un análisis de la probabilidad de falla del sistema de wi-fi.",
+              "name": "Ubicación Sala de Reuniones",
               "comment": "",
               "fields": [
                 {
@@ -267,7 +267,7 @@
               ]
             },
             {
-              "name": "Existe un plan para mitigar la probabilidad de falla del wi-fi",
+              "name": "Ubicación de Bodega principal",
               "comment": "",
               "fields": [
                 {
@@ -285,7 +285,7 @@
               ]
             },
             {
-              "name": "Existe un análisis de la probabilidad de falla del abastecimiento de electricidad desde empalmes (es decir, no de generadores)",
+              "name": "Ubicación de Patio Techado para almacenamiento de materiales",
               "comment": "",
               "fields": [
                 {
@@ -303,7 +303,7 @@
               ]
             },
             {
-              "name": "Existe un plan para mitigar la probabilidad de falla abastecimiento de electricidad desde empalmes (es decir, no de generadores)",
+              "name": "Ubicación de Bodegas Intermedias en frente de trabajo (ejemplo: lugar de descarga y almacenamiento de ladrillos)",
               "comment": "",
               "fields": [
                 {
@@ -321,7 +321,7 @@
               ]
             },
             {
-              "name": "Existe un análisis de la probabilidad de lluvia en la zona donde se ubica la obra",
+              "name": "Ubicación de Comedor",
               "comment": "",
               "fields": [
                 {
@@ -339,7 +339,7 @@
               ]
             },
             {
-              "name": "Existe un plan para mitigar la probabilidad de lluvia en la zona donde se ubica la obra",
+              "name": "Ubicación de Zona de Acopio de Tierra",
               "comment": "",
               "fields": [
                 {
@@ -357,7 +357,7 @@
               ]
             },
             {
-              "name": "Existe un análisis de la probabilidad de fuertes vientos que puedan afectar las instalaciones de la obra",
+              "name": "Ubicación de Zona de Acopio de Escombros",
               "comment": "",
               "fields": [
                 {
@@ -375,7 +375,7 @@
               ]
             },
             {
-              "name": "Existe un plan para mitigar la probabilidad de fuertes vientos que puedan afectar las instalaciones de la obra",
+              "name": "Ubicación de Zona de Basura Doméstica",
               "comment": "",
               "fields": [
                 {
@@ -386,6 +386,96 @@
                 },
                 {
                   "item": "40",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Zona de  Residuos Peligrosos",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "41",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "42",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Ubicación de Zona de  Accidente",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "43",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "44",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Vías de Evacuación de Emergencia",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "45",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "46",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Zonas de Seguridad Incendios",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "47",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "48",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            },
+            {
+              "name": "Zona de Seguridad Terremotos",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "49",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "50",
                   "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []

@@ -1,744 +1,784 @@
 {
-  "id": "3",
-  "id_parent": "0",
+  "id": "13",
+  "id_parent": "7",
   "is_parent": false,
-  "title": "Check List 6S",
-  "color": "#0000ee",
-  "abbr": "6S",
+  "title": "CHECKLIST SELLO MANQUEHUE",
+  "color": "#ff4500",
+  "abbr": "SM",
   "sections": [
     {
-      "name": "S1 - SEPARAR LO INNECESARIO",
+      "name": "PORTERIA",
       "subsections": [
         {
-          "name": "S1 - SEPARAR LO INNECESARIO",
+          "name": "PORTERIA",
           "groups": [
             {
-              "name": "¿Existe sólo mobiliario necesario?",
+              "name": "ES LA INDICADA POR CATALOGO SELLO MANQUEHUE, PINTADA GRIS, CUATRICROMIA",
               "comment": "",
               "fields": [
                 {
                   "item": "1",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "2",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existe sólo documentos vigentes o necesarios?",
+              "name": "UBICADA CON VENTANA HACIA INGRESO DE PEATONES Y PREFERENTEMENTE PARALELA AL SENTIDO DE INGRESO DE TRANSITO",
               "comment": "",
               "fields": [
                 {
-                  "item": "2",
-                  "name": "Existe",
+                  "item": "3",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "4",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existe Sector de acopio de cartones, papeles y material de envoltorios?",
+              "name": "LIMPIA, SIN CARTELES O ELEMENTOS NO AUTORIZADOS EN SUS PAREDES.",
               "comment": "",
               "fields": [
                 {
                   "item": "5",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "6",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MOBILIARIO BASICO DE PORTERIA",
+      "subsections": [
+        {
+          "name": "MOBILIARIO BASICO DE PORTERIA",
+          "groups": [
             {
-              "name": "¿Existe área de acopio de restos de materiales sobrantes?",
+              "name": "CLOSET CASCOS PARA VISITAS",
               "comment": "",
               "fields": [
                 {
                   "item": "7",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "8",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existe área destinada a materiales no conformes?",
+              "name": "CASILLEROS",
               "comment": "",
               "fields": [
                 {
                   "item": "9",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "10",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Están los materiales, repuestos, herramientas y equipos \"innecesarios\" separados de los que son \"necesarios\"?",
+              "name": "MASA LABORAL(SUBC Y CASA)",
               "comment": "",
               "fields": [
                 {
                   "item": "11",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "12",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Están los materiales, repuestos, herramientas y equipamiento \"innecesarios\" colocados en receptáculos adecuados?",
+              "name": "10 CASCOS BLANCOS Y 10 CASCOS GRISES EN CLOSET",
               "comment": "",
               "fields": [
                 {
                   "item": "13",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "14",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "S2 - SITUAR LO NECESARIO",
-      "subsections": [
-        {
-          "name": "S2 - SITUAR LO NECESARIO",
-          "groups": [
+            },
             {
-              "name": "¿Existe sector de materiales de alta rotación?",
+              "name": "kit de primeros auxilios exigidos por la normativa HABILITADO",
               "comment": "",
               "fields": [
                 {
                   "item": "15",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "16",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existe sector de materiales de baja rotación?",
+              "name": "PERSONAL EN OBRA COMPETENTE PARA ASISTIR PRIMEROS AUXILIOS",
               "comment": "",
               "fields": [
                 {
                   "item": "17",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "18",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Está claramente definido Patios de acopio exterior no techado?",
+              "name": "PORTERO ENTRENADO CUMPLE PROCEDIMIENTO DE ACCESO",
               "comment": "",
               "fields": [
                 {
                   "item": "19",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "20",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Está claramente definido Patio de acopio exterior techado?",
+              "name": "MEDIO DE CONTROL DE POLVO",
               "comment": "",
               "fields": [
                 {
                   "item": "21",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "22",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Materiales en patios están protegido de posibles daños?",
+              "name": "TARJETAS DE ACCESO / CREDENCIAL DE ACCESO",
               "comment": "",
               "fields": [
                 {
                   "item": "23",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "24",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Los materiales están debidamente clasificados y en su sitio?",
+              "name": "KANBAN DE ACCESO",
               "comment": "",
               "fields": [
                 {
                   "item": "25",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "26",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CIERRE PERIMETRAL DE OBRA",
+      "subsections": [
+        {
+          "name": "CIERRE PERIMETRAL DE OBRA",
+          "groups": [
             {
-              "name": "¿Están las herramientas debidamente clasificado, en su sitio y disponible de manera inmediata?",
+              "name": "CIERRE RIGIDO MALLA ACMA",
               "comment": "",
               "fields": [
                 {
                   "item": "27",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "28",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿La maquinaria está debidamente clasificada y en su sitio?",
+              "name": "PORTON DE ACCESO DE CIERRE ACMA",
               "comment": "",
               "fields": [
                 {
                   "item": "29",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "30",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existe estante de archivadores?",
+              "name": "MALLA RASCHEL GRIS GRAFITO EN TODO EL PERIMETRO Y EN BUEN ESTADO",
               "comment": "",
               "fields": [
                 {
                   "item": "31",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "32",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Están los documentos bien archivados?",
+              "name": "CIERRE DE ALTURA ADECUADA Y PANTALLAS SEGÚN SEA CONTIGUA A ZONAS HABITADAS",
               "comment": "",
               "fields": [
                 {
                   "item": "33",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "34",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SEÑALÉTICAS DE ACCESO",
+      "subsections": [
+        {
+          "name": "SEÑALÉTICAS DE ACCESO",
+          "groups": [
             {
-              "name": "¿Existe Archivadores por separado para materiales, equipos y herramientas?",
+              "name": "LETRERO DE ACERCAMIENTO: INSTALADO, VISIBLE, EN BUEN ESTADO",
               "comment": "",
               "fields": [
                 {
                   "item": "35",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "36",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existe espacio adecuado para manipulación manual de materiales y herramientas?",
+              "name": "LETRERO ACCESO A OBRA: INSTALADO, VISIBLE, EN BUEN ESTADO.",
               "comment": "",
               "fields": [
                 {
                   "item": "37",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "38",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IDENTIFICACION DE RECINTOS",
+      "subsections": [
+        {
+          "name": "IDENTIFICACION DE RECINTOS",
+          "groups": [
             {
-              "name": "¿Existe espacio adecuado para circulación de equipos de carga (radios de giro, accesos, alturas)?",
+              "name": "OFICINAS",
               "comment": "",
               "fields": [
                 {
                   "item": "39",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "40",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existen espacios adecuados para las labores en área de recepción, administración, carga y entrega de materiales?",
+              "name": "COMEDOR",
               "comment": "",
               "fields": [
                 {
                   "item": "41",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "42",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existen Kit de Materiales para: Cerámicos de, fitting, artefactos y accesorios de baño y cocina, puertas y quincallería?",
+              "name": "BAÑOS",
               "comment": "",
               "fields": [
                 {
                   "item": "43",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "44",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "S3 - SUPRIMIR SUCIEDAD",
-      "subsections": [
-        {
-          "name": "S3 - SUPRIMIR SUCIEDAD",
-          "groups": [
+            },
             {
-              "name": "¿Lugar libre de polvo, virutas, aceite, etc., en el suelo, máquinas, techo, paredes, mobiliario, etc.?",
+              "name": "CAMARINES",
               "comment": "",
               "fields": [
                 {
                   "item": "45",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "46",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Equipos y estanterías están libres de oxidados o elementos estropeados?",
+              "name": "ESTACIONAMIENTO VISITAS",
               "comment": "",
               "fields": [
                 {
                   "item": "47",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "48",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Espacios libres de útiles de limpieza abandonadas fuera de su sitio?",
+              "name": "ESTACIONAMIENTO SUBCONTRATISTAS",
               "comment": "",
               "fields": [
                 {
                   "item": "49",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "50",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿La ropa de los trabajadores tiene buen aspecto?",
+              "name": "BODEGA",
               "comment": "",
               "fields": [
                 {
                   "item": "51",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "52",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿El suelo está en óptimas condiciones y libre goteras en el techo?",
+              "name": "BASURA DOMICILIARIA",
               "comment": "",
               "fields": [
                 {
                   "item": "53",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "54",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "COMUNICACIÓN VISUAL DE PRACTICAS DE TRABAJO",
+      "subsections": [
+        {
+          "name": "COMUNICACIÓN VISUAL DE PRACTICAS DE TRABAJO",
+          "groups": [
             {
-              "name": "¿Están las áreas de circulación limpias y mantenidas?",
+              "name": "LETREROS EN BUEN ESTADO DE CONSERVACION",
               "comment": "",
               "fields": [
                 {
                   "item": "55",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "56",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Hay suficientes contenedores de basura para mantener limpio el lugar de trabajo? ¿Están debidamente usados?",
+              "name": "LETREROS UBICADOS EN TODOS LOS FRENTES DE TRABAJO Y BIEN DISTRIBUIDOS  POR AREAS DE AVANCE",
               "comment": "",
               "fields": [
                 {
                   "item": "57",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "58",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Está el área de acopio en patio limpia y ordenada?",
+              "name": "LETREROS DE AUTOCONTROL DE CALIDAD",
               "comment": "",
               "fields": [
                 {
                   "item": "59",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "60",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "S4 - SEÑALIZAR ANOMALIAS",
-      "subsections": [
-        {
-          "name": "S4 - SEÑALIZAR ANOMALIAS",
-          "groups": [
+            },
             {
-              "name": "¿Existe señalética de bodegas exteriores, patios y lugares de acopio?",
+              "name": "LETREROS DE PRODUCTIVIDAD",
               "comment": "",
               "fields": [
                 {
                   "item": "61",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "62",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existe la señalización y rotulación de los distintas zonas de acopio?",
+              "name": "LETEROS DE PREVENCION DE RIESGOS Y MEDIOAMBIENTE",
               "comment": "",
               "fields": [
                 {
                   "item": "63",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "64",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "INDUCCION EN OBRA",
+      "subsections": [
+        {
+          "name": "INDUCCION EN OBRA",
+          "groups": [
             {
-              "name": "¿Existe Rotulación de código de materiales?",
+              "name": "STATUS PLAN DE INDUCCION MANQUEHUE SOBRE 75%",
               "comment": "",
               "fields": [
                 {
                   "item": "65",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "66",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Todas las Estanterías están con su identificación?",
+              "name": "STICKERS PDR EN CASCOS",
               "comment": "",
               "fields": [
                 {
                   "item": "67",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "68",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existen tabla de cubicaciones de partidas principales por cada tipo de casa o dpto. para el control de entrega de materiales?",
+              "name": "STICKERS RRHH  EN CASCOS",
               "comment": "",
               "fields": [
                 {
                   "item": "69",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "70",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existe tarjetas de señalización de situaciones anómalas?",
+              "name": "STICKERS DE AUTOCONTROL EN CASCOS",
               "comment": "",
               "fields": [
                 {
                   "item": "71",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "72",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existen elementos visuales para controlar herramientas o equipos faltantes?",
+              "name": "STICKERS DE MEJORA CONTINUA EN CASCOS",
               "comment": "",
               "fields": [
                 {
                   "item": "73",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "74",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "INTRANET",
+      "subsections": [
+        {
+          "name": "INTRANET",
+          "groups": [
             {
-              "name": "¿Existen elementos visuales para advertir de reposición de materiales?",
+              "name": "LICENCIAS DE ACCESO TODO EL EQUIPO",
               "comment": "",
               "fields": [
                 {
                   "item": "75",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "76",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Existen señales visuales que controlen documentación faltante?",
+              "name": "CONECTIVIDAD A INTERNET EFECTIVA",
               "comment": "",
               "fields": [
                 {
                   "item": "77",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "78",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
@@ -749,114 +789,114 @@
       ]
     },
     {
-      "name": "S5 - SEGUIR MEJORANDO",
+      "name": "UNIFORMES",
       "subsections": [
         {
-          "name": "S5 - SEGUIR MEJORANDO",
+          "name": "UNIFORMES",
           "groups": [
             {
-              "name": "¿Hay indicadores de nivel de orden y limpieza objetivos (auditorías, etc.)?",
+              "name": "CASCOS MANQUEHUE",
               "comment": "",
               "fields": [
                 {
                   "item": "79",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "80",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Las tendencias de los indicadores son positivas?",
+              "name": "CASCOS SUBCONTRATOS",
               "comment": "",
               "fields": [
                 {
                   "item": "81",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "82",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Se hace limpieza en forma sistemática?",
+              "name": "CHALECOS GEOLOGOS TERRENO",
               "comment": "",
               "fields": [
                 {
                   "item": "83",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "84",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Se cumplen planes de mantenimiento de la bodega (safari)?",
+              "name": "POLERA MAESTROS",
               "comment": "",
               "fields": [
                 {
                   "item": "85",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "86",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Hay reconocimiento por las mejoras?",
+              "name": "CREDENCIAL MANQUEHUE",
               "comment": "",
               "fields": [
                 {
                   "item": "87",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "88",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Hay sanciones para los que incumplen sistemáticamente?",
+              "name": "CREDENCIAL SUBCONTRATO",
               "comment": "",
               "fields": [
                 {
                   "item": "89",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "90",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
@@ -867,78 +907,106 @@
       ]
     },
     {
-      "name": "S6 - SEGURIDAD",
+      "name": "LIMPIEZA Y RECOLECCION DE BASURA DOMICILIARIA EN OBRA",
       "subsections": [
         {
-          "name": "S6 - SEGURIDAD",
+          "name": "LIMPIEZA Y RECOLECCION DE BASURA DOMICILIARIA EN OBRA",
           "groups": [
             {
-              "name": "¿Están los elementos de seguridad en su sitio?",
+              "name": "BASUREROS SEGÚN TABLA MINIMA CATALOGO",
               "comment": "",
               "fields": [
                 {
                   "item": "91",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "92",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Extintores operativos y lugar señalizado?",
+              "name": "LIMPIEZA EFECTIVA DE CONTENEDORES A BOTADERO",
               "comment": "",
               "fields": [
                 {
                   "item": "93",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "94",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Iluminación Interior Adecuada?",
+              "name": "ZONAS DE ESTACIONAMIENTO SUBCONTRATOS  SIN BASURA",
               "comment": "",
               "fields": [
                 {
                   "item": "95",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "96",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
               ]
             },
             {
-              "name": "¿Iluminación Exterior Adecuada?",
+              "name": "OBRA RECOLECTA Y RETIRA BASURA DOMICILIARIA EN FAENA",
               "comment": "",
               "fields": [
                 {
                   "item": "97",
-                  "name": "Existe",
+                  "name": "Cumple",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
                 },
                 {
                   "item": "98",
-                  "name": "Notas u Observaciones",
+                  "name": "Comentarios / Plan de acción",
+                  "type": "string",
+                  "values": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CERCO  ACCIDENTE",
+      "subsections": [
+        {
+          "name": "CERCO  ACCIDENTE",
+          "groups": [
+            {
+              "name": "OBRA RECOLECTA Y RETIRA  BASURA DOMICILIARIA EN FAENA",
+              "comment": "",
+              "fields": [
+                {
+                  "item": "99",
+                  "name": "Cumple",
+                  "type": "yesno",
+                  "values": ["Si", "No", "N/A"]
+                },
+                {
+                  "item": "100",
+                  "name": "Comentarios / Plan de acción",
                   "type": "string",
                   "values": []
                 }
