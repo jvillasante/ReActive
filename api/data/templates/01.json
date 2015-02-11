@@ -1,7 +1,7 @@
 {
   "id": "1",
   "id_parent": "0",
-  "is_parent": "false",
+  "is_parent": false,
   "title": "Variables e Indicadores",
   "color": "#61210b",
   "abbr": "VI",
