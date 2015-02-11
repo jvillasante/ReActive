@@ -29,7 +29,7 @@ function all() {
         function(callback) { templatesFixture.createTemplates(callback); }
       ], function(err) {
         next(err);
-      }); 
+      });
     },
     function(next) { projectsFixture.createProjects(next); },
     function(next) { permissionsFixture.createPermissions(next); }
