@@ -18,16 +18,12 @@
               "fields": [
                 {
                   "item": "1",
-                  "required": true,
-                  "default": null,
                   "name": "Costo Real (Contable)",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "2",
-                  "required": true,
-                  "default": null,
                   "name": "Costo Presupuestado",
                   "type": "Number",
                   "values": []
@@ -40,16 +36,12 @@
               "fields": [
                 {
                   "item": "3",
-                  "required": true,
-                  "default": null,
                   "name": "Avance Real",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "4",
-                  "required": true,
-                  "default": null,
                   "name": "Avance Programado",
                   "type": "Number",
                   "values": []
@@ -62,16 +54,12 @@
               "fields": [
                 {
                   "item": "5",
-                  "required": true,
-                  "default": null,
                   "name": "Indice de Frequencia",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "6",
-                  "required": true,
-                  "default": null,
                   "name": "Indice de Gravedad",
                   "type": "Number",
                   "values": []
@@ -84,32 +72,24 @@
               "fields": [
                 {
                   "item": "7",
-                  "required": true,
-                  "default": null,
                   "name": "Nº Actividades Completadas",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "8",
-                  "required": true,
-                  "default": null,
                   "name": "Nº Actividades Programadas",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "9",
-                  "required": true,
-                  "default": null,
                   "name": "Nº Restricciones Vencidas",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "10",
-                  "required": true,
-                  "default": null,
                   "name": "Nº Total de Restricciones",
                   "type": "Number",
                   "values": []
@@ -122,40 +102,30 @@
               "fields": [
                 {
                   "item": "11",
-                  "required": true,
-                  "default": null,
                   "name": "Nº Ordenes de Trabajo Rehecho",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "12",
-                  "required": true,
-                  "default": null,
                   "name": "HH Gastadas(real)",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "13",
-                  "required": true,
-                  "default": null,
                   "name": "HH Ganadas(ppto)",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "14",
-                  "required": true,
-                  "default": null,
                   "name": "($/HH Real)",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "15",
-                  "required": true,
-                  "default": null,
                   "name": "($/HH Propuesta)",
                   "type": "Number",
                   "values": []
@@ -168,24 +138,18 @@
               "fields": [
                 {
                   "item": "16",
-                  "required": true,
-                  "default": null,
                   "name": "Venta Contrato Inicial",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "17",
-                  "required": true,
-                  "default": null,
                   "name": "Adicionales",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "18",
-                  "required": true,
-                  "default": null,
                   "name": "Venta Contrato Final",
                   "type": "Number",
                   "values": []
@@ -198,32 +162,24 @@
               "fields": [
                 {
                   "item": "19",
-                  "required": true,
-                  "default": null,
                   "name": "Avance Real",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "20",
-                  "required": true,
-                  "default": null,
                   "name": "Avance Presupuestado",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "21",
-                  "required": true,
-                  "default": null,
                   "name": "Nº Actividades Completadas",
                   "type": "Number",
                   "values": []
                 },
                 {
                   "item": "22",
-                  "required": true,
-                  "default": null,
                   "name": "Nº Actividades Programadas",
                   "type": "Number",
                   "values": []
