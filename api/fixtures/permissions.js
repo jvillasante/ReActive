@@ -14,7 +14,7 @@ exports.createPermissions = function(callback) {
   permissionProvider.removeAll(function(err) {
     if (err) { throw err; }
 
-    for (var i = 0; i < 15; i++) {
+    for (var i = 0; i < 16; i++) {
       async.parallel([
         function(cb) {
           permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[0], cb);
@@ -51,6 +51,9 @@ exports.createPermissions = function(callback) {
         },
         function(cb) {
           permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[11], cb);
+        },
+        function(cb) {
+          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[12], cb);
         },
       ], function(err, results) {
         callback(err);

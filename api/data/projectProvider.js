@@ -5,28 +5,42 @@ const
   async = require('async'),
   Err = require('custom-err'),
   validator = require('validator'),
-  db = require('../lib/db');
+  db = require('../lib/db'),
+  utils = require('../lib/utils');
 
 const ProjectProvider = function(connStr) {
   this.connStr = connStr;
 };
 
-ProjectProvider.prototype.findAllByUser = function(userId, callback) {
+ProjectProvider.prototype.findAllByUser = function(meta, userId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT p.id, p.name, p.address, p.image, p.created_at, p.updated_at FROM projects p");
-    sql.push("INNER JOIN permissions ps ON p.id = ps.id_project");
+    sql.push("SELECT DISTINCT p.id, p.name, p.address, p.image, p.created_at, p.updated_at");
+    sql.push("FROM projects p INNER JOIN permissions ps ON p.id = ps.id_project");
     sql.push("WHERE ps.id_user = $1");
-    client.query(sql.join(' '), [userId], function(err, result) {
+
+    client.query(utils.count(sql.join(' ')), [userId], function(err, result) {
       if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
-      done();
-      callback(null, result.rows);
+      let total = result.rows[0].total;
+      sql.push("ORDER BY p.id OFFSET $2 LIMIT $3");
+      client.query(sql.join(' '), [userId, meta.offset, meta.limit], function(err, result) {
+        if (err) {
+          done(client);
+          return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+        }
+
+        done();
+        callback(null, {
+          total: Number(total),
+          records: result.rows
+        });
+      });
     });
   });
 };

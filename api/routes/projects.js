@@ -5,17 +5,24 @@ const
   errTo = require('errto'),
   Err = require('custom-err'),
   ProjectProvider = require('../data/projectProvider').ProjectProvider,
+  utils = require('../lib/utils'),
   publicAttributes = ['id', 'name', 'created_at', 'updated_at'];
 
 exports.allByUser = function(req, res, next) {
   let projectProvider = new ProjectProvider(req.connectionStr);
+  let meta = utils.meta(req);
 
-  projectProvider.findAllByUser(req.user.id, errTo(next, function(result) {
-    if (!result || result.length <= 0) {
+  projectProvider.findAllByUser(meta, req.user.id, errTo(next, function(result) {
+    if (result.total <= 0) {
       return next(Err("projects not found", { code: 404, description: "No projects found for user: " + req.user.username + ".", errors: []}));
     }
 
-    res.status(200).send(result);
+    res.status(200).send({
+      metadata: {
+        pagination: utils.pagination(req, meta.offset, meta.limit, result.total)
+      },
+      records: result.records
+    });
   }));
 };
 
