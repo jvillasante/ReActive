@@ -16,20 +16,20 @@ ProjectProvider.prototype.findAllByUser = function(meta, userId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    let sql = [];
+    let sql = [], like = '%'+meta.q.toLowerCase()+'%';
     sql.push("SELECT DISTINCT p.id, p.name, p.address, p.image, to_char(p.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(p.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at");
     sql.push("FROM projects p INNER JOIN permissions ps ON p.id = ps.id_project");
-    sql.push("WHERE ps.id_user = $1");
+    sql.push("WHERE ps.id_user = $1 AND (LOWER(p.name) LIKE $2 OR LOWER(p.address) LIKE $3)");
 
-    client.query(utils.count(sql.join(' ')), [userId], function(err, result) {
+    client.query(utils.count(sql.join(' ')), [userId, like, like], function(err, result) {
       if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
       let total = result.rows[0].total;
-      sql.push("ORDER BY p.id OFFSET $2 LIMIT $3");
-      client.query(sql.join(' '), [userId, meta.offset, meta.limit], function(err, result) {
+      sql.push("ORDER BY p.id OFFSET $4 LIMIT $5");
+      client.query(sql.join(' '), [userId, like, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
           done(client);
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));

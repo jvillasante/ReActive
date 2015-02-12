@@ -19,9 +19,14 @@ This is the repo for the ReActive node.js project
 * `GET    /api/v1/projects`     (Get all projects by user)   (user, admin)
 
         ```javascript
-          url params: offset ([number] default: 0), limit ([number] default: 20)
+          url params:
+            offset: the offset for pagination ([number] default: 0)
+            limit: the limit for pagination ([number] default: 20)
+            q: query parameter for search on project name and address ([String] default: '')
           Examples:
             GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10
+            GET /projects/:projectId/templates/:templateId/reports?q=project01
+            GET /projects/:projectId/templates/:templateId/reports?q=project01&offset=20&limit=20
           Response with this format:
           {
             metadata: {
@@ -45,7 +50,8 @@ This is the repo for the ReActive node.js project
             }
           }
         ```
-        
+
+* `GET /api/vi/projects/search` (Search for a project (name or address match))
 * `POST   /api/v1/projects`     (Create new project by user) (admin)
 * `GET    /api/v1/projects/:id` (Show project by id)         (user, admin)
 * `PATCH  /api/v1/projects/:id` (Update project by id)       (admin)
@@ -55,7 +61,9 @@ This is the repo for the ReActive node.js project
 * `GET /projects/:projectId/templates`                     (all templates by user and project)
 
         ```javascript
-          url params: offset ([number] default: 0), limit ([number] default: 20)
+          url params:
+            offset: the offset for pagination ([number] default: 0)
+            limit: the limit for pagination ([number] default: 20)
           Examples:
             GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10
           Response with this format:
@@ -81,7 +89,7 @@ This is the repo for the ReActive node.js project
             }
           }
         ```
-        
+
 * `GET /projects/:projectId/templates/:templateId`         (get template by user and project and id)
 * `GET /projects/:projectId/templates/:parentId/templates` (all templates by user and project and parent template)
 
@@ -89,11 +97,17 @@ This is the repo for the ReActive node.js project
 * `GET  /projects/:projectId/templates/:templateId/reports` (all reports by user and project and template)
 
         ```javascript
-          url params: offset ([number] default: 0), limit ([number] default: 20), state ([sent, draft, all] default: all)
+          url params:
+            offset: the offset for pagination ([number] default: 0)
+            limit: the limit for pagination ([number] default: 20)
+            state: the sent field state ([sent, draft, all] default: all)
+            q: query parameter for search on report title ([String] default: '')
           Examples:
             GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=sent
             GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=draft
             GET /projects/:projectId/templates/:templateId/reports?state=draft
+            GET /projects/:projectId/templates/:templateId/reports?q=report01
+            GET /projects/:projectId/templates/:templateId/reports?state=draft&q=report01
           Response with this format:
           {
             metadata: {
@@ -138,11 +152,16 @@ This is the repo for the ReActive node.js project
 * `GET  /projects/:projectId/reports` (all reports by user and project)
 
         ```javascript
-          url params: offset ([number] default: 0), limit ([number] default: 20), state ([sent, draft, all] default: all)
+          url params:
+            offset: the offset for pagination ([number] default: 0)
+            limit: the limit for pagination ([number] default: 20)
+            state: the sent field state ([sent, draft, all] default: all)
+            q: query parameter for search on report title ([String] default: '')
           Examples:
             GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=sent
             GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=draft
             GET /projects/:projectId/templates/:templateId/reports?state=draft
+            GET /projects/:projectId/templates/:templateId/reports?state=draft&q=report01
           Response with this format:
           {
             metadata: {
@@ -166,15 +185,20 @@ This is the repo for the ReActive node.js project
             }
           }
         ```
-        
+
 * `GET  /reports`     (all reports by user)
 
         ```javascript
-          url params: offset ([number] default: 0), limit ([number] default: 20), state ([sent, draft, all] default: all)
+          url params:
+            offset: the offset for pagination ([number] default: 0)
+            limit: the limit for pagination ([number] default: 20)
+            state: the sent field state ([sent, draft, all] default: all)
+            q: query parameter for search on report title ([String] default: '')
           Examples:
             GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=sent
             GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=draft
             GET /projects/:projectId/templates/:templateId/reports?state=draft
+            GET /projects/:projectId/templates/:templateId/reports?state=draft&q=report01
           Response with this format:
           {
             metadata: {
@@ -198,7 +222,7 @@ This is the repo for the ReActive node.js project
             }
           }
         ```
-        
+
 * `GET  /reports/:id` (show report by user and reportId)
 * `PUT  /reports/:id` (update report - only report data not field values)
 

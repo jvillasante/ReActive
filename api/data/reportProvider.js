@@ -70,12 +70,12 @@ ReportProvider.prototype.findAllByUser = function(meta, userId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    let sql = [];
+    let sql = [], like = '%'+meta.q.toLowerCase()+'%';
     sql.push("SELECT DISTINCT r.id, r.id_template, r.id_project, r.title, r.sent, to_char(r.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(r.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at, p.name AS project_name, u.username AS user_name");
     sql.push("FROM users u");
     sql.push("INNER JOIN reports r ON r.id_user = u.id");
     sql.push("INNER JOIN projects p ON r.id_project = p.id");
-    sql.push("WHERE u.id = $1");
+    sql.push("WHERE u.id = $1 AND LOWER(r.title) LIKE $2");
 
     if (meta.state === 'draft') {
       sql.push("AND r.sent = false");
@@ -83,13 +83,13 @@ ReportProvider.prototype.findAllByUser = function(meta, userId, callback) {
       sql.push("AND r.sent = true");
     }
 
-    client.query(utils.count(sql.join(' ')), [userId], function(err, result) {
+    client.query(utils.count(sql.join(' ')), [userId, like], function(err, result) {
       if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
 
       let total = result.rows[0].total;
-      sql.push("ORDER BY r.id OFFSET $2 LIMIT $3");
+      sql.push("ORDER BY r.id OFFSET $3 LIMIT $4");
 
-      client.query(sql.join(' '), [userId, meta.offset, meta.limit], function(err, result) {
+      client.query(sql.join(' '), [userId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
           done(client);
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -109,12 +109,12 @@ ReportProvider.prototype.findAllByProject = function(meta, userId, projectId, ca
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    let sql = [];
+    let sql = [], like = '%'+meta.q.toLowerCase()+'%';
     sql.push("SELECT r.id, r.id_template, r.id_project, r.title, r.sent, to_char(r.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(r.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at, p.name AS project_name, u.username AS user_name");
     sql.push("FROM users u");
     sql.push("INNER JOIN reports r ON r.id_user = u.id");
     sql.push("INNER JOIN projects p ON r.id_project = p.id");
-    sql.push("WHERE u.id = $1 AND p.id = $2");
+    sql.push("WHERE u.id = $1 AND p.id = $2 AND LOWER(r.title LIKE $3)");
 
     if (meta.state === 'draft') {
       sql.push("AND r.sent = false");
@@ -122,13 +122,13 @@ ReportProvider.prototype.findAllByProject = function(meta, userId, projectId, ca
       sql.push("AND r.sent = true");
     }
 
-    client.query(utils.count(sql.join(' ')), [userId, projectId], function(err, result) {
+    client.query(utils.count(sql.join(' ')), [userId, projectId, like], function(err, result) {
       if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
 
       let total = result.rows[0].total;
-      sql.push("ORDER BY r.id OFFSET $3 LIMIT $4");
+      sql.push("ORDER BY r.id OFFSET $4 LIMIT $5");
 
-      client.query(sql.join(' '), [userId, projectId, meta.offset, meta.limit], function(err, result) {
+      client.query(sql.join(' '), [userId, projectId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
           done(client);
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -148,13 +148,13 @@ ReportProvider.prototype.findAllByProjectAndTemplate = function(meta, userId, pr
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    let sql = [];
+    let sql = [], like = '%'+meta.q.toLowerCase()+'%';
     sql.push("SELECT DISTINCT r.id, r.id_template, r.id_project, r.title, r.sent, to_char(r.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(r.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at, p.name AS project_name, u.username AS user_name");
     sql.push("FROM users u");
     sql.push("INNER JOIN reports r ON r.id_user = u.id");
     sql.push("INNER JOIN projects p ON r.id_project = p.id");
     sql.push("INNER JOIN templates t ON r.id_template = t.id");
-    sql.push("WHERE u.id = $1 AND p.id = $2 AND t.id = $3");
+    sql.push("WHERE u.id = $1 AND p.id = $2 AND t.id = $3 AND LOWER(r.title LIKE $4)");
 
     if (meta.state === 'draft') {
       sql.push("AND r.sent = false");
@@ -162,16 +162,16 @@ ReportProvider.prototype.findAllByProjectAndTemplate = function(meta, userId, pr
       sql.push("AND r.sent = true");
     }
 
-    client.query(utils.count(sql.join(' ')), [userId, projectId, templateId], function(err, result) {
+    client.query(utils.count(sql.join(' ')), [userId, projectId, templateId, like], function(err, result) {
       if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
       let total = result.rows[0].total;
-      sql.push("ORDER BY r.id OFFSET $4 LIMIT $5");
+      sql.push("ORDER BY r.id OFFSET $5 LIMIT $6");
 
-      client.query(sql.join(' '), [userId, projectId, templateId, meta.offset, meta.limit], function(err, result) {
+      client.query(sql.join(' '), [userId, projectId, templateId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
           done(client);
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));

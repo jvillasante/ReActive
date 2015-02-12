@@ -10,7 +10,9 @@ const
 
 exports.allByUser = function(req, res, next) {
   let projectProvider = new ProjectProvider(req.connectionStr);
-  let meta = utils.meta(req);
+  let meta = utils.meta(req, {
+    q: req.query.q || ''
+  });
 
   projectProvider.findAllByUser(meta, req.user.id, errTo(next, function(result) {
     if (result.total <= 0) {

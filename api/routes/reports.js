@@ -12,6 +12,7 @@ exports.allByUser = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);
   let meta = utils.meta(req, {
     state: req.query.state || 'all',
+    q: req.query.q || ''
   });
 
   reportProvider.findAllByUser(meta, req.user.id, errTo(next, function(result) {
@@ -32,6 +33,7 @@ exports.allByProject = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);
   let meta = utils.meta(req, {
     state: req.query.state || 'all',
+    q: req.query.q || ''
   });
 
   reportProvider.findAllByProject(meta, req.user.id, req.params.projectId, errTo(next, function(result) {
@@ -52,6 +54,7 @@ exports.allByProjectAndTemplate = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);
   let meta = utils.meta(req, {
     state: req.query.state || 'all',
+    q: req.query.q || ''
   });
 
   reportProvider.findAllByProjectAndTemplate(meta, req.user.id, req.params.projectId, req.params.templateId, errTo(next, function(result) {
