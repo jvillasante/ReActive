@@ -5,41 +5,66 @@ const
   async = require('async'),
   errTo = require('errto'),
   Err = require('custom-err'),
-  ReportProvider = require('../data/reportProvider').ReportProvider;
+  ReportProvider = require('../data/reportProvider').ReportProvider,
+  utils = require('../lib/utils');
 
 exports.allByUser = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);
+  let meta = utils.meta(req, {
+    state: req.query.state || 'all',
+  });
 
-  reportProvider.findAllByUser(req.user.id, errTo(next, function(reports) {
-    if (!reports || reports.length <= 0) {
-      return next(Err("report not found", { code: 404, description: "No report found.", errors: []}));
+  reportProvider.findAllByUser(meta, req.user.id, errTo(next, function(result) {
+    if (result.total <= 0) {
+      return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
     }
 
-    res.status(200).send(reports);
+    res.status(200).send({
+      metadata: {
+        pagination: utils.pagination(req, meta.offset, meta.limit, result.total)
+      },
+      records: result.records
+    });
   }));
 };
 
 exports.allByProject = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);
+  let meta = utils.meta(req, {
+    state: req.query.state || 'all',
+  });
 
-  reportProvider.findAllByProject(req.user.id, req.params.projectId, errTo(next, function(reports) {
-    if (!reports || reports.length <= 0) {
-      return next(Err("report not found", { code: 404, description: "No report found.", errors: []}));
+  reportProvider.findAllByProject(meta, req.user.id, req.params.projectId, errTo(next, function(result) {
+    if (result.total <= 0) {
+      return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
     }
 
-    res.status(200).send(reports);
+    res.status(200).send({
+      metadata: {
+        pagination: utils.pagination(req, meta.offset, meta.limit, result.total)
+      },
+      records: result.records
+    });
   }));
 };
 
 exports.allByProjectAndTemplate = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);
+  let meta = utils.meta(req, {
+    state: req.query.state || 'all',
+  });
 
-  reportProvider.findAllByProjectAndTemplate(req.user.id, req.params.projectId, req.params.templateId, errTo(next, function(reports) {
-    if (!reports || reports.length <= 0) {
-      return next(Err("report not found", { code: 404, description: "No report found.", errors: []}));
+  reportProvider.findAllByProjectAndTemplate(meta, req.user.id, req.params.projectId, req.params.templateId, errTo(next, function(result) {
+    if (result.total <= 0) {
+      return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
     }
 
-    res.status(200).send(reports);
+    res.status(200).send({
+      metadata: {
+        pagination: utils.pagination(req, meta.offset, meta.limit, result.total)
+      },
+      records: result.records
+    });
   }));
 };
 
@@ -161,11 +186,6 @@ exports.remove = function(req, res, next) {
       .send();
   }));
 };
-
-// router.route('/reports/:reportId/fields/:id')
-  // .get(routes.auth.isAuthenticated, routes.reports.showField)       // show field values of report
-  // .put(routes.auth.isAuthenticated, routes.reports.updateField)     // update field values of report
-  // .delete(routes.auth.isAuthenticated, routes.reports.removeField); // remove field values of report
 
 exports.showField = function(req, res, next) {
   let reportProvider = new ReportProvider(req.connectionStr);

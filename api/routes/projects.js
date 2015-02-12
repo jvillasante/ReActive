@@ -82,7 +82,7 @@ exports.update = function(req, res, next) {
 
   let projectData = {};
   req.body.forEach(function(item) {
-    if (item.path === '/name' || item.path === '/created_at' || item.path === '/updated_at') {
+    if (item.path === '/name' || item.path === '/address') {
       projectData[item.path.replace(/^\//, '')] = item.value;
     }
   });

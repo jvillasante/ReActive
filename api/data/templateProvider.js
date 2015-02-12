@@ -5,7 +5,8 @@ const
   async = require('async'),
   Err = require('custom-err'),
   validator = require('validator'),
-  db = require('../lib/db');
+  db = require('../lib/db'),
+  utils = require('../lib/utils');
 
 const TemplateProvider = function(connStr) {
   this.connStr = connStr;
@@ -16,7 +17,7 @@ TemplateProvider.prototype.findById = function(userId, projectId, templateId, ca
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT id, id_parent, is_parent, title, color, abr, data, fields FROM templates t");
+    sql.push("SELECT t.id, t.id_parent, t.is_parent, t.title, t.color, t.abr, t.data, t.fields FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3");
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
@@ -31,49 +32,62 @@ TemplateProvider.prototype.findById = function(userId, projectId, templateId, ca
   });
 };
 
-TemplateProvider.prototype.findAllByUserAndProject = function(userId, projectId, callback) {
+TemplateProvider.prototype.findAllByUserAndProject = function(meta, userId, projectId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT id, title, color, abr, is_parent FROM templates t");
+    sql.push("SELECT DISTINCT t.id, t.title, t.color, t.abr, t.is_parent FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id_parent = 0");
-    sql.push("ORDER BY id");
-    client.query(sql.join(' '), [userId, projectId], function(err, result) {
+
+    client.query(utils.count(sql.join(' ')), [userId, projectId], function(err, result) {
       if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
-      async.map(result.rows, function(item, cb) {
-        if (item.is_parent === true) {
-          sql = [];
-          sql.push("SELECT DISTINCT id, title, color, abr, is_parent FROM templates t");
-          sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
-          sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id_parent = $3");
-          sql.push("ORDER BY id");
-          client.query(sql.join(' '), [userId, projectId, item.id], function(err, result) {
-            if (err) {
-              done(client);
-              return cb(Err("db query error", { code: 1002, description: err.message, errors: []}));
-            }
+      let total = result.rows[0].total;
+      sql.push("ORDER BY t.id OFFSET $3 LIMIT $4");
 
-            cb(null, {
-              id: item.id,
-              title: item.title,
-              color: item.color,
-              abr: item.abr,
-              is_parent: item.is_parent,
-              childs: result.rows
-            });
-          });
-        } else {
-          cb(null, item);
+      client.query(sql.join(' '), [userId, projectId, meta.offset, meta.limit], function(err, result) {
+        if (err) {
+          done(client);
+          return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
         }
-      }, function(err, results){
-        done();
-        callback(err, results);
+
+        async.map(result.rows, function(item, cb) {
+          if (item.is_parent === true) {
+            sql = [];
+            sql.push("SELECT DISTINCT t.id, t.title, t.color, t.abr, t.is_parent FROM templates t");
+            sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
+            sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id_parent = $3");
+            sql.push("ORDER BY t.id");
+            client.query(sql.join(' '), [userId, projectId, item.id], function(err, result) {
+              if (err) {
+                done(client);
+                return cb(Err("db query error", { code: 1002, description: err.message, errors: []}));
+              }
+
+              cb(null, {
+                id: item.id,
+                title: item.title,
+                color: item.color,
+                abr: item.abr,
+                is_parent: item.is_parent,
+                childs: result.rows
+              });
+            });
+          } else {
+            cb(null, item);
+          }
+        }, function(err, results){
+          done(client);
+          callback(err, {
+            total: Number(total),
+            records: results
+          });
+        });
       });
     });
   });
@@ -84,10 +98,10 @@ TemplateProvider.prototype.findAllByUserAndProjectAndParent = function(userId, p
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT id, title, color, abr, is_parent FROM templates t");
+    sql.push("SELECT DISTINCT t.id, t.title, t.color, t.abr, t.is_parent FROM templates t");
     sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id_parent = $3");
-    sql.push("ORDER BY id");
+    sql.push("ORDER BY t.id");
     client.query(sql.join(' '), [userId, projectId, parentId], function(err, result) {
       if (err) {
         done(client);

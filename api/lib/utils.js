@@ -1,14 +1,22 @@
 'use strict';
 
+const _ = require('lodash');
+
 exports.count = function(query) {
   return "SELECT COUNT(*) AS total FROM(" + query + ") AS REAL_QUERY";
 };
 
-exports.meta = function(req) {
-  return {
+exports.meta = function(req, others) {
+  let result = {
     offset: Number(req.query.offset || 0),
     limit: Number(req.query.limit || 20)
   };
+
+  if (others) {
+    _.assign(result, others);
+  }
+
+  return result;
 };
 
 exports.pagination = function(req, offset, limit, total) {

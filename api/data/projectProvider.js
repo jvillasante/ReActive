@@ -17,7 +17,7 @@ ProjectProvider.prototype.findAllByUser = function(meta, userId, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT p.id, p.name, p.address, p.image, p.created_at, p.updated_at");
+    sql.push("SELECT DISTINCT p.id, p.name, p.address, p.image, to_char(p.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(p.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at");
     sql.push("FROM projects p INNER JOIN permissions ps ON p.id = ps.id_project");
     sql.push("WHERE ps.id_user = $1");
 
@@ -49,7 +49,8 @@ ProjectProvider.prototype.findAll = function(callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query('SELECT DISTINCT id, name, address, image, created_at, updated_at FROM projects', function(err, result) {
+    client.query("SELECT DISTINCT id, name, address, image, to_char(created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at FROM projects",
+    function(err, result) {
       if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -66,7 +67,7 @@ ProjectProvider.prototype.findById = function(userId, id, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT DISTINCT id, name, address, image, created_at, updated_at FROM projects p");
+    sql.push("SELECT DISTINCT p.id, p.name, p.address, p.image, to_char(p.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(p.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at FROM projects p");
     sql.push("INNER JOIN permissions ps ON p.id = ps.id_project");
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND p.id = $3 LIMIT 1");
     client.query(sql.join(' '), [userId, id, id], function(err, result) {
@@ -115,13 +116,14 @@ ProjectProvider.prototype.save = function(project, callback) {
   });
 };
 
+// TODO - update image and address
 ProjectProvider.prototype.update = function(userId, id, projectData, callback) {
   let self = this;
 
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("SELECT id, id_user, name, created_at, updated_at FROM projects WHERE id=$1 AND id_user = $2 LIMIT 1", [id, userId], function(err, result) {
+    client.query("SELECT id, id_user, name, to_char(created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at FROM projects WHERE id=$1 AND id_user = $2 LIMIT 1", [id, userId], function(err, result) {
       if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -137,8 +139,8 @@ ProjectProvider.prototype.update = function(userId, id, projectData, callback) {
       self.validate(project, function(err, project) {
         if (err) { done(client); return callback(Err("validation error", { code: 2001, description: "project validation error", errors: err})); }
 
-        client.query("UPDATE projects SET name=$1, created_at=$2, updated_at=$3 WHERE id=$4 RETURNING id",
-        [project.name, project.created_at, project.updated_at, project.id], function(err, result) {
+        client.query("UPDATE projects SET name=$1, address=$2 WHERE id=$3 RETURNING id",
+        [project.name, project.address, project.id], function(err, result) {
           if (err) {
             done(client);
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));

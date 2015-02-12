@@ -6,7 +6,8 @@ const
   Err = require('custom-err'),
   errTo = require('errto'),
   validator = require('validator'),
-  db = require('../lib/db');
+  db = require('../lib/db'),
+  utils = require('../lib/utils');
 
 const ReportProvider = function(connStr) {
   this.connStr = connStr;
@@ -19,7 +20,7 @@ ReportProvider.prototype.findById = function(userId, reportId, callback) {
     let sql = [];
     async.waterfall([
       function getReport(next) {
-        sql.push("SELECT r.id, r.id_template, r.id_project, r.title, r.sent, r.created_at, r.updated_at, p.name AS project_name, u.username AS user_name");
+        sql.push("SELECT r.id, r.id_template, r.id_project, r.title, r.sent, to_char(r.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(r.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at, p.name AS project_name, u.username AS user_name");
         sql.push("FROM users u");
         sql.push("INNER JOIN reports r ON r.id_user = u.id");
         sql.push("INNER JOIN projects p ON r.id_project = p.id");
@@ -65,72 +66,123 @@ ReportProvider.prototype.findById = function(userId, reportId, callback) {
   });
 };
 
-ReportProvider.prototype.findAllByUser = function(userId, callback) {
+ReportProvider.prototype.findAllByUser = function(meta, userId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT r.id, r.id_template, r.id_project, r.title, r.sent, r.created_at, r.updated_at, p.name AS project_name, u.username AS user_name");
+    sql.push("SELECT DISTINCT r.id, r.id_template, r.id_project, r.title, r.sent, to_char(r.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(r.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at, p.name AS project_name, u.username AS user_name");
     sql.push("FROM users u");
     sql.push("INNER JOIN reports r ON r.id_user = u.id");
     sql.push("INNER JOIN projects p ON r.id_project = p.id");
     sql.push("WHERE u.id = $1");
 
-    client.query(sql.join(' '), [userId], function(err, result) {
-      if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-      if (!result || result.rows.length <= 0) {
-        return callback(Err("no report found", { code: 404, description: "No report found for user " + userId + ".", errors: []}));
-      }
+    if (meta.state === 'draft') {
+      sql.push("AND r.sent = false");
+    } else if (meta.state === 'sent') {
+      sql.push("AND r.sent = true");
+    }
 
-      done(client);
-      callback(null, result.rows);
+    client.query(utils.count(sql.join(' ')), [userId], function(err, result) {
+      if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+
+      let total = result.rows[0].total;
+      sql.push("ORDER BY r.id OFFSET $2 LIMIT $3");
+
+      client.query(sql.join(' '), [userId, meta.offset, meta.limit], function(err, result) {
+        if (err) {
+          done(client);
+          return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+        }
+
+        done(client);
+        callback(null, {
+          total: Number(total),
+          records: result.rows
+        });
+      });
     });
   });
 };
 
-ReportProvider.prototype.findAllByProject = function(userId, projectId, callback) {
+ReportProvider.prototype.findAllByProject = function(meta, userId, projectId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT r.id, r.id_template, r.id_project, r.title, r.sent, r.created_at, r.updated_at, p.name AS project_name, u.username AS user_name");
+    sql.push("SELECT r.id, r.id_template, r.id_project, r.title, r.sent, to_char(r.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(r.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at, p.name AS project_name, u.username AS user_name");
     sql.push("FROM users u");
     sql.push("INNER JOIN reports r ON r.id_user = u.id");
     sql.push("INNER JOIN projects p ON r.id_project = p.id");
     sql.push("WHERE u.id = $1 AND p.id = $2");
 
-    client.query(sql.join(' '), [userId, projectId], function(err, result) {
-      if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-      if (!result || result.rows.length <= 0) {
-        return callback(Err("no report found", { code: 404, description: "No report found for user " + userId + ".", errors: []}));
-      }
+    if (meta.state === 'draft') {
+      sql.push("AND r.sent = false");
+    } else if (meta.state === 'sent') {
+      sql.push("AND r.sent = true");
+    }
 
-      done(client);
-      callback(null, result.rows);
+    client.query(utils.count(sql.join(' ')), [userId, projectId], function(err, result) {
+      if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+
+      let total = result.rows[0].total;
+      sql.push("ORDER BY r.id OFFSET $3 LIMIT $4");
+
+      client.query(sql.join(' '), [userId, projectId, meta.offset, meta.limit], function(err, result) {
+        if (err) {
+          done(client);
+          return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+        }
+
+        done(client);
+        callback(null, {
+          total: Number(total),
+          records: result.rows
+        });
+      });
     });
   });
 };
 
-ReportProvider.prototype.findAllByProjectAndTemplate = function(userId, projectId, templateId, callback) {
+ReportProvider.prototype.findAllByProjectAndTemplate = function(meta, userId, projectId, templateId, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     let sql = [];
-    sql.push("SELECT r.id, r.id_template, r.id_project, r.title, r.sent, r.created_at, r.updated_at, p.name AS project_name, u.username AS user_name");
+    sql.push("SELECT DISTINCT r.id, r.id_template, r.id_project, r.title, r.sent, to_char(r.created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(r.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at, p.name AS project_name, u.username AS user_name");
     sql.push("FROM users u");
     sql.push("INNER JOIN reports r ON r.id_user = u.id");
     sql.push("INNER JOIN projects p ON r.id_project = p.id");
     sql.push("INNER JOIN templates t ON r.id_template = t.id");
     sql.push("WHERE u.id = $1 AND p.id = $2 AND t.id = $3");
 
-    client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
-      if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-      if (!result || result.rows.length <= 0) {
-        return callback(Err("no report found", { code: 404, description: "No report found for user " + userId + ".", errors: []}));
+    if (meta.state === 'draft') {
+      sql.push("AND r.sent = false");
+    } else if (meta.state === 'sent') {
+      sql.push("AND r.sent = true");
+    }
+
+    client.query(utils.count(sql.join(' ')), [userId, projectId, templateId], function(err, result) {
+      if (err) {
+        done(client);
+        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
-      done(client);
-      callback(null, result.rows);
+      let total = result.rows[0].total;
+      sql.push("ORDER BY r.id OFFSET $4 LIMIT $5");
+
+      client.query(sql.join(' '), [userId, projectId, templateId, meta.offset, meta.limit], function(err, result) {
+        if (err) {
+          done(client);
+          return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+        }
+
+        done(client);
+        callback(null, {
+          total: Number(total),
+          records: result.rows
+        });
+      });
     });
   });
 };
@@ -317,14 +369,14 @@ ReportProvider.prototype.showField = function(userId, reportId, fieldId, callbac
     let sql = [];
     sql.push("SELECT v.item, v.value FROM values v");
     sql.push("INNER JOIN fields f ON f.id = v.id_field");
-    sql.push("INNER JOIN reports r ON r.id = f.id_report")
+    sql.push("INNER JOIN reports r ON r.id = f.id_report");
     sql.push("WHERE r.id_user=$1 AND f.id_report=$2 AND f.id=$3");
     sql.push("ORDER BY v.item");
     client.query(sql.join(' '), [userId, reportId, fieldId], function(err, result) {
       if (err) { done(client); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
       if (!result || result.rows.length <= 0) {
         done(client);
-        return callback(Err("no report data found", { code: 404, description: "No report data found for report " + report.id + ".", errors: []}));
+        return callback(Err("no report data found", { code: 404, description: "No report data found for report " + reportId + ".", errors: []}));
       }
 
       done(client);

@@ -94,19 +94,6 @@ router.route('/reports/:reportId/fields/:id')
   .put(routes.auth.isAuthenticated, routes.reports.updateField)     // update field values of report
   .delete(routes.auth.isAuthenticated, routes.reports.removeField); // remove field values of report
 
-
-// old...
-// router.route('/projects/:projectId/templates/:templateId/reports')
-  // .get(routes.auth.isAuthenticated, routes.reports.allByProjectAndTemplate) // all reports by user and project and template
-  // .post(routes.auth.isAuthenticated, routes.reports.create);                // create report by user and project and template
-// router.route('/projects/:projectId/reports')
-  // .get(routes.auth.isAuthenticated, routes.reports.allByProject);           // all reports by user and project
-// router.route('/reports')
-  // .get(routes.auth.isAuthenticated, routes.reports.allByUser);              // all reports by user
-// router.route('/reports/:id')
-  // .get(routes.auth.isAuthenticated, routes.reports.show)                    // report by id
-  // .put(routes.auth.isAuthenticated, routes.reports.update);                 // update report by id
-
 // Mount and errors
 app.use('/api/v1/', router);
 app.use(routes.errors.notFound);

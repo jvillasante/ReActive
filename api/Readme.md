@@ -17,6 +17,35 @@ This is the repo for the ReActive node.js project
 
 ##Project Routes
 * `GET    /api/v1/projects`     (Get all projects by user)   (user, admin)
+
+        ```javascript
+          url params: offset ([number] default: 0), limit ([number] default: 20)
+          Examples:
+            GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10
+          Response with this format:
+          {
+            metadata: {
+              pagination: {
+                offset: <Number - offset value>,
+                limit: <Number - limit value>,
+                total: <Number - total count of records for this query without offset/limit clauses>,
+                links: [
+                  self: <this route>,
+                  first: <route for first page of records>,
+                  previous: <route for previous page of records, if it applies>,
+                  next: <route for next page of records, if it applies>,
+                  last: <route for last page of records>
+                ]
+              }
+            },
+            records: {
+              ...
+              <actual records for this query>
+              ...
+            }
+          }
+        ```
+        
 * `POST   /api/v1/projects`     (Create new project by user) (admin)
 * `GET    /api/v1/projects/:id` (Show project by id)         (user, admin)
 * `PATCH  /api/v1/projects/:id` (Update project by id)       (admin)
@@ -24,11 +53,71 @@ This is the repo for the ReActive node.js project
 
 ##Template Routes
 * `GET /projects/:projectId/templates`                     (all templates by user and project)
+
+        ```javascript
+          url params: offset ([number] default: 0), limit ([number] default: 20)
+          Examples:
+            GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10
+          Response with this format:
+          {
+            metadata: {
+              pagination: {
+                offset: <Number - offset value>,
+                limit: <Number - limit value>,
+                total: <Number - total count of records for this query without offset/limit clauses>,
+                links: [
+                  self: <this route>,
+                  first: <route for first page of records>,
+                  previous: <route for previous page of records, if it applies>,
+                  next: <route for next page of records, if it applies>,
+                  last: <route for last page of records>
+                ]
+              }
+            },
+            records: {
+              ...
+              <actual records for this query>
+              ...
+            }
+          }
+        ```
+        
 * `GET /projects/:projectId/templates/:templateId`         (get template by user and project and id)
 * `GET /projects/:projectId/templates/:parentId/templates` (all templates by user and project and parent template)
 
 ## Report Routes
 * `GET  /projects/:projectId/templates/:templateId/reports` (all reports by user and project and template)
+
+        ```javascript
+          url params: offset ([number] default: 0), limit ([number] default: 20), state ([sent, draft, all] default: all)
+          Examples:
+            GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=sent
+            GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=draft
+            GET /projects/:projectId/templates/:templateId/reports?state=draft
+          Response with this format:
+          {
+            metadata: {
+              pagination: {
+                offset: <Number - offset value>,
+                limit: <Number - limit value>,
+                total: <Number - total count of records for this query without offset/limit clauses>,
+                links: [
+                  self: <this route>,
+                  first: <route for first page of records>,
+                  previous: <route for previous page of records, if it applies>,
+                  next: <route for next page of records, if it applies>,
+                  last: <route for last page of records>
+                ]
+              }
+            },
+            records: {
+              ...
+              <actual records for this query>
+              ...
+            }
+          }
+        ```
+
 * `POST /projects/:projectId/templates/:templateId/reports` (create report by user and project and template)
 
         ```javascript
@@ -47,7 +136,69 @@ This is the repo for the ReActive node.js project
         ```
 
 * `GET  /projects/:projectId/reports` (all reports by user and project)
+
+        ```javascript
+          url params: offset ([number] default: 0), limit ([number] default: 20), state ([sent, draft, all] default: all)
+          Examples:
+            GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=sent
+            GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=draft
+            GET /projects/:projectId/templates/:templateId/reports?state=draft
+          Response with this format:
+          {
+            metadata: {
+              pagination: {
+                offset: <Number - offset value>,
+                limit: <Number - limit value>,
+                total: <Number - total count of records for this query without offset/limit clauses>,
+                links: [
+                  self: <this route>,
+                  first: <route for first page of records>,
+                  previous: <route for previous page of records, if it applies>,
+                  next: <route for next page of records, if it applies>,
+                  last: <route for last page of records>
+                ]
+              }
+            },
+            records: {
+              ...
+              <actual records for this query>
+              ...
+            }
+          }
+        ```
+        
 * `GET  /reports`     (all reports by user)
+
+        ```javascript
+          url params: offset ([number] default: 0), limit ([number] default: 20), state ([sent, draft, all] default: all)
+          Examples:
+            GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=sent
+            GET /projects/:projectId/templates/:templateId/reports?offset=10&limit=10&state=draft
+            GET /projects/:projectId/templates/:templateId/reports?state=draft
+          Response with this format:
+          {
+            metadata: {
+              pagination: {
+                offset: <Number - offset value>,
+                limit: <Number - limit value>,
+                total: <Number - total count of records for this query without offset/limit clauses>,
+                links: [
+                  self: <this route>,
+                  first: <route for first page of records>,
+                  previous: <route for previous page of records, if it applies>,
+                  next: <route for next page of records, if it applies>,
+                  last: <route for last page of records>
+                ]
+              }
+            },
+            records: {
+              ...
+              <actual records for this query>
+              ...
+            }
+          }
+        ```
+        
 * `GET  /reports/:id` (show report by user and reportId)
 * `PUT  /reports/:id` (update report - only report data not field values)
 
