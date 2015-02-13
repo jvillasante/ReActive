@@ -12,7 +12,7 @@ const
 passport.use(new BearerStrategy({passReqToCallback: true}, function(req, token, callback) {
   jwt.verify(token, errTo(callback, function(user) {
     if (!user) { return callback(null, false); }
-    return callback(null, user);
+    return callback(null, user, { scope: 'all' });
   }));
 }));
 
