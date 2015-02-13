@@ -1,8 +1,6 @@
 'use strict';
 
-require('./Dashboard.less');
 var React = require('react');
-var SimpleTable = require('react-simple-table');
 
 var GeneralTable = React.createClass({
   render: function() {

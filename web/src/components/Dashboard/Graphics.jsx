@@ -1,6 +1,5 @@
 'use strict';
 
-require('./Dashboard.less');
 var React = require('react');
 var ReactBootstrap = require('react-bootstrap');
 
