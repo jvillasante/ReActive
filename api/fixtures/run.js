@@ -1,4 +1,4 @@
-#!/usr/bin/node --harmony
+#!node --harmony
 'use strict';
 
 const

@@ -6,8 +6,7 @@ const
   Err = require('custom-err'),
   validator = require('validator'),
   db = require('../lib/db'),
-  bcrypt = require('../lib/bcrypt'),
-  jwt = require('../lib/jwt');
+  bcrypt = require('../lib/bcrypt');
 
 const UserProvider = function(connStr) {
   this.connStr = connStr;
@@ -34,22 +33,6 @@ UserProvider.prototype.findByUsername = function(username, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     client.query("SELECT id, username, email, password, role FROM users WHERE username=$1 LIMIT 1", [username], function(err, result) {
-      if (err) {
-        done(client);
-        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
-      }
-
-      done();
-      callback(null, result.rows[0]);
-    });
-  });
-};
-
-UserProvider.prototype.findByToken = function(token, callback) {
-  db.connect(this.connStr, function(err, client, done) {
-    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-
-    client.query("SELECT id, username, email, role FROM users WHERE token=$1 LIMIT 1", [token], function(err, result) {
       if (err) {
         done(client);
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -112,28 +95,6 @@ UserProvider.prototype.save = function(user, callback) {
             callback(null, result.rows[0]);
           });
         }
-      });
-    });
-  });
-};
-
-UserProvider.prototype.setToken = function(user, callback) {
-  let self = this;
-
-  jwt.encode({userId: user.id}, function(err, token) {
-    if (err) { return callback(Err("hashing error", { code: 3001, description: err.message, errors: []})); }
-
-    db.connect(self.connStr, function(err, client, done) {
-      if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
-
-      client.query("UPDATE users SET token=$1 WHERE id=$2 RETURNING id", [token, user.id], function(err, result) {
-        if (err) {
-          done(client);
-          return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
-        }
-
-        done();
-        callback(null, token);
       });
     });
   });

@@ -1,4 +1,5 @@
 {
+  "secret": "10f0975d-68bd-4d54-848a-fd3a3c95879c",
   "development": {
     "connectionStr": "postgres://postgres:secret@localhost/reactive-dev",
     "host": "localhost",

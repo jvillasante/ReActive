@@ -8,43 +8,32 @@ var assign = require('object-assign');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var ActionTypes = AppConstants.ActionTypes;
+var SESSION_STORAGE_KEY = 'user-session';
 
 var CHANGE_EVENT = 'session_store_change';
-var session = {
-  error: null,
-  isLoggedIn: false,
-  user: {
-    username: null,
-    email: null,
-    role: null,
-    token: null,
-  }
-};
+
+var error = null;
+var session = null;
 
 function createSession(user) {
-  session.error = null;
-  session.isLoggedIn = true;
-  session.user = user;
+  error = null;
+  session = {
+    isLoggedIn: true,
+    user: user
+  };
+  sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(session));
 }
 
 function destroySession() {
-  session.error = null;
-  session.isLoggedIn = false;
-  session.user.username = null;
-  session.user.email = null;
-  session.user.role = null;
-  session.user.token = null;
+  error = null;
+  session = null;
+  sessionStorage.removeItem(SESSION_STORAGE_KEY);
 }
 
 function setError(error) {
-  session.error = error;
-  session.isLoggedIn = false;
-  session.user = {
-    username: null,
-    email: null,
-    role: null,
-    token: null,
-  };
+  error = error;
+  session = null;
+  sessionStorage.removeItem(SESSION_STORAGE_KEY);
 }
 
 var SessionStore = assign({}, EventEmitter.prototype, {
@@ -61,23 +50,35 @@ var SessionStore = assign({}, EventEmitter.prototype, {
   },
 
   getSession: function() {
+    if (!session) {
+      session = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY));
+    }
     return session;
   },
 
   getError: function() {
-    return session.error;
+    return error;
   },
 
   getUser: function() {
-    return session.user;
+    if (!session) {
+      session = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY));
+    }
+    return (session && session.user) ? session.user : null;
   },
 
   getToken: function() {
-    return session.user.token;
+    if (!session) {
+      session = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY));
+    }
+    return (session && session.user && session.user.token) ? session.user.token : null;
   },
 
   isLoggedIn: function() {
-    return session.isLoggedIn;
+    if (!session) {
+      session = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY));
+    }
+    return (session && session.isLoggedIn) ? session.isLoggedIn : null;
   }
 });
 
