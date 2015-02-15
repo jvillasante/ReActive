@@ -22,8 +22,11 @@ function getReports(number) {
 
   uuids.projects.forEach(function(projectId) {
     _.times(5, function(_) {
+      let date = new Date(2015, random(0, 12), random(1, 28));
       if (number === 1) {
         reports.push({
+          createdAt: date,
+          updatedAt: date,
           projectId: projectId,
           templateId: number,
           title: faker.lorem.words().join(' '),
@@ -55,6 +58,8 @@ function getReports(number) {
         });
       } else if (number === 2) {
         reports.push({
+          createdAt: date,
+          updatedAt: date,
           projectId: projectId,
           templateId: number,
           title: faker.lorem.words().join(' '),

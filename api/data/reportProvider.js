@@ -224,12 +224,21 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
         async.waterfall([
           function createReport(next) {
             sql = [];
-            sql.push("INSERT INTO reports(id_user, id_project, id_template, title, sent)");
-            sql.push("VALUES($1, $2, $3, $4, $5) RETURNING id");
-            client.query(sql.join(' '), [userId, projectId, templateId, reportData.title, reportData.sent], function(err, result) {
-              if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-              next(null, result.rows[0].id);
-            });
+            if (reportData.createdAt && reportData.updatedAt) {
+              sql.push("INSERT INTO reports(id_user, id_project, id_template, title, sent, created_at, updated_at)");
+              sql.push("VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id");
+              client.query(sql.join(' '), [userId, projectId, templateId, reportData.title, reportData.sent, reportData.createdAt, reportData.updatedAt], function(err, result) {
+                if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+                next(null, result.rows[0].id);
+              });
+            } else {
+              sql.push("INSERT INTO reports(id_user, id_project, id_template, title, sent)");
+              sql.push("VALUES($1, $2, $3, $4, $5) RETURNING id");
+              client.query(sql.join(' '), [userId, projectId, templateId, reportData.title, reportData.sent], function(err, result) {
+                if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+                next(null, result.rows[0].id);
+              });
+            }
           },
           function createField(reportId, next) {
             idReport = reportId;
