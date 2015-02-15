@@ -295,11 +295,16 @@ This is the repo for the ReActive node.js project
 * $ pm2 startup ubuntu
 
 ##Postgres:
+
 * $ sudo apt-get update
 * $ sudo apt-get install postgresql postgresql-contrib pgadmin3
 * $ sudo -u postgres psql postgres
 * $ \password postgres
 * Configure postgres database to add uuid-ossp extension
+* configure on file /etc/postgresql/9.1/main/postgresql.conf
+  * max_connections = 200
+  * shared_buffers = 100MB
+  * max_files_per_process = 100
 * $ sudo /etc/init.d/postgresql reload
 * $ sudo /etc/init.d/postgresql restart
 

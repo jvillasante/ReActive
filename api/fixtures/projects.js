@@ -11,7 +11,7 @@ const
 
 faker.locale = "es";
 
-exports.createProjects = function(callback) {
+exports.create = function(callback) {
   let i, projects = [
     { id: uuids[0], id_user: user_id, name: 'Agustín del Castillo - Etapa 1', address: faker.address.streetAddress() },
     { id: uuids[1], id_user: user_id, name: 'Visita Los Bosques - Etapa 1', address: faker.address.streetAddress() },

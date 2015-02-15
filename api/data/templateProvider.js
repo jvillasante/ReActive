@@ -22,7 +22,7 @@ TemplateProvider.prototype.findById = function(userId, projectId, templateId, ca
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3");
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -43,7 +43,7 @@ TemplateProvider.prototype.findAllByUserAndProject = function(meta, userId, proj
 
     client.query(utils.count(sql.join(' ')), [userId, projectId], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -52,7 +52,7 @@ TemplateProvider.prototype.findAllByUserAndProject = function(meta, userId, proj
 
       client.query(sql.join(' '), [userId, projectId, meta.offset, meta.limit], function(err, result) {
         if (err) {
-          done(client);
+          done();
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
         }
 
@@ -65,7 +65,7 @@ TemplateProvider.prototype.findAllByUserAndProject = function(meta, userId, proj
             sql.push("ORDER BY t.id");
             client.query(sql.join(' '), [userId, projectId, item.id], function(err, result) {
               if (err) {
-                done(client);
+                done();
                 return cb(Err("db query error", { code: 1002, description: err.message, errors: []}));
               }
 
@@ -82,7 +82,7 @@ TemplateProvider.prototype.findAllByUserAndProject = function(meta, userId, proj
             cb(null, item);
           }
         }, function(err, results){
-          done(client);
+          done();
           callback(err, {
             total: Number(total),
             records: results
@@ -104,7 +104,7 @@ TemplateProvider.prototype.findAllByUserAndProjectAndParent = function(userId, p
     sql.push("ORDER BY t.id");
     client.query(sql.join(' '), [userId, projectId, parentId], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -149,7 +149,7 @@ TemplateProvider.prototype.save = function(json, callback) {
         client.query("INSERT INTO templates(id, id_parent, is_parent, title, color, abr, data, fields) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id",
         [json.id, json.id_parent, json.is_parent, json.title, json.color, json.abbr, json, JSON.stringify(fieldsJSON)], function(err, result) {
           if (err) {
-            done(client);
+            done();
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
           }
 
@@ -166,7 +166,7 @@ TemplateProvider.prototype.save = function(json, callback) {
       [json.id, json.id_parent, json.is_parent, json.title, json.color, json.abbr, json], function(err, result) {
         if (err) {
           console.log(err);
-          done(client);
+          done();
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
         }
 
@@ -183,7 +183,7 @@ TemplateProvider.prototype.removeAll = function(callback) {
 
     client.query("TRUNCATE templates CASCADE", function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 

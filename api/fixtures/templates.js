@@ -6,7 +6,7 @@ const
   config = require('../config.json')[process.env.NODE_ENV || 'development'],
   templateProvider = new TemplateProvider(config.connectionStr);
 
-exports.createTemplates = function(callback) {
+exports.create = function(callback) {
   templateProvider.removeAll(function(err) {
     if (err) { throw err; }
 

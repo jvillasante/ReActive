@@ -1,6 +1,7 @@
 'use strict';
 
 const
+  _ = require('lodash'),
   async = require('async'),
   faker = require('faker'),
   PermissionProvider = require('../data/permissionProvider').PermissionProvider,
@@ -10,59 +11,22 @@ const
 
 faker.locale = "es";
 
-exports.createPermissions = function(callback) {
+exports.create = function(callback) {
   permissionProvider.removeAll(function(err) {
     if (err) { throw err; }
 
-    for (var i = 0; i < 16; i++) {
-      async.parallel([
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[0], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[1], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[2], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[3], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[4], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[5], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[6], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[7], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[8], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[9], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[10], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[11], cb);
-        },
-        function(cb) {
-          permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[i], uuids.templates[12], cb);
-        },
-      ], function(err, results) {
-        callback(err);
+    _.times(uuids.projects.length, function(p) {
+      _.times(uuids.templates.length, function(t) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[p], uuids.templates[t], function(err) {
+          if (err) { return callback(err); }
+        });
       });
-    }
+    });
+
+    callback();
   });
 };
 
 exports.removeAll = function(callback) {
   permissionProvider.removeAll(callback);
 };
-

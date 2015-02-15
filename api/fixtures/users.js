@@ -7,7 +7,7 @@ const
   userProvider = new UserProvider(config.connectionStr),
   uuids = require('./uuids').users;
 
-exports.createUsers = function(callback) {
+exports.create = function(callback) {
   userProvider.removeAll(function(err) {
     if (err) { console.log(err); throw err; }
 

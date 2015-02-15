@@ -1,6 +1,6 @@
 'use strict';
 
-const 
+const
   _ = require('lodash'),
   async = require('async'),
   Err = require('custom-err'),
@@ -15,10 +15,10 @@ PermissionProvider.prototype.userAndTemplateAndProject = function(idUser, idProj
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("INSERT INTO permissions(id_user, id_project, id_template) VALUES($1, $2, $3)", 
+    client.query("INSERT INTO permissions(id_user, id_project, id_template) VALUES($1, $2, $3)",
     [idUser, idProject, idTemplate], function(err, result) {
-      if (err) { 
-        done(client);
+      if (err) {
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -31,8 +31,8 @@ PermissionProvider.prototype.userAndTemplateAndProject = function(idUser, idProj
 PermissionProvider.prototype.removeAll = function(callback) {
   db.connect(this.connStr, function(err, client, done) {
     client.query("TRUNCATE permissions CASCADE", function(err, result) {
-      if (err) { 
-        done(client);
+      if (err) {
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 

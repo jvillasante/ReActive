@@ -18,7 +18,7 @@ UserProvider.prototype.findAll = function(callback) {
 
     client.query("SELECT id, username, email, role FROM users", function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -34,7 +34,7 @@ UserProvider.prototype.findByUsername = function(username, callback) {
 
     client.query("SELECT id, username, email, password, role FROM users WHERE username=$1 LIMIT 1", [username], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -50,7 +50,7 @@ UserProvider.prototype.findById = function(id, callback) {
 
     client.query("SELECT id, username, email, role FROM users WHERE id=$1 LIMIT 1", [id], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -76,7 +76,7 @@ UserProvider.prototype.save = function(user, callback) {
           client.query("INSERT INTO users(id, username, email, password, role) VALUES($1, $2, $3, $4, $5) RETURNING id",
             [user.id, user.username, user.email, hash, user.role], function(err, result) {
             if (err) {
-              done(client);
+              done();
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
             }
 
@@ -87,7 +87,7 @@ UserProvider.prototype.save = function(user, callback) {
           client.query("INSERT INTO users(username, email, password, role) VALUES($1, $2, $3, $4) RETURNING id",
             [user.username, user.email, hash, user.role], function(err, result) {
             if (err) {
-              done(client);
+              done();
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
             }
 
@@ -108,28 +108,28 @@ UserProvider.prototype.update = function(id, userData, callback) {
 
     client.query("SELECT id, username, email, password, role FROM users WHERE id=$1 LIMIT 1", [id], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
       let user = result.rows[0];
       if (!user) {
-        done(client);
+        done();
         return callback(Err("no such user", { code: 404, description: "User " + id + " not found", errors: []}));
       }
 
       _.assign(user, userData);
       self.validate(user, function(err, user) {
-        if (err) { done(client); return callback(Err("validation error", { code: 2001, description: "user validation error", errors: err})); }
+        if (err) { done(); return callback(Err("validation error", { code: 2001, description: "user validation error", errors: err})); }
 
         if (userData.password) {
           bcrypt.hash(user.password, function(err, hash) {
-            if (err) { done(client); return callback(Err("hashing error", { code: 3001, description: err.message, errors: []})); }
+            if (err) { done(); return callback(Err("hashing error", { code: 3001, description: err.message, errors: []})); }
 
             client.query("UPDATE users SET username=$1, email=$2, password=$3 WHERE id=$4 RETURNING id",
               [user.username, user.email, hash, user.id], function(err, result) {
               if (err) {
-                done(client);
+                done();
                 return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
               }
 
@@ -141,7 +141,7 @@ UserProvider.prototype.update = function(id, userData, callback) {
           client.query("UPDATE users SET username=$1, email=$2 WHERE id=$3 RETURNING id",
             [user.username, user.email, user.id], function(err, result) {
             if (err) {
-              done(client);
+              done();
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
             }
 
@@ -160,7 +160,7 @@ UserProvider.prototype.remove = function(id, callback) {
 
     client.query("DELETE FROM users WHERE id=$1 RETURNING id", [id], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -176,7 +176,7 @@ UserProvider.prototype.removeAll = function(callback) {
 
     client.query("TRUNCATE users CASCADE", function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 

@@ -23,7 +23,7 @@ ProjectProvider.prototype.findAllByUser = function(meta, userId, callback) {
 
     client.query(utils.count(sql.join(' ')), [userId, like, like], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -31,7 +31,7 @@ ProjectProvider.prototype.findAllByUser = function(meta, userId, callback) {
       sql.push("ORDER BY p.id OFFSET $4 LIMIT $5");
       client.query(sql.join(' '), [userId, like, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
-          done(client);
+          done();
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
         }
 
@@ -52,7 +52,7 @@ ProjectProvider.prototype.findAll = function(callback) {
     client.query("SELECT DISTINCT id, name, address, image, to_char(created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at FROM projects",
     function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -72,7 +72,7 @@ ProjectProvider.prototype.findById = function(userId, id, callback) {
     sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND p.id = $3 LIMIT 1");
     client.query(sql.join(' '), [userId, id, id], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -94,7 +94,7 @@ ProjectProvider.prototype.save = function(project, callback) {
       if (project.id) {
         client.query("INSERT INTO projects(id, id_user, name, address) VALUES($1, $2, $3, $4) RETURNING id", [project.id, project.id_user, project.name, project.address], function(err, result) {
           if (err) {
-            done(client);
+            done();
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
           }
 
@@ -104,7 +104,7 @@ ProjectProvider.prototype.save = function(project, callback) {
       } else {
         client.query("INSERT INTO projects(id_user, name, address) VALUES($1, $2, $3) RETURNING id", [project.id_user, project.name, project.address], function(err, result) {
           if (err) {
-            done(client);
+            done();
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
           }
 
@@ -125,24 +125,24 @@ ProjectProvider.prototype.update = function(userId, id, projectData, callback) {
 
     client.query("SELECT id, id_user, name, to_char(created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at FROM projects WHERE id=$1 AND id_user = $2 LIMIT 1", [id, userId], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
       let project = result.rows[0];
       if (!project) {
-        done(client);
+        done();
         return callback(Err("no such project", { code: 404, description: "Project " + id + " not found for user " + userId + ".", errors: []}));
       }
 
       _.assign(project, projectData);
       self.validate(project, function(err, project) {
-        if (err) { done(client); return callback(Err("validation error", { code: 2001, description: "project validation error", errors: err})); }
+        if (err) { done(); return callback(Err("validation error", { code: 2001, description: "project validation error", errors: err})); }
 
         client.query("UPDATE projects SET name=$1, address=$2 WHERE id=$3 RETURNING id",
         [project.name, project.address, project.id], function(err, result) {
           if (err) {
-            done(client);
+            done();
             return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
           }
 
@@ -160,7 +160,7 @@ ProjectProvider.prototype.remove = function(userId, id, callback) {
 
     client.query("DELETE FROM projects WHERE id = $1 AND id_user = $2 RETURNING id", [id, userId], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -176,7 +176,7 @@ ProjectProvider.prototype.removeAll = function(callback) {
 
     client.query("TRUNCATE projects CASCADE", function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 

@@ -8,7 +8,8 @@ const
   usersFixture = require('./users'),
   projectsFixture = require('./projects'),
   templatesFixture = require('./templates'),
-  permissionsFixture = require('./permissions');
+  permissionsFixture = require('./permissions'),
+  reportsFixture = require('./reports.js');
 
 function printHelp() {
   console.log('   usage:');
@@ -22,17 +23,18 @@ function printHelp() {
 }
 
 function all() {
-  async.waterfall([
+  async.series([
     function(next) {
       async.parallel([
-        function(callback) { usersFixture.createUsers(callback); },
-        function(callback) { templatesFixture.createTemplates(callback); }
+        function(callback) { usersFixture.create(callback); },
+        function(callback) { templatesFixture.create(callback); }
       ], function(err) {
         next(err);
       });
     },
-    function(next) { projectsFixture.createProjects(next); },
-    function(next) { permissionsFixture.createPermissions(next); }
+    function(next) { projectsFixture.create(next); },
+    function(next) { permissionsFixture.create(next); },
+    function(next) { reportsFixture.create(next); }
   ], function(err) {
     db.disconnect();
     if (err) { console.log(err); throw err; }
@@ -45,7 +47,8 @@ function templates() {
     function(callback) { usersFixture.removeAll(callback); },
     function(callback) { projectsFixture.removeAll(callback); },
     function(callback) { permissionsFixture.removeAll(callback); },
-    function(callback) { templatesFixture.createTemplates(callback); }
+    function(callback) { reportsFixture.removeAll(callback); },
+    function(callback) { templatesFixture.create(callback); }
   ], function(err) {
     db.disconnect();
     if (err) { console.log(err); throw err; }

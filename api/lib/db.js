@@ -2,14 +2,14 @@
 
 const pg = require('pg').native;
 
-pg.defaults.poolSize = 1000;
+pg.defaults.poolSize = 500;
 
 exports.connect = function(connStr, callback) {
   pg.connect(connStr, function(err, client, done) {
     if (err) {
       done(client);
       return callback(err);
-    } 
+    }
 
     callback(null, client, done);
   });

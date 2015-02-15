@@ -60,7 +60,7 @@ ReportProvider.prototype.findById = function(userId, reportId, callback) {
         });
       }
     ], function(err, report) {
-      done(client);
+      done();
       callback(err, report);
     });
   });
@@ -91,11 +91,11 @@ ReportProvider.prototype.findAllByUser = function(meta, userId, callback) {
 
       client.query(sql.join(' '), [userId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
-          done(client);
+          done();
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
         }
 
-        done(client);
+        done();
         callback(null, {
           total: Number(total),
           records: result.rows
@@ -130,11 +130,11 @@ ReportProvider.prototype.findAllByProject = function(meta, userId, projectId, ca
 
       client.query(sql.join(' '), [userId, projectId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
-          done(client);
+          done();
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
         }
 
-        done(client);
+        done();
         callback(null, {
           total: Number(total),
           records: result.rows
@@ -164,7 +164,7 @@ ReportProvider.prototype.findAllByProjectAndTemplate = function(meta, userId, pr
 
     client.query(utils.count(sql.join(' ')), [userId, projectId, templateId, like], function(err, result) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
@@ -173,11 +173,11 @@ ReportProvider.prototype.findAllByProjectAndTemplate = function(meta, userId, pr
 
       client.query(sql.join(' '), [userId, projectId, templateId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
-          done(client);
+          done();
           return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
         }
 
-        done(client);
+        done();
         callback(null, {
           total: Number(total),
           records: result.rows
@@ -192,11 +192,11 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
   let rollback = function(error, client, done) {
     client.query('ROLLBACK', function(err) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db connection error", { code: 1001, description: err.message, errors: []}));
       }
 
-      done(client);
+      done();
       return callback(error);
     });
   };
@@ -223,34 +223,34 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
 
         async.waterfall([
           function createReport(next) {
-          sql = [];
-          sql.push("INSERT INTO reports(id_user, id_project, id_template, title, sent)");
-          sql.push("VALUES($1, $2, $3, $4, $5) RETURNING id");
-          client.query(sql.join(' '), [userId, projectId, templateId, reportData.title, reportData.sent], function(err, result) {
-            if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-            next(null, result.rows[0].id);
-          });
-        },
-        function createField(reportId, next) {
-          idReport = reportId;
-
-          client.query("INSERT INTO fields(id_report) VALUES($1) RETURNING id", [reportId], function(err, result) {
-            if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-            next(null, result.rows[0].id);
-          });
-        },
-        function createReportData(fieldId, next) {
-          async.each(reportData.fields, function(value, cb) {
-            client.query("INSERT INTO values(id_field, item, value) VALUES($1, $2, $3)",
-            [fieldId, value.item, value.value], function(err, result) {
-              if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-              cb();
+            sql = [];
+            sql.push("INSERT INTO reports(id_user, id_project, id_template, title, sent)");
+            sql.push("VALUES($1, $2, $3, $4, $5) RETURNING id");
+            client.query(sql.join(' '), [userId, projectId, templateId, reportData.title, reportData.sent], function(err, result) {
+              if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+              next(null, result.rows[0].id);
             });
-          }, function(err) {
-            if (err) { return rollback(err, client, done); }
-            next(null, idReport);
-          });
-        }
+          },
+          function createField(reportId, next) {
+            idReport = reportId;
+
+            client.query("INSERT INTO fields(id_report) VALUES($1) RETURNING id", [reportId], function(err, result) {
+              if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+              next(null, result.rows[0].id);
+            });
+          },
+          function createReportData(fieldId, next) {
+            async.each(reportData.fields, function(value, cb) {
+              client.query("INSERT INTO values(id_field, item, value) VALUES($1, $2, $3)",
+              [fieldId, value.item, value.value], function(err, result) {
+                if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+                cb();
+              });
+            }, function(err) {
+              if (err) { return rollback(err, client, done); }
+              next(null, idReport);
+            });
+          }
         ], function(err, result) {
           if (err) { return rollback(err, client, done); }
 
@@ -259,7 +259,7 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
               return rollback(Err("db query error", { code: 1002, description: err.message, errors: []}), client, done);
             }
 
-            done(client);
+            done();
             callback(null, result);
           });
         });
@@ -272,11 +272,11 @@ ReportProvider.prototype.addField = function(userId, reportId, fieldData, callba
   let rollback = function(error, client, done) {
     client.query('ROLLBACK', function(err) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db connection error", { code: 1001, description: err.message, errors: []}));
       }
 
-      done(client);
+      done();
       return callback(error);
     });
   };
@@ -326,7 +326,7 @@ ReportProvider.prototype.addField = function(userId, reportId, fieldData, callba
               return rollback(Err("db query error", { code: 1002, description: err.message, errors: []}), client, done);
             }
 
-            done(client);
+            done();
             callback(null, result);
           });
         });
@@ -341,9 +341,9 @@ ReportProvider.prototype.update = function(userId, reportId, data, callback) {
 
     client.query('UPDATE reports SET title=$1, sent=$2 WHERE id=$3 AND id_user=$4 RETURNING id',
     [data.title, data.sent, reportId, userId], function(err, result) {
-      if (err) { done(client); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+      if (err) { done(); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
 
-      done(client);
+      done();
       callback(null, result.rows[0].id);
     });
   });
@@ -354,9 +354,9 @@ ReportProvider.prototype.remove = function(userId, reportId, callback) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     client.query('DELETE FROM reports WHERE id=$1 AND id_user=$2 RETURNING id', [reportId, userId], function(err, result) {
-      if (err) { done(client); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+      if (err) { done(); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
 
-      done(client);
+      done();
       callback(null, result.rows[0].id);
     });
   });
@@ -373,13 +373,13 @@ ReportProvider.prototype.showField = function(userId, reportId, fieldId, callbac
     sql.push("WHERE r.id_user=$1 AND f.id_report=$2 AND f.id=$3");
     sql.push("ORDER BY v.item");
     client.query(sql.join(' '), [userId, reportId, fieldId], function(err, result) {
-      if (err) { done(client); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+      if (err) { done(); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
       if (!result || result.rows.length <= 0) {
-        done(client);
+        done();
         return callback(Err("no report data found", { code: 404, description: "No report data found for report " + reportId + ".", errors: []}));
       }
 
-      done(client);
+      done();
       callback(null, result.rows);
     });
   });
@@ -389,11 +389,11 @@ ReportProvider.prototype.updateField = function(userId, reportId, fieldId, field
   let rollback = function(error, client, done) {
     client.query('ROLLBACK', function(err) {
       if (err) {
-        done(client);
+        done();
         return callback(Err("db connection error", { code: 1001, description: err.message, errors: []}));
       }
 
-      done(client);
+      done();
       return callback(error);
     });
   };
@@ -402,9 +402,9 @@ ReportProvider.prototype.updateField = function(userId, reportId, fieldId, field
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     client.query('SELECT r.id FROM reports r WHERE r.id_user=$1 AND r.id=$2', [userId, reportId], function(err, result) {
-      if (err) { done(client); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+      if (err) { done(); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
       if (!result || !result.rows[0].id) {
-        done(client);
+        done();
         return callback(Err("no report found", { code: 404, description: "No report found.", errors: []}));
       }
 
@@ -425,7 +425,7 @@ ReportProvider.prototype.updateField = function(userId, reportId, fieldId, field
               return rollback(Err("db query error", { code: 1002, description: err.message, errors: []}), client, done);
             }
 
-            done(client);
+            done();
             callback(null, reportId);
           });
         });
@@ -439,22 +439,38 @@ ReportProvider.prototype.removeField = function(userId, reportId, fieldId, callb
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
     client.query('SELECT r.id FROM reports r WHERE r.id_user=$1 AND r.id=$2', [userId, reportId], function(err, result) {
-      if (err) { done(client); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+      if (err) { done(); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
       if (!result || !result.rows[0].id) {
-        done(client);
+        done();
         return callback(Err("no report found", { code: 404, description: "No report found.", errors: []}));
       }
 
       client.query('DELETE FROM fields WHERE id=$1 AND id_report=$2 RETURNING id', [fieldId, reportId], function(err, result) {
-        if (err) { done(client); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+        if (err) { done(); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
         if (!result || !result.rows[0].id) {
-          done(client);
+          done();
           return callback(Err("no field values found", { code: 404, description: "No report field values found.", errors: []}));
         }
 
-        done(client);
+        done();
         callback(null, reportId);
       });
+    });
+  });
+};
+
+ReportProvider.prototype.removeAll = function(callback) {
+  db.connect(this.connStr, function(err, client, done) {
+    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
+
+    client.query("DELETE FROM reports", function(err, result) {
+      if (err) {
+        done();
+        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
+      }
+
+      done();
+      callback(null, result);
     });
   });
 };
