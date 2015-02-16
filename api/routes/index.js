@@ -6,5 +6,6 @@ module.exports = {
   users: require('./users'),
   projects: require('./projects'),
   templates: require('./templates'),
-  reports: require('./reports')
+  reports: require('./reports'),
+  dashboard: require('./dashboard')
 };

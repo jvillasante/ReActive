@@ -37,10 +37,10 @@ var GeneralTable = React.createClass({
                   </tr>
                 </thead>
                 <tbody>
-                  {this.props.projects.map(function(row) {
+                  {this.props.projects && this.props.projects.split('|').map(function(row) {
                     return (
                       <tr>
-                        return <td>{row.label}</td>;
+                        return <td>{row}</td>;
                       </tr>
                     );
                   })}

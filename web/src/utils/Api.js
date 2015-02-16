@@ -1,6 +1,6 @@
 'use strict';
 
-var API_ROOT = require('../config').production.apiRoot;
+var API_ROOT = require('../config').development.apiRoot;
 var superagent = require('superagent');
 var SessionStore = require('../stores/SessionStore');
 
@@ -26,10 +26,26 @@ module.exports = {
 
   getProjects: function(success, failure) {
     superagent
-      .get(API_ROOT + '/all/projects')
+      .get(API_ROOT + '/dashboard/projects')
       .set('Accept', 'application/json')
       .set('Authorization', 'Bearer ' + SessionStore.getToken())
-      .send()
+      .end(function(res) {
+        if (res.ok) {
+          success({
+            projects: res.body
+          });
+        } else {
+          failure('Error obteniendo proyectos de la base de datos. Intentelo de nuevo en unos minutos.');
+        }
+      });
+  },
+
+  getProjectsData: function(projects, success, failure) {
+    superagent
+      .get(API_ROOT + '/dashboard/projects/data')
+      .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer ' + SessionStore.getToken())
+      .query({ projects: projects || '' })
       .end(function(res) {
         if (res.ok) {
           success({

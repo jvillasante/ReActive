@@ -82,6 +82,20 @@ ProjectProvider.prototype.findById = function(userId, id, callback) {
   });
 };
 
+ProjectProvider.prototype.findProjectData = function(projects, callback) {
+  let data = {};
+
+  projects.forEach(function(project) {
+    data[project] = {
+      table1: [20, 40, 60, 70, 90],
+      table2: [20, 40, 60, 70, 90],
+      table3: [20, 40, 60, 70, 90, 97]
+    };
+  });
+
+  callback(null, data);
+};
+
 ProjectProvider.prototype.save = function(project, callback) {
   let self = this;
 

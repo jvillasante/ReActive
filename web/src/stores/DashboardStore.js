@@ -12,8 +12,8 @@ var ActionTypes = AppConstants.ActionTypes;
 var CHANGE_EVENT = 'dashboard_store_change';
 var projects = [];
 
-function addProjects(projects) {
-
+function addProjects(data) {
+  projects = data.projects;
 }
 
 function removeProjects(projects) {
@@ -35,19 +35,19 @@ var DashboardStore = assign({}, EventEmitter.prototype, {
 
   getProjects: function() {
     return projects;
-  }
+  },
 });
 
 AppDispatcher.register(function(payload) {
   var action = payload.action;
 
   switch(action.type) {
-    case ActionTypes.PROJECT_INPUT_ADD:
-      addProjects(action.projects);
+    case ActionTypes.DASHBOARD_DATA_LOAD:
+      addProjects(action.data);
       DashboardStore.emitChange();
       break;
-    case ActionTypes.PROJECT_INPUT_REMOVE:
-      removeProjects(action.projects);
+    case ActionTypes.DASHBOARD_DATA_LOAD_ERROR:
+      console.log("error: %s", action.error);
       DashboardStore.emitChange();
       break;
     default:

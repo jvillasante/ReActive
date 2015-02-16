@@ -53,8 +53,6 @@ router.route('/users/:id')
   .delete(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.users.remove);
 
 // Project routes
-router.route('/all/projects')
-  .get(routes.auth.isAuthenticated, routes.projects.all);
 router.route('/projects')
   .get(routes.auth.isAuthenticated, routes.projects.allByUser)
   .post(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.projects.create);
@@ -62,6 +60,12 @@ router.route('/projects/:id')
   .get(routes.auth.isAuthenticated, routes.projects.show)
   .patch(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.projects.update)
   .delete(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.projects.remove);
+
+// Dashboard routes
+router.route('/dashboard/projects')
+  .get(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.dashboard.allProjects);
+router.route('/dashboard/projects/data')
+  .get(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.dashboard.getProjectData);
 
 // Template routes
 router.route('/projects/:projectId/templates')

@@ -8,23 +8,17 @@ var Glyphicon = ReactBootstrap.Glyphicon;
 var moment = require('moment');
 var Select = require('react-select');
 var DateRangePicker = require('react-bootstrap-daterangepicker');
-var Api = require('../../utils/Api');
 var GlobalReportTable = require('./GlobalReportTable');
-
-var ran = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+var Api = require('../../utils/Api');
+var DashboardActions = require('../../actions/DashboardActions');
+var DashboardStore = require('../../stores/DashboardStore');
 
 var getSelectOptions = function(input, callback) {
   Api.getProjects(function(res) {
-    var options = [];
-    res.projects.forEach(function(project) {
-      options.push({
-        id: project.id,
-        value: project.name,
-        label: project.name
-      });
+    var options = res.projects.map(function(project) {
+      return { id: project.id, value: project.name, label: project.name };
     });
+
     callback(null, {
       options: options,
       complete: true
@@ -58,14 +52,40 @@ var datePicker = {
 var ProjectInput = React.createClass({
   getInitialState: function() {
     return {
-      selectedValues: null,
-      selectedOptions: [],
+      selectValues: null,
       startDate: moment().subtract(29, 'days'),
       endDate: moment(),
       table1: [],
       table2: [],
       table3: [],
     };
+  },
+
+  componentDidMount: function() {
+    DashboardStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount: function() {
+    DashboardStore.removeChangeListener(this._onChange);
+  },
+
+  _onChange: function() {
+    var data = DashboardStore.getProjects();
+
+    var table1 = [], table2 = [], table3 = [];
+    var projects = Object.keys(data);
+    projects.forEach(function(project) {
+      table1.push(data[project].table1);
+      table2.push(data[project].table2);
+      table3.push(data[project].table3);
+    });
+
+    this.setState({
+      selectValues: projects.join('|'),
+      table1: table1,
+      table2: table2,
+      table3: table3
+    });
   },
 
   handleDatePickerEvent: function(event, picker) {
@@ -76,25 +96,7 @@ var ProjectInput = React.createClass({
   },
 
   handleSelectChange: function(val, selectedOptions) {
-    var table1 = [];
-    var table2 = [];
-    var table3 = [];
-
-    if (val && val.length !== 0) {
-      val.split('|').forEach(function(value) {
-        table1.push([ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100)]);
-        table2.push([ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100)]);
-        table3.push([ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100), ran(0, 100)]);
-      });
-    }
-
-    this.setState({
-      selectedValues: (val === '') ? null : val,
-      selectedOptions: selectedOptions,
-      table1: table1,
-      table2: table2,
-      table3: table3,
-    });
+    DashboardActions.loadData(val);
   },
 
   render: function() {
@@ -105,7 +107,7 @@ var ProjectInput = React.createClass({
 
     return (
       <div className="project-input">
-        <Panel header={<h1>Seleccione rango de fecha y proyectos</h1>} bsStyle="">
+        <Panel header={<h1>Seleccione rango de fecha y proyectos</h1>}>
           <div className="project-input-daterange col-md-3">
             <DateRangePicker
               locale={datePicker.locale}
@@ -126,16 +128,16 @@ var ProjectInput = React.createClass({
             <Select
               placeholder="Seleccione Proyecto"
               name="project-input-select"
-              value={this.state.selectedValues}
+              asyncOptions={getSelectOptions}
+              value={this.state.selectValues}
               multi={true}
               delimiter="|"
-              asyncOptions={getSelectOptions}
               onChange={this.handleSelectChange} />
           </div>
         </Panel>
 
         <GlobalReportTable
-          projects={this.state.selectedOptions}
+          projects={this.state.selectValues}
           table1={this.state.table1}
           table2={this.state.table2}
           table3={this.state.table3} />

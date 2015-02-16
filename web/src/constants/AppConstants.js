@@ -12,8 +12,12 @@ module.exports = {
     SESSION_CREATE_ERROR: null,
     SESSION_DESTROY: null,
 
-    PROJECT_INPUT_ADD: null,
-    PROJECT_INPUT_REMOVE: null,
+    DASHBOARD_LOAD_PROJECT: null,
+    DASHBOARD_LOAD_PROJECT_OK: null,
+    DASHBOARD_LOAD_PROJECT_ERROR: null,
+
+    DASHBOARD_DATA_LOAD: null,
+    DASHBOARD_DATA_LOAD_ERROR: null,
   }),
 
   PayloadSources: keyMirror({
