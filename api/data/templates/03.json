@@ -35,7 +35,7 @@
               "comment": "",
               "fields": [
                 {
-                  "item": "2",
+                  "item": "3",
                   "name": "Existe",
                   "type": "yesno",
                   "values": ["Si", "No", "N/A"]
