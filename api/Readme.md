@@ -51,7 +51,6 @@ This is the repo for the ReActive node.js project
           }
         ```
 
-* `GET /api/vi/projects/search` (Search for a project (name or address match))
 * `POST   /api/v1/projects`     (Create new project by user) (admin)
 * `GET    /api/v1/projects/:id` (Show project by id)         (user, admin)
 * `PATCH  /api/v1/projects/:id` (Update project by id)       (admin)
