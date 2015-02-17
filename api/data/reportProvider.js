@@ -256,7 +256,7 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
                 cb();
               });
             }, function(err) {
-              if (err) { return rollback(err, client, done); }
+              if (err) { return next(err); }
               next(null, idReport);
             });
           }
