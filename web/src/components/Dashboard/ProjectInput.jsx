@@ -93,10 +93,23 @@ var ProjectInput = React.createClass({
       startDate: picker.startDate,
       endDate: picker.endDate
     });
+
+    if (this.state.selectValues) {
+      DashboardActions.loadData(picker.startDate.format('x'), picker.endDate.format('x'), this.state.selectValues);
+    }
   },
 
-  handleSelectChange: function(val, selectedOptions) {
-    DashboardActions.loadData(val);
+  handleSelectChange: function(val) {
+    if (val === '') {
+      this.setState({
+        selectValues: null,
+        table1: [],
+        table2: [],
+        table3: []
+      });
+    } else {
+      DashboardActions.loadData(this.state.startDate.format('x'), this.state.endDate.format('x'), val);
+    }
   },
 
   render: function() {

@@ -40,11 +40,13 @@ module.exports = {
       });
   },
 
-  getProjectsData: function(projects, success, failure) {
+  getProjectsData: function(start, end, projects, success, failure) {
     superagent
       .get(API_ROOT + '/dashboard/projects/data')
       .set('Accept', 'application/json')
       .set('Authorization', 'Bearer ' + SessionStore.getToken())
+      .query({ start: start || '' })
+      .query({ end: end || '' })
       .query({ projects: projects || '' })
       .end(function(res) {
         if (res.ok) {

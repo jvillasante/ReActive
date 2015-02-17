@@ -12,18 +12,6 @@ var GeneralTable = React.createClass({
               AUTOEVALUACION  ESTANDAR LEAN 2014
             </div>
             <div className="main-card-icon-nav">
-              <div className="main-card-icon-button">
-                vs
-              </div>
-              <div className="main-card-icon-button">
-                <span className="glyphicon glyphicon-search"></span>
-              </div>
-              <div className="main-card-icon-button">
-                <span className="glyphicon glyphicon-print"></span>
-              </div>
-              <div className="main-card-icon-button">
-                <span className="glyphicon glyphicon-download"></span>
-              </div>
             </div>
           </div>
 
@@ -54,11 +42,11 @@ var GeneralTable = React.createClass({
             <table className="table table-condensed table-header-rotated general-data-table">
               <thead>
                 <tr>
-                  <th className="rotate-45"><div><span>Participacion Reunion</span></div></th>
+                  <th className="rotate-45"><div><span>Participaci&oacute;n Reuni&oacute;n</span></div></th>
                   <th className="rotate-45"><div><span>Registros e Indicadores</span></div></th>
-                  <th className="rotate-45"><div><span>Planificacion Semana Anterior</span></div></th>
+                  <th className="rotate-45"><div><span>Planificaci&oacute;n Semana Anterior</span></div></th>
                   <th className="rotate-45"><div><span>Plan Intermedio</span></div></th>
-                  <th className="rotate-45"><div><span>Planificacion Semanal</span></div></th>
+                  <th className="rotate-45"><div><span>Planificaci&oacute;n Semanal</span></div></th>
                 </tr>
               </thead>
               <tbody>
@@ -81,11 +69,12 @@ var GeneralTable = React.createClass({
             <table className="table table-condensed table-header-rotated general-data-table">
               <thead>
                 <tr>
-                  <th className="rotate-45"><div><span>S1 Separar-Poner En</span></div></th>
-                  <th className="rotate-45"><div><span>S2 Situar</span></div></th>
-                  <th className="rotate-45"><div><span>S3 Suprimir</span></div></th>
-                  <th className="rotate-45"><div><span>S4 Sennalizar</span></div></th>
-                  <th className="rotate-45"><div><span>S6 Seguridad</span></div></th>
+                  <th className="rotate-45"><div><span>S1 - Separar Lo Innecesario</span></div></th>
+                  <th className="rotate-45"><div><span>S2 - Situar Lo Necesario</span></div></th>
+                  <th className="rotate-45"><div><span>S3 - Suprimir Suciedad</span></div></th>
+                  <th className="rotate-45"><div><span>S4 - Se&ntilde;alizar Anomal&iacute;as</span></div></th>
+                  <th className="rotate-45"><div><span>S5 - Seguir Mejorando</span></div></th>
+                  <th className="rotate-45"><div><span>S6 - Seguridad</span></div></th>
                 </tr>
               </thead>
               <tbody>
@@ -108,10 +97,10 @@ var GeneralTable = React.createClass({
             <table className="table table-condensed table-header-rotated general-data-table">
               <thead>
                 <tr>
-                  <th className="rotate-45"><div><span>Checklist Sennaletica</span></div></th>
+                  <th className="rotate-45"><div><span>Checklist Se&ntilde;al&eacute;tica</span></div></th>
                   <th className="rotate-45"><div><span>Checklist Seguridad y Protecciones</span></div></th>
-                  <th className="rotate-45"><div><span>Checklist Vias de Acceso</span></div></th>
-                  <th className="rotate-45"><div><span>Cehcklist Logistica</span></div></th>
+                  <th className="rotate-45"><div><span>Checklist V&iacute;as de Acceso</span></div></th>
+                  <th className="rotate-45"><div><span>Cehcklist Log&iacute;stica</span></div></th>
                   <th className="rotate-45"><div><span>Checklist Tierra, Escombros y Basura</span></div></th>
                   <th className="rotate-45"><div><span>Sello Manquehue</span></div></th>
                 </tr>

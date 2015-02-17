@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS getTable1(startDate TIMESTAMP, endDate TIMESTAMP, projectName TEXT);

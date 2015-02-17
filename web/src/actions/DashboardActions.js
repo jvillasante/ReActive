@@ -9,8 +9,8 @@ var Api = require('../utils/Api');
 var ActionTypes = AppConstants.ActionTypes;
 
 module.exports = {
-  loadData: function(projects) {
-    Api.getProjectsData(projects, function(data) {
+  loadData: function(start, end, projects) {
+    Api.getProjectsData(start, end, projects, function(data) {
       AppDispatcher.handleServerAction({
         type: ActionTypes.DASHBOARD_DATA_LOAD,
         data: data

@@ -2,6 +2,7 @@
 
 const
   _ = require('lodash'),
+  moment = require('moment'),
   async = require('async'),
   Err = require('custom-err'),
   validator = require('validator'),
@@ -82,18 +83,50 @@ ProjectProvider.prototype.findById = function(userId, id, callback) {
   });
 };
 
-ProjectProvider.prototype.findProjectData = function(projects, callback) {
+ProjectProvider.prototype.findProjectData = function(start, end, projects, callback) {
   let data = {};
+  start = moment(Number(start)).format('DD/MM/YYYY');
+  end = moment(Number(end)).format('DD/MM/YYYY');
 
-  projects.forEach(function(project) {
-    data[project] = {
-      table1: [20, 40, 60, 70, 90],
-      table2: [20, 40, 60, 70, 90],
-      table3: [20, 40, 60, 70, 90, 97]
-    };
+  db.connect(this.connStr, function(err, client, done) {
+    if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
+
+    async.each(projects, function(project, cb) {
+      data[project] = {};
+
+      async.parallel([
+        function(next) {
+          let sql = "SELECT getTable1('" + start + "','" + end + "','" + project + "');";
+          client.query(sql, function(err, result) {
+            if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+            data[project].table1 = result.rows.map(function(value) { return Number(value.gettable1); });
+            next();
+          });
+        },
+        function(next) {
+          let sql = "SELECT getTable2('" + start + "','" + end + "','" + project + "');";
+          client.query(sql, function(err, result) {
+            if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+            data[project].table2 = result.rows.map(function(value) { return Number(value.gettable2); });
+            next();
+          });
+        },
+        function(next) {
+          let sql = "SELECT getTable3('" + start + "','" + end + "','" + project + "');";
+          client.query(sql, function(err, result) {
+            if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+            data[project].table3 = result.rows.map(function(value) { return Number(value.gettable3); });
+            next();
+          });
+        }
+      ], function(err) {
+        cb(err);
+      });
+    }, function(err) {
+      if (err) { done(); return callback(err); }
+      callback(null, data);
+    });
   });
-
-  callback(null, data);
 };
 
 ProjectProvider.prototype.save = function(project, callback) {

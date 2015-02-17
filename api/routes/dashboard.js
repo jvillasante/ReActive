@@ -21,11 +21,13 @@ exports.allProjects = function(req, res, next) {
 
 exports.getProjectData = function(req, res, next) {
   let projectProvider = new ProjectProvider(req.connectionStr);
+  let start = req.query.start;
+  let end = req.query.end;
   let projects = req.query.projects.split('|');
 
-  projectProvider.findProjectData(projects, errTo(next, function(result) {
+  projectProvider.findProjectData(start, end, projects, errTo(next, function(result) {
     if (!result) {
-      return next(Err("projects data not found", { code: 404, description: "No project data found for user: " + req.user.username + ".", errors: []}));
+      return next(Err("project data not found", { code: 404, description: "No project data found for user: " + req.user.username + ".", errors: []}));
     }
 
     res.status(200).send(result);
