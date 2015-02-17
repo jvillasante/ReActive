@@ -7,7 +7,7 @@ pg.defaults.poolSize = 500;
 exports.connect = function(connStr, callback) {
   pg.connect(connStr, function(err, client, done) {
     if (err) {
-      done(client);
+      done();
       return callback(err);
     }
 
