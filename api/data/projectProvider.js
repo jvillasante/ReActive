@@ -85,8 +85,8 @@ ProjectProvider.prototype.findById = function(userId, id, callback) {
 
 ProjectProvider.prototype.findProjectData = function(start, end, projects, callback) {
   let data = {};
-  start = moment(Number(start)).format('DD/MM/YYYY');
-  end = moment(Number(end)).format('DD/MM/YYYY');
+  start = moment(Number(start)).format('MM/DD/YYYY');
+  end = moment(Number(end)).format('MM/DD/YYYY');
 
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }

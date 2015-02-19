@@ -1,12 +1,12 @@
 {
   "secret": "10f0975d-68bd-4d54-848a-fd3a3c95879c",
   "development": {
-    "connectionStr": "postgres://postgres:secret@localhost/reactive-dev",
+    "connectionStr": "postgres://postgres:postgres@localhost/reactive-dev",
     "host": "localhost",
     "port": 3002
   },
   "test": {
-    "connectionStr": "postgres://postgres:secret@localhost/reactive-test",
+    "connectionStr": "postgres://postgres:postgres@localhost/reactive-test",
     "host": "localhost",
     "port": 3000
   },

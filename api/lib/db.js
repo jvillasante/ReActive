@@ -2,7 +2,7 @@
 
 const pg = require('pg').native;
 
-pg.defaults.poolSize = 500;
+pg.defaults.poolSize = 90;
 
 exports.connect = function(connStr, callback) {
   pg.connect(connStr, function(err, client, done) {

@@ -13,7 +13,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 8 AND (r.created_at BETWEEN startDate AND endDate)
+        AND r.id_template = 8 AND (r.created_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -32,7 +32,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 9 AND (r.created_at BETWEEN startDate AND endDate)
+        AND r.id_template = 9 AND (r.created_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -51,7 +51,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 10 AND (r.created_at BETWEEN startDate AND endDate)
+        AND r.id_template = 10 AND (r.created_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -70,7 +70,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 11 AND (r.created_at BETWEEN startDate AND endDate)
+        AND r.id_template = 11 AND (r.created_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -89,7 +89,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 12 AND (r.created_at BETWEEN startDate AND endDate)
+        AND r.id_template = 12 AND (r.created_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -108,7 +108,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 13 AND (r.created_at BETWEEN startDate AND endDate)
+        AND r.id_template = 13 AND (r.created_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2

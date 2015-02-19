@@ -1,7 +1,7 @@
-#!/usr/bin/node --harmony
+#!node --harmony
 'use strict';
 
-const 
+const
   cluster = require('cluster'),
   numCPUs = require('os').cpus().length;
 

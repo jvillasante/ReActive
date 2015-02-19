@@ -87,7 +87,7 @@ ReportProvider.prototype.findAllByUser = function(meta, userId, callback) {
       if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
 
       let total = result.rows[0].total;
-      sql.push("ORDER BY r.id OFFSET $3 LIMIT $4");
+      sql.push("ORDER BY updated_at DESC, created_at DESC OFFSET $3 LIMIT $4");
 
       client.query(sql.join(' '), [userId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
@@ -126,7 +126,7 @@ ReportProvider.prototype.findAllByProject = function(meta, userId, projectId, ca
       if (err) { return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
 
       let total = result.rows[0].total;
-      sql.push("ORDER BY r.id OFFSET $4 LIMIT $5");
+      sql.push("ORDER BY updated_at DESC, created_at DESC OFFSET $4 LIMIT $5");
 
       client.query(sql.join(' '), [userId, projectId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {
@@ -169,7 +169,7 @@ ReportProvider.prototype.findAllByProjectAndTemplate = function(meta, userId, pr
       }
 
       let total = result.rows[0].total;
-      sql.push("ORDER BY r.id OFFSET $5 LIMIT $6");
+      sql.push("ORDER BY updated_at DESC, created_at DESC OFFSET $5 LIMIT $6");
 
       client.query(sql.join(' '), [userId, projectId, templateId, like, meta.offset, meta.limit], function(err, result) {
         if (err) {

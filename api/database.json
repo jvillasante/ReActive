@@ -2,7 +2,7 @@
   "dev": {
     "driver": "pg",
     "user": "postgres",
-    "password": "secret",
+    "password": "postgres",
     "host": "localhost",
     "database": "reactive-dev",
     "schema": "public"
@@ -10,7 +10,7 @@
   "test": {
     "driver": "pg",
     "user": "postgres",
-    "password": "secret",
+    "password": "postgres",
     "host": "localhost",
     "database": "reactive-test",
     "schema": "public"
