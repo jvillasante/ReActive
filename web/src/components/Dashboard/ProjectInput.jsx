@@ -52,12 +52,12 @@ var datePicker = {
 var ProjectInput = React.createClass({
   getInitialState: function() {
     return {
-      selectValues: null,
-      startDate: moment().subtract(29, 'days'),
-      endDate: moment(),
-      table1: [],
-      table2: [],
-      table3: [],
+      selectValues: DashboardStore.getSelectValues(),
+      startDate: DashboardStore.getStartDate(),
+      endDate: DashboardStore.getEndDate(),
+      table1: DashboardStore.getTable1(),
+      table2: DashboardStore.getTable2(),
+      table3: DashboardStore.getTable3(),
     };
   },
 
@@ -70,46 +70,22 @@ var ProjectInput = React.createClass({
   },
 
   _onChange: function() {
-    var data = DashboardStore.getProjects();
-
-    var table1 = [], table2 = [], table3 = [];
-    var projects = Object.keys(data);
-    projects.forEach(function(project) {
-      table1.push(data[project].table1);
-      table2.push(data[project].table2);
-      table3.push(data[project].table3);
-    });
-
     this.setState({
-      selectValues: projects.join('|'),
-      table1: table1,
-      table2: table2,
-      table3: table3
+      selectValues: DashboardStore.getSelectValues(),
+      startDate: DashboardStore.getStartDate(),
+      endDate: DashboardStore.getEndDate(),
+      table1: DashboardStore.getTable1(),
+      table2: DashboardStore.getTable2(),
+      table3: DashboardStore.getTable3()
     });
   },
 
   handleDatePickerEvent: function(event, picker) {
-    this.setState({
-      startDate: picker.startDate,
-      endDate: picker.endDate
-    });
-
-    if (this.state.selectValues) {
-      DashboardActions.loadData(picker.startDate.format('x'), picker.endDate.format('x'), this.state.selectValues);
-    }
+    DashboardActions.loadData(picker.startDate, picker.endDate, this.state.selectValues);
   },
 
   handleSelectChange: function(val) {
-    if (val === '') {
-      this.setState({
-        selectValues: null,
-        table1: [],
-        table2: [],
-        table3: []
-      });
-    } else {
-      DashboardActions.loadData(this.state.startDate.format('x'), this.state.endDate.format('x'), val);
-    }
+    DashboardActions.loadData(this.state.startDate, this.state.endDate, val);
   },
 
   render: function() {

@@ -31,6 +31,8 @@ plan.remote(function(remote) {
   remote.sudo('cp -R /tmp/' + tempDir + ' ~/ReActive/tmp/', { user: 'ubuntu' });
   remote.rm('-rf /tmp/' + tempDir);
 
+  // TODO - rename API_ROOT to production...
+
   remote.log('Create link to web application');
   remote.sudo('ln -snf ~/ReActive/tmp/' + tempDir + ' ~/ReActive/web', {user: 'ubuntu'});
 });

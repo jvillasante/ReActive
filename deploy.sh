@@ -1,9 +1,17 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
-cd api/
-fly production
-cd ..
+echo -n "Did you set API_ROOT to production on web/utils/Api.js? (y/n)? "
+read answer
 
-cd web
-fly production
-cd ..
+if echo "$answer" | grep -iq "^y" ;then
+    cd api/
+    fly production
+    cd ..
+
+    cd web
+    fly production
+    cd ..
+else
+    echo "Please, set API_ROOT to production before deploying."
+fi
+

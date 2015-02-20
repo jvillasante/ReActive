@@ -124,6 +124,8 @@ ProjectProvider.prototype.findProjectData = function(start, end, projects, callb
       });
     }, function(err) {
       if (err) { done(); return callback(err); }
+
+      done();
       callback(null, data);
     });
   });

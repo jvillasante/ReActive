@@ -6,7 +6,8 @@ const
   TOKEN_EXPIRATION = 60;
 
 exports.sign = function(user) {
-  return jwt.sign({id: user.id, username: user.username, role: user.role}, SECRET, { expiresInMinutes: TOKEN_EXPIRATION });
+  // return jwt.sign({id: user.id, username: user.username, role: user.role}, SECRET, { expiresInMinutes: TOKEN_EXPIRATION });
+  return jwt.sign({id: user.id, username: user.username, role: user.role}, SECRET);
 };
 
 exports.verify = function(token, callback) {

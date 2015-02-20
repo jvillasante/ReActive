@@ -26,11 +26,7 @@ var GeneralTable = React.createClass({
                 </thead>
                 <tbody>
                   {this.props.projects && this.props.projects.split('|').map(function(row) {
-                    return (
-                      <tr>
-                        return <td>{row}</td>;
-                      </tr>
-                    );
+                    return <tr><td>{row}</td></tr>;
                   })}
                 </tbody>
               </table>
@@ -55,7 +51,7 @@ var GeneralTable = React.createClass({
                     <tr>
                       {row.map(function(cell) {
                         return <td className={'cell-' + cell}>{cell}</td>;
-                      })};
+                      })}
                     </tr>
                   );
                 })}
@@ -83,7 +79,7 @@ var GeneralTable = React.createClass({
                     <tr>
                       {row.map(function(cell) {
                         return <td className={'cell-' + cell}>{cell}</td>;
-                      })};
+                      })}
                     </tr>
                   );
                 })}
@@ -111,7 +107,7 @@ var GeneralTable = React.createClass({
                     <tr>
                       {row.map(function(cell) {
                         return <td className={'cell-' + cell}>{cell}</td>;
-                      })};
+                      })}
                     </tr>
                   );
                 })}
