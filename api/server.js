@@ -104,6 +104,12 @@ app.use('/api/v1/', router);
 app.use(routes.errors.notFound);
 app.use(routes.errors.handleErrors);
 
+process.on('uncaughtException', function (err) {
+  console.error((new Date()).toUTCString() + ' uncaughtException:', err.message);
+  console.error(err.stack);
+  process.exit(1);
+});
+
 module.exports = app;
 if (!module.parent) {
   http.createServer(app)

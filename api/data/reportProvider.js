@@ -204,22 +204,24 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query('BEGIN', function(err) {
-      if (err) { return rollback(err, client, done); }
+    let sql = [];
+    sql.push("SELECT id FROM templates t");
+    sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
+    sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3 LIMIT 1");
 
-      let sql = [];
-      sql.push("SELECT id FROM templates t");
-      sql.push("INNER JOIN permissions ps ON t.id = ps.id_template");
-      sql.push("WHERE ps.id_user = $1 AND ps.id_project = $2 AND t.id = $3 LIMIT 1");
+    client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
+      if (err) {
+        done();
+        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}), client, done);
+      }
 
-      client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
-        if (err) {
-          return rollback(Err("db query error", { code: 1002, description: err.message, errors: []}), client, done);
-        }
+      if (!result || !result.rows || !result.rows[0].id) {
+        done();
+        return callback(Err("no such template", { code: 404, description: "Template " + templateId + " not found for project " + projectId, errors: []}), client, done);
+      }
 
-        if (!result.rows[0].id) {
-          return rollback(Err("no such template", { code: 404, description: "Template " + templateId + " not found for project " + projectId, errors: []}), client, done);
-        }
+      client.query('BEGIN', function(err) {
+        if (err) { return rollback(err, client, done); }
 
         async.waterfall([
           function createReport(next) {
@@ -250,8 +252,7 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
           },
           function createReportData(fieldId, next) {
             async.each(reportData.fields, function(value, cb) {
-              client.query("INSERT INTO values(id_field, item, value) VALUES($1, $2, $3)",
-              [fieldId, value.item, value.value], function(err, result) {
+              client.query("INSERT INTO values(id_field, item, value) VALUES($1, $2, $3)", [fieldId, value.item, value.value], function(err, result) {
                 if (err) { return cb(Err("db query error", { code: 1002, description: err.message, errors: []})); }
                 cb();
               });
