@@ -24,10 +24,13 @@ plan.local(function(local) {
 });
 
 plan.remote(function(remote) {
+  remote.log('Remove old web');
+  remote.rm('-rf ~/ReActive/tmp/reactiveweb*');
+
   remote.log('Move folder to web root');
   remote.sudo('cp -R /tmp/' + tempDir + ' ~/ReActive/tmp/', { user: 'ubuntu' });
   remote.rm('-rf /tmp/' + tempDir);
 
-  remote.log('Roload application');
+  remote.log('Create link to web application');
   remote.sudo('ln -snf ~/ReActive/tmp/' + tempDir + ' ~/ReActive/web', {user: 'ubuntu'});
 });
