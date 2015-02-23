@@ -1,7 +1,8 @@
 {
+  "libs": [
+  ],
   "plugins": {
     "node": {},
-    "node-express": {},
     "complete_strings": {}
   }
 }
