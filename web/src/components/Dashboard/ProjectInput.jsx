@@ -12,6 +12,7 @@ var GlobalReportTable = require('./GlobalReportTable');
 var Api = require('../../utils/Api');
 var DashboardActions = require('../../actions/DashboardActions');
 var DashboardStore = require('../../stores/DashboardStore');
+var Graphics = require('./Graphics');
 
 var getSelectOptions = function(input, callback) {
   Api.getProjects(function(res) {
@@ -95,41 +96,45 @@ var ProjectInput = React.createClass({
     if (start === end) { label = start; }
 
     return (
-      <div className="project-input">
-        <Panel header={<h1>Seleccione rango de fecha y proyectos</h1>}>
-          <div className="project-input-daterange col-md-3">
-            <DateRangePicker
-              locale={datePicker.locale}
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              ranges={datePicker.ranges}
-              onEvent={this.handleDatePickerEvent}>
-              <Button className="selected-date-range-btn">
-                <div className="pull-left"><Glyphicon glyph="calendar" /></div>
-                <div className="pull-right">
-                  <span> {label} </span>
-                  <span className="caret"></span>
-                </div>
-              </Button>
-            </DateRangePicker>
-          </div>
-          <div className="project-input-select col-md-9">
-            <Select
-              placeholder="Seleccione Proyecto"
-              name="project-input-select"
-              asyncOptions={getSelectOptions}
-              value={this.state.selectValues}
-              multi={true}
-              delimiter="|"
-              onChange={this.handleSelectChange} />
-          </div>
-        </Panel>
+      <div>
+        <div className="project-input">
+          <Panel header={<h1>Seleccione rango de fecha y proyectos</h1>}>
+            <div className="project-input-daterange col-md-3">
+              <DateRangePicker
+                locale={datePicker.locale}
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                ranges={datePicker.ranges}
+                onEvent={this.handleDatePickerEvent}>
+                <Button className="selected-date-range-btn">
+                  <div className="pull-left"><Glyphicon glyph="calendar" /></div>
+                  <div className="pull-right">
+                    <span> {label} </span>
+                    <span className="caret"></span>
+                  </div>
+                </Button>
+              </DateRangePicker>
+            </div>
+            <div className="project-input-select col-md-9">
+              <Select
+                placeholder="Seleccione Proyecto"
+                name="project-input-select"
+                asyncOptions={getSelectOptions}
+                value={this.state.selectValues}
+                multi={true}
+                delimiter="|"
+                onChange={this.handleSelectChange} />
+            </div>
+          </Panel>
 
-        <GlobalReportTable
-          projects={this.state.selectValues}
-          table1={this.state.table1}
-          table2={this.state.table2}
-          table3={this.state.table3} />
+          <GlobalReportTable
+            projects={this.state.selectValues}
+            table1={this.state.table1}
+            table2={this.state.table2}
+            table3={this.state.table3} />
+        </div>
+
+        <Graphics projects={this.state.selectValues} />
       </div>
     );
   },
