@@ -1,5 +1,6 @@
 CREATE OR REPLACE FUNCTION getTable3(startDate TIMESTAMP, endDate TIMESTAMP, projectName TEXT)
-RETURNS SETOF NUMERIC AS
+RETURNS SETOF NUMERIC
+AS
 $BODY$
   SELECT ROUND((100.0 * yes_count) / total_count) AS percent
   FROM (
@@ -13,7 +14,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 8 AND (r.created_at::date BETWEEN startDate AND endDate)
+        AND r.id_template = 8 AND (r.updated_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -32,7 +33,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 9 AND (r.created_at::date BETWEEN startDate AND endDate)
+        AND r.id_template = 9 AND (r.updated_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -51,7 +52,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 10 AND (r.created_at::date BETWEEN startDate AND endDate)
+        AND r.id_template = 10 AND (r.updated_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -70,7 +71,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 11 AND (r.created_at::date BETWEEN startDate AND endDate)
+        AND r.id_template = 11 AND (r.updated_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -89,7 +90,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 12 AND (r.created_at::date BETWEEN startDate AND endDate)
+        AND r.id_template = 12 AND (r.updated_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2
@@ -108,7 +109,7 @@ $BODY$
         INNER JOIN fields f ON f.id = v.id_field
         INNER JOIN reports r ON r.id = f.id_report
         INNER JOIN projects p ON p.id = r.id_project
-        AND r.id_template = 13 AND (r.created_at::date BETWEEN startDate AND endDate)
+        AND r.id_template = 13 AND (r.updated_at::date BETWEEN startDate AND endDate)
           AND lower(v.value) <> 'n/a' AND p.name = projectName
       ) AS QUERY1
   ) AS QUERY2

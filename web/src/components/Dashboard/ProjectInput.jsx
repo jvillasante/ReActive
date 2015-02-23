@@ -12,7 +12,7 @@ var GlobalReportTable = require('./GlobalReportTable');
 var Api = require('../../utils/Api');
 var DashboardActions = require('../../actions/DashboardActions');
 var DashboardStore = require('../../stores/DashboardStore');
-var Graphics = require('./Graphics');
+var GraphicsComponent = require('./Graphics');
 
 var getSelectOptions = function(input, callback) {
   Api.getProjects(function(res) {
@@ -134,7 +134,7 @@ var ProjectInput = React.createClass({
             table3={this.state.table3} />
         </div>
 
-        <Graphics projects={this.state.selectValues} />
+        <GraphicsComponent />
       </div>
     );
   },

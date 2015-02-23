@@ -60,7 +60,7 @@ var GeneralTable = React.createClass({
             </div>
           </div>
           <div className="col-md-3">
-            <h3 className="sub-header">Metodo 6S Bodega</h3>
+            <h3 className="sub-header">M&eacute;todo 6S Bodega</h3>
             <div className="table-responsive">
             <table className="table table-condensed table-header-rotated general-data-table">
               <thead>
@@ -88,7 +88,7 @@ var GeneralTable = React.createClass({
             </div>
           </div>
           <div className="col-md-3">
-            <h3 className="sub-header">Practicas Lean</h3>
+            <h3 className="sub-header">Pr&aacute;cticas Lean</h3>
             <div className="table-responsive">
             <table className="table table-condensed table-header-rotated general-data-table">
               <thead>

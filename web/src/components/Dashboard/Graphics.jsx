@@ -6,83 +6,156 @@ var ReactBootstrap = require('react-bootstrap');
 var OverlayMixin = ReactBootstrap.OverlayMixin;
 var Modal = ReactBootstrap.Modal;
 var Button = ReactBootstrap.Button;
+var moment = require('moment');
 var DashboardStore = require('../../stores/DashboardStore');
+
+var graphics = ['Sistema Last Planner', 'Método 6S Bodega', 'Prácticas Lean'];
 
 var GrapicModal = React.createClass({
   onProjectSelected(val) {
     console.log(val);
-    this.renderChart();
+    this.renderChart(this.props.number);
   },
 
-  renderChart: function() {
+  renderChart: function(number) {
     var node = this.refs.chartNode.getDOMNode();
-    // var chart = new Highcharts().Chart({
-      // chart: {
-        // renderTo: node
-      // },
-      // title: {
-        // text: 'Monthly Average Temperature',
-        // x: -20 //center
-      // },
-      // subtitle: {
-        // text: 'Source: WorldClimate.com',
-        // x: -20
-      // },
-      // xAxis: {
-        // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-          // 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      // },
-      // yAxis: {
-        // title: {
-          // text: 'Temperature (°C)'
-        // },
-        // plotLines: [{
-          // value: 0,
-          // width: 1,
-          // color: '#808080'
-        // }]
-      // },
-      // tooltip: {
-        // valueSuffix: '°C'
-      // },
-      // legend: {
-        // layout: 'vertical',
-        // align: 'right',
-        // verticalAlign: 'middle',
-        // borderWidth: 0
-      // },
-      // series: [{
-        // name: 'Tokyo',
-        // data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-      // }, {
-        // name: 'New York',
-        // data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-      // }, {
-        // name: 'Berlin',
-        // data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-      // }, {
-        // name: 'London',
-        // data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-      // }]
-    // });
+    var chart = new Highcharts.Chart({
+      chart: {
+        renderTo: node,
+        type: 'spline'
+      },
+      title: {
+        //text: graphics[this.props.number - 1]
+        text: null
+      },
+      xAxis: {
+        type: 'datetime',
+        dateTimeLabelFormats: { // don't display the dummy year
+          month: '%e. %b',
+          year: '%b'
+        },
+        title: {
+          text: 'Fecha'
+        }
+      },
+      yAxis: {
+        title: {
+          text: 'Porciento (%)'
+        },
+        min: 0
+      },
+      tooltip: {
+        headerFormat: '<b>{series.name}</b><br>',
+        pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+      },
+
+      plotOptions: {
+        spline: {
+          marker: {
+            enabled: true
+          }
+        }
+      },
+
+      series: [{
+        name: 'Winter 2007-2008',
+        // Define the data points. All series have a dummy year
+        // of 1970/71 in order to be compared on the same x axis. Note
+        // that in JavaScript, months start at 0 for January, 1 for February etc.
+        data: [
+          [Date.UTC(1970,  9, 27), 0   ],
+          [Date.UTC(1970, 10, 10), 0.6 ],
+          [Date.UTC(1970, 10, 18), 0.7 ],
+          [Date.UTC(1970, 11,  2), 0.8 ],
+          [Date.UTC(1970, 11,  9), 0.6 ],
+          [Date.UTC(1970, 11, 16), 0.6 ],
+          [Date.UTC(1970, 11, 28), 0.67],
+          [Date.UTC(1971,  0,  1), 0.81],
+          [Date.UTC(1971,  0,  8), 0.78],
+          [Date.UTC(1971,  0, 12), 0.98],
+          [Date.UTC(1971,  0, 27), 1.84],
+          [Date.UTC(1971,  1, 10), 1.80],
+          [Date.UTC(1971,  1, 18), 1.80],
+          [Date.UTC(1971,  1, 24), 1.92],
+          [Date.UTC(1971,  2,  4), 2.49],
+          [Date.UTC(1971,  2, 11), 2.79],
+          [Date.UTC(1971,  2, 15), 2.73],
+          [Date.UTC(1971,  2, 25), 2.61],
+          [Date.UTC(1971,  3,  2), 2.76],
+          [Date.UTC(1971,  3,  6), 2.82],
+          [Date.UTC(1971,  3, 13), 2.8 ],
+          [Date.UTC(1971,  4,  3), 2.1 ],
+          [Date.UTC(1971,  4, 26), 1.1 ],
+          [Date.UTC(1971,  5,  9), 0.25],
+          [Date.UTC(1971,  5, 12), 0   ]
+        ]
+      }, {
+        name: 'Winter 2008-2009',
+        data: [
+          [Date.UTC(1970,  9, 18), 0   ],
+          [Date.UTC(1970,  9, 26), 0.2 ],
+          [Date.UTC(1970, 11,  1), 0.47],
+          [Date.UTC(1970, 11, 11), 0.55],
+          [Date.UTC(1970, 11, 25), 1.38],
+          [Date.UTC(1971,  0,  8), 1.38],
+          [Date.UTC(1971,  0, 15), 1.38],
+          [Date.UTC(1971,  1,  1), 1.38],
+          [Date.UTC(1971,  1,  8), 1.48],
+          [Date.UTC(1971,  1, 21), 1.5 ],
+          [Date.UTC(1971,  2, 12), 1.89],
+          [Date.UTC(1971,  2, 25), 2.0 ],
+          [Date.UTC(1971,  3,  4), 1.94],
+          [Date.UTC(1971,  3,  9), 1.91],
+          [Date.UTC(1971,  3, 13), 1.75],
+          [Date.UTC(1971,  3, 19), 1.6 ],
+          [Date.UTC(1971,  4, 25), 0.6 ],
+          [Date.UTC(1971,  4, 31), 0.35],
+          [Date.UTC(1971,  5,  7), 0   ]
+        ]
+      }, {
+        name: 'Winter 2009-2010',
+        data: [
+          [Date.UTC(1970,  9,  9), 0   ],
+          [Date.UTC(1970,  9, 14), 0.15],
+          [Date.UTC(1970, 10, 28), 0.35],
+          [Date.UTC(1970, 11, 12), 0.46],
+          [Date.UTC(1971,  0,  1), 0.59],
+          [Date.UTC(1971,  0, 24), 0.58],
+          [Date.UTC(1971,  1,  1), 0.62],
+          [Date.UTC(1971,  1,  7), 0.65],
+          [Date.UTC(1971,  1, 23), 0.77],
+          [Date.UTC(1971,  2,  8), 0.77],
+          [Date.UTC(1971,  2, 14), 0.79],
+          [Date.UTC(1971,  2, 24), 0.86],
+          [Date.UTC(1971,  3,  4), 0.8 ],
+          [Date.UTC(1971,  3, 18), 0.94],
+          [Date.UTC(1971,  3, 24), 0.9 ],
+          [Date.UTC(1971,  4, 16), 0.39],
+          [Date.UTC(1971,  4, 21), 0   ]
+        ]
+      }]
+    });
   },
 
   render: function() {
+    var startDate = DashboardStore.getStartDate().format('DD/MM/YYYY');
+    var endDate = DashboardStore.getEndDate().format('DD/MM/YYYY');
+    var header = graphics[this.props.number - 1] + ' (' + startDate + ' - ' + endDate + ')';
+
     return (
-      <Modal title="Gr&aacute;ficos" onRequestHide={this.props.onToggle}>
+      <Modal className="graphics-modal" title={header} onRequestHide={this.props.onToggle}>
         <div className="modal-body">
           <div className="container">
             <div className="row modal-select-project">
               <Select
                 name="modal-select-project"
                 placeholder="Seleccione Proyecto"
-                value={this.props.options[0]}
                 options={this.props.options.map(function(value) { return { value: value, label: value }; })}
                 onChange={this.onProjectSelected}
               />
             </div>
             <div className="row">
-              <div className="chart" ref="chartNode">Hello</div>
+              <div className="chart" ref="chartNode">Seleccione un proyecto para ver el gr&aacute;fico.</div>
             </div>
           </div>
         </div>
@@ -104,12 +177,20 @@ var Graphics = React.createClass({
     };
   },
 
-  handleToggle: function(evt) {
-    if (evt) { evt.preventDefault(); }
+  handleToggle: function() {
+    var number, evt, args = Array.prototype.slice.call(arguments, 0);
+    if (args.length === 3) {
+      number = args[0];
+      evt = args[1];
+    } else {
+      evt = args[0];
+    }
 
+    evt.preventDefault();
     this.setState({
       isModalOpen: !this.state.isModalOpen,
-      options: (DashboardStore.getSelectValues()) ? DashboardStore.getSelectValues().split('|') : []
+      options: (DashboardStore.getSelectValues()) ? DashboardStore.getSelectValues().split('|') : [],
+      number: number
     });
   },
 
@@ -117,7 +198,7 @@ var Graphics = React.createClass({
     if (!this.state.isModalOpen) { return <span/>; }
 
     return (
-      <GrapicModal options={this.state.options} onToggle={this.handleToggle} />
+      <GrapicModal options={this.state.options} number={this.state.number} onToggle={this.handleToggle} />
     );
   },
 
@@ -135,7 +216,7 @@ var Graphics = React.createClass({
                   Sistema Last Planner
                 </div>
               </div>
-              <a href="#" onClick={this.handleToggle}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
+              <a href="#" onClick={this.handleToggle.bind(this, 1)}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
             </div>
           </div>
         </div>
