@@ -1,6 +1,7 @@
 'use strict';
 
-var API_ROOT = require('../config').production.apiRoot;
+// var API_ROOT = require('../config').production.apiRoot;
+var API_ROOT = require('../config').develpment.apiRoot;
 var superagent = require('superagent');
 var SessionStore = require('../stores/SessionStore');
 
