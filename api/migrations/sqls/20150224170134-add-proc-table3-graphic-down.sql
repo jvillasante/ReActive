@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS getTable3Graphic(startDate TIMESTAMP, endDate TIMESTAMP, projectName TEXT);
