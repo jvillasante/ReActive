@@ -1,9 +1,6 @@
 'use strict';
 
 var React = require('react');
-var ReactBootstrap = require('react-bootstrap');
-var OverlayTrigger = ReactBootstrap.OverlayTrigger;
-var Tooltip = ReactBootstrap.Tooltip;
 
 var GeneralTable = React.createClass({
   render: function() {
@@ -15,21 +12,6 @@ var GeneralTable = React.createClass({
               AUTOEVALUACION ESTANDAR LEAN
             </div>
             <div className="main-card-icon-nav">
-              <div className="main-card-icon-button">
-                <OverlayTrigger placement="top" overlay={<Tooltip>Gr&aacute;fico: <strong>Sistema Last Planner</strong></Tooltip>}>
-                  <span className="glyphicon glyphicon-th"></span>
-                </OverlayTrigger>
-              </div>
-              <div className="main-card-icon-button">
-                <OverlayTrigger placement="top" overlay={<Tooltip>Gr&aacute;fico: <strong>M&eacute;todo 6S Bodega</strong></Tooltip>}>
-                  <span className="glyphicon glyphicon-th"></span>
-                </OverlayTrigger>
-              </div>
-              <div className="main-card-icon-button">
-                <OverlayTrigger placement="top" overlay={<Tooltip>Gr&aacute;fico: <strong>Pr&aacute;cticas Lean</strong></Tooltip>}>
-                  <span className="glyphicon glyphicon-th"></span>
-                </OverlayTrigger>
-              </div>
             </div>
           </div>
 
