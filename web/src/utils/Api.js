@@ -1,7 +1,7 @@
 'use strict';
 
 // var API_ROOT = require('../config').production.apiRoot;
-var API_ROOT = require('../config').develpment.apiRoot;
+var API_ROOT = require('../config').development.apiRoot;
 var superagent = require('superagent');
 var SessionStore = require('../stores/SessionStore');
 
@@ -20,7 +20,7 @@ module.exports = {
             token: res.body.token
           });
         } else {
-          failure('Error autenticando usuario. Verifique usuario y contraseña.');
+          failure('Esto es embarazoso y no se supone que ocurra. Verifique usuario y contraseña.');
         }
       });
   },
@@ -36,7 +36,7 @@ module.exports = {
             projects: res.body
           });
         } else {
-          failure('Error obteniendo proyectos de la base de datos. Intentelo de nuevo en unos minutos.');
+          failure('Querido usuario, algo inesperado ha ocurrido. Es desconcertante y estamos trabajando para resolverlo. Error obteniendo proyectos.');
         }
       });
   },
@@ -55,7 +55,7 @@ module.exports = {
             projects: res.body
           });
         } else {
-          failure('Error obteniendo proyectos de la base de datos. Intentelo de nuevo en unos minutos.');
+          failure('Querido usuario, algo inesperado ha ocurrido. Es desconcertante y estamos trabajando para resolverlo. Error obteniendo proyectos.');
         }
       });
   },
@@ -85,7 +85,7 @@ module.exports = {
             data: result
           });
         } else {
-          failure('Error obteniendo proyectos de la base de datos. Intentelo de nuevo en unos minutos.');
+          failure('Querido usuario, algo inesperado ha ocurrido. Es desconcertante y estamos trabajando para resolverlo. Error obteniendo proyectos.');
         }
       });
   }

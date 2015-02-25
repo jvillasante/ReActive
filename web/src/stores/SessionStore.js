@@ -30,8 +30,8 @@ function destroySession() {
   sessionStorage.removeItem(SESSION_STORAGE_KEY);
 }
 
-function setError(error) {
-  error = error;
+function setError(err) {
+  error = err;
   session = null;
   sessionStorage.removeItem(SESSION_STORAGE_KEY);
 }

@@ -65,7 +65,7 @@ var Login = React.createClass({
     var alert = null;
     if (this.state.error) {
       alert = (
-        <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss} dismissAfter={5000}>
+        <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss} dismissAfter={10000}>
           <h4>Oh snap!!!</h4>
           <p>{this.state.error}</p>
         </Alert>

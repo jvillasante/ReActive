@@ -11,6 +11,8 @@ var AppConstants = require('../constants/AppConstants');
 var ActionTypes = AppConstants.ActionTypes;
 
 var CHANGE_EVENT = 'dashboard_store_change';
+
+var error = null;
 var data = {
   selectValues: null,
   startDate: moment().subtract(29, 'days'),
@@ -20,7 +22,12 @@ var data = {
   table3: []
 };
 
+function setError(err) {
+  error = err;
+}
+
 function setData(res) {
+  error = null;
   var projectsData = res.data.projects;
   var projects = Object.keys(projectsData);
 
@@ -65,6 +72,10 @@ var DashboardStore = assign({}, EventEmitter.prototype, {
     this.removeListener(CHANGE_EVENT, callback);
   },
 
+  getError: function() {
+    return error;
+  },
+
   getProjects: function() {
     return data.projects;
   },
@@ -103,7 +114,7 @@ AppDispatcher.register(function(payload) {
       DashboardStore.emitChange();
       break;
     case ActionTypes.DASHBOARD_DATA_LOAD_ERROR:
-      console.log("error: %s", action.error);
+      setError(action.error);
       DashboardStore.emitChange();
       break;
     default:
