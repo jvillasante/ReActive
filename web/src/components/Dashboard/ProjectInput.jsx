@@ -10,11 +10,12 @@ var TabPane = ReactBootstrap.TabPane;
 var moment = require('moment');
 var Select = require('react-select');
 var DateRangePicker = require('react-bootstrap-daterangepicker');
-var GlobalReportTable = require('./GlobalReportTable');
 var Api = require('../../utils/Api');
 var DashboardActions = require('../../actions/DashboardActions');
 var DashboardStore = require('../../stores/DashboardStore');
+var GlobalReportTable = require('./GlobalReportTable');
 var GraphicsComponent = require('./Graphics');
+var BenchmarkTable = require('./BenchmarkTable');
 
 var getSelectOptions = function(input, callback) {
   Api.getProjects(function(res) {
@@ -141,17 +142,11 @@ var ProjectInput = React.createClass({
                 <GraphicsComponent />
               </TabPane>
               <TabPane eventKey={2} tab="BENCHMARK">
-                <div className="global-report-box">
-                  <div className="card-charts main-card">
-                    <div className="main-card-header clearfix">
-                      <div className="main-card-title">
-                        BENCHMARK
-                      </div>
-                      <div className="main-card-icon-nav">
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <BenchmarkTable
+                  projects={this.state.selectValues}
+                  table1={this.state.table1}
+                  table2={this.state.table2}
+                  table3={this.state.table3} />
               </TabPane>
             </TabbedArea>
           </div>
