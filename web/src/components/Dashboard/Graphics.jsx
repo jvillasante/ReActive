@@ -149,7 +149,7 @@ var Graphics = React.createClass({
 
   render: function() {
     return (
-      <div className="container dashboard-graphics">
+      <div className="dashboard-graphics">
         <div className="row">
           <div className="col-md-4">
             <div className="card-charts small-card">

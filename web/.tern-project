@@ -2,7 +2,6 @@
   "libs": [
   ],
   "plugins": {
-    "node": {},
     "complete_strings": {}
   }
 }

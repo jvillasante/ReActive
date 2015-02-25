@@ -1,17 +1,35 @@
 'use strict';
 
 var React = require('react');
+var ReactBootstrap = require('react-bootstrap');
+var OverlayTrigger = ReactBootstrap.OverlayTrigger;
+var Tooltip = ReactBootstrap.Tooltip;
 
 var GeneralTable = React.createClass({
   render: function() {
     return (
-      <div className="container global-report-box">
+      <div className="global-report-box">
         <div className="card-charts main-card">
           <div className="main-card-header clearfix">
             <div className="main-card-title">
-              AUTOEVALUACION  ESTANDAR LEAN 2014
+              AUTOEVALUACION ESTANDAR LEAN
             </div>
             <div className="main-card-icon-nav">
+              <div className="main-card-icon-button">
+                <OverlayTrigger placement="top" overlay={<Tooltip>Gr&aacute;fico: <strong>Sistema Last Planner</strong></Tooltip>}>
+                  <span className="glyphicon glyphicon-th"></span>
+                </OverlayTrigger>
+              </div>
+              <div className="main-card-icon-button">
+                <OverlayTrigger placement="top" overlay={<Tooltip>Gr&aacute;fico: <strong>M&eacute;todo 6S Bodega</strong></Tooltip>}>
+                  <span className="glyphicon glyphicon-th"></span>
+                </OverlayTrigger>
+              </div>
+              <div className="main-card-icon-button">
+                <OverlayTrigger placement="top" overlay={<Tooltip>Gr&aacute;fico: <strong>Pr&aacute;cticas Lean</strong></Tooltip>}>
+                  <span className="glyphicon glyphicon-th"></span>
+                </OverlayTrigger>
+              </div>
             </div>
           </div>
 

@@ -5,6 +5,8 @@ var ReactBootstrap = require('react-bootstrap');
 var Panel = ReactBootstrap.Panel;
 var Button = ReactBootstrap.Button;
 var Glyphicon = ReactBootstrap.Glyphicon;
+var TabbedArea = ReactBootstrap.TabbedArea;
+var TabPane = ReactBootstrap.TabPane;
 var moment = require('moment');
 var Select = require('react-select');
 var DateRangePicker = require('react-bootstrap-daterangepicker');
@@ -127,14 +129,34 @@ var ProjectInput = React.createClass({
             </div>
           </Panel>
 
-          <GlobalReportTable
-            projects={this.state.selectValues}
-            table1={this.state.table1}
-            table2={this.state.table2}
-            table3={this.state.table3} />
-        </div>
 
-        <GraphicsComponent />
+          <div className="container">
+            <TabbedArea defaultActiveKey={1}>
+              <TabPane eventKey={1} tab="AUTOEVALUACION ESTANDAR LEAN">
+                <GlobalReportTable
+                  projects={this.state.selectValues}
+                  table1={this.state.table1}
+                  table2={this.state.table2}
+                  table3={this.state.table3} />
+
+                <GraphicsComponent />
+              </TabPane>
+              <TabPane eventKey={2} tab="BENCHMARK">
+                <div className="global-report-box">
+                  <div className="card-charts main-card">
+                    <div className="main-card-header clearfix">
+                      <div className="main-card-title">
+                        BENCHMARK
+                      </div>
+                      <div className="main-card-icon-nav">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </TabPane>
+            </TabbedArea>
+          </div>
+        </div>
       </div>
     );
   },
