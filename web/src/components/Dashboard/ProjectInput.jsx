@@ -129,7 +129,6 @@ var ProjectInput = React.createClass({
             </div>
           </Panel>
 
-
           <div className="container">
             <TabbedArea defaultActiveKey={1}>
               <TabPane eventKey={1} tab="AUTOEVALUACION ESTANDAR LEAN">
