@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS getBenchmarkTableGraphic(startDate TIMESTAMP, endDate TIMESTAMP, projectName TEXT);

@@ -6,7 +6,7 @@ const
   Err = require('custom-err'),
   DashboardProvider = require('../data/dashboardProvider').DashboardProvider;
 
-exports.allProjects = function(req, res, next) {
+exports.allProjects = function(req, res, next) {//{{{
   let dashboardProvider = new DashboardProvider(req.connectionStr);
 
   dashboardProvider.findAllProjects(errTo(next, function(result) {
@@ -16,9 +16,9 @@ exports.allProjects = function(req, res, next) {
 
     res.status(200).send(result);
   }));
-};
+};//}}}
 
-exports.getProjectData = function(req, res, next) {
+exports.getProjectData = function(req, res, next) {//{{{
   let dashboardProvider = new DashboardProvider(req.connectionStr);
   let start = req.query.start;
   let end = req.query.end;
@@ -31,9 +31,9 @@ exports.getProjectData = function(req, res, next) {
 
     res.status(200).send(result);
   }));
-};
+};//}}}
 
-exports.getProjectDataForGraphic = function(req, res, next) {
+exports.getProjectDataForGraphic = function(req, res, next) {//{{{
   let dashboardProvider = new DashboardProvider(req.connectionStr);
   let tableNumber = req.query.tableNumber;
   let start = req.query.start;
@@ -47,5 +47,5 @@ exports.getProjectDataForGraphic = function(req, res, next) {
 
     res.status(200).send(result);
   }));
-};
+};//}}}
 

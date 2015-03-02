@@ -62,6 +62,7 @@ var ProjectInput = React.createClass({
       table1: DashboardStore.getTable1(),
       table2: DashboardStore.getTable2(),
       table3: DashboardStore.getTable3(),
+      benchmarkTable: DashboardStore.getBenchmarkTable()
     };
   },
 
@@ -80,7 +81,8 @@ var ProjectInput = React.createClass({
       endDate: DashboardStore.getEndDate(),
       table1: DashboardStore.getTable1(),
       table2: DashboardStore.getTable2(),
-      table3: DashboardStore.getTable3()
+      table3: DashboardStore.getTable3(),
+      benchmarkTable: DashboardStore.getBenchmarkTable()
     });
   },
 
@@ -139,14 +141,14 @@ var ProjectInput = React.createClass({
                   table2={this.state.table2}
                   table3={this.state.table3} />
 
-                <GraphicsComponent />
+                <GraphicsComponent kind="autoevaluacion" />
               </TabPane>
               <TabPane eventKey={2} tab="BENCHMARK">
                 <BenchmarkTable
                   projects={this.state.selectValues}
-                  table1={this.state.table1}
-                  table2={this.state.table2}
-                  table3={this.state.table3} />
+                  benchmarkTable={this.state.benchmarkTable} />
+
+                <GraphicsComponent kind="benchmark" />
               </TabPane>
             </TabbedArea>
           </div>

@@ -12,7 +12,7 @@ const DashboardProvider = function(connStr) {
   this.connStr = connStr;
 };
 
-DashboardProvider.prototype.findAllProjects = function(callback) {
+DashboardProvider.prototype.findAllProjects = function(callback) {//{{{
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
@@ -27,9 +27,9 @@ DashboardProvider.prototype.findAllProjects = function(callback) {
       callback(null, result.rows);
     });
   });
-};
+};//}}}
 
-DashboardProvider.prototype.findProjectData = function(start, end, projects, callback) {
+DashboardProvider.prototype.findProjectData = function(start, end, projects, callback) {//{{{
   let data = {};
   start = moment(Number(start)).format('MM/DD/YYYY');
   end = moment(Number(end)).format('MM/DD/YYYY');
@@ -64,6 +64,14 @@ DashboardProvider.prototype.findProjectData = function(start, end, projects, cal
             data[project].table3 = result.rows.map(function(value) { return Number(value.gettable3); });
             next();
           });
+        },
+        function(next) {
+          let sql = "SELECT getBenchmarkTable('" + start + "','" + end + "','" + project + "');";
+          client.query(sql, function(err, result) {
+            if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+            data[project].benchmarkTable = result.rows.map(function(value) { return Number(value.getbenchmarktable); });
+            next();
+          });
         }
       ], function(err) {
         cb(err);
@@ -75,9 +83,9 @@ DashboardProvider.prototype.findProjectData = function(start, end, projects, cal
       callback(null, data);
     });
   });
-};
+};//}}}
 
-DashboardProvider.prototype.findProjectDataForGraphic = function(tableNumber, start, end, project, callback) {
+DashboardProvider.prototype.findProjectDataForGraphic = function(tableNumber, start, end, project, callback) {//{{{
   let data = [];
   start = moment(Number(start)).format('MM/DD/YYYY');
   end = moment(Number(end)).format('MM/DD/YYYY');
@@ -85,22 +93,33 @@ DashboardProvider.prototype.findProjectDataForGraphic = function(tableNumber, st
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    let sql = "SELECT * FROM getTable" + tableNumber + "Graphic('" + start + "','" + end + "','" + project + "');";
-    client.query(sql, function(err, result) {
-      if (err) { done(); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+    let sql;
+    if (tableNumber === '1' || tableNumber === '2' || tableNumber === '3') {
+      sql = "SELECT * FROM getTable" + tableNumber + "Graphic('" + start + "','" + end + "','" + project + "');";
+    } else if (tableNumber === '4') {
+      sql = "SELECT * FROM getBenchmarkTableGraphic('" + start + "','" + end + "','" + project + "');";
+    }
 
-      let series = [];
-      let grouped = _.groupBy(result.rows, function(row) { return row.col; });
-      for (let obj in grouped) {
-        if (grouped.hasOwnProperty(obj)) {
-          series.push({ name: obj, data: grouped[obj].map(function(val) { return [val.thedate, val.percent]; })});
+    if (sql) {
+      client.query(sql, function(err, result) {
+        if (err) { done(); return callback(Err("db query error", { code: 1002, description: err.message, errors: []})); }
+
+        let series = [];
+        let grouped = _.groupBy(result.rows, function(row) { return row.col; });
+        for (let obj in grouped) {
+          if (grouped.hasOwnProperty(obj)) {
+            series.push({ name: obj, data: grouped[obj].map(function(val) { return [val.thedate, val.percent]; })});
+          }
         }
-      }
 
+        done();
+        callback(null, series);
+      });
+    } else {
       done();
-      callback(null, series);
-    });
+      callback(null, []);
+    }
   });
-};
+};//}}}
 
 exports.DashboardProvider = DashboardProvider;

@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS getBenchmarkTable(startDate TIMESTAMP, endDate TIMESTAMP, projectName TEXT);

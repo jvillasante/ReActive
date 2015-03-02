@@ -19,7 +19,8 @@ var data = {
   endDate: moment(),
   table1: [],
   table2: [],
-  table3: []
+  table3: [],
+  benchmarkTable: []
 };
 
 function setError(err) {
@@ -38,14 +39,22 @@ function setData(res) {
       endDate: res.end,
       table1: [],
       table2: [],
-      table3: []
+      table3: [],
+      benchmarkTable: []
     };
   } else {
-    var table1 = [], table2 = [], table3 = [];
+    var table1 = [], table2 = [], table3 = [], benchmarkTable = [];
     projects.forEach(function(project) {
       table1.push(projectsData[project].table1);
       table2.push(projectsData[project].table2);
       table3.push(projectsData[project].table3);
+      benchmarkTable.push(projectsData[project].benchmarkTable.map(function(val, index) {
+        if (index === 9) {
+          return (projectsData[project].benchmarkTable[7] * projectsData[project].benchmarkTable[8]).toFixed(2);
+        } else {
+          return val;
+        }
+      }));
     });
 
     data = {
@@ -54,7 +63,8 @@ function setData(res) {
       endDate: res.end,
       table1: table1,
       table2: table2,
-      table3: table3
+      table3: table3,
+      benchmarkTable: benchmarkTable
     };
   }
 }
@@ -102,6 +112,10 @@ var DashboardStore = assign({}, EventEmitter.prototype, {
 
   getTable3: function() {
     return data.table3;
+  },
+
+  getBenchmarkTable: function() {
+    return data.benchmarkTable;
   }
 });
 

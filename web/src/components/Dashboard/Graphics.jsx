@@ -10,7 +10,7 @@ var moment = require('moment');
 var DashboardStore = require('../../stores/DashboardStore');
 var Api = require('../../utils/Api');
 
-var graphics = ['Sistema Last Planner', 'Método 6S Bodega', 'Prácticas Lean'];
+var graphics = ['Sistema Last Planner', 'Método 6S Bodega', 'Prácticas Lean', 'Benchmark'];
 
 var GrapicModal = React.createClass({
   onProjectSelected(val) {
@@ -20,6 +20,7 @@ var GrapicModal = React.createClass({
       DashboardStore.getStartDate().format('x'),
       DashboardStore.getEndDate().format('x'),
       val, function(data) {
+        console.log(data);
         self.renderChart(self.props.number, val, data);
       }, function(error) {
         console.log(error);
@@ -48,13 +49,12 @@ var GrapicModal = React.createClass({
       },
       yAxis: {
         title: {
-          text: 'Porciento de Cumplimiento (%)'
-        },
-        min: 0
+          text: null
+        }
       },
       tooltip: {
         headerFormat: '<b>{series.name}</b><br>',
-        pointFormat: '{point.x:%e. %b}: {point.y:.2f} %'
+        pointFormat: '{point.x:%e. %b}: {point.y:.2f}'
       },
 
       plotOptions: {
@@ -104,7 +104,7 @@ var Graphics = React.createClass({
   getInitialState: function() {
     return {
       isModalOpen: false,
-      options: []
+      options: [],
     };
   },
 
@@ -139,6 +139,11 @@ var Graphics = React.createClass({
     this.handleToggle(3);
   },
 
+  onBenchmarkGraphicClick: function(evt) {
+    evt.preventDefault();
+    this.handleToggle(4);
+  },
+
   renderOverlay: function() {
     if (!this.state.isModalOpen) { return <span/>; }
 
@@ -148,53 +153,79 @@ var Graphics = React.createClass({
   },
 
   render: function() {
-    return (
-      <div className="dashboard-graphics">
-        <div className="row">
-          <div className="col-md-4">
-            <div className="card-charts small-card">
-              <div className="main-card-header">
-                <div className="icon-card-header">
-                  <span className="glyphicon glyphicon-th"></span>
+    if (this.props.kind === 'autoevaluacion') {
+      return (
+        <div className="dashboard-graphics">
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card-charts small-card">
+                <div className="main-card-header">
+                  <div className="icon-card-header">
+                    <span className="glyphicon glyphicon-th"></span>
+                  </div>
+                  <div className="card-title">
+                    Sistema Last Planner
+                  </div>
                 </div>
-                <div className="card-title">
-                  Sistema Last Planner
-                </div>
+                <a href="#" onClick={this.onTable1GraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
               </div>
-              <a href="#" onClick={this.onTable1GraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
             </div>
-          </div>
 
-          <div className="col-md-4">
-            <div className="card-charts small-card">
-              <div className="main-card-header">
-                <div className="icon-card-header">
-                  <span className="glyphicon glyphicon-th"></span>
+            <div className="col-md-4">
+              <div className="card-charts small-card">
+                <div className="main-card-header">
+                  <div className="icon-card-header">
+                    <span className="glyphicon glyphicon-th"></span>
+                  </div>
+                  <div className="card-title">
+                    M&eacute;todo 6S Bodega
+                  </div>
                 </div>
-                <div className="card-title">
-                  M&eacute;todo 6S Bodega
-                </div>
+                <a href="#" onClick={this.onTable2GraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
               </div>
-              <a href="#" onClick={this.onTable2GraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
             </div>
-          </div>
 
-          <div className="col-md-4">
-            <div className="card-charts small-card">
-              <div className="main-card-header">
-                <div className="icon-card-header">
-                  <span className="glyphicon glyphicon-th"></span>
+            <div className="col-md-4">
+              <div className="card-charts small-card">
+                <div className="main-card-header">
+                  <div className="icon-card-header">
+                    <span className="glyphicon glyphicon-th"></span>
+                  </div>
+                  <div className="card-title">
+                    Pr&aacute;cticas Lean
+                  </div>
                 </div>
-                <div className="card-title">
-                  Pr&aacute;cticas Lean
-                </div>
+                <a href="#" onClick={this.onTable3GraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
               </div>
-              <a href="#" onClick={this.onTable3GraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else if (this.props.kind === 'benchmark') {
+      return (
+        <div className="dashboard-graphics">
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card-charts small-card">
+                <div className="main-card-header">
+                  <div className="icon-card-header">
+                    <span className="glyphicon glyphicon-th"></span>
+                  </div>
+                  <div className="card-title">
+                    Benchmark
+                  </div>
+                </div>
+                <a href="#" onClick={this.onBenchmarkGraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <span />
+      );
+    }
   },
 });
 

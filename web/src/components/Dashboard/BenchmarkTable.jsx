@@ -53,6 +53,15 @@ var BenchmarkTable = React.createClass({
                 </tr>
               </thead>
               <tbody>
+                {this.props.benchmarkTable.map(function(row) {
+                  return (
+                    <tr>
+                      {row.map(function(cell) {
+                        return <td>{cell}</td>;
+                      })}
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
             </div>
