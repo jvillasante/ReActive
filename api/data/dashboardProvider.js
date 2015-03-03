@@ -74,9 +74,11 @@ DashboardProvider.prototype.findProjectData = function(start, end, projects, cal
           });
         }
       ], function(err) {
+        console.log(err);
         cb(err);
       });
     }, function(err) {
+      console.log(err);
       if (err) { done(); return callback(err); }
 
       done();

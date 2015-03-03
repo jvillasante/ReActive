@@ -15,6 +15,10 @@ faker.locale = "es";
 let random = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+let randomFloat = function(minValue, maxValue, precision){
+  if(typeof(precision) === 'undefined') { precision = 2; }
+  return parseFloat(Math.min(minValue + (Math.random() * (maxValue - minValue)), maxValue).toFixed(precision));
+};
 let yesno = ['Si', 'No', 'N/A'];
 let now = new Date();
 let year = now.getFullYear();
@@ -25,7 +29,7 @@ function getReports(number) {
   let reports = [];
 
   uuids.projects.forEach(function(projectId) {
-    _.times(5, function(_) {
+    _.times(50, function(_) {
       let theMonth = random(0, month);
       let theDay = (theMonth === month) ? random(1, day) : random(1, 28);
       let date = new Date(year, theMonth, theDay);
@@ -38,24 +42,24 @@ function getReports(number) {
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
           fields: [
-            { item: 1, value: random(1, 100) },
-            { item: 2, value: random(1, 100) },
+            { item: 1, value: random(10000000, 6000000000) },
+            { item: 2, value: random(10000000, 6000000000) },
             { item: 3, value: random(1, 100) },
             { item: 4, value: random(1, 100) },
-            { item: 5, value: random(1, 100) },
-            { item: 6, value: random(1, 100) },
-            { item: 7, value: random(1, 100) },
-            { item: 8, value: random(1, 100) },
-            { item: 9, value: random(1, 100) },
-            { item: 10, value: random(1, 100) },
+            { item: 5, value: randomFloat(10.0, 100.0) },  // here
+            { item: 6, value: randomFloat(100.0, 800.0) },
+            { item: 7, value: random(1, 200) },
+            { item: 8, value: random(1, 200) },
+            { item: 9, value: random(1, 200) },
+            { item: 10, value: random(1, 200) },
             { item: 11, value: random(1, 100) },
-            { item: 12, value: random(1, 100) },
-            { item: 13, value: random(1, 100) },
-            { item: 14, value: random(1, 100) },
-            { item: 15, value: random(1, 100) },
-            { item: 16, value: random(1, 100) },
-            { item: 17, value: random(1, 100) },
-            { item: 18, value: random(1, 100) },
+            { item: 12, value: randomFloat(1000.0, 10000.0) },
+            { item: 13, value: random(1000, 10000) },
+            { item: 14, value: random(20000000, 60000000) },
+            { item: 15, value: random(5000000, 60000000) },
+            { item: 16, value: randomFloat(10000000.0, 100000000.0) },
+            { item: 17, value: randomFloat(10000.0, 80000.0) },
+            { item: 18, value: randomFloat(100000.0, 900000) },
             { item: 19, value: random(1, 100) },
             { item: 20, value: random(1, 100) },
             { item: 21, value: random(1, 100) },
