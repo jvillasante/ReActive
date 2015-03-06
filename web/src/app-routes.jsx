@@ -13,6 +13,7 @@ var Login = require('./components/Login/Login.jsx');
 var User = require('./components/User/User.jsx');
 var Project = require('./components/Project/Project.jsx');
 var Dashboard = require('./components/Dashboard/Dashboard.jsx');
+var Reports = require('./components/Reports/Reports.jsx');
 
 var AppRoutes = (
   <Route name="root" path="/" handler={Application}>
@@ -21,6 +22,7 @@ var AppRoutes = (
     <Route name="home" path="home" handler={Home} />
     <Route name="login" path="login" handler={Login} />
     <Route name="dashboard" path="dashboard" handler={Dashboard} />
+    <Route name="reports" path="reports" handler={Reports} />
     <Route name="users" path="admin/users" handler={User} />
     <Route name="projects" path="admin/projects" handler={Project} />
   </Route>

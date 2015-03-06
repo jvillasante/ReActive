@@ -1,9 +1,24 @@
 'use strict';
 
 var React = require('react');
+var Router = require('react-router');
 
 var GeneralTable = React.createClass({
+  mixins: [Router.Navigation],
+
+  _onTableCellClick: function(projectName, colNumber, tableName, evt) {
+    evt.preventDefault();
+    this.transitionTo('reports', {
+      projectName: projectName,
+      colNumber: colNumber,
+      tableName: tableName
+    });
+  },
+
   render: function() {
+    var self = this;
+    var projects = (this.props.projects) ? this.props.projects.split('|') : [];
+
     return (
       <div className="global-report-box">
         <div className="card-charts main-card">
@@ -25,7 +40,7 @@ var GeneralTable = React.createClass({
                   </tr>
                 </thead>
                 <tbody>
-                  {this.props.projects && this.props.projects.split('|').map(function(row) {
+                  {projects.map(function(row) {
                     return <tr><td>{row}</td></tr>;
                   })}
                 </tbody>
@@ -46,11 +61,17 @@ var GeneralTable = React.createClass({
                 </tr>
               </thead>
               <tbody>
-                {this.props.table1.map(function(row) {
+                {this.props.table1.map(function(row, rowIndex) {
                   return (
                     <tr>
-                      {row.map(function(cell) {
-                        return <td className={'cell-' + cell}>{cell}</td>;
+                      {row.map(function(cell, colIndex) {
+                        return (
+                          <td className={'cell-' + cell}>
+                            <a href="#" onClick={self._onTableCellClick.bind(self, projects[rowIndex], colIndex, "Sistema Last Planner")}>
+                              {cell}
+                            </a>
+                          </td>
+                        );
                       })}
                     </tr>
                   );
@@ -74,11 +95,17 @@ var GeneralTable = React.createClass({
                 </tr>
               </thead>
               <tbody>
-                {this.props.table2.map(function(row) {
+                {this.props.table2.map(function(row, rowIndex) {
                   return (
                     <tr>
-                      {row.map(function(cell) {
-                        return <td className={'cell-' + cell}>{cell}</td>;
+                      {row.map(function(cell, colIndex) {
+                        return (
+                          <td className={'cell-' + cell}>
+                            <a href="#" onClick={self._onTableCellClick.bind(self, projects[rowIndex], colIndex, "Método 6S Bodega")}>
+                              {cell}
+                            </a>
+                          </td>
+                        );
                       })}
                     </tr>
                   );
@@ -102,11 +129,17 @@ var GeneralTable = React.createClass({
                 </tr>
               </thead>
               <tbody>
-                {this.props.table3.map(function(row) {
+                {this.props.table3.map(function(row, rowIndex) {
                   return (
                     <tr>
-                      {row.map(function(cell) {
-                        return <td className={'cell-' + cell}>{cell}</td>;
+                      {row.map(function(cell, colIndex) {
+                        return (
+                          <td className={'cell-' + cell}>
+                            <a href="#" onClick={self._onTableCellClick.bind(self, projects[rowIndex], colIndex, "Prácticas Lean")}>
+                              {cell}
+                            </a>
+                          </td>
+                        );
                       })}
                     </tr>
                   );
