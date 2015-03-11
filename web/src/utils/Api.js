@@ -88,5 +88,26 @@ module.exports = {
           failure('Querido usuario, algo inesperado ha ocurrido. Es desconcertante y estamos trabajando para resolverlo. Error obteniendo proyectos.');
         }
       });
+  },
+
+  getProjectsReports: function(templateId, col, start, end, project, success, failure) {
+    superagent
+      .get(API_ROOT + '/dashboard/projects/reports')
+      .set('Accept', 'application/json')
+      .set('Authorization', 'Bearer ' + SessionStore.getToken())
+      .query({ templateId: templateId || 0 })
+      .query({ col: col || 0 })
+      .query({ start: start || '' })
+      .query({ end: end || '' })
+      .query({ project: project || '' })
+      .end(function(res) {
+        if (res.ok) {
+          success({
+            data: res.body
+          });
+        } else {
+          failure('Querido usuario, algo inesperado ha ocurrido. Es desconcertante y estamos trabajando para resolverlo. Error obteniendo proyectos.');
+        }
+      });
   }
 };

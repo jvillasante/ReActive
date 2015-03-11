@@ -18,6 +18,9 @@ module.exports = {
 
     DASHBOARD_DATA_LOAD: null,
     DASHBOARD_DATA_LOAD_ERROR: null,
+
+    DASHBOARD_REPORTS_DATA_LOAD: null,
+    DASHBOARD_REPORTS_DATA_LOAD_ERROR: null,
   }),
 
   PayloadSources: keyMirror({

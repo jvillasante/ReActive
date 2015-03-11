@@ -49,3 +49,19 @@ exports.getProjectDataForGraphic = function(req, res, next) {//{{{
   }));
 };//}}}
 
+exports.getProjectReports = function(req, res, next) {//{{{
+  let dashboardProvider = new DashboardProvider(req.connectionStr);
+  let templateId = req.query.templateId;
+  let col = req.query.col;
+  let start = req.query.start;
+  let end = req.query.end;
+  let project = req.query.project;
+
+  dashboardProvider.findProjectReports(templateId, col, start, end, project, errTo(next, function(result) {
+    if (!result) {
+      return next(Err("project data not found", { code: 404, description: "No project data found for user: " + req.user.username + ".", errors: []}));
+    }
+
+    res.status(200).send(result);
+  }));
+}//}}}

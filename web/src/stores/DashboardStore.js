@@ -22,6 +22,10 @@ var data = {
   table3: [],
   benchmarkTable: []
 };
+var reportData = {
+  project: '',
+  data: []
+};
 
 function setError(err) {
   error = err;
@@ -67,6 +71,13 @@ function setData(res) {
       benchmarkTable: benchmarkTable
     };
   }
+}
+
+function setReportData(res) {
+  reportData = {
+    project: res.project,
+    data: res.data.data
+  };
 }
 
 var DashboardStore = assign({}, EventEmitter.prototype, {
@@ -116,6 +127,14 @@ var DashboardStore = assign({}, EventEmitter.prototype, {
 
   getBenchmarkTable: function() {
     return data.benchmarkTable;
+  },
+
+  getProjectName: function() {
+    return reportData.project;
+  },
+
+  getReportsData: function() {
+    return reportData.data;
   }
 });
 
@@ -128,6 +147,14 @@ AppDispatcher.register(function(payload) {
       DashboardStore.emitChange();
       break;
     case ActionTypes.DASHBOARD_DATA_LOAD_ERROR:
+      setError(action.error);
+      DashboardStore.emitChange();
+      break;
+    case ActionTypes.DASHBOARD_REPORTS_DATA_LOAD:
+      setReportData(action.data);
+      DashboardStore.emitChange();
+      break;
+    case ActionTypes.DASHBOARD_REPORTS_DATA_LOAD_ERROR:
       setError(action.error);
       DashboardStore.emitChange();
       break;

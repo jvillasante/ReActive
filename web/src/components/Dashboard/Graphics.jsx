@@ -20,7 +20,6 @@ var GrapicModal = React.createClass({
       DashboardStore.getStartDate().format('x'),
       DashboardStore.getEndDate().format('x'),
       val, function(data) {
-        console.log(data);
         self.renderChart(self.props.number, val, data);
       }, function(error) {
         console.log(error);

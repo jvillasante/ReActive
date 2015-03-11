@@ -2,17 +2,16 @@
 
 var React = require('react');
 var Router = require('react-router');
+var DashboardActions = require('../../actions/DashboardActions');
+var DashboardStore = require('../../stores/DashboardStore');
 
 var GeneralTable = React.createClass({
   mixins: [Router.Navigation],
 
   _onTableCellClick: function(projectName, colNumber, tableName, evt) {
     evt.preventDefault();
-    this.transitionTo('reports', {
-      projectName: projectName,
-      colNumber: colNumber,
-      tableName: tableName
-    });
+    DashboardActions.loadReportData(2, 1, DashboardStore.getStartDate(), DashboardStore.getEndDate(), 'Montepiedra - Etapa 2');
+    this.transitionTo('reports');
   },
 
   render: function() {

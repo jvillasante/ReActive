@@ -26,5 +26,22 @@ module.exports = {
         error: error
       });
     });
-  }
+  },
+
+  loadReportData: function(templateId, col, start, end, project) {
+    Api.getProjectsReports(templateId, col, start.format('x'), end.format('x'), project, function(data) {
+      AppDispatcher.handleServerAction({
+        type: ActionTypes.DASHBOARD_REPORTS_DATA_LOAD,
+        data: {
+          project: project,
+          data: data
+        }
+      });
+    }, function(error) {
+      AppDispatcher.handleServerAction({
+        type: ActionTypes.DASHBOARD_REPORTS_DATA_LOAD_ERROR,
+        error: error
+      });
+    });
+  },
 };

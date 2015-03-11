@@ -68,6 +68,8 @@ router.route('/dashboard/projects/data')
   .get(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.dashboard.getProjectData);
 router.route('/dashboard/projects/graphicData')
   .get(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.dashboard.getProjectDataForGraphic);
+router.route('/dashboard/projects/reports')
+  .get(routes.auth.isAuthenticated, routes.auth.isAdmin, routes.dashboard.getProjectReports);
 
 // Template routes
 router.route('/projects/:projectId/templates')
