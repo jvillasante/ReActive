@@ -14,6 +14,8 @@ var Reports = React.createClass({
   getInitialState: function() {
     return {
       project: DashboardStore.getProjectName(),
+      doc: DashboardStore.getDocName(),
+      section: DashboardStore.getSectionName(),
       data: DashboardStore.getReportsData()
     };
   },
@@ -29,6 +31,8 @@ var Reports = React.createClass({
   _onChange: function() {
     this.setState({
       project: DashboardStore.getProjectName(),
+      doc: DashboardStore.getDocName(),
+      section: DashboardStore.getSectionName(),
       data: DashboardStore.getReportsData()
     });
   },
@@ -38,43 +42,44 @@ var Reports = React.createClass({
       <div className="project-input">
         <Panel header={<h1>{this.state.project}</h1>}>
           <div className="project-input-daterange col-md-12">
-            <p>Documento: (Sistema Last Planner o lo que sea)</p>
-            <p>Seccion: (Participacion en Reunion o lo que sea)</p>
-            <p>Rango de Fechas: (El rango de fechas segun marcado en el dashboard)</p>
+            <span className="pull-left">
+              <h3>{this.state.doc}: {this.state.section}</h3>
+            </span>
+            <span className="pull-right">
+              <h3>{DashboardStore.getStartDate().format('DD/MM/YYYY') + ' - ' + DashboardStore.getEndDate().format('DD/MM/YYYY')}</h3>
+            </span>
           </div>
         </Panel>
         <div className="container">
-          <div className="row">
-
-            {this.state.data.map(function(row, rowIndex) {
-              return (
-                <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <div className="box">
-                    <span className="pull-right">(Nombre del usuario que lo creo)</span>
-                    <span className="pull-left">(Ultima actualizacion del reporte)</span>
-                    <div className="box-icon">
-                      <span><img className="img-responsive img-circle" src={"http://reactive.innobis.cl/" + row.userImage} alt="User Image" /></span>
-                    </div>
-                    <div className="info">
-                      <h4 className="text-center">{row.title}</h4>
-                      <ul className="list-group">
-                        {row.data.map(function(row, rowIndex) {
-                          return (
-                            <li className="list-group-item">
-                              <span className="badge">{row.answer}</span>
-                              {row.question}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
+          {this.state.data.map(function(report) {
+            return (
+              <div key={report.id} className="col-sm-6 col-md-6 col-lg-6">
+                <div className="box">
+                  <div className="box-icon">
+                    <span><img className="img-responsive img-circle" src={"http://reactive.innobis.cl/" + report.userImage} alt="User Image" /></span>
+                  </div>
+                  <div className="info">
+                    <h4 className="text-center">{report.title}</h4>
+                    <span className="pull-right">Creaci&oacute;n: {report.created}</span><br />
+                    <span className="pull-right">Ultima Actualizaci&oacute;n: {report.updated}</span><br />
+                    <span className="pull-right">Usuario: {report.userName}</span><br />
+                    <ul className="list-group">
+                      {report.data.map(function(value) {
+                        return (
+                          <li className="list-group-item">
+                            <span className={value.className}>{value.answer}</span>
+                            {value.question}
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            );
+          })}
         </div>
       </div>
-    </div>
     );
   },
 });

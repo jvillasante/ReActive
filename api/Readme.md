@@ -294,7 +294,6 @@ This is the repo for the ReActive node.js project
 * $ pm2 startup ubuntu
 
 ##Postgres:
-
 * $ sudo apt-get update
 * $ sudo apt-get install postgresql postgresql-contrib pgadmin3
 * $ sudo -u postgres psql postgres

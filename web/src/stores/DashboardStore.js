@@ -24,6 +24,8 @@ var data = {
 };
 var reportData = {
   project: '',
+  doc: '',
+  section: '',
   data: []
 };
 
@@ -76,6 +78,8 @@ function setData(res) {
 function setReportData(res) {
   reportData = {
     project: res.project,
+    doc: res.doc,
+    section: res.section,
     data: res.data.data
   };
 }
@@ -131,6 +135,14 @@ var DashboardStore = assign({}, EventEmitter.prototype, {
 
   getProjectName: function() {
     return reportData.project;
+  },
+
+  getDocName: function() {
+    return reportData.doc;
+  },
+
+  getSectionName: function() {
+    return reportData.section;
   },
 
   getReportsData: function() {

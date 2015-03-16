@@ -8,9 +8,17 @@ var DashboardStore = require('../../stores/DashboardStore');
 var GeneralTable = React.createClass({
   mixins: [Router.Navigation],
 
-  _onTableCellClick: function(projectName, colNumber, tableName, evt) {
+  _onTableCellClick: function(tableNum, col, project, evt) {
     evt.preventDefault();
-    DashboardActions.loadReportData(2, 1, DashboardStore.getStartDate(), DashboardStore.getEndDate(), 'Montepiedra - Etapa 2');
+
+    if (tableNum === 1) {
+      DashboardActions.loadReportData(2, col, DashboardStore.getStartDate(), DashboardStore.getEndDate(), project);
+    } else if (tableNum === 2) {
+      DashboardActions.loadReportData(3, col + 5, DashboardStore.getStartDate(), DashboardStore.getEndDate(), project);
+    } else if (tableNum === 3) {
+      DashboardActions.loadReportData(8 + col, col + 11, DashboardStore.getStartDate(), DashboardStore.getEndDate(), project);
+    }
+
     this.transitionTo('reports');
   },
 
@@ -66,7 +74,7 @@ var GeneralTable = React.createClass({
                       {row.map(function(cell, colIndex) {
                         return (
                           <td className={'cell-' + cell}>
-                            <a href="#" onClick={self._onTableCellClick.bind(self, projects[rowIndex], colIndex, "Sistema Last Planner")}>
+                            <a href="#" onClick={self._onTableCellClick.bind(self, 1, colIndex, projects[rowIndex])}>
                               {cell}
                             </a>
                           </td>
@@ -100,7 +108,7 @@ var GeneralTable = React.createClass({
                       {row.map(function(cell, colIndex) {
                         return (
                           <td className={'cell-' + cell}>
-                            <a href="#" onClick={self._onTableCellClick.bind(self, projects[rowIndex], colIndex, "Método 6S Bodega")}>
+                            <a href="#" onClick={self._onTableCellClick.bind(self, 2, colIndex, projects[rowIndex])}>
                               {cell}
                             </a>
                           </td>
@@ -134,7 +142,7 @@ var GeneralTable = React.createClass({
                       {row.map(function(cell, colIndex) {
                         return (
                           <td className={'cell-' + cell}>
-                            <a href="#" onClick={self._onTableCellClick.bind(self, projects[rowIndex], colIndex, "Prácticas Lean")}>
+                            <a href="#" onClick={self._onTableCellClick.bind(self, 3, colIndex, projects[rowIndex])}>
                               {cell}
                             </a>
                           </td>

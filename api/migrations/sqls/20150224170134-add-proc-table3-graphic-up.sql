@@ -15,7 +15,8 @@ $BODY$
           INNER JOIN fields f ON f.id = v.id_field
           INNER JOIN reports r ON r.id = f.id_report
           INNER JOIN projects p ON p.id = r.id_project
-          WHERE r.id_template = 8 AND (r.updated_at::date BETWEEN startDate AND endDate)
+          WHERE v.item IN (1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49)
+            AND r.id_template = 8 AND (r.updated_at::date BETWEEN startDate AND endDate)
             AND lower(v.value) <> 'n/a' AND p.name = projectName
         ) AS QUERY1
         GROUP BY theDate
@@ -36,7 +37,8 @@ $BODY$
           INNER JOIN fields f ON f.id = v.id_field
           INNER JOIN reports r ON r.id = f.id_report
           INNER JOIN projects p ON p.id = r.id_project
-          WHERE r.id_template = 9 AND (r.updated_at::date BETWEEN startDate AND endDate)
+          WHERE v.item IN (1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39)
+            AND r.id_template = 9 AND (r.updated_at::date BETWEEN startDate AND endDate)
             AND lower(v.value) <> 'n/a' AND p.name = projectName
         ) AS QUERY1
         GROUP BY theDate
@@ -57,7 +59,8 @@ $BODY$
           INNER JOIN fields f ON f.id = v.id_field
           INNER JOIN reports r ON r.id = f.id_report
           INNER JOIN projects p ON p.id = r.id_project
-          WHERE r.id_template = 10 AND (r.updated_at::date BETWEEN startDate AND endDate)
+          WHERE v.item IN (1,3,5,7,9,11,13,15,17,19,21)
+            AND r.id_template = 10 AND (r.updated_at::date BETWEEN startDate AND endDate)
             AND lower(v.value) <> 'n/a' AND p.name = projectName
         ) AS QUERY1
         GROUP BY theDate
@@ -78,7 +81,8 @@ $BODY$
           INNER JOIN fields f ON f.id = v.id_field
           INNER JOIN reports r ON r.id = f.id_report
           INNER JOIN projects p ON p.id = r.id_project
-          WHERE r.id_template = 11 AND (r.updated_at::date BETWEEN startDate AND endDate)
+          WHERE v.item IN (1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57)
+            AND r.id_template = 11 AND (r.updated_at::date BETWEEN startDate AND endDate)
             AND lower(v.value) <> 'n/a' AND p.name = projectName
         ) AS QUERY1
         GROUP BY theDate
@@ -99,7 +103,8 @@ $BODY$
           INNER JOIN fields f ON f.id = v.id_field
           INNER JOIN reports r ON r.id = f.id_report
           INNER JOIN projects p ON p.id = r.id_project
-          WHERE r.id_template = 12 AND (r.updated_at::date BETWEEN startDate AND endDate)
+          WHERE v.item IN (1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37)
+            AND r.id_template = 12 AND (r.updated_at::date BETWEEN startDate AND endDate)
             AND lower(v.value) <> 'n/a' AND p.name = projectName
         ) AS QUERY1
         GROUP BY theDate
@@ -120,7 +125,8 @@ $BODY$
           INNER JOIN fields f ON f.id = v.id_field
           INNER JOIN reports r ON r.id = f.id_report
           INNER JOIN projects p ON p.id = r.id_project
-          WHERE r.id_template = 13 AND (r.updated_at::date BETWEEN startDate AND endDate)
+          WHERE v.item IN (1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79,81,83,85,87,89,91,93,95,97,99)
+            AND r.id_template = 13 AND (r.updated_at::date BETWEEN startDate AND endDate)
             AND lower(v.value) <> 'n/a' AND p.name = projectName
         ) AS QUERY1
         GROUP BY theDate
