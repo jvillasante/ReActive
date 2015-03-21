@@ -1,9 +1,21 @@
 'use strict';
 
 var React = require('react');
+var Router = require('react-router');
+var DashboardActions = require('../../actions/DashboardActions');
+var DashboardStore = require('../../stores/DashboardStore');
 
 var BenchmarkTable = React.createClass({
+  mixins: [Router.Navigation],
+
+  _onTableCellClick: function(project, evt) {
+    evt.preventDefault();
+    DashboardActions.loadReportData(1, -1, DashboardStore.getStartDate(), DashboardStore.getEndDate(), project);
+    this.transitionTo('reports');
+  },
+
   render: function() {
+    var self = this;
     return (
       <div className="global-report-box">
         <div className="card-charts main-card">
@@ -26,7 +38,15 @@ var BenchmarkTable = React.createClass({
                 </thead>
                 <tbody>
                   {this.props.projects && this.props.projects.split('|').map(function(row) {
-                    return <tr><td>{row}</td></tr>;
+                    return (
+                      <tr>
+                        <td>
+                          <a href="#" onClick={self._onTableCellClick.bind(self, row)}>
+                            {row}
+                          </a>
+                        </td>
+                      </tr>
+                    );
                   })}
                 </tbody>
               </table>

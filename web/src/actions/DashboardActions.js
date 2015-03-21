@@ -9,7 +9,7 @@ var Api = require('../utils/Api');
 var ActionTypes = AppConstants.ActionTypes;
 var moment = require('moment');
 
-let templateNames = ["Sistema Last Planner", "Método 6S Bodega", "Prácticas Lean"];
+let templateNames = ["Benchmark", "Sistema Last Planner", "Método 6S Bodega", "Prácticas Lean"];
 let columnNames = [
   "Participación Reunión",
   "Registros e Indicadores",
@@ -54,12 +54,14 @@ module.exports = {
   loadReportData: function(templateId, col, start, end, project) {
     Api.getProjectsReports(templateId, col, start.format('x'), end.format('x'), project, function(data) {
       let doc;
-      if (templateId === 2) {
+      if (templateId === 1) {
         doc = templateNames[0];
-      } else if (templateId === 3) {
+      } else if (templateId === 2) {
         doc = templateNames[1];
-      } else {
+      } else if (templateId === 3) {
         doc = templateNames[2];
+      } else {
+        doc = templateNames[3];
       }
 
       AppDispatcher.handleServerAction({
@@ -67,7 +69,7 @@ module.exports = {
         data: {
           project: project,
           doc: doc,
-          section: columnNames[col],
+          section: (col === -1) ? "Indicadores" : columnNames[col],
           data: data
         }
       });

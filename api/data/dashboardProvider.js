@@ -24,7 +24,7 @@ DashboardProvider.prototype.findAllProjects = function(callback) {
       }
 
       done();
-      callback(null, result.rows);
+      return callback(null, result.rows);
     });
   });
 };
@@ -147,6 +147,9 @@ let tableItems = [
   [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57],
   [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37],
   [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79,81,83,85,87,89,91,93,95,97,99],
+
+  // benchmark - template 1
+  [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22],
 ];
 
 let reportData = [
@@ -483,7 +486,34 @@ let reportData = [
     "LIMPIEZA EFECTIVA DE CONTENEDORES A BOTADERO",
     "ZONAS DE ESTACIONAMIENTO SUBCONTRATOS SIN BASURA",
     "OBRA RECOLECTA Y RETIRA BASURA DOMICILIARIA EN FAENA",
-    "OBRA RECOLECTA Y RETIRA BASURA DOMICILIARIA EN FAENA",],
+    "OBRA RECOLECTA Y RETIRA BASURA DOMICILIARIA EN FAENA",
+  ],
+
+  // benchmark - template1
+  [
+    "Costo - Costo Real (Contable)",
+    "Costo - Costo Presupuestado",
+    "Plazo - Avance Real",
+    "Plazo - Avance Programado",
+    "Seguridad - Indice de Frecuencia",
+    "Seguridad - Indice de Gravedad",
+    "Planificación - Nº Actividades Completadas",
+    "Planificación - Nº Actividades Programadas",
+    "Planificación - Nº Restricciones Vencidas",
+    "Planificación - Nº Total de Restricciones",
+    "Construcción - Nº Ordenes de Trabajo Rehecho",
+    "Construcción - HH Gastadas(real)",
+    "Construcción - HH Ganadas(ppto)",
+    "Construcción - ($/HH Real)",
+    "Construcción - ($/HH Propuesta)",
+    "Alcance del Proyecto - Venta Contrato Inicial",
+    "Alcance del Proyecto - Adicionales",
+    "Alcance del Proyecto - Venta Contrato Final",
+    "Subcontratos - Avance Real",
+    "Subcontratos - Avance Presupuestado",
+    "Subcontratos - Nº Actividades Completadas",
+    "Subcontratos - Nº Actividades Programadas",
+  ]
 ];
 
 DashboardProvider.prototype.findProjectReports = function(templateId, col, start, end, project, callback) {
@@ -504,7 +534,11 @@ DashboardProvider.prototype.findProjectReports = function(templateId, col, start
     sql.push("INNER JOIN projects p ON p.id = r.id_project");
     sql.push("WHERE r.id_template = $1 AND (r.updated_at::date BETWEEN $2 AND $3)");
     sql.push("AND p.name = $4");
-    sql.push("AND v.item IN (" + tableItems[col].join(',') + ")");
+    if (col === -1) {
+      sql.push("AND v.item IN (" + tableItems[tableItems.length - 1].join(',') + ")");
+    } else {
+      sql.push("AND v.item IN (" + tableItems[col].join(',') + ")");
+    }
 
     client.query(sql.join(' '), [templateId, start, end, project], function(err, result) {
       if (err) {
@@ -523,14 +557,18 @@ DashboardProvider.prototype.findProjectReports = function(templateId, col, start
             userImage: grouped[obj][0].userimage,
             userName: grouped[obj][0].username,
             data: grouped[obj].map(function(val) {
-              let question = reportData[col][tableItems[col].indexOf(val.item)];
+              let question = (col === -1) ?
+                reportData[reportData.length-1][tableItems[tableItems.length-1].indexOf(val.item)] :
+                reportData[col][tableItems[col].indexOf(val.item)];
               let className = "badge ";
               if (val.value.toLowerCase() === "si") {
-                className += "progress-bar-info";
+                className += "progress-bar-info autoevaluacion-estandar-lean";
               } else if (val.value.toLowerCase() === "no") {
-                className += "progress-bar-danger";
+                className += "progress-bar-danger autoevaluacion-estandar-lean";
+              } else if (val.value.toLowerCase() === "n/a") {
+                className += "progress-bar-warning autoevaluacion-estandar-lean";
               } else {
-                className += "progress-bar-warning";
+                className += "progress-bar-success benchmark";
               }
               return {
                 question: question,
