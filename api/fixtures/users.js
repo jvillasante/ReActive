@@ -17,15 +17,25 @@ exports.create = function(callback) {
       username: 'admin',
       email: 'admin@example.com',
       password: 'reactive-admin',
-      role: 'admin'
+      role: 'admin',
+      emp: "Manquehue"
     });
     users.push({
       id: uuids[1],
-      username: 'user',
-      email: 'user@example.com',
-      password: 'reactive-user',
-      role: 'user'
+      username: 'admin-prueba',
+      email: 'admin-prueba@example.com',
+      password: 'reactive-admin',
+      role: 'admin',
+      emp: "Empresa de Prueba"
     });
+    // users.push({
+      // id: uuids[1],
+      // username: 'user',
+      // email: 'user@example.com',
+      // password: 'reactive-user',
+      // role: 'user',
+      // emp: "Empresa de Prueba"
+    // });
 
     async.each(users, function(user, cb) {
       userProvider.save(user, cb);

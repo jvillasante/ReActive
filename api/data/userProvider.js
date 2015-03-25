@@ -16,7 +16,7 @@ UserProvider.prototype.findAll = function(callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("SELECT id, username, email, role FROM users", function(err, result) {
+    client.query("SELECT id, username, email, role, emp FROM users", function(err, result) {
       if (err) {
         done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -32,7 +32,7 @@ UserProvider.prototype.findByUsername = function(username, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("SELECT id, username, email, password, role FROM users WHERE username=$1 LIMIT 1", [username], function(err, result) {
+    client.query("SELECT id, username, email, password, role, emp FROM users WHERE username=$1 LIMIT 1", [username], function(err, result) {
       if (err) {
         done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -48,7 +48,7 @@ UserProvider.prototype.findById = function(id, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("SELECT id, username, email, role FROM users WHERE id=$1 LIMIT 1", [id], function(err, result) {
+    client.query("SELECT id, username, email, role, emp FROM users WHERE id=$1 LIMIT 1", [id], function(err, result) {
       if (err) {
         done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -73,8 +73,8 @@ UserProvider.prototype.save = function(user, callback) {
         if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
         if (user.id) {
-          client.query("INSERT INTO users(id, username, email, password, role) VALUES($1, $2, $3, $4, $5) RETURNING id",
-            [user.id, user.username, user.email, hash, user.role], function(err, result) {
+          client.query("INSERT INTO users(id, username, email, password, role, emp) VALUES($1, $2, $3, $4, $5, $6) RETURNING id",
+            [user.id, user.username, user.email, hash, user.role, user.emp], function(err, result) {
             if (err) {
               done();
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -84,8 +84,8 @@ UserProvider.prototype.save = function(user, callback) {
             callback(null, result.rows[0]);
           });
         } else {
-          client.query("INSERT INTO users(username, email, password, role) VALUES($1, $2, $3, $4) RETURNING id",
-            [user.username, user.email, hash, user.role], function(err, result) {
+          client.query("INSERT INTO users(username, email, password, role, emp) VALUES($1, $2, $3, $4, $5) RETURNING id",
+            [user.username, user.email, hash, user.role, user.emp], function(err, result) {
             if (err) {
               done();
               return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
@@ -192,12 +192,15 @@ UserProvider.prototype.validate = function(user, callback) {
   async.parallel([
     function(next) {
       if (user.username) {
-        // if (!validator.isAlphanumeric(user.username)) {
-        //   errors.push({ param: 'username', msg: 'must be alphanumeric', value: user.username });
-        // }
         if (!validator.isLength(user.username, 4, 255)) {
           errors.push({ param: 'username', msg: 'must have 4-255 chars', value: user.username });
         }
+      }
+      next();
+    },
+    function(next) {
+      if (user.emp && !validator.isLength(user.emp, 2, 255)) {
+        errors.push({ param: 'emp', msg: 'must be a valid emp name', value: user.emp});
       }
       next();
     },

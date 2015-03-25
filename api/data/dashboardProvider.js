@@ -12,12 +12,17 @@ const DashboardProvider = function(connStr) {
   this.connStr = connStr;
 };
 
-DashboardProvider.prototype.findAllProjects = function(callback) {
+DashboardProvider.prototype.findAllProjects = function(userEmp, callback) {
   db.connect(this.connStr, function(err, client, done) {
     if (err) { return callback(Err("db connection error", { code: 1001, description: err.message, errors: []})); }
 
-    client.query("SELECT DISTINCT id, name, address, image, to_char(created_at,'YYYY-MM-DD HH24:MI:SS') AS created_at, to_char(updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at FROM projects",
-    function(err, result) {
+    let sql = ["SELECT DISTINCT p.id, p.name, p.address, p.image,"];
+    sql.push("to_char(p.created_at, 'YYYY-MM-DD HH24:MI:SS') AS created_at,");
+    sql.push("to_char(p.updated_at,'YYYY-MM-DD HH24:MI:SS') AS updated_at");
+    sql.push("FROM projects p INNER JOIN users u ON p.id_user = u.id");
+    sql.push("WHERE u.emp = $1");
+
+    client.query(sql.join(' '), [userEmp], function(err, result) {
       if (err) {
         done();
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));

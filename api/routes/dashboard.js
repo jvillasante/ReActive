@@ -8,8 +8,9 @@ const
 
 exports.allProjects = function(req, res, next) {//{{{
   let dashboardProvider = new DashboardProvider(req.connectionStr);
+  let userEmp = req.user.emp;
 
-  dashboardProvider.findAllProjects(errTo(next, function(result) {
+  dashboardProvider.findAllProjects(userEmp, errTo(next, function(result) {
     if (!result || result.length <= 0) {
       return next(Err("projects not found", { code: 404, description: "No projects found for user: " + req.user.username + ".", errors: []}));
     }

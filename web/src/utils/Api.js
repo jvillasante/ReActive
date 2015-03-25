@@ -17,6 +17,7 @@ module.exports = {
             username: res.body.username,
             email: res.body.email,
             role: res.body.role,
+            emp: res.body.emp,
             token: res.body.token
           });
         } else {

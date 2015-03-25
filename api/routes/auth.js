@@ -30,6 +30,7 @@ passport.use(new LocalStrategy({passReqToCallback: true}, function(req, username
         username: user.username,
         email: user.email,
         role: user.role,
+        emp: user.emp,
         token: jwt.sign(user)
       });
     }));

@@ -31,7 +31,8 @@ exports.create = function(req, res, next) {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
-    role: req.body.role
+    role: req.body.role,
+    emp: req.body.emp
   };
 
   req.userProvider.save(user, errTo(next, function(result) {

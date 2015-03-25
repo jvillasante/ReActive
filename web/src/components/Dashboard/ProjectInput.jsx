@@ -11,6 +11,7 @@ var moment = require('moment');
 var Select = require('react-select');
 var DateRangePicker = require('react-bootstrap-daterangepicker');
 var Api = require('../../utils/Api');
+var SessionStore = require('../../stores/SessionStore');
 var DashboardActions = require('../../actions/DashboardActions');
 var DashboardStore = require('../../stores/DashboardStore');
 var GlobalReportTable = require('./GlobalReportTable');
@@ -95,6 +96,7 @@ var ProjectInput = React.createClass({
   },
 
   render: function() {
+    var emp = SessionStore.getUser().emp;
     var start = this.state.startDate.format('DD/MM/YYYY');
     var end = this.state.endDate.format('DD/MM/YYYY');
     var label = start + ' - ' + end;
@@ -103,7 +105,7 @@ var ProjectInput = React.createClass({
     return (
       <div>
         <div className="project-input">
-          <Panel header={<h1>Seleccione rango de fecha y proyectos</h1>}>
+          <Panel header={<h1>{{emp}} - Seleccione rango de fecha y proyectos</h1>}>
             <div className="project-input-daterange col-md-3">
               <DateRangePicker
                 locale={datePicker.locale}
