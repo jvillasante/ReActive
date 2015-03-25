@@ -166,7 +166,7 @@ var Graphics = React.createClass({
                     Sistema Last Planner
                   </div>
                 </div>
-                <a href="#" onClick={this.onTable1GraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
+                <a href="#" onClick={this.onTable1GraphicClick}><img className="img-responsive img-rounded" src="images/g_left.jpg" alt="" /></a>
               </div>
             </div>
 
@@ -180,7 +180,7 @@ var Graphics = React.createClass({
                     M&eacute;todo 6S Bodega
                   </div>
                 </div>
-                <a href="#" onClick={this.onTable2GraphicClick}><img className="img-responsive img-rounded" src="images/s05.jpg" alt="" /></a>
+                <a href="#" onClick={this.onTable2GraphicClick}><img className="img-responsive img-rounded" src="images/g_center.jpg" alt="" /></a>
               </div>
             </div>
 

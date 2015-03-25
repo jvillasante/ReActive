@@ -13,12 +13,14 @@ api/node_modules
 api/npm-debug.log
 api/todo.txt
 api/wrk_conf.lua
+api/.tern-port
 
 # web project
 web/bower_components
 web/node_modules
 web/build
 web/npm-debug.log
+web/.tern-port
 
 # general
 todo.txt
