@@ -215,7 +215,7 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
         return callback(Err("db query error", { code: 1002, description: err.message, errors: []}), client, done);
       }
 
-      if (!result || !result.rows || !result.rows[0].id) {
+      if (!result || !result.rows || !result.rows[0] || !result.rows[0].id) {
         done();
         return callback(Err("no such template", { code: 404, description: "Template " + templateId + " not found for project " + projectId, errors: []}), client, done);
       }

@@ -1,6 +1,6 @@
 'use strict';
 
-const 
+const
   bcrypt = require('bcrypt'),
   ROUNDS = 10;
 

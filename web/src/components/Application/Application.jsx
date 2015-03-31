@@ -5,6 +5,7 @@ var React = require('react');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var SessionStore = require('../../stores/SessionStore');
+var DashboardStore = require('../../stores/DashboardStore');
 var SessionActions = require('../../actions/SessionActions');
 
 var ReactBootstrap = require('react-bootstrap');
@@ -45,6 +46,7 @@ var Master = React.createClass({
   _onLogoutClick: function(evt) {
     evt.preventDefault();
     SessionActions.destroy({});
+    DashboardStore.clear();
 
     if (this.isActive('/')) {
       this.forceUpdate();

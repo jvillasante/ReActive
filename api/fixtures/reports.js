@@ -29,7 +29,7 @@ function getReports(number) {
   let reports = [];
 
   uuids.projects.forEach(function(projectId) {
-    _.times(50, function(_) {
+    _.times(10, function(_) {
       let theMonth = random(0, month);
       let theDay = (theMonth === month) ? random(1, day) : random(1, 28);
       let date = new Date(year, theMonth, theDay);
@@ -66,7 +66,7 @@ function getReports(number) {
             { item: 22, value: random(1, 100) }
           ]
         });
-      } else if (number === 2) {
+      } else if (number === 2 || number === 14) {
         reports.push({
           createdAt: date,
           updatedAt: date,
@@ -874,6 +874,15 @@ exports.create = function(callback) {
       },
       function(next) {
         let reports = getReports(13);
+        reports.forEach(function(report) {
+          reportProvider.create(userId, report.projectId, report.templateId, report, function(err, result) {
+            if (err) { next(err); }
+          });
+        });
+        next();
+      },
+      function(next) {
+        let reports = getReports(14);
         reports.forEach(function(report) {
           reportProvider.create(userId, report.projectId, report.templateId, report, function(err, result) {
             if (err) { next(err); }

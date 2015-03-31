@@ -97,6 +97,25 @@ var DashboardStore = assign({}, EventEmitter.prototype, {
     this.removeListener(CHANGE_EVENT, callback);
   },
 
+  clear: function() {
+    error = null;
+    data = {
+      selectValues: null,
+      startDate: moment().subtract(29, 'days'),
+      endDate: moment(),
+      table1: [],
+      table2: [],
+      table3: [],
+      benchmarkTable: []
+    };
+    reportData = {
+      project: '',
+      doc: '',
+      section: '',
+      data: []
+    };
+  },
+
   getError: function() {
     return error;
   },

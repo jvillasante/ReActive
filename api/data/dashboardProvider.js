@@ -130,7 +130,7 @@ DashboardProvider.prototype.findProjectDataForGraphic = function(tableNumber, st
 };//}}}
 
 let tableItems = [
-  // table1 - template2
+  // table1 - template2, template14
   [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
   [25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66],
   [67,68,69,70,71,72,73,74,75,76,77,78],
@@ -158,7 +158,7 @@ let tableItems = [
 ];
 
 let reportData = [
-  // table1 - template2
+  // table1 - template2, template14
   [
     "Visitador de obra - Asiste",
     "Visitador de obra - Cumple",
@@ -252,7 +252,7 @@ let reportData = [
     "Restricciones - Responsable llega preparado",
     "Gestión Restricciones - Se asigna responsable",
     "Gestión Restricciones - Responsable presente",
-    "Gestión Restricciones - Gestión Restricciones"
+    "Gestión Restricciones - Se compromete fecha"
   ],
   [
     "Programa semanal propuesto - Se entraga",
@@ -537,7 +537,11 @@ DashboardProvider.prototype.findProjectReports = function(templateId, col, start
     sql.push("INNER JOIN reports r ON r.id = f.id_report");
     sql.push("INNER JOIN users u ON u.id = r.id_user");
     sql.push("INNER JOIN projects p ON p.id = r.id_project");
-    sql.push("WHERE r.id_template = $1 AND (r.updated_at::date BETWEEN $2 AND $3)");
+    if (templateId === 2) {
+      sql.push("WHERE (r.id_template = $1 OR r.id_template = 14) AND (r.updated_at::date BETWEEN $2 AND $3)");
+    } else {
+      sql.push("WHERE r.id_template = $1 AND (r.updated_at::date BETWEEN $2 AND $3)");
+    }
     sql.push("AND p.name = $4");
     if (col === -1) {
       sql.push("AND v.item IN (" + tableItems[tableItems.length - 1].join(',') + ")");
