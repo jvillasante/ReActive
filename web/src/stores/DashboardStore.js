@@ -56,9 +56,9 @@ function setData(res) {
       table3.push(projectsData[project].table3);
       benchmarkTable.push(projectsData[project].benchmarkTable.map(function(val, index) {
         if (index === 9) {
-          return (projectsData[project].benchmarkTable[7] * projectsData[project].benchmarkTable[8]).toFixed(2);
+          return (projectsData[project].benchmarkTable[7] * projectsData[project].benchmarkTable[8]).toFixed(2).toLocaleString();
         } else {
-          return val;
+          return val.toLocaleString();
         }
       }));
     });
