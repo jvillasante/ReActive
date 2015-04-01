@@ -34,7 +34,7 @@ function all() {
     },
     function(next) { projectsFixture.create(next); },
     function(next) { permissionsFixture.create(next); },
-    // function(next) { reportsFixture.create(next); }
+    function(next) { reportsFixture.create(next); }
   ], function(err) {
     db.disconnect();
     if (err) { console.log(err); throw err; }

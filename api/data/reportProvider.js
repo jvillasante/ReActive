@@ -212,12 +212,12 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
     client.query(sql.join(' '), [userId, projectId, templateId], function(err, result) {
       if (err) {
         done();
-        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}), client, done);
+        return callback(Err("db query error", { code: 1002, description: err.message, errors: []}));
       }
 
       if (!result || !result.rows || !result.rows[0] || !result.rows[0].id) {
         done();
-        return callback(Err("no such template", { code: 404, description: "Template " + templateId + " not found for project " + projectId, errors: []}), client, done);
+        return callback(Err("no such template", { code: 404, description: "Template " + templateId + " not found for project " + projectId, errors: []}));
       }
 
       client.query('BEGIN', function(err) {
@@ -270,7 +270,7 @@ ReportProvider.prototype.create = function(userId, projectId, templateId, report
             }
 
             done();
-            callback(null, result);
+            return callback(null, result);
           });
         });
       });

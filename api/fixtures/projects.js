@@ -132,6 +132,24 @@ exports.create = function(callback) {
     { id: uuids[111], id_user: users[random(0, 25)], name: 'Rio Claro 1 - Bodega', address: "Piedra Roja, Chicureo, RM", image: "http://www.elinmobiliario.cl/Upload/Proyecto/Images/m2014031417235603501.jpg" },
     { id: uuids[112], id_user: users[random(0, 25)], name: 'Rio Malleco 1 - Bodega', address: "Piedra Roja, Chicureo, RM", image: "http://www.elinmobiliario.cl/Upload/Proyecto/Images/m2014031417235603501.jpg" },
     { id: uuids[113], id_user: users[random(0, 25)], name: 'Haras 5 - Bodega', address: "Piedra Roja, Chicureo, RM", image: "http://www.elinmobiliario.cl/Upload/Proyecto/Images/m2014031417235603501.jpg" },
+
+    // Empresa de Prueba
+    { id: uuids[114], id_user: users[26], name: 'Proyecto de Prueba - Etapa 01', address: "Piedra Roja, Chicureo, RM", image: "http://www.elinmobiliario.cl/Upload/Proyecto/Images/m2014031417235603501.jpg" },
+    { id: uuids[115], id_user: users[26], name: 'Proyecto de Prueba - Etapa 02', address: "Machalí, IX Región", image: "http://gestion.enlaceinmobiliario.cl/cache/4f3e7242b37b27_fachada.jpg.png" },
+    { id: uuids[116], id_user: users[26], name: 'Proyecto de Prueba - Etapa 03', address: "Piedra Roja, Chicureo, RM", image: "http://www.piedraroja.cl/slides/edificios-hacienda.jpg" },
+    { id: uuids[117], id_user: users[26], name: 'Proyecto de Prueba - Etapa 04', address: "Santa María de Manquehue, Vitacura, Santiago", image: "http://www.elinmobiliario.cl/Upload/Proyecto/Images/m2014121638293369179.jpg" },
+    { id: uuids[118], id_user: users[26], name: 'Proyecto de Prueba - Etapa 05', address: "Santa María de Manquehue, Vitacura, Santiago", image: "http://www.elinmobiliario.cl/Upload/Proyecto/Images/m2014121638293369179.jpg" },
+    { id: uuids[119], id_user: users[26], name: 'Proyecto de Prueba - Etapa 06', address: "Colina, Chacabuco, RM", image: "http://www.elinmobiliario.cl/Upload/Proyecto/Images/m2011101718359062500.JPG" },
+    { id: uuids[120], id_user: users[26], name: 'Proyecto de Prueba - Etapa 07', address: "Machalí, IX Región", image: "http://gestion.enlaceinmobiliario.cl/cache/538655d7519529_CEDRO.jpg.png" },
+    { id: uuids[121], id_user: users[26], name: 'Proyecto de Prueba - Etapa 08', address: "Piedra Roja, Chicureo, RM", image: "http://www.dconstruccion.cl/wp-content/uploads/montepiedra.jpg" },
+    { id: uuids[122], id_user: users[26], name: 'Proyecto de Prueba - Etapa 09', address: "Santa María de Manquehue, Vitacura, Santiago", image: "http://www.elinmobiliario.cl/Upload/Proyecto/Images/m2014121638293369179.jpg" },
+    { id: uuids[123], id_user: users[26], name: 'Proyecto de Prueba - Etapa 10', address: "Piedra Roja, Chicureo, RM", image: "http://www.propiedades.emol.com/images/noticias/Los%20maderos%20%20small.jpg" },
+    { id: uuids[124], id_user: users[26], name: 'Proyecto de Prueba - Etapa 11', address: "Piedra Roja, Chicureo, RM", image: "api/public/images/no-image.png" },
+    { id: uuids[125], id_user: users[26], name: 'Proyecto de Prueba - Etapa 12', address: "Piedra Roja, Chicureo, RM", image: "http://static.toctoc.com/fotos/20140724/262372/n_wm_2014072402042805684.jpg" },
+    { id: uuids[126], id_user: users[26], name: 'Proyecto de Prueba - Etapa 13', address: "Piedra Roja, Chicureo, RM", image: "http://www.dconstruccion.cl/wp-content/uploads/montepiedra.jpg" },
+    { id: uuids[127], id_user: users[26], name: 'Proyecto de Prueba - Etapa 14', address: "Machalí, IX Región", image: "http://gestion.enlaceinmobiliario.cl/cache/4f3e7242b37b27_fachada.jpg.png" },
+    { id: uuids[128], id_user: users[26], name: 'Proyecto de Prueba - Etapa 15', address: "Piedra Roja, Chicureo, RM", image: "http://www.propiedades.emol.com/images/noticias/Los%20maderos%20%20small.jpg" },
+    { id: uuids[129], id_user: users[26], name: 'Proyecto de Prueba - Etapa 16', address: "Agustin del Castillo Nº2860, Vitacura, RM", image: "api/public/images/no-image.png" }
   ];
 
   projectProvider.removeAll(function(err) {

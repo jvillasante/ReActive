@@ -40,6 +40,9 @@ exports.create = function(callback) {
       {id: uuids[23], username: 'rodrigo.valdivieso', email: 'rodrigo.valdivieso@manquehue.com', password: passwordAdmin, role: 'admin', emp: 'Manquehue'},
       {id: uuids[24], username: 'francisco.labrin', email: 'francisco.labrin@manquehue.com', password: passwordAdmin, role: 'admin', emp: 'Manquehue'},
       {id: uuids[25], username: 'pilar.oteiza', email: 'pilar.oteiza@manquehue.com', password: passwordAdmin, role: 'admin', emp: 'Manquehue'},
+
+      // Empresa de Prueba
+      {id: uuids[26], username: 'admin', email: 'admin@example.com', password: passwordAdmin, role: 'admin', emp: 'Empersa de Prueba'},
     ];
 
     async.each(users, function(user, cb) {

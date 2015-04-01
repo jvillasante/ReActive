@@ -46,8 +46,12 @@ module.exports = {
     '10f0975d-68bd-4d54-848a-fd3a3c95879c', // 23 - rodrigo.valdivieso
     'c99f111b-85c9-4dee-8ab5-23b439b5ced0', // 24 - francisco.labrin
     'b84276b8-b2c3-4b82-bf2d-2236a17d0f51', // 25 - pilar.oteiza
+
+    // Empresa de Prueba
+    '92d4b625-cbb8-4996-92cf-e1f68612006e', // 26 - admin
   ],
   projects: [
+    // Manquehue
     '92d4b625-cbb8-4996-92cf-e1f68612006e', // 0 - Maderos 5 - Auditoría Urba
     '7641a059-0dcc-4b3a-9c4a-9f76d7f26b05', // 1 - Edificios de Hacienda 1 - Auditoría Urba
     '21b4dd4c-6b16-48af-a523-7da94729d1e1', // 2 - Edificios de Hacienda 2 - Auditoría Urba
@@ -162,5 +166,23 @@ module.exports = {
     'f8ebfd03-f698-4d6f-b4bd-5d82e5c04985', // 111 - Rio Claro 1 - Bodega
     '02d1729f-da3b-4c17-9162-a1e6a9b89ec4', // 112 - Rio Malleco 1 - Bodega
     'cfc173b5-f28f-44c2-8009-f6dd78e8fd1b', // 113 - Haras 5 - Bodega
+
+    // Empresa de Prueba
+    '3d29c5e0-ae0c-460c-99cc-54ae55b5ef4a', // 114 - Proyecto de Prueba - Etapa 01
+    '8b36cba3-8289-4340-8a2e-a3133acfd30b', // 115 - Proyecto de Prueba - Etapa 01
+    '080d40d0-0b02-4aa3-8d1a-8a59211e0dac', // 116 - Proyecto de Prueba - Etapa 01
+    '9025999c-40bd-48a1-9cdb-7dd7710127e4', // 117 - Proyecto de Prueba - Etapa 01
+    '977dfc7b-25ac-4a41-89ed-e2a5a269c94c', // 118 - Proyecto de Prueba - Etapa 01
+    '543783ce-bfe7-40ce-9441-caa99441e780', // 119 - Proyecto de Prueba - Etapa 01
+    'fae56b4a-210e-4ec0-a484-98f97448a3bf', // 120 - Proyecto de Prueba - Etapa 01
+    '206d89e6-06c4-4993-85c6-a49ae7372a2e', // 121 - Proyecto de Prueba - Etapa 01
+    '0c70c9fd-2a42-426c-b309-3028bc33f5f6', // 122 - Proyecto de Prueba - Etapa 01
+    'd6e57482-1450-4106-b358-f52475d76e1f', // 123 - Proyecto de Prueba - Etapa 01
+    '2825d35b-3a60-443e-a258-deaa836ec3d1', // 124 - Proyecto de Prueba - Etapa 01
+    'e371f879-eb2f-44e9-8660-3b2b4006b448', // 125 - Proyecto de Prueba - Etapa 01
+    '4128697b-3f5d-4ee2-86ed-2abf464add9b', // 126 - Proyecto de Prueba - Etapa 01
+    '4ee4d77b-ab1e-464f-974d-348c6c84ec66', // 127 - Proyecto de Prueba - Etapa 01
+    '3abb99b5-5e0d-4a28-b674-5da068fe073c', // 128 - Proyecto de Prueba - Etapa 01
+    'd2d57784-bfdd-4475-8a5c-6868c4c7a01e', // 129 - Proyecto de Prueba - Etapa 01
   ],
 };

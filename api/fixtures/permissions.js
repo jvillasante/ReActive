@@ -283,13 +283,15 @@ exports.create = function(callback) {
       });
     });
 
-    // _.times(uuids.projects.length, function(p) {
-      // _.times(uuids.templates.length, function(t) {
-        // permissionProvider.userAndTemplateAndProject(uuids.users[0], uuids.projects[p], uuids.templates[t], function(err) {
-          // if (err) { return callback(err); }
-        // });
-      // });
-    // });
+    projects = [114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129];
+    templates = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+    projects.forEach(function(p) {
+      templates.forEach(function(t) {
+        permissionProvider.userAndTemplateAndProject(uuids.users[26], uuids.projects[p], uuids.templates[t], function(err) {
+          if (err) { return callback(err); }
+        });
+      });
+    });
 
     callback();
   });

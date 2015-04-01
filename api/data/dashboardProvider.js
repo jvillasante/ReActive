@@ -581,7 +581,7 @@ DashboardProvider.prototype.findProjectReports = function(templateId, col, start
               }
               return {
                 question: question,
-                answer: val.value,
+                answer: isNaN(val.value) ? val.value : Number(val.value).toLocaleString(),
                 className: className
               };
             })

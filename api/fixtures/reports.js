@@ -8,7 +8,7 @@ const
   config = require('../config.json')[process.env.NODE_ENV || 'development'],
   reportProvider = new ReportProvider(config.connectionStr),
   uuids = require('./uuids'),
-  userId = require('./uuids').users[0];
+  userId = require('./uuids').users[26];
 
 faker.locale = "es";
 
@@ -28,8 +28,10 @@ let day = now.getDate() - 1;
 function getReports(number) {
   let reports = [];
 
-  uuids.projects.forEach(function(projectId) {
-    _.times(10, function(_) {
+  // reportes solo para empresa de prueba
+  let projects = [114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129];
+  projects.forEach(function(projectId) {
+    _.times(25, function(_) {
       let theMonth = random(0, month);
       let theDay = (theMonth === month) ? random(1, day) : random(1, 28);
       let date = new Date(year, theMonth, theDay);
@@ -37,7 +39,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -70,7 +72,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -174,7 +176,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -285,7 +287,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -309,7 +311,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -400,7 +402,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -461,7 +463,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -512,7 +514,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -545,7 +547,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -614,7 +616,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
@@ -663,7 +665,7 @@ function getReports(number) {
         reports.push({
           createdAt: date,
           updatedAt: date,
-          projectId: projectId,
+          projectId: uuids.projects[projectId],
           templateId: number,
           title: faker.lorem.words().join(' '),
           sent: random(0, 1) ? true : false,
