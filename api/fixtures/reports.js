@@ -13,6 +13,7 @@ const
 faker.locale = "es";
 
 let random = function(min, max) {
+  max = max - 1;
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 let randomFloat = function(minValue, maxValue, precision){
