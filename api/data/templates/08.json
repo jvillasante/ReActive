@@ -20,7 +20,7 @@
                   "item": "1",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "2",
@@ -38,7 +38,7 @@
                   "item": "3",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "4",
@@ -56,7 +56,7 @@
                   "item": "5",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "6",
@@ -84,7 +84,7 @@
                   "item": "7",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "8",
@@ -102,7 +102,7 @@
                   "item": "9",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "10",
@@ -120,7 +120,7 @@
                   "item": "11",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "12",
@@ -138,7 +138,7 @@
                   "item": "13",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "14",
@@ -156,7 +156,7 @@
                   "item": "15",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "16",
@@ -184,7 +184,7 @@
                   "item": "17",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "18",
@@ -202,7 +202,7 @@
                   "item": "19",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "20",
@@ -220,7 +220,7 @@
                   "item": "21",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "22",
@@ -238,7 +238,7 @@
                   "item": "23",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "24",
@@ -256,7 +256,7 @@
                   "item": "25",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "26",
@@ -274,7 +274,7 @@
                   "item": "27",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "28",
@@ -292,7 +292,7 @@
                   "item": "29",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "30",
@@ -310,7 +310,7 @@
                   "item": "31",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "32",
@@ -328,7 +328,7 @@
                   "item": "33",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "34",
@@ -346,7 +346,7 @@
                   "item": "35",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "36",
@@ -364,7 +364,7 @@
                   "item": "37",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "38",
@@ -382,7 +382,7 @@
                   "item": "39",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "40",
@@ -400,7 +400,7 @@
                   "item": "41",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "42",
@@ -418,7 +418,7 @@
                   "item": "43",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "44",
@@ -436,7 +436,7 @@
                   "item": "45",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "46",
@@ -454,7 +454,7 @@
                   "item": "47",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "48",
@@ -472,7 +472,7 @@
                   "item": "49",
                   "name": "Cumple",
                   "type": "yesno",
-                  "values": ["Si", "No", "N/A"]
+                  "values": ["Si", "No"]
                 },
                 {
                   "item": "50",
