@@ -11,7 +11,7 @@ exports.create = function(callback) {
   userProvider.removeAll(function(err) {
     if (err) { console.log(err); throw err; }
 
-    let passwordAdmin = 'reactive-admin';
+    let passwordAdmin = '123456789';
     let users = [
       // Manquehue
       {id: uuids[0], username: 'carlos.acuna', email: 'carlos.acuña@imanquehue.com', password: passwordAdmin, role: 'admin', emp: 'Manquehue', photo: 'api/public/images/users/carlos.acuna.jpg'},
