@@ -14,6 +14,91 @@ var BenchmarkTable = React.createClass({
     this.transitionTo('reports');
   },
 
+  _getClass: function(col, value) {
+    var result = "";
+    col = Number(col);
+    value = Number(value);
+
+    if (col === 0) {
+      if (value < 0.05) {
+        result = "benchmark-item-gray";
+      } else if (value >= -0.05 && value < 0) {
+        result = "benchmark-item-green";
+      } else if (value >= 0 && value <= 0.05) {
+        result = "benchmark-item-yellow";
+      } else if (value > 0.05) {
+        result = "benchmark-item-red";
+      }
+    } else if (col === 1) {
+      if (value < 0) {
+        result = "benchmark-item-green";
+      } else if (value >= 0 && value <= 0.2) {
+        result = "benchmark-item-yellow";
+      } else if (value > 0.2) {
+        result = "benchmark-item-red";
+      }
+    } else if (col === 2) {
+      if (value < 22) {
+        result = "benchmark-item-green";
+      } else if (value === 22) {
+        result = "benchmark-item-yellow";
+      } else if (value > 22) {
+        result = "benchmark-item-red";
+      }
+    } else if (col === 3) {
+      if (value < 400) {
+        result = "benchmark-item-green";
+      } else if (value === 400) {
+        result = "benchmark-item-yellow";
+      } else if (value > 400) {
+        result = "benchmark-item-red";
+      }
+    } else if (col === 4) {
+      if (value >= 0.8) {
+        result = "benchmark-item-green";
+      } else if (value < 0.8 && value >= 0.65) {
+        result = "benchmark-item-yellow";
+      } else if (value < 0.65) {
+        result = "benchmark-item-red";
+      }
+    } else if (col === 5) {
+      if (value >= 0.8) {
+        result = "benchmark-item-green";
+      } else if (value < 0.8 && value >= 0.7) {
+        result = "benchmark-item-yellow";
+      } else if (value < 0.7) {
+        result = "benchmark-item-red";
+      }
+    } else if (col === 6) {
+      result = "benchmark-item-gray";
+    } else if (col === 7 || col === 8 || col == 9) {
+      if (value < 1) {
+        result = "benchmark-item-green";
+      } else if (value >= 0 && value <= 1) {
+        result = "benchmark-item-yellow";
+      } else if (value > 1) {
+        result = "benchmark-item-red";
+      }
+    } else if (col === 10) {
+      if (value === 0) {
+        result = "benchmark-item-green";
+      } else if (value > 0 && value <= 0.5) {
+        result = "benchmark-item-yellow";
+      } else if (value > 0.5) {
+        result = "benchmark-item-red";
+      }
+    } else if (col === 11) {
+      if (value >= 0.8) {
+        result = "benchmark-item-green";
+      } else if (value < 0.8 && value >= 0.65) {
+        result = "benchmark-item-yellow";
+      } else if (value < 0.65) {
+        result = "benchmark-item-red";
+      }
+    }
+    return result;
+  },
+
   render: function() {
     var self = this;
     return (
@@ -73,11 +158,15 @@ var BenchmarkTable = React.createClass({
                 </tr>
               </thead>
               <tbody>
-                {this.props.benchmarkTable.map(function(row) {
+                {this.props.benchmarkTable.map(function(row, roIndex) {
                   return (
                     <tr>
-                      {row.map(function(cell) {
-                        return <td>{cell}</td>;
+                      {row.map(function(cell, cellIndex) {
+                      return (
+                        <td className={self._getClass(cellIndex, cell)}>
+                          {cell}
+                        </td>
+                      );
                       })}
                     </tr>
                   );

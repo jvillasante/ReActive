@@ -17,7 +17,13 @@ exports.allByUser = function(req, res, next) {
 
   reportProvider.findAllByUser(meta, req.user.id, errTo(next, function(result) {
     if (result.total <= 0) {
-      return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
+      // return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
+      return res.status(200).send({
+        metadata: {
+          pagination: null
+        },
+        records: []
+      });
     }
 
     res.status(200).send({
@@ -38,7 +44,13 @@ exports.allByProject = function(req, res, next) {
 
   reportProvider.findAllByProject(meta, req.user.id, req.params.projectId, errTo(next, function(result) {
     if (result.total <= 0) {
-      return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
+      // return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
+      return res.status(200).send({
+        metadata: {
+          pagination: null
+        },
+        records: []
+      });
     }
 
     res.status(200).send({
@@ -59,7 +71,13 @@ exports.allByProjectAndTemplate = function(req, res, next) {
 
   reportProvider.findAllByProjectAndTemplate(meta, req.user.id, req.params.projectId, req.params.templateId, errTo(next, function(result) {
     if (result.total <= 0) {
-      return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
+      // return next(Err("report not found", { code: 404, description: "No report found for user: " + req.user.username + ".", errors: []}));
+      return res.status(200).send({
+        metadata: {
+          pagination: null
+        },
+        records: []
+      });
     }
 
     res.status(200).send({

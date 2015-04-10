@@ -74,7 +74,9 @@ DashboardProvider.prototype.findProjectData = function(start, end, projects, cal
           let sql = "SELECT getBenchmarkTable('" + start + "','" + end + "','" + project + "');";
           client.query(sql, function(err, result) {
             if (err) { return next(Err("db query error", { code: 1002, description: err.message, errors: []})); }
-            data[project].benchmarkTable = result.rows.map(function(value) { return Number(value.getbenchmarktable); });
+            data[project].benchmarkTable = result.rows.map(function(value) {
+              return Number(value.getbenchmarktable);
+            });
             next();
           });
         }
